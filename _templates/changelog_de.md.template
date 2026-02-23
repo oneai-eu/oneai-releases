@@ -1,0 +1,27 @@
+# {Product} v{Version}
+
+**Veröffentlichungsdatum:** {Date}
+
+## Highlights
+
+- {Highlight 1}
+- {Highlight 2}
+
+## Neue Funktionen
+
+- **{Feature Title}** — {Description}
+
+## Verbesserungen
+
+- **{Improvement Title}** — {Description}
+
+## Fehlerbehebungen
+
+- **{Fix Title}** — {Description}
+
+## Sicherheit
+
+- **{Security Fix}** — {Description}
+
+---
+*Dieses Changelog wurde automatisch generiert. Quelle: [{Product} Releases]({source_repo}/releases)*

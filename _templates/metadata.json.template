@@ -1,0 +1,24 @@
+{
+  "product": "{product_key}",
+  "version": "{version}",
+  "date": "{YYYY-MM-DD}",
+  "github_release_url": "{source_repo}/releases/tag/v{version}",
+  "breaking": false,
+  "highlights": [
+    "{Highlight 1}",
+    "{Highlight 2}"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": ["en", "de"],
+  "files": {
+    "changelog_en": "changelog_en.md",
+    "changelog_de": "changelog_de.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
