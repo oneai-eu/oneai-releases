@@ -1,9 +1,23 @@
 {
   "product": "oneai",
-  "version": null,
-  "date": null,
-  "breaking": false,
-  "languages": [],
-  "files": {},
-  "message": "No releases published yet. This file will be updated automatically when the first release is created."
+  "version": "v0.2.21-beta",
+  "date": "2026-02-24",
+  "breaking": true,
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  },
+  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/v0.2.21-beta/changelog_{lang}.md"
 }
