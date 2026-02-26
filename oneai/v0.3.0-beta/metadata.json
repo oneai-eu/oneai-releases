@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v0.3.0-beta",
+  "date": "2026-02-26",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.3.0-beta",
+  "breaking": true,
+  "highlights": [
+    "KI-Antworten stoppen und bei Verbindungsverlust fortsetzen",
+    "Neue KI-Modelle: Anthropic Opus 4.6 und Sonnet 4.6",
+    "Neuer Activity Hub in der Sidebar",
+    "Mehrere API-Schlüssel mit Beschreibung und Ablaufdatum",
+    "Screenshots direkt per Strg+V in den Chat einfügen"
+  ],
+  "categories": {
+    "features": 12,
+    "improvements": 0,
+    "fixes": 5,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}

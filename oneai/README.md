@@ -4,13 +4,13 @@ Changelogs for [OneAI](https://github.com/0codekit/oneai).
 
 ## Latest Version
 
-**[v0.2.22-beta](oneai/v0.2.22-beta/changelog_en.md)** — released 2026-02-24
+**[v0.3.0-beta](oneai/v0.3.0-beta/changelog_en.md)** — released 2026-02-26
 
 ## All Releases
 
 | Version | Date | Breaking | Changelogs |
 |---------|------|----------|------------|
-| [v0.2.22-beta](oneai/v0.2.22-beta/changelog_en.md) | 2026-02-24 |  | [DE](oneai/v0.2.22-beta/changelog_de.md) · [EN](oneai/v0.2.22-beta/changelog_en.md) · [FR](oneai/v0.2.22-beta/changelog_fr.md) · [ES](oneai/v0.2.22-beta/changelog_es.md) · [IT](oneai/v0.2.22-beta/changelog_it.md) |
+| [v0.3.0-beta](oneai/v0.3.0-beta/changelog_en.md) | 2026-02-26 |  ⚠️ | [DE](oneai/v0.3.0-beta/changelog_de.md) · [EN](oneai/v0.3.0-beta/changelog_en.md) · [FR](oneai/v0.3.0-beta/changelog_fr.md) · [ES](oneai/v0.3.0-beta/changelog_es.md) · [IT](oneai/v0.3.0-beta/changelog_it.md) |
 
 ## Changelog Format
 
