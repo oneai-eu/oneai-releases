@@ -2,7 +2,18 @@
   "product": "oneai",
   "version": "v0.3.1-beta",
   "date": "2026-02-27",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.3.1-beta",
   "breaking": false,
+  "highlights": [
+    "Dokumentenverarbeitung abbrechen — direkt im Chat und Upload-Bereich",
+    "Eure Dokumente werden jetzt bevorzugt verarbeitet"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
   "languages": [
     "de",
     "en",
@@ -18,6 +29,5 @@
     "changelog_it": "changelog_it.md",
     "developer": "developer.md",
     "summary": "summary.md"
-  },
-  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/v0.3.1-beta/changelog_{lang}.md"
+  }
 }
