@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v0.3.3-beta",
+  "date": "2026-03-13",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.3.3-beta",
+  "breaking": true,
+  "highlights": [
+    "Google Sign-In als neuer SSO-Anmeldungsweg",
+    "Artifacts teilen, kopieren und mit Bestätigung erstellen",
+    "Fehlermeldungen im Chat statt stiller Abbrüche",
+    "Code-Dateien aus GitHub-Repositories durchsuchbar",
+    "Mehrere Mitglieder nacheinander einladen"
+  ],
+  "categories": {
+    "features": 7,
+    "improvements": 0,
+    "fixes": 4,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
