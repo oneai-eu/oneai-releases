@@ -114,6 +114,13 @@ oneai-releases/
 ├── oneai-teams/                       # OneAI Teams changelogs
 │   ├── ...
 │
+├── docker/                            # Custom Docker images
+│   └── vllm/
+│       └── Dockerfile                 # vLLM + orjson
+│
+├── .github/workflows/
+│   └── build-vllm.yml                 # vLLM image build workflow
+│
 ├── _templates/                        # Reference templates (not consumed by apps)
 │   ├── changelog_en.md.template
 │   ├── changelog_de.md.template
@@ -207,6 +214,41 @@ One per release version. Structured release data for programmatic consumption.
 | **OneDeploy** | `onedeploy` | [0codekit/onedeploy](https://github.com/0codekit/onedeploy) | Infrastructure-as-Code for OneAI Services |
 | **n8n Nodes for OneAI** | `n8n-nodes-oneai` | [oneai-eu/n8n-nodes-oneai](https://github.com/oneai-eu/n8n-nodes-oneai) | Custom n8n Workflow Nodes |
 | **OneAI Teams** | `oneai-teams` | [oneai-eu/oneai-teams](https://github.com/oneai-eu/oneai-teams) | Microsoft Teams Integration |
+
+## Docker Images
+
+This repository also hosts CI/CD workflows for building custom Docker images
+used by the OneStack GPU orchestration platform.
+
+### OneStack vLLM
+
+Custom vLLM image with [orjson](https://github.com/ijl/orjson) for optimized
+JSON serialization (~6x faster for embedding responses).
+
+**Pull (no authentication required):**
+
+```bash
+docker pull ghcr.io/oneai-eu/onestack-vllm:v0.17.1
+```
+
+| Image | Base | Addition | Use Case |
+|-------|------|----------|----------|
+| `ghcr.io/oneai-eu/onestack-vllm` | `vllm/vllm-openai` | orjson | vLLM + vLLM Embed engines |
+
+**Available Tags:**
+
+| Tag | vLLM Version | Notes |
+|-----|-------------|-------|
+| `v0.17.1` | v0.17.1 | Current stable |
+| `latest` | Latest built | Always matches most recent version tag |
+
+**Building a new version:**
+
+1. Go to [Actions → Build OneStack vLLM Image](../../actions/workflows/build-vllm.yml)
+2. Click "Run workflow"
+3. Enter the vLLM version tag (e.g., `v0.18.0`)
+4. Set push to `true`
+5. Wait ~10 minutes for build + push
 
 ## For Contributors
 
