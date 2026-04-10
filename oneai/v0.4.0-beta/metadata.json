@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v0.4.0-beta",
+  "date": "2026-04-10",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.4.0-beta",
+  "breaking": true,
+  "highlights": [
+    "Audio- und Videodateien durchsuchbar machen",
+    "Smartere PDF-Verarbeitung mit Hybrid-Pipeline",
+    "Schnellere Dokumentenverarbeitung durch Batch-Embedding",
+    "Neu gestaltetes Activity Center mit Fehleranzeige",
+    "Verbessertes Drag & Drop mit Ordner-Unterstützung"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 0,
+    "fixes": 10,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
