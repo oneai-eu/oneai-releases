@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v0.4.1-beta",
+  "date": "2026-04-16",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.4.1-beta",
+  "breaking": false,
+  "highlights": [
+    "Neuer ClickUp-Connector mit vollstaendiger Synchronisation",
+    "KI-Bildgenerierung mit Modellauswahl und Admin-Verwaltung",
+    "Fluessigsere Chat-Animationen und Live-Tool-Vorschau",
+    "Referenzen-Dialog als Zwei-Panel-Explorer",
+    "weclapp-Integration: bessere Antwortqualitaet und weniger Halluzinationen"
+  ],
+  "categories": {
+    "features": 5,
+    "improvements": 0,
+    "fixes": 6,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
