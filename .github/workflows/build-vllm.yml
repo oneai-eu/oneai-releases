@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       vllm_version:
-        description: 'vLLM version tag (e.g., v0.17.1)'
+        description: 'vLLM version tag (e.g., v0.19.1)'
         required: true
-        default: 'v0.17.1'
+        default: 'v0.19.1'
       push:
         description: 'Push image to GHCR?'
         required: true

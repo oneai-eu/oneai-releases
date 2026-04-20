@@ -1,4 +1,4 @@
-ARG VLLM_VERSION=v0.17.1
+ARG VLLM_VERSION=v0.19.1
 FROM vllm/vllm-openai:${VLLM_VERSION}
 
 LABEL org.opencontainers.image.title="OneStack vLLM"
