@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-04-16T08:47:03.301Z",
+  "last_updated": "2026-04-27T18:59:22.864Z",
   "repository": "https://github.com/oneai-eu/oneai-releases",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "products": {
@@ -8,8 +8,14 @@
       "name": "OneAI",
       "description": "Enterprise AI Governance Platform",
       "source_repo": "https://github.com/0codekit/oneai",
-      "latest": "v0.4.1-beta",
+      "latest": "v0.4.4-beta",
       "releases": [
+        {
+          "version": "v0.4.4-beta",
+          "date": "2026-04-27",
+          "breaking": false,
+          "path": "oneai/v0.4.4-beta"
+        },
         {
           "version": "v0.4.1-beta",
           "date": "2026-04-16",

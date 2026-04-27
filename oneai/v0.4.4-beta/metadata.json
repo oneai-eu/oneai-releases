@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v0.4.4-beta",
+  "date": "2026-04-27",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.4.4-beta",
+  "breaking": false,
+  "highlights": [
+    "n8n-Connector: Workflows direkt aus OneAI erstellen und synchronisieren",
+    "Zugriffsschutz: Konflikterkennung und Datenleck-Prävention in Projekten",
+    "Private Modelle: Stabileres Streaming und sichtbar in der Modellauswahl",
+    "Proaktives Session-Management: Warnung und automatischer Logout",
+    "Flüssigerer Chat: Keine Freezes mehr bei Artefakt-Vorschlägen"
+  ],
+  "categories": {
+    "features": 7,
+    "improvements": 0,
+    "fixes": 26,
+    "security": 3
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
