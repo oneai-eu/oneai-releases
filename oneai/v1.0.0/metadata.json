@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v1.0.0",
+  "date": "2026-05-06",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.0.0",
+  "breaking": true,
+  "highlights": [
+    "Credit-Pool für zentrale Kostensteuerung",
+    "Partner-Programm für verwaltete Organisationen",
+    "Zwei-Faktor-Authentifizierung per TOTP-App",
+    "KI kann jetzt Projekte erstellen und Mermaid-Diagramme zeichnen",
+    "Ampelsystem für Audit-Logs mit Risikobewertung"
+  ],
+  "categories": {
+    "features": 17,
+    "improvements": 0,
+    "fixes": 43,
+    "security": 3
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}

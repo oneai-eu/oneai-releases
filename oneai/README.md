@@ -4,12 +4,13 @@ Changelogs for [OneAI](https://github.com/0codekit/oneai).
 
 ## Latest Version
 
-**[v0.4.4-beta](oneai/v0.4.4-beta/changelog_en.md)** — released 2026-04-27
+**[v1.0.0](oneai/v1.0.0/changelog_en.md)** — released 2026-05-06
 
 ## All Releases
 
 | Version | Date | Breaking | Changelogs |
 |---------|------|----------|------------|
+| [v1.0.0](oneai/v1.0.0/changelog_en.md) | 2026-05-06 |  ⚠️ | [DE](oneai/v1.0.0/changelog_de.md) · [EN](oneai/v1.0.0/changelog_en.md) · [FR](oneai/v1.0.0/changelog_fr.md) · [ES](oneai/v1.0.0/changelog_es.md) · [IT](oneai/v1.0.0/changelog_it.md) |
 | [v0.4.4-beta](oneai/v0.4.4-beta/changelog_en.md) | 2026-04-27 |  | [DE](oneai/v0.4.4-beta/changelog_de.md) · [EN](oneai/v0.4.4-beta/changelog_en.md) · [FR](oneai/v0.4.4-beta/changelog_fr.md) · [ES](oneai/v0.4.4-beta/changelog_es.md) · [IT](oneai/v0.4.4-beta/changelog_it.md) |
 | [v0.4.1-beta](oneai/v0.4.1-beta/changelog_en.md) | 2026-04-16 |  | [DE](oneai/v0.4.1-beta/changelog_de.md) · [EN](oneai/v0.4.1-beta/changelog_en.md) · [FR](oneai/v0.4.1-beta/changelog_fr.md) · [ES](oneai/v0.4.1-beta/changelog_es.md) · [IT](oneai/v0.4.1-beta/changelog_it.md) |
 | [v0.4.0-beta](oneai/v0.4.0-beta/changelog_en.md) | 2026-04-10 |  ⚠️ | [DE](oneai/v0.4.0-beta/changelog_de.md) · [EN](oneai/v0.4.0-beta/changelog_en.md) · [FR](oneai/v0.4.0-beta/changelog_fr.md) · [ES](oneai/v0.4.0-beta/changelog_es.md) · [IT](oneai/v0.4.0-beta/changelog_it.md) |
