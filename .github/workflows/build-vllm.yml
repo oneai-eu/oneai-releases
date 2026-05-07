@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       vllm_version:
-        description: 'vLLM version tag (e.g., v0.19.1)'
+        description: 'vLLM version tag (e.g., v0.20.1)'
         required: true
-        default: 'v0.19.1'
+        default: 'v0.20.1'
       push:
         description: 'Push image to GHCR?'
         required: true
@@ -22,7 +22,7 @@ env:
 
 jobs:
   build-and-push:
-    name: Build vLLM + orjson
+    name: Build vLLM + orjson + Qwen3.5 LoRA patch
     runs-on: ubuntu-latest
     permissions:
       contents: read
