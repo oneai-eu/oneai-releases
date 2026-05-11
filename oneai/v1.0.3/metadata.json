@@ -2,7 +2,17 @@
   "product": "oneai",
   "version": "v1.0.3",
   "date": "2026-05-11",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.0.3",
   "breaking": false,
+  "highlights": [
+    "Dokumentenverarbeitung läuft auch bei erreichter Quota weiter"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 1,
+    "security": 0
+  },
   "languages": [
     "de",
     "en",
@@ -18,6 +28,5 @@
     "changelog_it": "changelog_it.md",
     "developer": "developer.md",
     "summary": "summary.md"
-  },
-  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/v1.0.3/changelog_{lang}.md"
+  }
 }
