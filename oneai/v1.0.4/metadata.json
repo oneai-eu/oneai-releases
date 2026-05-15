@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v1.0.4",
+  "date": "2026-05-15",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.0.4",
+  "breaking": false,
+  "highlights": [
+    "Lange Antworten gehen bei Netzwerk-Hickup nicht mehr verloren",
+    "Neue Tool-Call-Leiste & klügeres Quellen-Panel",
+    "Sticky Artefakt-Tray über dem Eingabefeld",
+    "Qdrant braucht deutlich weniger RAM",
+    "Aktueller Modellpreis-Überblick & Compliance-Prompts bleiben sichtbar"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 0,
+    "fixes": 5,
+    "security": 3
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
