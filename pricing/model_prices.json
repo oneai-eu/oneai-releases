@@ -126,21 +126,21 @@
     },
     "mistral-small-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 10,
+      "input_cents_per_mtok": 15,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 30
+      "output_cents_per_mtok": 60
     },
     "mistral-medium-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 40,
+      "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 200
+      "output_cents_per_mtok": 750
     },
     "mistral-large-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 200,
+      "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 600
+      "output_cents_per_mtok": 150
     },
     "magistral-small-latest": {
       "provider": "mistral",
