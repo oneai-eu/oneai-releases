@@ -44,17 +44,11 @@ type TokenField = typeof TOKEN_FIELDS[number];
 type Diff = {
   modelId: string;
   field: string;
+  provider: string;    // "anthropic" | "mistral" | "openai" | "google"
   oldVal: number;
   newVal: number;
   pctChange: number;   // (new - old) / |old|, Infinity if old===0 && new!==0
   bigChange: boolean;  // |pctChange| > 0.5
-};
-
-const PROVIDER_PAGES: Record<string, string> = {
-  anthropic: "https://platform.claude.com/docs/en/about-claude/pricing",
-  mistral:   "https://mistral.ai/pricing",
-  openai:    "https://developers.openai.com/api/docs/pricing",
-  google:    "https://ai.google.dev/gemini-api/docs/pricing",
 };
 
 function round4(x: number): number {
@@ -79,6 +73,93 @@ function computeChange(oldVal: number, newVal: number): { pctChange: number; big
 function formatPct(pct: number): string {
   if (!isFinite(pct)) return "n/a";
   return `${(pct * 100).toFixed(1)}%`;
+}
+
+type ChecklistBucket = {
+  label: string;
+  urls: string[];
+  models: Set<string>;
+};
+
+/**
+ * Group diffs into per-provider verification buckets for the PR body.
+ * OpenAI splits between text/embeddings and image generation because those
+ * live on different pricing pages — image-model diffs have a `field` that
+ * starts with "images.", so we route on that.
+ */
+function buildChecklist(diffs: Diff[]): ChecklistBucket[] {
+  const anthropic    = new Set<string>();
+  const mistral      = new Set<string>();
+  const google       = new Set<string>();
+  const openaiText   = new Set<string>();
+  const openaiImages = new Set<string>();
+
+  for (const d of diffs) {
+    if (d.provider === "anthropic") anthropic.add(d.modelId);
+    else if (d.provider === "mistral") mistral.add(d.modelId);
+    else if (d.provider === "google") google.add(d.modelId);
+    else if (d.provider === "openai") {
+      if (d.field.startsWith("images.")) openaiImages.add(d.modelId);
+      else openaiText.add(d.modelId);
+    }
+  }
+
+  const out: ChecklistBucket[] = [];
+  if (anthropic.size > 0) {
+    out.push({
+      label: "Anthropic",
+      urls: ["https://platform.claude.com/docs/en/about-claude/pricing"],
+      models: anthropic,
+    });
+  }
+  if (openaiText.size > 0 || openaiImages.size > 0) {
+    const urls: string[] = [];
+    if (openaiText.size > 0) {
+      urls.push("https://developers.openai.com/api/docs/pricing?multimodal-image-pricing=standard&video-pricing=standard");
+    }
+    if (openaiImages.size > 0) {
+      urls.push("https://developers.openai.com/api/docs/guides/image-generation");
+    }
+    out.push({
+      label: "OpenAI",
+      urls,
+      models: new Set([...openaiText, ...openaiImages]),
+    });
+  }
+  if (mistral.size > 0) {
+    out.push({
+      label: "Mistral",
+      urls: ["https://mistral.ai/pricing#api"],
+      models: mistral,
+    });
+  }
+  if (google.size > 0) {
+    out.push({
+      label: "Google",
+      urls: ["https://ai.google.dev/gemini-api/docs/pricing"],
+      models: google,
+    });
+  }
+  return out;
+}
+
+/**
+ * Walk every section of the JSON (models, transcription, images) and
+ * collect entries flagged `manual_only: true`, in the order they appear.
+ * Read at runtime rather than hardcoded so the PR body stays accurate as
+ * entries are added or removed.
+ */
+function collectManualOnly(json: any): { id: string; reason: string }[] {
+  const out: { id: string; reason: string }[] = [];
+  for (const section of [json.models, json.transcription, json.images]) {
+    if (!section || typeof section !== "object") continue;
+    for (const [id, entry] of Object.entries(section as Record<string, any>)) {
+      if (entry?.manual_only) {
+        out.push({ id, reason: entry.manual_only_reason ?? "" });
+      }
+    }
+  }
+  return out;
 }
 
 async function main() {
@@ -112,7 +193,6 @@ async function main() {
   }
 
   const diffs: Diff[] = [];
-  const providersTouched = new Set<string>();
 
   // Token models
   for (const [modelId, entry] of Object.entries(json.models as Record<string, any>)) {
@@ -152,9 +232,8 @@ async function main() {
       if (valuesEqual(oldVal, newVal)) continue;
       const rounded = round4(newVal);
       const { pctChange, bigChange } = computeChange(oldVal, rounded);
-      diffs.push({ modelId, field, oldVal, newVal: rounded, pctChange, bigChange });
+      diffs.push({ modelId, field, provider: entry.provider, oldVal, newVal: rounded, pctChange, bigChange });
       entry[field] = rounded;
-      providersTouched.add(entry.provider);
     }
   }
 
@@ -185,13 +264,13 @@ async function main() {
           diffs.push({
             modelId,
             field: `images.${quality}.${size}`,
+            provider: entry.provider,
             oldVal,
             newVal: rounded,
             pctChange,
             bigChange,
           });
           entryPricing[size] = rounded;
-          providersTouched.add(entry.provider);
         }
       }
     } else if (entry.type === "flat") {
@@ -208,9 +287,8 @@ async function main() {
       if (!valuesEqual(oldVal, newVal)) {
         const rounded = round4(newVal);
         const { pctChange, bigChange } = computeChange(oldVal, rounded);
-        diffs.push({ modelId, field: "cents_per_image", oldVal, newVal: rounded, pctChange, bigChange });
+        diffs.push({ modelId, field: "cents_per_image", provider: entry.provider, oldVal, newVal: rounded, pctChange, bigChange });
         entry.cents_per_image = rounded;
-        providersTouched.add(entry.provider);
       }
     } else {
       console.error(`Unknown image entry type "${entry.type}" for ${modelId}`);
@@ -245,11 +323,30 @@ async function main() {
     (hasBig ? " - BIG CHANGE - double-check" : "");
 
   const lines: string[] = [];
+
+  // 1. Header
   lines.push(`# Pricing sync — ${diffs.length} ${diffs.length === 1 ? "change" : "changes"}`);
   if (hasBig) {
     lines.push("");
     lines.push("⚠️ **BIG CHANGE detected (>50%) — please double-check against the provider pricing page before merging.**");
   }
+
+  // 2. Reviewer instructions
+  lines.push("");
+  lines.push("## Before merging");
+  lines.push("");
+  lines.push("For each row in the diff table below, open the corresponding provider's pricing page (linked in the Verification checklist section) and confirm the **New** value matches the official price.");
+  lines.push("");
+  lines.push("If anything looks wrong:");
+  lines.push("- Close this PR without merging");
+  lines.push("- Investigate the affected scraper module in `pricing/_scripts/scrapers/`");
+  lines.push("- The auto-sync will retry tomorrow at 03:00 UTC");
+  lines.push("");
+  lines.push("This PR will affect production billing within ~10 minutes of merging.");
+
+  // 3. Diff table
+  lines.push("");
+  lines.push("## Changes");
   lines.push("");
   lines.push("| Model | Field | Old | New | Change |");
   lines.push("|---|---|---|---|---|");
@@ -257,12 +354,38 @@ async function main() {
     const flag = d.bigChange ? " ⚠️" : "";
     lines.push(`| \`${d.modelId}\` | \`${d.field}\` | ${d.oldVal} | ${d.newVal} | ${formatPct(d.pctChange)}${flag} |`);
   }
+
+  // 4. Verification checklist — only providers actually affected by this PR.
   lines.push("");
-  lines.push("## Provider pricing pages");
-  for (const p of providersTouched) {
-    const url = PROVIDER_PAGES[p];
-    if (url) lines.push(`- ${p}: ${url}`);
+  lines.push("## Verification checklist");
+  lines.push("");
+  for (const b of buildChecklist(diffs)) {
+    const urlText = b.urls.join(" and ");
+    lines.push(`- [ ] **${b.label}** — verify at ${urlText}`);
+    lines.push(`  - ${[...b.models].sort().join(", ")}`);
   }
+
+  // 5. Static reference — all provider pricing pages.
+  lines.push("");
+  lines.push("## All provider pricing pages");
+  lines.push("");
+  lines.push("- Anthropic: https://platform.claude.com/docs/en/about-claude/pricing");
+  lines.push("- OpenAI (text and embeddings): https://developers.openai.com/api/docs/pricing?multimodal-image-pricing=standard&video-pricing=standard");
+  lines.push("- OpenAI (image generation): https://developers.openai.com/api/docs/guides/image-generation");
+  lines.push("- Mistral: https://mistral.ai/pricing#api");
+  lines.push("- Google (Gemini and Imagen): https://ai.google.dev/gemini-api/docs/pricing");
+
+  // 6. Manual-only models — read live from the JSON so it stays accurate.
+  lines.push("");
+  lines.push("## Models not synced (manual_only)");
+  lines.push("");
+  lines.push("These models are excluded from automatic sync. Their prices are managed manually.");
+  lines.push("");
+  for (const m of collectManualOnly(json)) {
+    lines.push(`- **${m.id}** — ${m.reason}`);
+  }
+  lines.push("");
+  lines.push("To update prices for these, edit `pricing/model_prices.json` directly.");
   lines.push("");
   const body = lines.join("\n");
 
