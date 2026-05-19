@@ -55,5 +55,6 @@ jobs:
           title: ${{ steps.title.outputs.title }}
           body-path: ${{ runner.temp }}/pricing-sync-body.md
           labels: pricing-sync
+          reviewers: justusjz,orehman3035,pascalschueler-relyon,MT74,santilema,oliv5r
           commit-message: ${{ steps.title.outputs.title }}
           delete-branch: true
