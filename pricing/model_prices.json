@@ -37,7 +37,9 @@
       "provider": "openai",
       "input_cents_per_mtok": 175,
       "cached_cents_per_mtok": 17.5,
-      "output_cents_per_mtok": 1400
+      "output_cents_per_mtok": 1400,
+      "manual_only": true,
+      "manual_only_reason": "Deprecating Aug 10 2026; not on OpenAI pricing page"
     },
     "gpt-5.4-nano": {
       "provider": "openai",
@@ -170,7 +172,8 @@
       "provider": "google",
       "input_cents_per_mtok": 250,
       "cached_cents_per_mtok": 25,
-      "output_cents_per_mtok": 1500
+      "output_cents_per_mtok": 1500,
+      "gemini_tier_preference": "above_200k"
     },
     "gemini-3-flash-preview": {
       "provider": "google",
@@ -189,7 +192,8 @@
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 20,
       "output_cents_per_mtok": 1200,
-      "notes": "pricing tier for context <=200k tokens"
+      "notes": "pricing tier for context <=200k tokens",
+      "gemini_tier_preference": "at_or_under_200k"
     },
     "text-embedding-3-small": {
       "provider": "openai",
@@ -207,7 +211,9 @@
   "transcription": {
     "whisper-1": {
       "provider": "openai",
-      "cents_per_minute": 0.6
+      "cents_per_minute": 0.6,
+      "manual_only": true,
+      "manual_only_reason": "No scrapeable source found"
     }
   },
   "images": {
@@ -259,12 +265,16 @@
     "grok-imagine-image": {
       "provider": "xai",
       "type": "flat",
-      "cents_per_image": 2.0
+      "cents_per_image": 2.0,
+      "manual_only": true,
+      "manual_only_reason": "No active xAI routing in our app"
     },
     "grok-imagine-image-pro": {
       "provider": "xai",
       "type": "flat",
-      "cents_per_image": 7.0
+      "cents_per_image": 7.0,
+      "manual_only": true,
+      "manual_only_reason": "No active xAI routing in our app"
     }
   }
 }

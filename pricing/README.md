@@ -29,20 +29,31 @@ GET https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/pricing/model
 | File | Purpose |
 |---|---|
 | `model_prices.json` | All token, image, and transcription pricing — **consumed by apps** |
+| `_scripts/sync.ts` | Daily sync orchestrator (see [`_scripts/README.md`](_scripts/README.md)) |
+| `_scripts/scrapers/` | Per-provider scraper modules |
 | `README.md` | This file |
 
 ## How Prices Get Updated
 
-1. **Detector** — a daily GitHub Action (to be added in a follow-up PR) fetches LiteLLM's [`model_prices_and_context_window.json`](https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json) and diffs it against `model_prices.json`.
-2. **PR** — on drift, the action opens a PR with the proposed change.
-3. **Review** — a human opens the provider's official pricing page and confirms the new value.
-4. **Merge** — merging to `main` makes the change live. Apps pick it up within their cache TTL (~5–15 min).
+Prices are synced directly from each provider's official pricing page by a per-provider scraper. The [`Sync pricing`](../.github/workflows/sync-pricing.yml) GitHub Action runs daily at 03:00 UTC:
 
-LiteLLM is the **detector**, not the source of truth. The official provider page is what the reviewer checks against. The merged JSON in this directory is what apps actually use for billing.
+1. **Scrape** — `pricing/_scripts/sync.ts` runs every scraper module under `_scripts/scrapers/` in parallel.
+2. **Hard-fail loudly** — if *any* scraper reports an error (model missing, parse failure, network error), the workflow fails and no PR is opened. We'd rather page someone than silently sync stale data.
+3. **Diff** — if every scraper succeeded, scraped values are compared against `model_prices.json` (rounded to 4dp, threshold 0.001).
+4. **PR** — on drift, the action opens a PR labelled `pricing-sync` against `main` with a markdown table of every change. PRs whose largest diff exceeds 50% are tagged `BIG CHANGE — double-check` in the title.
+5. **Review & merge** — a human confirms each change against the provider's page (links are in the PR body). Merging makes the new prices live. Apps pick them up within their cache TTL (~5–15 min).
+
+There is no detector / source-of-truth split anymore — the provider's own pricing page is the source of truth, and the merged JSON in this directory is what apps use for billing.
+
+### Models the scraper skips
+
+Models with `manual_only: true` in the JSON are not touched by the sync. See `manual_only_reason` on each entry for why. Reasons today include: deprecated/internal-only models, providers we don't have a scraper for yet (e.g. Imagen), and product surfaces we aren't actively routing to (e.g. grok-imagine).
+
+To update a manual-only price, edit `model_prices.json` directly, link the provider's pricing page in your PR, and request review.
 
 ### Updating a Price Manually
 
-If a provider changes a price and the sync job hasn't caught it yet:
+If a provider changes a price and the daily sync hasn't run yet:
 
 1. Open a PR editing `model_prices.json`
 2. Link the provider's pricing page in the PR description
@@ -61,7 +72,10 @@ If a provider changes a price and the sync job hasn't caught it yet:
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,
       "output_cents_per_mtok": number,
-      "notes": string // optional
+      "notes": string,                 // optional
+      "manual_only": true,             // optional — skip in daily sync
+      "manual_only_reason": string,    // required when manual_only is true
+      "gemini_tier_preference": "at_or_under_200k" | "above_200k" // Gemini Pro models only
     }
   },
   "transcription": {

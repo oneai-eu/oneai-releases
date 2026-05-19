@@ -1,0 +1,59 @@
+name: Sync pricing
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # 03:00 UTC daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Compute branch date
+        id: branch
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Run pricing sync
+        env:
+          PRICING_SYNC_OUT_DIR: ${{ runner.temp }}
+        run: |
+          # Hard-fails on any scraper error. If exit != 0, the workflow fails
+          # and no PR is opened — that is intentional.
+          node --experimental-strip-types pricing/_scripts/sync.ts
+
+      - name: Read PR title
+        id: title
+        run: |
+          TITLE_FILE="${RUNNER_TEMP}/pricing-sync-title.txt"
+          if [ -f "$TITLE_FILE" ]; then
+            {
+              echo "title<<__EOF__"
+              cat "$TITLE_FILE"
+              echo "__EOF__"
+            } >> "$GITHUB_OUTPUT"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR
+        if: steps.title.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: pricing-sync/${{ steps.branch.outputs.date }}
+          base: main
+          title: ${{ steps.title.outputs.title }}
+          body-path: ${{ runner.temp }}/pricing-sync-body.md
+          labels: pricing-sync
+          commit-message: ${{ steps.title.outputs.title }}
+          delete-branch: true
