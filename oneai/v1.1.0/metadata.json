@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v1.1.0",
+  "date": "2026-05-28",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.1.0",
+  "breaking": false,
+  "highlights": [
+    "Bilder konversationell bearbeiten — direkt im Chat",
+    "Volltextsuche über alle Chat-Inhalte",
+    "Projekte organisieren — Archiv, Tags & Mehrfachauswahl",
+    "Spaces pausieren statt löschen",
+    "Smartere Antworten — interne Quellen bevorzugen, Halluzinationen blocken"
+  ],
+  "categories": {
+    "features": 14,
+    "improvements": 0,
+    "fixes": 15,
+    "security": 2
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
