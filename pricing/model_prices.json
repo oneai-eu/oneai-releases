@@ -156,6 +156,14 @@
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 500
     },
+    "mistral-euaiact-finetuned": {
+      "provider": "mistral",
+      "input_cents_per_mtok": 228,
+      "cached_cents_per_mtok": 228,
+      "output_cents_per_mtok": 228,
+      "manual_only": true,
+      "manual_only_reason": "Fine-tuned model; not on Mistral's public pricing page"
+    },
     "gemini-2.5-flash-lite": {
       "provider": "google",
       "input_cents_per_mtok": 10,
@@ -206,6 +214,30 @@
       "input_cents_per_mtok": 13,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 0
+    },
+    "oneai-embed": {
+      "provider": "oneai",
+      "input_cents_per_mtok": 38,
+      "cached_cents_per_mtok": 38,
+      "output_cents_per_mtok": 38,
+      "manual_only": true,
+      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "oneai-vision": {
+      "provider": "oneai",
+      "input_cents_per_mtok": 57,
+      "cached_cents_per_mtok": 57,
+      "output_cents_per_mtok": 57,
+      "manual_only": true,
+      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "oneai-summarization": {
+      "provider": "oneai",
+      "input_cents_per_mtok": 38,
+      "cached_cents_per_mtok": 38,
+      "output_cents_per_mtok": 38,
+      "manual_only": true,
+      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
     }
   },
   "transcription": {
