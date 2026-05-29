@@ -68,7 +68,7 @@ If a provider changes a price and the daily sync hasn't run yet:
   "version": "YYYY-MM-DD",
   "models": {
     "<model-id>": {
-      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai",
+      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai",
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,
       "output_cents_per_mtok": number,
@@ -112,7 +112,9 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 ## Internal Models
 
-Some models are platform-internal (vision OCR, embeddings used for RAG, summarization) and not billed to customers. These are configured in apps via environment variables, not in this file, and are zero-cost from the billing layer's perspective.
+Some platform-internal models (vision OCR, embeddings used for RAG, summarization) were historically not billed to customers — configured in apps via environment variables and treated as zero-cost by the billing layer.
+
+As of the **Gateway plan launch**, OneAI's own models are billed and live in this file under `provider: "oneai"` (`oneai-embed`, `oneai-vision`, `oneai-summarization`). They are flagged `manual_only: true` because there is no public pricing page to scrape — update their prices by editing this file directly. Any remaining internal usage outside the Gateway plan may still be zero-rated by the consuming app's configuration.
 
 ## Integration Example
 
