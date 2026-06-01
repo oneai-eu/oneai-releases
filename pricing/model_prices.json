@@ -231,7 +231,7 @@
       "manual_only": true,
       "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
     },
-    "oneai-summarization": {
+    "oneai-summary": {
       "provider": "oneai",
       "input_cents_per_mtok": 38,
       "cached_cents_per_mtok": 38,
