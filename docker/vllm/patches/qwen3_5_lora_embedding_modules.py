@@ -21,8 +21,9 @@ target_modules is rejected at `add_lora` time with:
 This patch adds the missing declaration to BOTH classes so n8n-v7 (and any
 future Qwen3.5 LoRA with full target_modules) loads cleanly.
 
-Affected vLLM versions: at least v0.18.x through v0.20.1 (verified on main
-branch as of 2026-05-07).
+Affected vLLM versions: at least v0.18.x through v0.23.0 (re-verified against
+the v0.23.0 git tag 2026-06-15 — module path + class names unchanged, and
+upstream still does not declare the attribute, so this patch remains required).
 
 Idempotent — running twice is a no-op. Hard-fails if the source layout
 differs (e.g. class signatures changed) so we don't silently produce a broken
