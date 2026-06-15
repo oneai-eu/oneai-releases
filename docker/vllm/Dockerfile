@@ -1,4 +1,4 @@
-ARG VLLM_VERSION=v0.20.1
+ARG VLLM_VERSION=v0.23.0
 FROM vllm/vllm-openai:${VLLM_VERSION}
 
 LABEL org.opencontainers.image.title="OneStack vLLM"
@@ -16,8 +16,11 @@ RUN pip install --no-cache-dir orjson
 # ─────────────────────────────────────────────────────────────────────────────
 # Qwen3.5 LoRA embedding_modules patch
 #
-# Upstream vLLM (v0.18.x through v0.20.1+) misses the `embedding_modules`
+# Upstream vLLM (v0.18.x through v0.23.0) misses the `embedding_modules`
 # class attribute on Qwen3_5ForCausalLMBase + Qwen3_5ForConditionalGeneration.
+# (Re-verified against the v0.23.0 git tag 2026-06-15: module path + class
+#  names unchanged, upstream still has NOT added the attribute — issue #38085
+#  was closed without it, PR #39369 closed unmerged. Patch still required.)
 # Without it, LoRA adapters trained with embed_tokens or lm_head in
 # target_modules (e.g. unsloth-trained models with 9 LoRA targets) are
 # rejected at vllm's add_lora() with "expected target modules in {...}
