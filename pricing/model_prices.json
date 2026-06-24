@@ -308,6 +308,15 @@
       "output_cents_per_mtok": 38,
       "manual_only": true,
       "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "grok-4.3": {
+      "provider": "xai",
+      "input_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "xAI Grok; no xAI text scraper in repo — manage price manually",
+      "notes": "Stores the <=200K input-token tier. xAI bills requests with >200K input tokens at 250/40/500 (input/cache-hit/output); registry holds a single rate, so the <=200K tier is used to avoid over-charging the common case"
     }
   },
   "transcription": {
