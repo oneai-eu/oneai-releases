@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v1.1.1",
+  "date": "2026-06-24",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.1.1",
+  "breaking": false,
+  "highlights": [
+    "Per Sprache mit OneAI chatten",
+    "KI-generierte Präsentationen direkt im Chat",
+    "Uno — euer neuer Assistent mit Wissens- und Kontext-System",
+    "Artefakte teilen — mit Bildern, Zugriffsleveln & öffentlichen Links",
+    "Projekt-Templates: Standard-Setups in Sekunden"
+  ],
+  "categories": {
+    "features": 50,
+    "improvements": 0,
+    "fixes": 32,
+    "security": 3
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
