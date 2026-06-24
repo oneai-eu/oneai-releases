@@ -7,10 +7,7 @@
 OneAI v1.1.1 is one of our biggest releases yet. The focus is on new ways of working in **AI Chat**, stronger **artifacts**, and a major step forward in **automation with control**.
 
 - **Voice Mode in AI Chat**: You can now talk to OneAI instead of typing. Thanks to Justus, the first rollout already feels reliable, with improved streaming stability and clearer in-product guidance.
-- **AI-generated presentations in chat**: Create full presentations directly from a conversation, preview them live in the artifact panel, and export them as **PowerPoint or PDF**. Thanks to Pascal for delivering this end to end.
-- **Uno – your new assistant**: With its own knowledge system, workspace context, and improved conversation flow, Uno introduces a more focused assistant experience. Santi laid the foundation for what comes next here.
 - **Better artifact sharing**: Artifacts now support images and can be shared with **private, project-wide, or public links**. Public and private sharing flows now feel much cleaner for recipients.
-- **Project templates**: Save common project setups as templates and reuse them in a single click.
 
 ## Improvements
 
