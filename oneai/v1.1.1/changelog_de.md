@@ -7,10 +7,7 @@
 OneAI v1.1.1 ist eines unserer größten Releases bisher. Im Mittelpunkt stehen neue Arbeitsweisen in **AI Chat**, deutlich stärkere **Artefakte** und ein großer Schritt nach vorn bei **Automatisierung mit Kontrolle**.
 
 - **Voice Mode in AI Chat**: Ihr könnt jetzt direkt mit OneAI sprechen, statt zu tippen. Dank Justus ist der neue Sprachmodus bereits im ersten Rollout zuverlässig nutzbar – inklusive stabilerem Streaming und verständlicher Bedienhinweise.
-- **KI-generierte Präsentationen im Chat**: Erstellt komplette Präsentationen direkt aus einer Unterhaltung heraus, schaut sie live im Artifact-Panel an und exportiert sie als **PowerPoint oder PDF**. Danke an Pascal, der dieses Feature end-to-end umgesetzt hat.
-- **Uno – der neue Assistent**: Mit eigenem Wissenssystem, Workspace-Kontext und überarbeiteter Konversationsführung wird Uno zu einer neuen, fokussierten Assistenten-Erfahrung. Santi hat hier die Grundlage für die nächsten Ausbaustufen gelegt.
 - **Artefakte besser teilen**: Artefakte unterstützen jetzt Bilder und lassen sich mit **privaten, projektweiten oder öffentlichen Links** teilen. Öffentliche und private Freigaben wirken dabei deutlich sauberer und empfängerfreundlicher.
-- **Projekt-Templates**: Häufig genutzte Projekt-Setups könnt ihr jetzt als Vorlage speichern und mit einem Klick wiederverwenden.
 
 ## Verbesserungen
 
