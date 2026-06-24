@@ -309,7 +309,7 @@
       "manual_only": true,
       "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
     },
-    "grok-4.3": {
+    "grok-4.3-global": {
       "provider": "xai",
       "input_cents_per_mtok": 125,
       "cached_cents_per_mtok": 20,
