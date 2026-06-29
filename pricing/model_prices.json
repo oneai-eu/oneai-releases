@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-05-27",
+  "version": "2026-06-19",
   "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process.",
   "models": {
     "gpt-5-nano": {
@@ -112,6 +112,15 @@
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
     },
+    "claude-opus-4-5-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-5; no public pricing page to scrape"
+    },
     "claude-opus-4-6": {
       "provider": "anthropic",
       "input_cents_per_mtok": 625,
@@ -119,12 +128,48 @@
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
     },
+    "claude-opus-4-6-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-6; no public pricing page to scrape"
+    },
     "claude-opus-4-7": {
       "provider": "anthropic",
       "input_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
+    },
+    "claude-opus-4-7-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-7; no public pricing page to scrape"
+    },
+    "claude-opus-4-8": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI-managed; not on a scrapeable pricing page"
+    },
+    "claude-opus-4-8-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-8; no public pricing page to scrape"
     },
     "mistral-small-latest": {
       "provider": "mistral",
@@ -170,11 +215,27 @@
       "cached_cents_per_mtok": 1,
       "output_cents_per_mtok": 40
     },
+    "gemini-2.5-flash-lite-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 10,
+      "cached_cents_per_mtok": 1,
+      "output_cents_per_mtok": 40,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as gemini-2.5-flash-lite; no public pricing page to scrape"
+    },
     "gemini-2.5-flash": {
       "provider": "google",
       "input_cents_per_mtok": 30,
       "cached_cents_per_mtok": 3,
       "output_cents_per_mtok": 250
+    },
+    "gemini-2.5-flash-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 30,
+      "cached_cents_per_mtok": 3,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as gemini-2.5-flash; no public pricing page to scrape"
     },
     "gemini-2.5-pro": {
       "provider": "google",
@@ -193,7 +254,16 @@
       "provider": "google",
       "input_cents_per_mtok": 25,
       "cached_cents_per_mtok": 2.5,
-      "output_cents_per_mtok": 150
+      "output_cents_per_mtok": 150,
+      "notes": "EU multi-region (non-global) endpoint; scheduled to rise to 27.5/2.75/165 effective 2026-07-01"
+    },
+    "gemini-3.1-flash-lite-preview-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 25,
+      "cached_cents_per_mtok": 2.5,
+      "output_cents_per_mtok": 150,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-endpoint alias; no public pricing page to scrape"
     },
     "gemini-3.1-pro-preview": {
       "provider": "google",
@@ -238,6 +308,15 @@
       "output_cents_per_mtok": 38,
       "manual_only": true,
       "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "grok-4.3-global": {
+      "provider": "xai",
+      "input_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "xAI Grok; no xAI text scraper in repo — manage price manually",
+      "notes": "Stores the <=200K input-token tier. xAI bills requests with >200K input tokens at 250/40/500 (input/cache-hit/output); registry holds a single rate, so the <=200K tier is used to avoid over-charging the common case"
     }
   },
   "transcription": {
