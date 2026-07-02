@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-05-12",
+  "version": "2026-06-19",
   "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process.",
   "models": {
     "gpt-5-nano": {
@@ -112,12 +112,30 @@
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
     },
+    "claude-opus-4-5-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-5; no public pricing page to scrape"
+    },
     "claude-opus-4-6": {
       "provider": "anthropic",
       "input_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
+    },
+    "claude-opus-4-6-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-6; no public pricing page to scrape"
     },
     "claude-opus-4-7": {
       "provider": "anthropic",
@@ -126,23 +144,50 @@
       "output_cents_per_mtok": 2500,
       "notes": "input price reflects 1.25x base for cache writes"
     },
+    "claude-opus-4-7-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-7; no public pricing page to scrape"
+    },
+    "claude-opus-4-8": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI-managed; not on a scrapeable pricing page"
+    },
+    "claude-opus-4-8-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 2500,
+      "notes": "input price reflects 1.25x base for cache writes",
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-8; no public pricing page to scrape"
+    },
     "mistral-small-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 10,
+      "input_cents_per_mtok": 15,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 30
+      "output_cents_per_mtok": 60
     },
     "mistral-medium-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 40,
+      "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 200
+      "output_cents_per_mtok": 750
     },
     "mistral-large-latest": {
       "provider": "mistral",
-      "input_cents_per_mtok": 200,
+      "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 600
+      "output_cents_per_mtok": 150
     },
     "magistral-small-latest": {
       "provider": "mistral",
@@ -170,11 +215,27 @@
       "cached_cents_per_mtok": 1,
       "output_cents_per_mtok": 40
     },
+    "gemini-2.5-flash-lite-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 10,
+      "cached_cents_per_mtok": 1,
+      "output_cents_per_mtok": 40,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as gemini-2.5-flash-lite; no public pricing page to scrape"
+    },
     "gemini-2.5-flash": {
       "provider": "google",
       "input_cents_per_mtok": 30,
       "cached_cents_per_mtok": 3,
       "output_cents_per_mtok": 250
+    },
+    "gemini-2.5-flash-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 30,
+      "cached_cents_per_mtok": 3,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; same price as gemini-2.5-flash; no public pricing page to scrape"
     },
     "gemini-2.5-pro": {
       "provider": "google",
@@ -193,7 +254,16 @@
       "provider": "google",
       "input_cents_per_mtok": 25,
       "cached_cents_per_mtok": 2.5,
-      "output_cents_per_mtok": 150
+      "output_cents_per_mtok": 150,
+      "notes": "EU multi-region (non-global) endpoint; scheduled to rise to 27.5/2.75/165 effective 2026-07-01"
+    },
+    "gemini-3.1-flash-lite-preview-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 25,
+      "cached_cents_per_mtok": 2.5,
+      "output_cents_per_mtok": 150,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-endpoint alias; no public pricing page to scrape"
     },
     "gemini-3.1-pro-preview": {
       "provider": "google",
@@ -238,6 +308,15 @@
       "output_cents_per_mtok": 38,
       "manual_only": true,
       "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "grok-4.3-global": {
+      "provider": "xai",
+      "input_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "xAI Grok; no xAI text scraper in repo — manage price manually",
+      "notes": "Stores the <=200K input-token tier. xAI bills requests with >200K input tokens at 250/40/500 (input/cache-hit/output); registry holds a single rate, so the <=200K tier is used to avoid over-charging the common case"
     }
   },
   "transcription": {
@@ -253,58 +332,106 @@
       "provider": "openai",
       "type": "quality_size",
       "pricing": {
-        "low":    { "1024x1024": 1.1,  "1024x1536": 1.6,  "1536x1024": 1.6 },
-        "medium": { "1024x1024": 4.2,  "1024x1536": 6.3,  "1536x1024": 6.3 },
-        "high":   { "1024x1024": 16.7, "1024x1536": 25.0, "1536x1024": 25.0 },
-        "auto":   { "1024x1024": 4.2,  "1024x1536": 6.3,  "1536x1024": 6.3 }
+        "low": {
+          "1024x1024": 1.1,
+          "1024x1536": 1.6,
+          "1536x1024": 1.6
+        },
+        "medium": {
+          "1024x1024": 4.2,
+          "1024x1536": 6.3,
+          "1536x1024": 6.3
+        },
+        "high": {
+          "1024x1024": 16.7,
+          "1024x1536": 25,
+          "1536x1024": 25
+        },
+        "auto": {
+          "1024x1024": 4.2,
+          "1024x1536": 6.3,
+          "1536x1024": 6.3
+        }
       }
     },
     "gpt-image-1-mini": {
       "provider": "openai",
       "type": "quality_size",
       "pricing": {
-        "low":    { "1024x1024": 0.5, "1024x1536": 0.6, "1536x1024": 0.6 },
-        "medium": { "1024x1024": 1.1, "1024x1536": 1.5, "1536x1024": 1.5 },
-        "high":   { "1024x1024": 3.6, "1024x1536": 5.2, "1536x1024": 5.2 },
-        "auto":   { "1024x1024": 1.1, "1024x1536": 1.5, "1536x1024": 1.5 }
+        "low": {
+          "1024x1024": 0.5,
+          "1024x1536": 0.6,
+          "1536x1024": 0.6
+        },
+        "medium": {
+          "1024x1024": 1.1,
+          "1024x1536": 1.5,
+          "1536x1024": 1.5
+        },
+        "high": {
+          "1024x1024": 3.6,
+          "1024x1536": 5.2,
+          "1536x1024": 5.2
+        },
+        "auto": {
+          "1024x1024": 1.1,
+          "1024x1536": 1.5,
+          "1536x1024": 1.5
+        }
       }
     },
     "gpt-image-1.5": {
       "provider": "openai",
       "type": "quality_size",
       "pricing": {
-        "low":    { "1024x1024": 0.9,  "1024x1536": 1.3,  "1536x1024": 1.3 },
-        "medium": { "1024x1024": 3.4,  "1024x1536": 5.0,  "1536x1024": 5.0 },
-        "high":   { "1024x1024": 13.3, "1024x1536": 20.0, "1536x1024": 20.0 },
-        "auto":   { "1024x1024": 3.4,  "1024x1536": 5.0,  "1536x1024": 5.0 }
+        "low": {
+          "1024x1024": 0.9,
+          "1024x1536": 1.3,
+          "1536x1024": 1.3
+        },
+        "medium": {
+          "1024x1024": 3.4,
+          "1024x1536": 5,
+          "1536x1024": 5
+        },
+        "high": {
+          "1024x1024": 13.3,
+          "1024x1536": 20,
+          "1536x1024": 20
+        },
+        "auto": {
+          "1024x1024": 3.4,
+          "1024x1536": 5,
+          "1536x1024": 5
+        }
       }
     },
     "imagen-4.0-fast-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 2.0
+      "cents_per_image": 2
     },
     "imagen-4.0-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 4.0
+      "cents_per_image": 4
     },
     "imagen-4.0-ultra-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 6.0
+      "cents_per_image": 6
     },
     "grok-imagine-image": {
       "provider": "xai",
       "type": "flat",
-      "cents_per_image": 2.0,
+      "cents_per_image": 2,
       "manual_only": true,
       "manual_only_reason": "No active xAI routing in our app"
     },
     "grok-imagine-image-pro": {
       "provider": "xai",
       "type": "flat",
-      "cents_per_image": 7.0,
+      "cents_per_image": 7,
       "manual_only": true,
       "manual_only_reason": "No active xAI routing in our app"
     }
