@@ -32,6 +32,3 @@ Alongside the new assistant, we ran a broad security and reliability review acro
 - **Tighter internal isolation.** Sensitive services — like the database that holds your records — are now walled off from the parts of the system that face the public internet. If any single component were ever compromised, this dramatically limits how far a problem could spread.
 - **Stronger protection for automated actions.** The approved device actions introduced with the AI assistant now use single-use, tamper-evident authorization and verified device identity. In plain terms: an approved action can't be captured and replayed later, and it can't be redirected to the wrong machine.
 - **Everything stays auditable.** Security-relevant events continue to be recorded in a tamper-evident audit trail, so there's always a trustworthy, reviewable record of what happened and who did it.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

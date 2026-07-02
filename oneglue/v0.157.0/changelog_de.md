@@ -32,6 +32,3 @@ Parallel zum neuen Assistenten haben wir eine umfassende Sicherheits- und Zuverl
 - **Strengere interne Abschottung.** Sensible Dienste — etwa die Datenbank mit Ihren Datensätzen — sind nun von den Systemteilen abgeschottet, die zum öffentlichen Internet hin offen liegen. Sollte eine einzelne Komponente je kompromittiert werden, begrenzt das drastisch, wie weit sich ein Problem ausbreiten könnte.
 - **Stärkerer Schutz für automatisierte Aktionen.** Die mit dem KI-Assistenten eingeführten genehmigten Geräteaktionen nutzen jetzt eine einmalig verwendbare, manipulationssichere Autorisierung sowie eine verifizierte Geräteidentität. Im Klartext: Eine genehmigte Aktion lässt sich nicht abfangen und später erneut abspielen, und sie kann nicht auf das falsche Gerät umgelenkt werden.
 - **Alles bleibt nachvollziehbar.** Sicherheitsrelevante Ereignisse werden weiterhin in einem manipulationssicheren Audit-Trail festgehalten, sodass es stets eine vertrauenswürdige, überprüfbare Aufzeichnung darüber gibt, was geschehen ist und wer es getan hat.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

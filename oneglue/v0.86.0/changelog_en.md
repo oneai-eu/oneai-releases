@@ -10,6 +10,3 @@ The features you use every day should get out of your way. This round of improve
 - **Fast tenant & organization switching.** A quick-action switcher lets you hop between tenants and workspaces in a couple of keystrokes, without losing your place in what you were doing.
 - **A more capable document editor.** Improved typography, spell-check controls, and better image handling make writing up documentation more pleasant — and spell-check is automatically disabled on sensitive documents so private details never leak to an external checker.
 - **Cleaner navigation.** The administration area is now organized into collapsible, themed groups, so the tool you need is where you'd expect it instead of lost in a long flat list.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

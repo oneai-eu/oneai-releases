@@ -32,6 +32,3 @@ Parallèlement au nouvel assistant, nous avons mené une vaste revue de sécurit
 - **Une isolation interne plus stricte.** Les services sensibles — comme la base de données qui contient vos enregistrements — sont désormais cloisonnés des parties du système exposées à l'internet public. Si un seul composant venait à être compromis, cela limite considérablement la portée d'un éventuel problème.
 - **Une protection renforcée pour les actions automatisées.** Les actions d'appareil approuvées introduites avec l'assistant IA utilisent maintenant une autorisation à usage unique, inviolable, ainsi qu'une identité d'appareil vérifiée. En clair : une action approuvée ne peut pas être capturée puis rejouée plus tard, et elle ne peut pas être redirigée vers la mauvaise machine.
 - **Tout reste auditable.** Les événements sensibles pour la sécurité continuent d'être consignés dans une piste d'audit inviolable, de sorte qu'il existe toujours une trace fiable et vérifiable de ce qui s'est passé et de qui l'a fait.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

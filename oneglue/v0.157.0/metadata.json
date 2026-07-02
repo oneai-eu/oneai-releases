@@ -2,7 +2,6 @@
   "product": "oneglue",
   "version": "v0.157.0",
   "date": "2026-07-02",
-  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.157.0-stable",
   "breaking": false,
   "highlights": [
     "What's New — an in-app changelog so you never miss an update",

@@ -9,6 +9,3 @@ Switching documentation tools usually means either a painful manual re-entry or 
 - **Import your ITGlue export.** Load organizations, configurations, and related records from an ITGlue CSV export in one guided process, without stitching everything back together by hand.
 - **Attachments and documents come too.** File attachments, documents, and inline images are imported alongside your records — including images embedded inside write-ups — so nothing important gets left behind in the old system.
 - **Start productive on day one.** Your existing documentation is available in OneGlue right away, turning what's normally a multi-week migration effort into a fast, low-risk switch.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

@@ -9,6 +9,3 @@ Domains vergisst man leicht — bis eine im ungünstigsten Moment ausläuft. One
 - **Live-DNS-Einträge von Ihrem Registrar.** Rufen Sie echte DNS-Einträge und Domain-Details direkt über unterstützte Registrare ab, sodass Sie die Wahrheit sehen statt handgepflegter Notizen, die still veralten.
 - **Ablaufverfolgung und Erinnerungen.** OneGlue verfolgt Ablaufdaten und kann die richtigen Personen rechtzeitig benachrichtigen, sodass eine Verlängerung nie durchrutscht und einen Dienst mit sich reißt.
 - **Domain-Zustand auf einen Blick.** Sehen Sie den DNS- und WHOIS-Zustand all Ihrer Domains in einer Ansicht, sodass sich eine Fehlkonfiguration oder ein aufkommendes Problem leicht erkennen lässt, bevor es zuschlägt.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

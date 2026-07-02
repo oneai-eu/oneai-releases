@@ -2,7 +2,6 @@
   "product": "oneglue",
   "version": "v0.114.0",
   "date": "2026-06-22",
-  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.114.0-stable",
   "breaking": false,
   "highlights": [
     "Open a remote desktop over RDP or VNC right in your browser",

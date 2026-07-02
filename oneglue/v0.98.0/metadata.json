@@ -2,7 +2,6 @@
   "product": "oneglue",
   "version": "v0.98.0",
   "date": "2026-06-12",
-  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.98.0-stable",
   "breaking": false,
   "highlights": [
     "A single global search bar with smarter, multi-word and partial matching",

@@ -10,6 +10,3 @@ Die Funktionen, die Sie täglich nutzen, sollten Ihnen nicht im Weg stehen. Bei 
 - **Schneller Wechsel zwischen Tenants & Organisationen.** Ein Schnellwechsler lässt Sie mit wenigen Tastenanschlägen zwischen Tenants und Workspaces springen, ohne den Faden bei Ihrer aktuellen Tätigkeit zu verlieren.
 - **Ein leistungsfähigerer Dokumenteneditor.** Verbesserte Typografie, Steuerungen für die Rechtschreibprüfung und ein besserer Umgang mit Bildern machen das Verfassen von Dokumentation angenehmer — und bei sensiblen Dokumenten wird die Rechtschreibprüfung automatisch deaktiviert, damit private Details nie an einen externen Prüfer gelangen.
 - **Aufgeräumtere Navigation.** Der Administrationsbereich ist nun in einklappbare, thematisch gegliederte Gruppen aufgeteilt, sodass das benötigte Werkzeug dort ist, wo Sie es erwarten, statt in einer langen, flachen Liste verloren zu gehen.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

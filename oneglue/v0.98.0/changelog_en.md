@@ -10,6 +10,3 @@ Two things make a documentation tool feel effortless: being able to find anythin
 - **Unified daily digest & a notifications hub.** Instead of scattered, easy-to-miss alerts, OneGlue now sends one consolidated daily summary of what matters, with per-user email opt-out and tenant-wide notification targets so the right people stay informed on your terms.
 - **Connect OneGlue to oneAI.** A new integrations panel lets you pair your workspace with oneAI and manage the connection — connect, disconnect, and check status — all from one place. This pairing is what unlocks the AI assistant and the device-action features, so it's the first step if you want to use them.
 - **A public Security & Trust page.** Clear, customer-facing information about how OneGlue protects your data, reachable from anywhere in the app — because trust should be easy to verify, not taken on faith.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

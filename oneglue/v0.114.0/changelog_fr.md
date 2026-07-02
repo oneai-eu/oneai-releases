@@ -10,6 +10,3 @@ La documentation est d'autant plus utile qu'elle est reliée aux appareils réel
 - **Installez un agent OneGlue léger sur vos machines.** L'agent optionnel maintient automatiquement votre inventaire d'appareils exact et à jour — fini la documentation qui s'écarte de la réalité — et signale l'accessibilité en direct pour que vous voyiez d'un coup d'œil ce qui est vraiment en ligne.
 - **Un déploiement simple et guidé.** Un installeur à votre image, des téléchargements préconfigurés par organisation et un indicateur d'état dans la zone de notification rendent le déploiement de l'agent sur toute une flotte simple, plutôt qu'un projet à part entière.
 - **Sûr par conception.** Les sessions distantes vérifient qu'un appareil est réellement accessible avant de démarrer, de sorte que vous obtenez un état « hors ligne » clair plutôt qu'une connexion qui reste bloquée. Ces signaux en direct sont aussi ce sur quoi s'appuient les actions d'appareil de l'assistant IA, une fois votre espace de travail appairé avec oneAI.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

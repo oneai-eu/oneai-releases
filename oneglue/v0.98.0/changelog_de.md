@@ -10,6 +10,3 @@ Zwei Dinge lassen ein Dokumentationswerkzeug mühelos wirken: alles sofort finde
 - **Einheitliche Tageszusammenfassung & ein Benachrichtigungs-Hub.** Statt verstreuter, leicht zu übersehender Hinweise sendet OneGlue jetzt eine gebündelte tägliche Zusammenfassung des Wesentlichen — mit E-Mail-Abmeldung pro Benutzer und tenant-weiten Benachrichtigungszielen, sodass die richtigen Personen zu Ihren Bedingungen informiert bleiben.
 - **Verbinden Sie OneGlue mit oneAI.** Ein neues Integrationsfenster koppelt Ihren Workspace mit oneAI und verwaltet die Verbindung — verbinden, trennen und Status prüfen — alles an einem Ort. Diese Kopplung schaltet den KI-Assistenten und die Geräteaktionen frei und ist damit der erste Schritt, wenn Sie diese nutzen möchten.
 - **Eine öffentliche Seite zu Sicherheit & Vertrauen.** Klare, an Kunden gerichtete Informationen darüber, wie OneGlue Ihre Daten schützt, von überall in der Anwendung erreichbar — denn Vertrauen sollte leicht überprüfbar sein und nicht auf gutem Glauben beruhen.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

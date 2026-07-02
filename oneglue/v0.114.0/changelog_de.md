@@ -10,6 +10,3 @@ Dokumentation entfaltet ihren größten Nutzen, wenn sie mit den echten Geräten
 - **Installieren Sie einen schlanken OneGlue-Agenten auf Ihren Maschinen.** Der optionale Agent hält Ihr Geräte-Inventar automatisch korrekt und aktuell — Schluss mit Dokumentation, die von der Realität abweicht — und meldet die Live-Erreichbarkeit, sodass Sie auf einen Blick sehen, was wirklich online ist.
 - **Einfache, geführte Verteilung.** Ein gebrandeter Installer, pro Organisation vorkonfigurierte Downloads und eine Statusanzeige im System-Tray machen das Ausrollen des Agenten über eine ganze Flotte hinweg unkompliziert, statt zu einem Projekt für sich.
 - **Ausfallsicher konzipiert.** Remote-Sitzungen prüfen vor dem Start, ob ein Gerät tatsächlich erreichbar ist, sodass Sie einen klaren Status „offline“ erhalten statt einer hängenden Verbindung. Auf diese Live-Signale bauen auch die Geräteaktionen des KI-Assistenten auf, sobald Ihr Workspace mit oneAI gekoppelt ist.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

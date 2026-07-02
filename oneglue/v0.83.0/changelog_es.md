@@ -9,6 +9,3 @@ Las copias de seguridad solo importan si confías en que estarán ahí —y en q
 - **Activa una copia de seguridad cuando quieras.** Lanza una copia de seguridad directamente desde la aplicación y sigue su estado, para que antes de un cambio arriesgado o de una gran importación puedas capturar una copia reciente y verificada sin esperar a la siguiente ejecución programada.
 - **Confianza en las restauraciones.** Hemos añadido salvaguardas de restauración y comprobaciones de estado, para que una copia de seguridad no solo se haga y se olvide, sino que se verifique que es realmente recuperable, que es lo que cuenta el día en que de verdad la necesitas.
 - **Cifradas y protegidas.** Las copias de seguridad están cifradas y protegidas frente a manipulaciones y pérdidas accidentales, manteniendo a salvo tus registros más sensibles incluso en el peor de los escenarios.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

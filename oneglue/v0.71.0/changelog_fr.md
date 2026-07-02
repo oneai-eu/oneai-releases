@@ -9,6 +9,3 @@ Les domaines s'oublient facilement — jusqu'à ce que l'un d'eux expire au pire
 - **Des enregistrements DNS en direct depuis votre registraire.** Récupérez de vrais enregistrements DNS et les détails du domaine directement via les registraires pris en charge, pour voir la réalité plutôt que des notes maintenues à la main qui vieillissent en silence.
 - **Suivi des expirations et rappels.** OneGlue suit les dates d'expiration et peut avertir les bonnes personnes à l'avance, pour qu'un renouvellement ne passe jamais entre les mailles du filet et n'emporte pas un service avec lui.
 - **L'état des domaines en un coup d'œil.** Consultez l'état DNS et WHOIS de tous vos domaines dans une seule vue, ce qui rend facile de repérer une mauvaise configuration ou un problème imminent avant qu'il ne morde.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

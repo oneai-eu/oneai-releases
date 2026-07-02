@@ -9,6 +9,3 @@ Changer d'outil de documentation revient d'ordinaire soit à une pénible ressai
 - **Importez votre export ITGlue.** Chargez organisations, configurations et enregistrements associés depuis un export CSV ITGlue en un seul processus guidé, sans avoir à tout réassembler à la main.
 - **Les pièces jointes et documents suivent.** Les pièces jointes, les documents et les images intégrées sont importés en même temps que vos enregistrements — y compris les images insérées dans les rédactions —, de sorte que rien d'important ne reste dans l'ancien système.
 - **Productif dès le premier jour.** Votre documentation existante est disponible dans OneGlue immédiatement, transformant ce qui représente d'ordinaire un effort de migration de plusieurs semaines en un basculement rapide et à faible risque.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

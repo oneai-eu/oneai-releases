@@ -2,7 +2,6 @@
   "product": "oneglue",
   "version": "v0.83.0",
   "date": "2026-06-03",
-  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.83.0-stable",
   "breaking": false,
   "highlights": [
     "Trigger a backup on demand and watch its status",

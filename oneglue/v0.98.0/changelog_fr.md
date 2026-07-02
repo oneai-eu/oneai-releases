@@ -10,6 +10,3 @@ Deux choses rendent un outil de documentation vraiment fluide : pouvoir tout ret
 - **Une synthèse quotidienne unifiée et un centre de notifications.** Au lieu d'alertes éparses et faciles à manquer, OneGlue envoie désormais un unique récapitulatif quotidien consolidé de l'essentiel, avec désinscription des e-mails par utilisateur et destinataires de notification à l'échelle du Tenant, pour que les bonnes personnes restent informées selon vos règles.
 - **Connectez OneGlue à oneAI.** Un nouveau panneau d'intégrations vous permet d'appairer votre espace de travail avec oneAI et de gérer la connexion — connecter, déconnecter et vérifier l'état — depuis un seul endroit. Cet appairage est ce qui débloque l'assistant IA et les fonctions d'action sur les appareils ; c'est donc la première étape si vous souhaitez les utiliser.
 - **Une page publique Sécurité & Confiance.** Des informations claires, destinées aux clients, sur la façon dont OneGlue protège vos données, accessibles depuis n'importe où dans l'application — parce que la confiance devrait être facile à vérifier, et non accordée sur parole.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

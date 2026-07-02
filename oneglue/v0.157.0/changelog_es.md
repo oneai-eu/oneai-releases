@@ -32,6 +32,3 @@ Junto con el nuevo asistente, realizamos una amplia revisión de seguridad y fia
 - **Aislamiento interno más estricto.** Los servicios sensibles —como la base de datos que guarda tus registros— quedan ahora separados de las partes del sistema expuestas a la red pública. Si alguna vez se comprometiera un solo componente, esto limita drásticamente hasta dónde podría extenderse un problema.
 - **Mayor protección para las acciones automatizadas.** Las acciones de dispositivo aprobadas que introdujo el asistente de IA usan ahora una autorización de un solo uso y a prueba de manipulaciones, junto con una identidad de dispositivo verificada. En términos claros: una acción aprobada no puede capturarse y reproducirse más tarde, ni redirigirse a la máquina equivocada.
 - **Todo queda auditable.** Los eventos relevantes para la seguridad se siguen registrando en una pista de auditoría a prueba de manipulaciones, de modo que siempre existe un registro fiable y revisable de qué ocurrió y quién lo hizo.
-
----
-*This changelog was generated automatically. Source: [OneGlue Releases](https://github.com/oneai-eu/oneglue/releases)*

@@ -2,7 +2,6 @@
   "product": "oneglue",
   "version": "v0.71.0",
   "date": "2026-05-30",
-  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.71.0-stable",
   "breaking": false,
   "highlights": [
     "Live DNS records pulled directly from supported registrars",
