@@ -4,7 +4,7 @@
 
 set -e
 ERRORS=0
-PRODUCTS=("oneai" "onestack" "onedeploy" "n8n-nodes-oneai" "oneai-teams")
+PRODUCTS=("oneglue" "oneai" "onestack" "onedeploy" "n8n-nodes-oneai" "oneai-teams")
 
 echo "Validating oneai-releases structure..."
 echo ""

@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.75.0",
+  "date": "2026-06-01",
+  "breaking": false,
+  "highlights": [
+    "One-click, guided import of your ITGlue CSV export",
+    "Attachments, documents, and inline images come with your records",
+    "Your documentation is available in OneGlue right away"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

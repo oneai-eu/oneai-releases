@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.69.0",
+  "date": "2026-05-28",
+  "breaking": false,
+  "highlights": [
+    "Passkey-only, passwordless, phishing-resistant sign-in",
+    "Microsoft single sign-on with Microsoft Entra ID",
+    "Time-limited, auto-expiring guest access for external collaborators"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 3
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

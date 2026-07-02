@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.83.0",
+  "date": "2026-06-03",
+  "breaking": false,
+  "highlights": [
+    "Trigger a backup on demand and watch its status",
+    "Restore safeguards and health checks verify backups are recoverable",
+    "Backups are encrypted and protected against tampering and loss"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

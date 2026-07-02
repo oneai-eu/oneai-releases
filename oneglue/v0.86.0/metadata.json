@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.86.0",
+  "date": "2026-06-05",
+  "breaking": false,
+  "highlights": [
+    "Favorites for the organizations and items you use most",
+    "Fast tenant and organization switching",
+    "A more capable document editor and cleaner navigation"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

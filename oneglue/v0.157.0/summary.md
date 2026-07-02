@@ -1,0 +1,1 @@
+OneGlue v0.157.0 introduces **What's New** — an in-app changelog so you never miss an update — a hands-on AI assistant that can safely act on your connected devices, and a platform-wide security hardening pass.

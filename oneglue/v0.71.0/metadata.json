@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.71.0",
+  "date": "2026-05-30",
+  "breaking": false,
+  "highlights": [
+    "Live DNS records pulled directly from supported registrars",
+    "Expiry tracking with reminders so a renewal never slips through",
+    "DNS and WHOIS health for all your domains in one view"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

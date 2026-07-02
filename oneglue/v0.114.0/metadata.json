@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.114.0",
+  "date": "2026-06-22",
+  "breaking": false,
+  "highlights": [
+    "Open a remote desktop over RDP or VNC right in your browser",
+    "A lightweight OneGlue agent keeps device inventory and live status accurate",
+    "Guided fleet rollout with a branded installer and system-tray status"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
