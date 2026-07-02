@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.157.0",
+  "date": "2026-07-02",
+  "github_release_url": "https://github.com/oneai-eu/oneglue/releases/tag/v0.157.0-stable",
+  "breaking": false,
+  "highlights": [
+    "What's New — an in-app changelog so you never miss an update",
+    "Your AI assistant, now hands-on: read your docs and safely act on connected devices",
+    "Stronger by default: a platform-wide security hardening pass"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
