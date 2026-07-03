@@ -1,0 +1,1 @@
+OneGlue v0.159.0 brings a small but helpful clarity improvement: if your workspace isn't connected to oneAI yet, the AI assistant now tells you so upfront — with a direct link to set up the connection — instead of showing a chat box that can't answer.
