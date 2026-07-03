@@ -8,8 +8,14 @@
       "name": "OneGlue",
       "description": "Internal IT Documentation & Secret Management",
       "source_repo": "https://github.com/oneai-eu/oneglue",
-      "latest": "v0.159.0",
+      "latest": "v0.161.0",
       "releases": [
+        {
+          "version": "v0.161.0",
+          "date": "2026-07-03",
+          "breaking": false,
+          "path": "oneglue/v0.161.0"
+        },
         {
           "version": "v0.159.0",
           "date": "2026-07-03",
