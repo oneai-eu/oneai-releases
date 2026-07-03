@@ -1,0 +1,28 @@
+{
+  "product": "oneglue",
+  "version": "v0.159.0",
+  "date": "2026-07-03",
+  "breaking": false,
+  "highlights": [
+    "A clearer path to the AI assistant when your workspace isn't connected to oneAI yet"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-02T00:00:00.000Z",
+  "last_updated": "2026-07-03",
   "repository": "https://github.com/oneai-eu/oneai-releases",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "products": {
@@ -8,8 +8,14 @@
       "name": "OneGlue",
       "description": "Internal IT Documentation & Secret Management",
       "source_repo": "https://github.com/oneai-eu/oneglue",
-      "latest": "v0.157.0",
+      "latest": "v0.159.0",
       "releases": [
+        {
+          "version": "v0.159.0",
+          "date": "2026-07-03",
+          "breaking": false,
+          "path": "oneglue/v0.159.0"
+        },
         {
           "version": "v0.157.0",
           "date": "2026-07-02",
