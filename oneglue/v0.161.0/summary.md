@@ -1,0 +1,1 @@
+OneGlue v0.161.0 makes connecting a device with the built-in agent simpler and smarter: a one-command install that sets itself up as a background service, and smarter matching that attaches an agent to a device you've already documented instead of creating a duplicate.
