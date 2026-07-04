@@ -1,0 +1,1 @@
+OneGlue v0.163.0 improves the device agent: connected devices now report their full network interface details (names, MAC and IP addresses) straight into their record for a more accurate picture and more reliable matching, and agent self-updates now finish reliably and bring the agent back online on their own.
