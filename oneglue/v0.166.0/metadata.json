@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.166.0",
+  "date": "2026-07-05",
+  "breaking": false,
+  "highlights": [
+    "Remote sessions (RDP/VNC): clicking now works reliably — you can open menus and apps again",
+    "Shared links just work: log in from a link someone sent you and land exactly on that item",
+    "New 'Copy link' button on every item's page — share the right URL in one click"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 0,
+    "fixes": 2,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
