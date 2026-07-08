@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-06-19",
-  "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process.",
+  "version": "2026-07-08",
+  "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process. Anthropic entries now split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5-nano": {
       "provider": "openai",
@@ -35,11 +35,12 @@
     },
     "gpt-5.3-chat-latest": {
       "provider": "openai",
-      "input_cents_per_mtok": 175,
-      "cached_cents_per_mtok": 17.5,
-      "output_cents_per_mtok": 1400,
+      "input_cents_per_mtok": 500,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 3000,
       "manual_only": true,
-      "manual_only_reason": "Deprecating Aug 10 2026; not on OpenAI pricing page"
+      "manual_only_reason": "Listed as 'chat-latest' on OpenAI pricing page (Specialized models); wire model is gpt-5.3-chat-latest. Deprecating Aug 10 2026.",
+      "notes": "CORRECTED 2026-07-08: was 175/17.5/1400 (gpt-5.3-codex rates copied by mistake) -> chat-latest rates 500/50/3000. Prior value undercharged ~2.9x."
     },
     "gpt-5.4-nano": {
       "provider": "openai",
@@ -57,137 +58,187 @@
       "provider": "openai",
       "input_cents_per_mtok": 250,
       "cached_cents_per_mtok": 25,
-      "output_cents_per_mtok": 1500
+      "output_cents_per_mtok": 1500,
+      "notes": "Long-context tier verified 2026-07-08 (OpenAI pricing page screenshot): >=272K bills 500/50/2250. Field names *_above_200k are legacy; real boundary = tier_threshold_tokens (272000, inclusive since short context is '<272K').",
+      "input_cents_per_mtok_above_200k": 500,
+      "cached_cents_per_mtok_above_200k": 50,
+      "output_cents_per_mtok_above_200k": 2250,
+      "tier_threshold_tokens": 272000,
+      "tier_boundary_inclusive": true
     },
     "gpt-5.4-pro": {
       "provider": "openai",
       "input_cents_per_mtok": 3000,
-      "cached_cents_per_mtok": 300,
-      "output_cents_per_mtok": 18000
+      "cached_cents_per_mtok": 0,
+      "output_cents_per_mtok": 18000,
+      "notes": "No cached-input pricing offered for pro models (cached set to 0; cached_tokens always 0). Long-context tier verified 2026-07-08: >=272K bills 6000/0/27000. Boundary = 272000, inclusive.",
+      "input_cents_per_mtok_above_200k": 6000,
+      "cached_cents_per_mtok_above_200k": 0,
+      "output_cents_per_mtok_above_200k": 27000,
+      "tier_threshold_tokens": 272000,
+      "tier_boundary_inclusive": true
     },
     "gpt-5.5": {
       "provider": "openai",
       "input_cents_per_mtok": 500,
       "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 3000
+      "output_cents_per_mtok": 3000,
+      "notes": "Long-context tier verified 2026-07-08: >=272K bills 1000/100/4500. Boundary = tier_threshold_tokens 272000, inclusive.",
+      "input_cents_per_mtok_above_200k": 1000,
+      "cached_cents_per_mtok_above_200k": 100,
+      "output_cents_per_mtok_above_200k": 4500,
+      "tier_threshold_tokens": 272000,
+      "tier_boundary_inclusive": true
     },
     "gpt-5.5-pro": {
       "provider": "openai",
       "input_cents_per_mtok": 3000,
-      "cached_cents_per_mtok": 300,
-      "output_cents_per_mtok": 18000
+      "cached_cents_per_mtok": 0,
+      "output_cents_per_mtok": 18000,
+      "notes": "No cached-input pricing offered for pro models (cached set to 0). Long-context tier verified 2026-07-08: >=272K bills 6000/0/27000. Boundary = 272000, inclusive.",
+      "input_cents_per_mtok_above_200k": 6000,
+      "cached_cents_per_mtok_above_200k": 0,
+      "output_cents_per_mtok_above_200k": 27000,
+      "tier_threshold_tokens": 272000,
+      "tier_boundary_inclusive": true
     },
     "claude-haiku-4-5": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 125,
+      "input_cents_per_mtok": 100,
+      "cache_write_cents_per_mtok": 125,
       "cached_cents_per_mtok": 10,
       "output_cents_per_mtok": 500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "notes": "Routed to Vertex 'global' (CLAUDE_MODEL_LOCATIONS pin). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-sonnet-4-5": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 375,
+      "input_cents_per_mtok": 300,
+      "cache_write_cents_per_mtok": 375,
       "cached_cents_per_mtok": 30,
       "output_cents_per_mtok": 1500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "input_cents_per_mtok_above_200k": 600,
+      "cache_write_cents_per_mtok_above_200k": 750,
+      "cached_cents_per_mtok_above_200k": 60,
+      "output_cents_per_mtok_above_200k": 2250,
+      "tier_boundary_inclusive": true,
+      "notes": "Routed to Vertex 'global'. Only 4.x Claude with a long-context tier; Vertex charges premium at >=200K (inclusive), hence tier_boundary_inclusive."
     },
     "claude-sonnet-4-6": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 375,
+      "input_cents_per_mtok": 300,
+      "cache_write_cents_per_mtok": 375,
       "cached_cents_per_mtok": 30,
       "output_cents_per_mtok": 1500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "notes": "Routed to Vertex 'global'. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-1": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 1875,
+      "input_cents_per_mtok": 1500,
+      "cache_write_cents_per_mtok": 1875,
       "cached_cents_per_mtok": 150,
       "output_cents_per_mtok": 7500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "notes": "Uniform pricing across all regions per Vertex page. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-5": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
-      "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "input_cents_per_mtok": 550,
+      "cache_write_cents_per_mtok": 687.5,
+      "cached_cents_per_mtok": 55,
+      "output_cents_per_mtok": 2750,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (routed to europe-west1); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "EU rate confirmed 2026-07-08 on Vertex europe-west1 tab (5.50/6.875/0.55/27.50). Routed to europe-west1 per CLAUDE_MODEL_LOCATIONS (single-region EU quota). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-5-global": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
+      "input_cents_per_mtok": 500,
+      "cache_write_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes",
       "manual_only": true,
-      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-5; no public pricing page to scrape"
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
+      "notes": "Global endpoint (suffix override). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-6": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
-      "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "input_cents_per_mtok": 550,
+      "cache_write_cents_per_mtok": 687.5,
+      "cached_cents_per_mtok": 55,
+      "output_cents_per_mtok": 2750,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (routed to europe-west1); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "EU rate confirmed 2026-07-08 on Vertex europe-west1 tab (5.50/6.875/0.55/27.50). Routed to europe-west1 per CLAUDE_MODEL_LOCATIONS (single-region EU quota). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-6-global": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
+      "input_cents_per_mtok": 500,
+      "cache_write_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes",
       "manual_only": true,
-      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-6; no public pricing page to scrape"
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
+      "notes": "Global endpoint (suffix override). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-7": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
-      "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes"
+      "input_cents_per_mtok": 550,
+      "cache_write_cents_per_mtok": 687.5,
+      "cached_cents_per_mtok": 55,
+      "output_cents_per_mtok": 2750,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (routed to 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "EU rate confirmed 2026-07-08 on Vertex EU multi-region tab (5.50/6.875/0.55/27.50). Routed to 'eu' multi-region default. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-7-global": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
+      "input_cents_per_mtok": 500,
+      "cache_write_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes",
       "manual_only": true,
-      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-7; no public pricing page to scrape"
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
+      "notes": "Global endpoint (suffix override). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-8": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
-      "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes",
+      "input_cents_per_mtok": 550,
+      "cache_write_cents_per_mtok": 687.5,
+      "cached_cents_per_mtok": 55,
+      "output_cents_per_mtok": 2750,
       "manual_only": true,
-      "manual_only_reason": "Vertex AI-managed; not on a scrapeable pricing page"
+      "manual_only_reason": "EU-priced entry (routed to 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "EU rate confirmed 2026-07-08 on Vertex EU multi-region tab (5.50/6.875/0.55/27.50). Routed to 'eu' multi-region default. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-8-global": {
       "provider": "anthropic",
-      "input_cents_per_mtok": 625,
+      "input_cents_per_mtok": 500,
+      "cache_write_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 2500,
-      "notes": "input price reflects 1.25x base for cache writes",
       "manual_only": true,
-      "manual_only_reason": "Vertex AI global-region alias; same price as claude-opus-4-8; no public pricing page to scrape"
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
+      "notes": "Global endpoint (suffix override). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "mistral-small-latest": {
       "provider": "mistral",
       "input_cents_per_mtok": 15,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 60
+      "output_cents_per_mtok": 60,
+      "notes": "Mistral Small 4. WARNING: '-latest' aliases silently repoint to new generations with different prices; re-verify on every Mistral release."
     },
     "mistral-medium-latest": {
       "provider": "mistral",
       "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 750
+      "output_cents_per_mtok": 750,
+      "notes": "Mistral Medium 3.5. See '-latest' alias warning on mistral-small-latest."
     },
     "mistral-large-latest": {
       "provider": "mistral",
       "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 0,
-      "output_cents_per_mtok": 150
+      "output_cents_per_mtok": 150,
+      "notes": "Mistral Large 3 (price DROPPED vs Large 2). See '-latest' alias warning on mistral-small-latest."
     },
     "magistral-small-latest": {
       "provider": "mistral",
@@ -207,13 +258,15 @@
       "cached_cents_per_mtok": 228,
       "output_cents_per_mtok": 228,
       "manual_only": true,
-      "manual_only_reason": "Fine-tuned model; not on Mistral's public pricing page"
+      "manual_only_reason": "Fine-tuned model; not on Mistral's public pricing page",
+      "notes": "Contract-priced; verify against the Mistral agreement, not public pages."
     },
     "gemini-2.5-flash-lite": {
       "provider": "google",
       "input_cents_per_mtok": 10,
       "cached_cents_per_mtok": 1,
-      "output_cents_per_mtok": 40
+      "output_cents_per_mtok": 40,
+      "notes": "Served from europe-west4 (VERTEX_GEMINI_LOCATION default); Gemini 2.5 family currently has no regional uplift, so regional = global price. Re-check if Google extends non-global pricing to 2.5."
     },
     "gemini-2.5-flash-lite-global": {
       "provider": "google",
@@ -227,7 +280,8 @@
       "provider": "google",
       "input_cents_per_mtok": 30,
       "cached_cents_per_mtok": 3,
-      "output_cents_per_mtok": 250
+      "output_cents_per_mtok": 250,
+      "notes": "Served from europe-west4; no regional uplift for the 2.5 family currently. Audio input ($1.00) is NOT representable; only relevant if audio input is ever accepted."
     },
     "gemini-2.5-flash-global": {
       "provider": "google",
@@ -239,23 +293,29 @@
     },
     "gemini-2.5-pro": {
       "provider": "google",
-      "input_cents_per_mtok": 250,
-      "cached_cents_per_mtok": 25,
-      "output_cents_per_mtok": 1500,
-      "gemini_tier_preference": "above_200k"
+      "input_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 13,
+      "output_cents_per_mtok": 1000,
+      "input_cents_per_mtok_above_200k": 250,
+      "cached_cents_per_mtok_above_200k": 25,
+      "output_cents_per_mtok_above_200k": 1500,
+      "notes": "CORRECTED 2026-07-08: previously stored the >200K premium tier as the flat rate, overcharging all <=200K requests ~2x input / 1.5x output. Cached=13 per Vertex page rounding ($0.13). Served from europe-west4; no 2.5-family uplift."
     },
     "gemini-3-flash-preview": {
       "provider": "google",
       "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 5,
-      "output_cents_per_mtok": 300
+      "output_cents_per_mtok": 300,
+      "notes": "Preview model: no regional uplift shown on Vertex page (uplift applies to GA Gemini 3+ only). Audio input ($1.00) not representable."
     },
     "gemini-3.1-flash-lite-preview": {
       "provider": "google",
-      "input_cents_per_mtok": 25,
-      "cached_cents_per_mtok": 2.5,
-      "output_cents_per_mtok": 150,
-      "notes": "EU multi-region (non-global) endpoint; scheduled to rise to 27.5/2.75/165 effective 2026-07-01"
+      "input_cents_per_mtok": 27.5,
+      "cached_cents_per_mtok": 2.75,
+      "output_cents_per_mtok": 165,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (explicitly routed to 'eu' multi-region in google.ts); a scraper reading global rates would wrongly overwrite.",
+      "notes": "UPDATED 2026-07-08: non-global uplift (+10%) in effect since 2026-07-01 per Vertex page (Global 25/2.5/150 -> Non-global 27.5/2.75/165). Routing confirmed: EU_MULTIREGION_GEMINI_MODELS."
     },
     "gemini-3.1-flash-lite-preview-global": {
       "provider": "google",
@@ -263,15 +323,18 @@
       "cached_cents_per_mtok": 2.5,
       "output_cents_per_mtok": 150,
       "manual_only": true,
-      "manual_only_reason": "Vertex AI global-endpoint alias; no public pricing page to scrape"
+      "manual_only_reason": "Vertex AI global-endpoint alias; no public pricing page to scrape",
+      "notes": "Global endpoint price (no uplift)."
     },
     "gemini-3.1-pro-preview": {
       "provider": "google",
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 20,
       "output_cents_per_mtok": 1200,
-      "notes": "pricing tier for context <=200k tokens",
-      "gemini_tier_preference": "at_or_under_200k"
+      "input_cents_per_mtok_above_200k": 400,
+      "cached_cents_per_mtok_above_200k": 40,
+      "output_cents_per_mtok_above_200k": 1800,
+      "notes": "UPDATED 2026-07-08: added >200K premium tier (was flat at base, undercharging long-context). Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS), so global rates apply."
     },
     "text-embedding-3-small": {
       "provider": "openai",
@@ -314,9 +377,12 @@
       "input_cents_per_mtok": 125,
       "cached_cents_per_mtok": 20,
       "output_cents_per_mtok": 250,
+      "input_cents_per_mtok_above_200k": 250,
+      "cached_cents_per_mtok_above_200k": 40,
+      "output_cents_per_mtok_above_200k": 500,
       "manual_only": true,
-      "manual_only_reason": "xAI Grok; no xAI text scraper in repo — manage price manually",
-      "notes": "Stores the <=200K input-token tier. xAI bills requests with >200K input tokens at 250/40/500 (input/cache-hit/output); registry holds a single rate, so the <=200K tier is used to avoid over-charging the common case"
+      "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo \u2014 manage price manually",
+      "notes": "UPDATED 2026-07-08: added >200K premium tier (previously single-rate; long-context undercharged). Routing hardcoded global in grok.ts; '-global' suffix is cosmetic."
     }
   },
   "transcription": {
@@ -324,7 +390,7 @@
       "provider": "openai",
       "cents_per_minute": 0.6,
       "manual_only": true,
-      "manual_only_reason": "No scrapeable source found"
+      "manual_only_reason": "Listed on OpenAI pricing page (Transcription models, $0.006/min) but no whisper scraper in repo; verified manually 2026-07-08."
     }
   },
   "images": {
@@ -352,7 +418,8 @@
           "1024x1536": 6.3,
           "1536x1024": 6.3
         }
-      }
+      },
+      "notes": "Per-image estimates from OpenAI calculator; NOT re-verified in the 2026-07-08 audit (image models out of scope). OpenAI bills per-token, so this is an approximation by design."
     },
     "gpt-image-1-mini": {
       "provider": "openai",
@@ -378,7 +445,8 @@
           "1024x1536": 1.5,
           "1536x1024": 1.5
         }
-      }
+      },
+      "notes": "Not re-verified in the 2026-07-08 audit; see gpt-image-1."
     },
     "gpt-image-1.5": {
       "provider": "openai",
@@ -404,22 +472,26 @@
           "1024x1536": 5,
           "1536x1024": 5
         }
-      }
+      },
+      "notes": "Not re-verified in the 2026-07-08 audit; see gpt-image-1."
     },
     "imagen-4.0-fast-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 2
+      "cents_per_image": 2,
+      "notes": "Price verified 2026-07-08 ($0.02). DEPRECATED: Imagen 4 shuts down 2026-08-17; plan migration."
     },
     "imagen-4.0-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 4
+      "cents_per_image": 4,
+      "notes": "Price verified 2026-07-08 ($0.04). DEPRECATED: shuts down 2026-08-17."
     },
     "imagen-4.0-ultra-generate-001": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 6
+      "cents_per_image": 6,
+      "notes": "Price verified 2026-07-08 ($0.06). DEPRECATED: shuts down 2026-08-17."
     },
     "grok-imagine-image": {
       "provider": "xai",
