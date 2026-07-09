@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v1.1.6",
+  "date": "2026-07-08",
+  "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v1.1.6",
+  "breaking": false,
+  "highlights": [
+    "Präsentationen im eigenen Firmen-Look",
+    "Folien direkt im Deck-Viewer bearbeiten",
+    "Design-Picker für generierte Präsentationen",
+    "Python-Tool liefert jetzt Excel, PDF, Word & Co. als Download",
+    "Sehr lange Unterhaltungen scheitern nicht mehr am Kontextlimit"
+  ],
+  "categories": {
+    "features": 7,
+    "improvements": 0,
+    "fixes": 12,
+    "security": 2
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
