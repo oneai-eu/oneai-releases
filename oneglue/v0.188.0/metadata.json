@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.188.0",
+  "date": "2026-07-09",
+  "breaking": false,
+  "highlights": [
+    "AI device-analysis assistant — step-by-step diagnostics with a findings report and remediation suggestions",
+    "Cleaner device page — agent, live GPU telemetry and automation unified in one 'Compute & Automation' panel",
+    "Favorites — star items to sort them to the top of every list",
+    "SCVMM / Hyper-V inventory sync for MSP and multi-tenant environments"
+  ],
+  "categories": {
+    "features": 5,
+    "improvements": 2,
+    "fixes": 3,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "product": "oneglue",
+  "version": "v0.170.0",
+  "date": "2026-07-07",
+  "breaking": false,
+  "highlights": [
+    "Faster device and organization management with searchable pickers",
+    "Smarter device-agent enrollment"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md"
+  }
+}
