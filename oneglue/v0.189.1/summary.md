@@ -1,0 +1,1 @@
+OneGlue v0.189.1 cleans up device-plugin management so that replacing or removing a plugin immediately clears the old version from the device overview, and fixes a connection issue in the SCVMM provider so that virtual-machine inventory syncs correctly.
