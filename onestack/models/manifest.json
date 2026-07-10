@@ -6,7 +6,8 @@
     {
       "name": "Qwen3-VL-8B-Instruct FP8-Static",
       "canonical_name": "qwen3-vl-8b-instruct-fp8-static",
-      "oci_ref": "ghcr.io/oneai-eu/qwen3vl-8b-instruct-fp8-static:v1",
+      "oci_ref": "ghcr.io/oneai-eu/qwen3vl-8b-instruct-fp8-static@sha256:78c649dc8a30ddd8084d9082e42f7057c2730b5d4df8476bf0e412d4392a7a31",
+      "oci_tag": "ghcr.io/oneai-eu/qwen3vl-8b-instruct-fp8-static:v1",
       "version": "v1",
       "source": "oneai_releases",
       "pipeline_tag": "image-text-to-text",
