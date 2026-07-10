@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.192.0",
+  "date": "2026-07-10",
+  "breaking": false,
+  "highlights": [
+    "Organization members can now view the SCVMM virtual machines mapped to their organization",
+    "New VM Fleet page — lists private clouds and their VMs with search, grouped by cloud",
+    "VM status, OS, CPU/RAM, host and IP addresses visible at a glance",
+    "VM Fleet entry only appears for organizations that have SCVMM clouds mapped to them"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

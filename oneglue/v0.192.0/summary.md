@@ -1,0 +1,1 @@
+OneGlue v0.192.0 gives organization members a read-only VM Fleet page: the SCVMM virtual machines that belong to their organization — grouped by private cloud, searchable, with status, OS, CPU/RAM, host and IP addresses visible at a glance. The VM Fleet menu entry only appears when SCVMM clouds are actually mapped to the organization.
