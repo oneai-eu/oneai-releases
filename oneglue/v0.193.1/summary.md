@@ -1,0 +1,1 @@
+OneGlue v0.193.1 enriches the VM Fleet: each private cloud is now its own card showing capacity (CPU, memory, storage limits) and current usage at a glance, and every VM opens a detail panel with its full specs. Start/Stop/Restart controls preview what's coming next.

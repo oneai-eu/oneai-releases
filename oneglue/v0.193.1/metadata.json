@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.193.1",
+  "date": "2026-07-10",
+  "breaking": false,
+  "highlights": [
+    "Each private cloud now shown as its own card with capacity and usage at a glance",
+    "Real configured cloud limits (or \"unlimited\") instead of zero",
+    "Click any VM for a full detail panel (status, OS, CPU/RAM, host, IPs)",
+    "Start/Stop/Restart controls preview upcoming power actions"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
