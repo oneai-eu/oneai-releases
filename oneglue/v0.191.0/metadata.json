@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.191.0",
+  "date": "2026-07-10",
+  "breaking": false,
+  "highlights": [
+    "Map private clouds to organizations — bulk-assign multiple clouds to the same organization at once",
+    "Focused SCVMM device telemetry — concise summary card instead of an inline data dump",
+    "Searchable VM fleet view — dedicated page with search and filtering across all clouds",
+    "Private clouds appear as searchable SCVMM Cloud assets in their mapped organization"
+  ],
+  "categories": {
+    "features": 4,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
