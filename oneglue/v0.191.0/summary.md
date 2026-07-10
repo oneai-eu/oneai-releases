@@ -1,0 +1,1 @@
+OneGlue v0.191.0 brings a redesigned SCVMM integration: map private clouds to your customers' organizations in a new cloud mapping matrix, browse the full VM fleet on a dedicated searchable page, see concise device telemetry instead of an inline data dump, and find each private cloud as a searchable SCVMM Cloud asset in global search and org asset lists.
