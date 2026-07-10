@@ -1,0 +1,1 @@
+OneGlue v0.194.0 adds host, failover-cluster and Hyper-V replication status to the VM Fleet. Each VM's host and cluster are shown in the overview, with a colour-coded replication-health badge; the detail view adds replication role, health and state. Replicated VMs appear as their primary and recovery copies, so geo-redundancy is visible at a glance.

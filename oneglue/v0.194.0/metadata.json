@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.194.0",
+  "date": "2026-07-11",
+  "breaking": false,
+  "highlights": [
+    "Host and failover cluster shown per VM directly in the fleet overview",
+    "Colour-coded Hyper-V replication-health badge (green/amber/red)",
+    "VM detail adds replication role (Primary/Recovery), health and state",
+    "Replicated VMs shown as primary + recovery copies — geo-redundancy at a glance"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
