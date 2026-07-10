@@ -15,7 +15,7 @@
       "parameter_count": 8000000000,
       "quantization": "FP8-Static",
       "context_length": 262144,
-      "recommended_max_model_len": 32768,
+      "recommended_max_model_len": 131072,
       "size_bytes": 10600000000,
       "vllm_compatible": true,
       "ollama_compatible": false,
