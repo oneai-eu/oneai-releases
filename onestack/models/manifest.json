@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "description": "OneAI self-hosted model registry manifest. Consumed by OneStack's `oneai_releases` model-catalog source. Each model is published as a GHCR OCI artifact (via the build-model-artifact workflow) and deployed by Core via ORAS-pull into the local serving path.",
+  "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
+  "models": [
+    {
+      "name": "Qwen3-VL-8B-Instruct FP8-Static",
+      "canonical_name": "qwen3-vl-8b-instruct-fp8-static",
+      "oci_ref": "ghcr.io/oneai-eu/qwen3vl-8b-instruct-fp8-static:v1",
+      "version": "v1",
+      "source": "oneai_releases",
+      "pipeline_tag": "image-text-to-text",
+      "architecture": "Qwen3VLForConditionalGeneration",
+      "model_type": "qwen3_vl",
+      "parameter_count": 8000000000,
+      "quantization": "FP8-Static",
+      "context_length": 32768,
+      "size_bytes": 10600000000,
+      "vllm_compatible": true,
+      "ollama_compatible": false,
+      "tei_compatible": false,
+      "capabilities": ["vision"],
+      "license": "apache-2.0",
+      "description": "Self-quantized FP8-Static (per-tensor static weights + activations; vision tower kept bf16) from the official Qwen/Qwen3-VL-8B-Instruct. Validated parity with bf16 original and the AngelSlim reference on the same VLMEvalKit pipeline (OCRBench 89.6, ChartQA 83.0, MMStar_MINI 54.7) with ~+66% decode vs bf16. Boots on onestack-vllm:v0.24.0 with no env var (per-tensor static dodges the DeepGEMM block-scaled crash)."
+    }
+  ]
+}

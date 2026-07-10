@@ -1,0 +1,104 @@
+name: Build Model OCI Artifact
+
+# Publishes a self-hosted model (e.g. self-quantized FP8) to GHCR as an OCI
+# artifact via ORAS, from split weights staged as GitHub Release assets.
+# This is the durable, repeatable "self-provide our own models" pipeline consumed
+# by OneStack's `oneai_releases` model source (Admin catalog sync + Core ORAS-pull).
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Staging release tag holding the split weight assets'
+        required: true
+        default: 'model-qwen3vl-8b-fp8static-v1'
+      oci_repo:
+        description: 'GHCR repo name (under ghcr.io/oneai-eu/)'
+        required: true
+        default: 'qwen3vl-8b-instruct-fp8-static'
+      oci_tag:
+        description: 'OCI artifact tag'
+        required: true
+        default: 'v1'
+      expected_sha256:
+        description: 'sha256 of the reassembled model.safetensors (verify)'
+        required: true
+        default: '231d4e88f2f552f6e407d477a7c1a65a507cf2081da320085e783d5b943993c3'
+      push:
+        description: 'Push artifact to GHCR?'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+env:
+  REGISTRY: ghcr.io
+  ORG: oneai-eu
+
+jobs:
+  build-and-push:
+    name: Reassemble weights + ORAS push
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /opt/hostedtoolcache /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
+          df -h /
+
+      - name: Install ORAS
+        run: |
+          curl -sLO https://github.com/oras-project/oras/releases/download/v1.2.0/oras_1.2.0_linux_amd64.tar.gz
+          tar xzf oras_1.2.0_linux_amd64.tar.gz oras
+          sudo mv oras /usr/local/bin/ && oras version
+
+      - name: Download + reassemble model (streamed, low disk)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p model && cd model
+          REPO='${{ github.repository }}'
+          TAG='${{ inputs.release_tag }}'
+          # small files
+          for f in config.json generation_config.json tokenizer_config.json tokenizer.json chat_template.jinja processor_config.json recipe.yaml; do
+            gh release download "$TAG" --repo "$REPO" --pattern "$f" --dir . || echo "optional $f missing"
+          done
+          # weight shards: download → append → delete (peak disk ≈ model + 1 shard)
+          i=0
+          while true; do
+            part=$(printf 'model.safetensors.part%02d.bin' "$i")
+            if ! gh release download "$TAG" --repo "$REPO" --pattern "$part" --dir . 2>/dev/null; then
+              break
+            fi
+            cat "$part" >> model.safetensors && rm -f "$part"
+            i=$((i+1))
+          done
+          [ "$i" -gt 0 ] || { echo "no weight shards found"; exit 1; }
+          echo "reassembled from $i shards"; ls -la; df -h /
+
+      - name: Verify checksum
+        run: |
+          set -euo pipefail
+          cd model
+          got=$(sha256sum model.safetensors | cut -d' ' -f1)
+          echo "expected=${{ inputs.expected_sha256 }} got=$got"
+          [ "$got" = "${{ inputs.expected_sha256 }}" ] || { echo "CHECKSUM MISMATCH"; exit 1; }
+
+      - name: ORAS login + push
+        if: ${{ inputs.push == 'true' }}
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "$TOKEN" | oras login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+          cd model
+          REF='${{ env.REGISTRY }}/${{ env.ORG }}/${{ inputs.oci_repo }}:${{ inputs.oci_tag }}'
+          oras push "$REF" \
+            --annotation "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --annotation "ai.oneai.model.quantization=FP8-Static" \
+            $(ls)
+          echo "pushed $REF"
+          oras manifest fetch "$REF" --descriptor
