@@ -1,0 +1,33 @@
+{
+  "product": "oneglue",
+  "version": "v0.196.0",
+  "date": "2026-07-11",
+  "breaking": false,
+  "highlights": [
+    "Start / Stop / Restart SCVMM VMs directly from OneGlue — confirmed + audit-logged",
+    "Graceful (guest shutdown) or hard power-off/restart modes",
+    "Per-organization permission to manage that org's own VMs",
+    "VM Fleet menu + dashboard tile appear instantly when clouds are mapped (no refresh)",
+    "Whole-row click opens VM details",
+    "Clean, confirmed SCVMM server removal (full teardown)"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 3,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
