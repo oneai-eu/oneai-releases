@@ -1,0 +1,33 @@
+{
+  "product": "oneglue",
+  "version": "v0.198.0",
+  "date": "2026-07-12",
+  "breaking": false,
+  "highlights": [
+    "Special characters (| \\ @ { } [ ] and umlauts) now type correctly in remote sessions",
+    "Choose the keyboard layout per device (German by default)",
+    "Clipboard copy & paste now works in both directions in RDP and VNC sessions",
+    "On-demand Sync button per cloud in the VM Fleet",
+    "VM Fleet refreshes automatically after Start/Stop/Restart",
+    "Accurate \"last synced\" time (when last checked, not just last changed)"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 3,
+    "fixes": 2,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
