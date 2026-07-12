@@ -24,6 +24,28 @@
       "capabilities": ["vision"],
       "license": "apache-2.0",
       "description": "Self-quantized FP8-Static (per-tensor static weights + activations; vision tower kept bf16) from the official Qwen/Qwen3-VL-8B-Instruct. Validated parity with bf16 original and the AngelSlim reference on the same VLMEvalKit pipeline (OCRBench 89.6, ChartQA 83.0, MMStar_MINI 54.7) with ~+66% decode vs bf16. Boots on onestack-vllm:v0.24.0 with no env var (per-tensor static dodges the DeepGEMM block-scaled crash)."
+    },
+    {
+      "name": "Qwen3-4B-Instruct-2507 FP8-Static",
+      "canonical_name": "qwen3-4b-instruct-2507-fp8-static",
+      "oci_ref": "ghcr.io/oneai-eu/qwen3-4b-instruct-2507-fp8-static@sha256:809786e9c7435c4a71263ce4212d365521a3987d4bdabb3a71beeae30bd26def",
+      "oci_tag": "ghcr.io/oneai-eu/qwen3-4b-instruct-2507-fp8-static:v1",
+      "version": "v1",
+      "source": "oneai_releases",
+      "pipeline_tag": "text-generation",
+      "architecture": "Qwen3ForCausalLM",
+      "model_type": "qwen3",
+      "parameter_count": 4000000000,
+      "quantization": "FP8-Static",
+      "context_length": 262144,
+      "recommended_max_model_len": 131072,
+      "size_bytes": 4423200000,
+      "vllm_compatible": true,
+      "ollama_compatible": false,
+      "tei_compatible": false,
+      "capabilities": [],
+      "license": "apache-2.0",
+      "description": "Self-quantized FP8-Static (per-tensor W8A8 static weights + activations; lm_head kept bf16) from the official Qwen/Qwen3-4B-Instruct-2507. Calibrated on 512 GovReport documents. Validated summary-quality parity with the official block-FP8 on real GovReport/arXiv docs; ~223 tok/s decode on RTX PRO 6000 Blackwell (9x the RTX 4000 baseline). The summary model for the RTX6000 AG. Boots on onestack-vllm:v0.24.0 with no env var (per-tensor static dodges the DeepGEMM block-scaled crash)."
     }
   ]
 }
