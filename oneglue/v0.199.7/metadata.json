@@ -1,0 +1,32 @@
+{
+  "product": "oneglue",
+  "version": "v0.199.7",
+  "date": "2026-07-12",
+  "breaking": false,
+  "highlights": [
+    "Paste from your computer into an RDP/VNC session with Ctrl+V (bidirectional clipboard)",
+    "Copy out of the remote session back to your own machine",
+    "One-step Send clipboard fallback for browsers that restrict clipboard access",
+    "Resolution switching no longer breaks mouse clicks",
+    "Mouse-click accuracy correct across every zoom and fit mode"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 2,
+    "fixes": 2,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
