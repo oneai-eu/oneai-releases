@@ -1,0 +1,34 @@
+{
+  "product": "oneglue",
+  "version": "v0.202.0",
+  "date": "2026-07-13",
+  "breaking": false,
+  "highlights": [
+    "Edit a VM: identity (name/owner/notes) live, CPU & memory with a power-off confirmation",
+    "Per-VM detailed view (disks, network, memory, power state) with last-synced + Refresh",
+    "Expand and add virtual disks",
+    "Storage QoS — min/max IOPS or a named policy (where the storage fabric supports it)",
+    "Remove a disk — separate permission + type-the-VM-name confirmation (destructive)",
+    "Delete a VM — separate permission + type-the-VM-name confirmation + full audit",
+    "Every write action is per-action permission-controlled, risk-graduated, and audit-logged"
+  ],
+  "categories": {
+    "features": 3,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
