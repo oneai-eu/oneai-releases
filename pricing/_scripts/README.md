@@ -25,51 +25,38 @@ function returning `ScraperResult`:
 
 ```ts
 type ScraperResult = {
-  provider: string;                          // "openai" | "anthropic" | "google" | "mistral"
+  provider: string;                          // "openai" | "mistral"
   models: Record<modelId, ScrapedPrice>;     // see scrapers/types.ts
   errors: string[];                          // empty on success
 };
 ```
 
+Only providers in `SCRAPED_PROVIDERS` (in `sync.ts`) are scraped. Everything
+else — `anthropic`, `google`, `xai` — is served via Vertex AI and priced
+manually; the orchestrator skips those entries entirely.
+
 | Module                  | Provider page                                            | Data shape           |
 |-------------------------|----------------------------------------------------------|----------------------|
-| `anthropic.ts`          | https://platform.claude.com/docs/en/about-claude/pricing | markdown table       |
-| `mistral.ts`            | https://mistral.ai/pricing                               | Next.js RSC payloads |
+| `mistral.ts`            | https://mistral.ai/pricing/api                           | Astro server-rendered `data-prices` atoms |
 | `openai-text.ts`        | https://developers.openai.com/api/docs/pricing           | MDX `rows={[...]}`   |
 | `openai-images.ts`      | https://developers.openai.com/api/docs/guides/image-generation | MDX JSX `<table>` |
-| `gemini.ts`             | https://ai.google.dev/gemini-api/docs/pricing            | markdown tables, multi-modality, tiered; also covers Imagen 4 flat-priced image models |
 
 Each parser depends on **undocumented provider data formats** — a vendor
 restyling their pricing page can break us overnight. When that happens, the
 daily workflow fails and posts the error; fix the parser, re-run, ship.
-
-Note: `gemini.ts` is named after Gemini text models but also covers Imagen 4
-(`imagen-4.0-*`), since both share Google's single pricing markdown page.
 
 ## Manual-only models
 
 Models with `manual_only: true` in the JSON are skipped by the orchestrator.
 Use this flag for:
 - models deprecated or not yet on the provider's public pricing page,
-- providers we don't have a scraper for yet,
 - products we aren't actively routing to (e.g. grok-imagine).
 
+Note this is per-model. Whole providers not in `SCRAPED_PROVIDERS` (anthropic,
+google, xai) are skipped regardless of the flag, so their models don't each
+need `manual_only`.
+
 Always include a short `manual_only_reason` so the next person knows why.
-
-## Gemini tier preference
-
-Gemini Pro models price prompts `<=200k` tokens differently from `>200k`.
-The Gemini scraper returns both tiers as a `TokenPriceTiered`; the JSON
-entry must declare which one we bill against via:
-
-```jsonc
-"gemini-2.5-pro": {
-  ...,
-  "gemini_tier_preference": "above_200k"   // or "at_or_under_200k"
-}
-```
-
-The orchestrator hard-errors if a tiered scraper result has no preference.
 
 ## Running locally
 
@@ -92,7 +79,8 @@ scraper error.
 
 1. Add a new module under `scrapers/` exporting an async `scrapeXxx()` that
    returns `ScraperResult`. Use the existing modules as templates.
-2. Register the call in `sync.ts`'s `Promise.all([...])`.
+2. Register the call in `sync.ts`'s `Promise.all([...])`, and add the
+   provider to `SCRAPED_PROVIDERS` so its JSON entries are diffed.
 3. Add the provider's pricing-page URL to `PROVIDER_PAGES` in `sync.ts` so
    the PR body can link to it.
 4. If your scraper returns a new `ScrapedPrice` variant, extend

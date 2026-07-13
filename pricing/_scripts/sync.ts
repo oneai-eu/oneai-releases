@@ -18,12 +18,16 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { scrapeAnthropic }    from "./scrapers/anthropic.ts";
 import { scrapeMistral }      from "./scrapers/mistral.ts";
 import { scrapeOpenAIText }   from "./scrapers/openai-text.ts";
 import { scrapeOpenAIImages } from "./scrapers/openai-images.ts";
-import { scrapeGemini }       from "./scrapers/gemini.ts";
 import type { ScrapedPrice, TokenPrice } from "./scrapers/types.ts";
+
+// Providers we scrape from a public pricing page. Everything else
+// (anthropic, google, xai) is served via Vertex AI and priced manually —
+// the orchestrator skips those entries entirely rather than erroring on
+// the missing scraper data.
+const SCRAPED_PROVIDERS = new Set(["openai", "mistral"]);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const JSON_PATH = path.resolve(__dirname, "..", "model_prices.json");
@@ -129,7 +133,7 @@ function buildChecklist(diffs: Diff[]): ChecklistBucket[] {
   if (mistral.size > 0) {
     out.push({
       label: "Mistral",
-      urls: ["https://mistral.ai/pricing#api"],
+      urls: ["https://mistral.ai/pricing/api"],
       models: mistral,
     });
   }
@@ -168,11 +172,9 @@ async function main() {
 
   console.log("Running scrapers in parallel...");
   const results = await Promise.all([
-    scrapeAnthropic(),
     scrapeMistral(),
     scrapeOpenAIText(),
     scrapeOpenAIImages(),
-    scrapeGemini(),
   ]);
 
   const allErrors: string[] = [];
@@ -197,6 +199,7 @@ async function main() {
   // Token models
   for (const [modelId, entry] of Object.entries(json.models as Record<string, any>)) {
     if (entry.manual_only) continue;
+    if (!SCRAPED_PROVIDERS.has(entry.provider)) continue;
 
     const scraped = scrapedById.get(modelId);
     if (!scraped) {
@@ -204,25 +207,11 @@ async function main() {
       process.exit(1);
     }
 
-    let tokenPrice: TokenPrice;
-    if (scraped.kind === "token") {
-      tokenPrice = scraped;
-    } else if (scraped.kind === "token_tiered") {
-      const pref: string | undefined = entry.gemini_tier_preference;
-      if (!pref) {
-        console.error(`Tiered scraper data for ${modelId} but no gemini_tier_preference set in JSON`);
-        process.exit(1);
-      }
-      const t = scraped.tiers[pref];
-      if (!t) {
-        console.error(`gemini_tier_preference="${pref}" not among scraped tiers for ${modelId} (have: ${Object.keys(scraped.tiers).join(", ")})`);
-        process.exit(1);
-      }
-      tokenPrice = t;
-    } else {
+    if (scraped.kind !== "token") {
       console.error(`Scraped kind=${(scraped as any).kind} is not a token price for ${modelId}`);
       process.exit(1);
     }
+    const tokenPrice: TokenPrice = scraped;
 
     for (const field of TOKEN_FIELDS) {
       const newVal = tokenPrice[field];
@@ -240,6 +229,7 @@ async function main() {
   // Image models — both quality_size matrices and flat per-image pricing.
   for (const [modelId, entry] of Object.entries(json.images as Record<string, any>)) {
     if (entry.manual_only) continue;
+    if (!SCRAPED_PROVIDERS.has(entry.provider)) continue;
 
     const scraped = scrapedById.get(modelId);
     if (!scraped) {
@@ -372,7 +362,7 @@ async function main() {
   lines.push("- Anthropic: https://platform.claude.com/docs/en/about-claude/pricing");
   lines.push("- OpenAI (text and embeddings): https://developers.openai.com/api/docs/pricing?multimodal-image-pricing=standard&video-pricing=standard");
   lines.push("- OpenAI (image generation): https://developers.openai.com/api/docs/guides/image-generation");
-  lines.push("- Mistral: https://mistral.ai/pricing#api");
+  lines.push("- Mistral: https://mistral.ai/pricing/api");
   lines.push("- Google (Gemini and Imagen): https://ai.google.dev/gemini-api/docs/pricing");
 
   // 6. Manual-only models — read live from the JSON so it stays accurate.

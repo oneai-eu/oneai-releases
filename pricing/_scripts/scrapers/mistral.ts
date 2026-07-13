@@ -1,16 +1,30 @@
 // Mistral pricing scraper.
 //
-// Mistral renders pricing client-side from Next.js RSC payloads embedded as
-// `self.__next_f.push([...])` calls. We extract every payload, JSON-unescape
-// them, concatenate, then locate each model object by its api_endpoint
-// marker and walk back through balanced braces to recover the JSON literal.
+// Mistral's API pricing moved to https://mistral.ai/pricing/api and the site
+// migrated off Next.js (no more `self.__next_f.push([...])` RSC payloads) to
+// Astro. Prices are now server-rendered into custom elements:
+//
+//   <p ...>Input (/M tokens)</p>
+//   <mistral-atom-text-price data-prices="{&#34;priceUsd&#34;:0.15,...}"> ...
+//   <p ...>Output (/M tokens)</p>
+//   <mistral-atom-text-price data-prices="{&#34;priceUsd&#34;:0.6,...}"> ...
+//   ... <... data-text="mistral-small-latest"> ...   (copy-to-clipboard button)
+//
+// Within each model card the order is fixed: the Input label + price and the
+// Output label + price both appear *before* the `data-text="<model-id>"` that
+// closes the card. So we scan the document in order, remember the price that
+// follows each Input/Output label, and flush them when we reach a model id we
+// care about. Any `data-text` (including non-model cards like "Classifier API
+// model 3B") acts as a card boundary and resets the running state, so prices
+// never bleed across cards. Prices without a preceding Input/Output label
+// (per-page OCR, embeddings, batch rates) are ignored.
 //
 // Mistral doesn't publish a cached price — we emit 0 for that field, which
 // matches what the JSON already records for every Mistral model.
 
 import type { ScraperResult, TokenPrice } from "./types.ts";
 
-const PRICING_URL = "https://mistral.ai/pricing";
+const PRICING_URL = "https://mistral.ai/pricing/api";
 
 const MODELS_OF_INTEREST = [
   "mistral-small-latest",
@@ -20,68 +34,17 @@ const MODELS_OF_INTEREST = [
   "magistral-medium-latest",
 ];
 
-function parsePrice(html: string): number | null {
-  if (!html) return null;
-  const text = html.replace(/<[^>]*>/g, "").trim();
-  const m = text.match(/\$\s*([\d.]+)/);
-  if (!m) return null;
-  const n = parseFloat(m[1]);
-  return isNaN(n) ? null : n;
-}
-
-function dollarsToCents(dollars: number | null): number | null {
-  if (dollars === null) return null;
+function dollarsToCents(dollars: number): number {
   return Math.round(dollars * 100 * 100) / 100;
 }
 
-function extractNextPayloads(html: string): string[] {
-  const payloads: string[] = [];
-  const re = /self\.__next_f\.push\(\[\d+,"((?:[^"\\]|\\.)*)"\]\)/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) payloads.push(m[1]);
-  return payloads;
-}
-
-function unescapeJsonString(s: string): string {
-  return JSON.parse(`"${s}"`);
-}
-
-function findModelObject(text: string, modelId: string): Record<string, any> | null {
-  const marker = `"api_endpoint":"${modelId}"`;
-  const idx = text.indexOf(marker);
-  if (idx === -1) return null;
-
-  // Walk back to the unmatched "{" that opens this object.
-  let depth = 0;
-  let start = -1;
-  for (let i = idx; i >= 0; i--) {
-    const c = text[i];
-    if (c === "}") depth++;
-    else if (c === "{") {
-      if (depth === 0) { start = i; break; }
-      depth--;
-    }
-  }
-  if (start === -1) return null;
-
-  // Walk forward to its matching "}".
-  depth = 0;
-  let end = -1;
-  for (let i = start; i < text.length; i++) {
-    const c = text[i];
-    if (c === "{") depth++;
-    else if (c === "}") {
-      depth--;
-      if (depth === 0) { end = i; break; }
-    }
-  }
-  if (end === -1) return null;
-
-  try {
-    return JSON.parse(text.substring(start, end + 1));
-  } catch {
-    return null;
-  }
+// Pull priceUsd out of a `data-prices` attribute. The value is HTML-entity
+// encoded (`&#34;` for the JSON quotes), so match either form defensively.
+function extractPriceUsd(dataPrices: string): number | null {
+  const m = dataPrices.match(/priceUsd(?:&#34;|"|&quot;)\s*:\s*([\d.]+)/);
+  if (!m) return null;
+  const n = parseFloat(m[1]);
+  return isNaN(n) ? null : n;
 }
 
 export async function scrapeMistral(): Promise<ScraperResult> {
@@ -107,45 +70,53 @@ export async function scrapeMistral(): Promise<ScraperResult> {
     };
   }
 
-  const payloads = extractNextPayloads(html);
-  let combined = "";
-  for (const p of payloads) {
-    try { combined += unescapeJsonString(p); } catch { /* some payloads can't be unescaped cleanly — skip */ }
+  const wanted = new Set(MODELS_OF_INTEREST);
+
+  // One alternation over the three token types, walked in document order:
+  //   [1] an Input/Output "(/M tokens)" label
+  //   [2] a data-prices attribute (the price atom following a label)
+  //   [3] a data-text attribute (the model-id button closing a card)
+  const re =
+    /(Input|Output) \(\/M tokens\)|data-prices="([^"]*)"|data-text="([^"]*)"/g;
+
+  let pendingKind: "input" | "output" | null = null;
+  let inputUsd: number | null = null;
+  let outputUsd: number | null = null;
+
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html)) !== null) {
+    if (m[1]) {
+      pendingKind = m[1] === "Input" ? "input" : "output";
+    } else if (m[2] !== undefined) {
+      if (pendingKind) {
+        const usd = extractPriceUsd(m[2]);
+        if (usd !== null) {
+          if (pendingKind === "input" && inputUsd === null) inputUsd = usd;
+          else if (pendingKind === "output" && outputUsd === null) outputUsd = usd;
+        }
+        pendingKind = null;
+      }
+    } else if (m[3] !== undefined) {
+      const id = m[3];
+      if (wanted.has(id) && !(id in models) && inputUsd !== null && outputUsd !== null) {
+        models[id] = {
+          kind: "token",
+          input_cents_per_mtok:  dollarsToCents(inputUsd),
+          cached_cents_per_mtok: 0,
+          output_cents_per_mtok: dollarsToCents(outputUsd),
+        };
+      }
+      // Every data-text closes a card — reset so prices never cross cards.
+      pendingKind = null;
+      inputUsd = null;
+      outputUsd = null;
+    }
   }
 
-  if (combined.length === 0) {
-    return {
-      provider: "mistral",
-      models: {},
-      errors: ["no __next_f payloads recovered from page"],
-    };
-  }
-
-  for (const modelId of MODELS_OF_INTEREST) {
-    const obj = findModelObject(combined, modelId);
-    if (!obj) {
-      errors.push(`model not found in page payloads: ${modelId}`);
-      continue;
+  for (const id of MODELS_OF_INTEREST) {
+    if (!(id in models)) {
+      errors.push(`model not found in page (or missing input/output price): ${id}`);
     }
-    const priceArr: any[] = Array.isArray(obj.price) ? obj.price : [];
-    let inputDollars: number | null = null;
-    let outputDollars: number | null = null;
-    for (const p of priceArr) {
-      const label = String(p.value ?? "").toLowerCase();
-      const raw = String(p.price_dollar ?? "");
-      if (label.includes("input")) inputDollars = parsePrice(raw);
-      else if (label.includes("output")) outputDollars = parsePrice(raw);
-    }
-    if (inputDollars === null || outputDollars === null) {
-      errors.push(`incomplete price data for ${modelId}: input=${inputDollars} output=${outputDollars}`);
-      continue;
-    }
-    models[modelId] = {
-      kind: "token",
-      input_cents_per_mtok:  dollarsToCents(inputDollars),
-      cached_cents_per_mtok: 0,
-      output_cents_per_mtok: dollarsToCents(outputDollars),
-    };
   }
 
   return { provider: "mistral", models, errors };
