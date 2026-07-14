@@ -1,0 +1,33 @@
+{
+  "product": "oneglue",
+  "version": "v0.205.0",
+  "date": "2026-07-14",
+  "breaking": false,
+  "highlights": [
+    "One credential across many machines — assign to specific configs, an SCVMM cloud's VMs, or the whole organization",
+    "Auto-login on RDP/VNC connect; the password is injected at the worker and never reaches the browser",
+    "Rotate once, applies everywhere the credential is scoped",
+    "Share / assign machines from any password; promote a machine-embedded password to shared in one step (origin keeps access)",
+    "Org-level Shared Credentials view; a machine's detail page shows the shared credentials that apply to it",
+    "Separate org-grantable permissions (use vs. manage scope); cross-org/cross-tenant sharing impossible; every use and scope change audit-logged"
+  ],
+  "categories": {
+    "features": 4,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
