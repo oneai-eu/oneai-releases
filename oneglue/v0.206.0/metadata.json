@@ -1,0 +1,32 @@
+{
+  "product": "oneglue",
+  "version": "v0.206.0",
+  "date": "2026-07-14",
+  "breaking": false,
+  "highlights": [
+    "Remote Desktop to an SCVMM VM — one-click RDP straight from the VM, no IP lookup or host hop",
+    "Tunnelled through the on-site OneGlue agent — reaches VMs on internal networks; brokered per-session, single-use",
+    "One-click domain login when a shared/domain credential covers the VM (via its SCVMM cloud or org); password injected at the agent only, never in the browser",
+    "Smart guest-IP handling — pick when a VM has several, clear message when none is reachable",
+    "Dedicated org-grantable connect-to-VM permission (separate from credential management); cross-org/cross-tenant impossible; every session audit-logged"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
