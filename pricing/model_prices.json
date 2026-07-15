@@ -33,15 +33,6 @@
       "cached_cents_per_mtok": 17.5,
       "output_cents_per_mtok": 1400
     },
-    "gpt-5.3-chat-latest": {
-      "provider": "openai",
-      "input_cents_per_mtok": 500,
-      "cached_cents_per_mtok": 50,
-      "output_cents_per_mtok": 3000,
-      "manual_only": true,
-      "manual_only_reason": "Listed as 'chat-latest' on OpenAI pricing page (Specialized models); wire model is gpt-5.3-chat-latest. Deprecating Aug 10 2026.",
-      "notes": "CORRECTED 2026-07-08: was 175/17.5/1400 (gpt-5.3-codex rates copied by mistake) -> chat-latest rates 500/50/3000. Prior value undercharged ~2.9x."
-    },
     "gpt-5.4-nano": {
       "provider": "openai",
       "input_cents_per_mtok": 20,
@@ -130,6 +121,26 @@
       "cached_cents_per_mtok": 30,
       "output_cents_per_mtok": 1500,
       "notes": "Routed to Vertex 'global'. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
+    },
+    "claude-sonnet-5": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 220,
+      "cache_write_cents_per_mtok": 275,
+      "cached_cents_per_mtok": 22,
+      "output_cents_per_mtok": 1100,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (routed to 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "INTRO/PROMO rate through 2026-08-31 (EU = global x1.1). MUST bump to STANDARD 220->330 / 275->412.5 / 22->33 / 1100->1650 on 2026-09-01 (tracked in ClickUp) — file has no time-based pricing. Flat across context length (no >200K premium). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
+    },
+    "claude-sonnet-5-global": {
+      "provider": "anthropic",
+      "input_cents_per_mtok": 200,
+      "cache_write_cents_per_mtok": 250,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 1000,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
+      "notes": "Global endpoint (suffix override). INTRO/PROMO rate through 2026-08-31. MUST bump to STANDARD 200->300 / 250->375 / 20->30 / 1000->1500 on 2026-09-01 (tracked in ClickUp) — no time-based pricing. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
     },
     "claude-opus-4-1": {
       "provider": "anthropic",
