@@ -1,0 +1,32 @@
+{
+  "product": "oneglue",
+  "version": "v0.208.0",
+  "date": "2026-07-15",
+  "breaking": false,
+  "highlights": [
+    "Console access to an SCVMM VM via its Hyper-V host — a new \"Console (via Hyper-V)\" action",
+    "Reaches VMs on isolated customer networks a direct remote-desktop connection can't touch (even pre-boot); relayed by the on-site agent to the Hyper-V host",
+    "Secure attention (Ctrl-Alt-Del) one click away; reveal the applicable domain/shared credential to type at the console login (every reveal audit-logged)",
+    "Choose the RDP security mode (NLA default, or TLS) for direct connections whose server refuses the default negotiation",
+    "Governed by design — org-grantable connect permission, cross-org/cross-tenant impossible, every console session and credential reveal audit-logged"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
