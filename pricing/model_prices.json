@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-07-08",
+  "version": "2026-07-23",
   "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process. Anthropic entries now split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5-nano": {
@@ -347,6 +347,20 @@
       "output_cents_per_mtok_above_200k": 1800,
       "notes": "UPDATED 2026-07-08: added >200K premium tier (was flat at base, undercharging long-context). Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS), so global rates apply."
     },
+    "gemini-3.5-flash-lite": {
+      "provider": "google",
+      "input_cents_per_mtok": 30,
+      "cached_cents_per_mtok": 3,
+      "output_cents_per_mtok": 250,
+      "notes": "Added 2026-07-23. Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS in google.ts), so global rates apply — the +10% non-global uplift on GA Gemini 3+ does NOT apply here; do not 'correct' to 33/3.3/275. Flat across context length (no >200K premium)."
+    },
+    "gemini-3.6-flash": {
+      "provider": "google",
+      "input_cents_per_mtok": 150,
+      "cached_cents_per_mtok": 15,
+      "output_cents_per_mtok": 750,
+      "notes": "Added 2026-07-23. Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS), so global rates apply. Source pricing table showed no global/non-global split for this model; global rate is correct given forced-global routing. Flat across context length (no >200K premium)."
+    },
     "text-embedding-3-small": {
       "provider": "openai",
       "input_cents_per_mtok": 2,
@@ -486,23 +500,29 @@
       },
       "notes": "Not re-verified in the 2026-07-08 audit; see gpt-image-1."
     },
-    "imagen-4.0-fast-generate-001": {
+    "gemini-3-pro-image": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 2,
-      "notes": "Price verified 2026-07-08 ($0.02). DEPRECATED: Imagen 4 shuts down 2026-08-17; plan migration."
+      "cents_per_image": 13.4,
+      "manual_only": true,
+      "manual_only_reason": "Google image (Nano Banana Pro); no image-pricing scraper in repo, and this is a per-token price re-expressed as flat per-image — manage manually.",
+      "notes": "Nano Banana Pro. Added 2026-07-23. Flat = 1K/1MP output image cost (1120 tokens = $0.134). Google bills per-token by resolution; app requests default 1K only (no imageSize sent to imageConfig, google.ts) so 1K is correct today. Re-verify if a 2K/4K selector is ever added — 4K output is $0.24 (would under-bill at this flat value). Global-only (client hard-pinned to 'global')."
     },
-    "imagen-4.0-generate-001": {
+    "gemini-3.1-flash-image": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 4,
-      "notes": "Price verified 2026-07-08 ($0.04). DEPRECATED: shuts down 2026-08-17."
+      "cents_per_image": 6.7,
+      "manual_only": true,
+      "manual_only_reason": "Google image (Nano Banana 2); no image-pricing scraper in repo, per-token price re-expressed as flat per-image — manage manually.",
+      "notes": "Nano Banana 2. Added 2026-07-23. Flat = 1K/1MP output image cost (1120 tokens = $0.067). App requests default 1K only. Re-verify if a 2K/4K selector is added — 4K output is $0.15. Global-only (client hard-pinned)."
     },
-    "imagen-4.0-ultra-generate-001": {
+    "gemini-3.1-flash-lite-image": {
       "provider": "google",
       "type": "flat",
-      "cents_per_image": 6,
-      "notes": "Price verified 2026-07-08 ($0.06). DEPRECATED: shuts down 2026-08-17."
+      "cents_per_image": 3.4,
+      "manual_only": true,
+      "manual_only_reason": "Google image (Nano Banana 2 Lite); no image-pricing scraper in repo, per-token price re-expressed as flat per-image — manage manually.",
+      "notes": "Nano Banana 2 Lite. Added 2026-07-23. Flat = 1K/1MP output image cost (1120 tokens = $0.034); only 1K resolution is published for this model. App requests default 1K only. Global-only (client hard-pinned)."
     },
     "grok-imagine-image": {
       "provider": "xai",
