@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.222.0",
+  "date": "2026-07-26",
+  "breaking": false,
+  "highlights": [
+    "Store multiple two-factor (TOTP) methods per password — e.g. a Primary and a Backup — each generating its own code",
+    "Existing two-factor codes carry over automatically as the first \"Primary\" method",
+    "Import several accounts at once by scanning a Google Authenticator export QR",
+    "The QR scanner no longer silently ignores codes it can't read, and MFA methods are protected under the same permission + approval as the password"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 1,
+    "fixes": 1,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
