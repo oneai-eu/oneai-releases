@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.221.0",
+  "date": "2026-07-25",
+  "breaking": false,
+  "highlights": [
+    "Device (configuration) detail pages now follow a fixed, consistent layout — identity and access first, documentation next, automation last",
+    "\"Shared credentials\" labels are unified across the app, and each credential section on a device has a one-line explanation",
+    "Favorites now sort to the top on contacts, locations, and flexible assets",
+    "Presentation-only — no change to permissions or to who can see or do what"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 3,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
