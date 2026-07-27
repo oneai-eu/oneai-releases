@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.228.2",
+  "date": "2026-07-27",
+  "breaking": false,
+  "highlights": [
+    "Store and organize passkeys for third-party websites — personal and shared — right alongside your passwords",
+    "Group by site automatically, mark favorites, see last-used, and manage passkeys like any other secret (rename, share, revoke, restore)",
+    "A companion Chromium browser extension for signing in with a stored passkey is rolling out now, with anti-phishing confirmation built in",
+    "Passkeys are encrypted at rest under your organization's key and governed by the same permissions and approvals as everything else in your vault"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
