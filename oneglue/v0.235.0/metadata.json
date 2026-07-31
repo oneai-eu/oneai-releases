@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.235.0",
+  "date": "2026-07-31",
+  "breaking": false,
+  "highlights": [
+    "Editing a stored secret can no longer silently overwrite it via browser/password-manager autofill",
+    "The password/value field stays hidden behind an explicit \"Change value\" action — rename or adjust permissions with zero risk to the stored value",
+    "Rotating is still one step; the authoritative audit-logged reveal remains on the secret's detail page"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 1,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
