@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-31",
+  "last_updated": "2026-08-02T21:12:06.168Z",
   "repository": "https://github.com/oneai-eu/oneai-releases",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "products": {
@@ -357,8 +357,15 @@
       "name": "OneAI Teams",
       "description": "Microsoft Teams Integration",
       "source_repo": "https://github.com/oneai-eu/oneai-teams",
-      "latest": null,
-      "releases": []
+      "latest": "teams-v0.2.46.5-stable",
+      "releases": [
+        {
+          "version": "teams-v0.2.46.5-stable",
+          "date": "2026-08-02",
+          "breaking": false,
+          "path": "oneai-teams/teams-v0.2.46.5-stable"
+        }
+      ]
     }
   }
 }

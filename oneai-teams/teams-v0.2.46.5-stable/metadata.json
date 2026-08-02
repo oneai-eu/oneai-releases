@@ -2,7 +2,15 @@
   "product": "oneai-teams",
   "version": "teams-v0.2.46.5-stable",
   "date": "2026-08-02",
+  "github_release_url": "https://github.com/oneai-eu/oneai-teams/releases/tag/teams-v0.2.46.5-stable",
   "breaking": false,
+  "highlights": [],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 1,
+    "security": 0
+  },
   "languages": [
     "de",
     "en",
@@ -18,6 +26,5 @@
     "changelog_it": "changelog_it.md",
     "developer": "developer.md",
     "summary": "summary.md"
-  },
-  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai-teams/teams-v0.2.46.5-stable/changelog_{lang}.md"
+  }
 }
