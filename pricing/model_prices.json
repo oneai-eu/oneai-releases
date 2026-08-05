@@ -50,48 +50,83 @@
       "input_cents_per_mtok": 250,
       "cached_cents_per_mtok": 25,
       "output_cents_per_mtok": 1500,
-      "notes": "Long-context tier verified 2026-07-08 (OpenAI pricing page screenshot): >=272K bills 500/50/2250. Field names *_above_200k are legacy; real boundary = tier_threshold_tokens (272000, inclusive since short context is '<272K').",
+      "notes": "Long-context tier verified 2026-07-08 (OpenAI pricing page screenshot): >272K bills 500/50/2250. Field names *_above_200k are legacy; real boundary = tier_threshold_tokens (272000, strict > per OpenAI's '>272K' wording).",
       "input_cents_per_mtok_above_200k": 500,
       "cached_cents_per_mtok_above_200k": 50,
       "output_cents_per_mtok_above_200k": 2250,
-      "tier_threshold_tokens": 272000,
-      "tier_boundary_inclusive": true
+      "tier_threshold_tokens": 272000
     },
     "gpt-5.4-pro": {
       "provider": "openai",
       "input_cents_per_mtok": 3000,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 18000,
-      "notes": "No cached-input pricing offered for pro models (cached set to 0; cached_tokens always 0). Long-context tier verified 2026-07-08: >=272K bills 6000/0/27000. Boundary = 272000, inclusive.",
+      "notes": "No cached-input pricing offered for pro models (cached set to 0; cached_tokens always 0). Long-context tier verified 2026-07-08: >272K bills 6000/0/27000. Boundary = 272000, strict >.",
       "input_cents_per_mtok_above_200k": 6000,
       "cached_cents_per_mtok_above_200k": 0,
       "output_cents_per_mtok_above_200k": 27000,
-      "tier_threshold_tokens": 272000,
-      "tier_boundary_inclusive": true
+      "tier_threshold_tokens": 272000
     },
     "gpt-5.5": {
       "provider": "openai",
       "input_cents_per_mtok": 500,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 3000,
-      "notes": "Long-context tier verified 2026-07-08: >=272K bills 1000/100/4500. Boundary = tier_threshold_tokens 272000, inclusive.",
+      "notes": "Long-context tier verified 2026-07-08: >272K bills 1000/100/4500. Boundary = tier_threshold_tokens 272000, strict >.",
       "input_cents_per_mtok_above_200k": 1000,
       "cached_cents_per_mtok_above_200k": 100,
       "output_cents_per_mtok_above_200k": 4500,
-      "tier_threshold_tokens": 272000,
-      "tier_boundary_inclusive": true
+      "tier_threshold_tokens": 272000
     },
     "gpt-5.5-pro": {
       "provider": "openai",
       "input_cents_per_mtok": 3000,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 18000,
-      "notes": "No cached-input pricing offered for pro models (cached set to 0). Long-context tier verified 2026-07-08: >=272K bills 6000/0/27000. Boundary = 272000, inclusive.",
+      "notes": "No cached-input pricing offered for pro models (cached set to 0). Long-context tier verified 2026-07-08: >272K bills 6000/0/27000. Boundary = 272000, strict >.",
       "input_cents_per_mtok_above_200k": 6000,
       "cached_cents_per_mtok_above_200k": 0,
       "output_cents_per_mtok_above_200k": 27000,
+      "tier_threshold_tokens": 272000
+    },
+    "gpt-5.6-sol": {
+      "provider": "openai",
+      "input_cents_per_mtok": 500,
+      "cache_write_cents_per_mtok": 625,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 3000,
+      "input_cents_per_mtok_above_200k": 1000,
+      "cache_write_cents_per_mtok_above_200k": 1250,
+      "cached_cents_per_mtok_above_200k": 100,
+      "output_cents_per_mtok_above_200k": 4500,
       "tier_threshold_tokens": 272000,
-      "tier_boundary_inclusive": true
+      "notes": "GPT-5.6 Sol (flagship). Alias 'gpt-5.6' resolves here — add a 'gpt-5.6' key if the app sends the bare alias as wire model (billing matches exact wire ID). cache_write=1.25x uncached input. >272K tier (strict >, threshold 272000): 2x input / 1.5x output; cached & cache_write scale with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge)."
+    },
+    "gpt-5.6-terra": {
+      "provider": "openai",
+      "input_cents_per_mtok": 250,
+      "cache_write_cents_per_mtok": 312.5,
+      "cached_cents_per_mtok": 25,
+      "output_cents_per_mtok": 1500,
+      "input_cents_per_mtok_above_200k": 500,
+      "cache_write_cents_per_mtok_above_200k": 625,
+      "cached_cents_per_mtok_above_200k": 50,
+      "output_cents_per_mtok_above_200k": 2250,
+      "tier_threshold_tokens": 272000,
+      "notes": "GPT-5.6 Terra (balances intelligence and cost). cache_write=1.25x uncached input. >272K tier (strict >, threshold 272000): 2x input / 1.5x output; cached & cache_write scale with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge)."
+    },
+    "gpt-5.6-luna": {
+      "provider": "openai",
+      "input_cents_per_mtok": 100,
+      "cache_write_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 10,
+      "output_cents_per_mtok": 600,
+      "input_cents_per_mtok_above_200k": 200,
+      "cache_write_cents_per_mtok_above_200k": 250,
+      "cached_cents_per_mtok_above_200k": 20,
+      "output_cents_per_mtok_above_200k": 900,
+      "tier_threshold_tokens": 272000,
+      "notes": "GPT-5.6 Luna (cost-optimized, high-volume). cache_write=1.25x uncached input. >272K tier (strict >, threshold 272000): 2x input / 1.5x output; cached & cache_write scale with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge)."
     },
     "claude-haiku-4-5": {
       "provider": "anthropic",
