@@ -4,12 +4,13 @@ Changelogs for [OneAI Teams](undefined).
 
 ## Latest Version
 
-**[teams-v0.2.46.5-stable](teams-v0.2.46.5-stable/changelog_en.md)** — released 2026-08-02
+**[teams-v0.2.48.2-stable](teams-v0.2.48.2-stable/changelog_en.md)** — released 2026-08-11
 
 ## All Releases
 
 | Version | Date | Breaking | Changelogs |
 |---------|------|----------|------------|
+| [teams-v0.2.48.2-stable](oneai-teams/teams-v0.2.48.2-stable/changelog_en.md) | 2026-08-11 |  | [DE](oneai-teams/teams-v0.2.48.2-stable/changelog_de.md) · [EN](oneai-teams/teams-v0.2.48.2-stable/changelog_en.md) · [FR](oneai-teams/teams-v0.2.48.2-stable/changelog_fr.md) · [ES](oneai-teams/teams-v0.2.48.2-stable/changelog_es.md) · [IT](oneai-teams/teams-v0.2.48.2-stable/changelog_it.md) |
 | [teams-v0.2.46.5-stable](oneai-teams/teams-v0.2.46.5-stable/changelog_en.md) | 2026-08-02 |  | [DE](oneai-teams/teams-v0.2.46.5-stable/changelog_de.md) · [EN](oneai-teams/teams-v0.2.46.5-stable/changelog_en.md) · [FR](oneai-teams/teams-v0.2.46.5-stable/changelog_fr.md) · [ES](oneai-teams/teams-v0.2.46.5-stable/changelog_es.md) · [IT](oneai-teams/teams-v0.2.46.5-stable/changelog_it.md) |
 
 ## Changelog Format
