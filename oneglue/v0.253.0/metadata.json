@@ -1,0 +1,31 @@
+{
+  "product": "oneglue",
+  "version": "v0.253.0",
+  "date": "2026-08-11",
+  "breaking": false,
+  "highlights": [
+    "Fixed a rare issue where organizations with very large numbers of linked items could experience a frozen interface",
+    "Related Items panels now load a page at a time and stay smooth no matter how many links a resource has",
+    "Links pointing at deleted resources no longer appear in Related Items",
+    "Flexible Assets show a clear \"25+\" style count for heavily-linked items"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 2,
+    "fixes": 2,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

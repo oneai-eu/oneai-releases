@@ -1,0 +1,1 @@
+OneGlue v0.253.0 fixes a rare issue that could freeze the interface for organizations with very large numbers of linked items, and makes the Related Items panel faster and cleaner overall -- on-demand "Load more" loading that stays smooth for long lists, no more dead links to deleted resources, and clearer "25+" style counts on heavily-linked Flexible Assets.
