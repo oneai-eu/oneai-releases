@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-08-02T21:12:06.168Z",
+  "last_updated": "2026-08-11T17:22:00.329Z",
   "repository": "https://github.com/oneai-eu/oneai-releases",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "products": {
@@ -364,6 +364,19 @@
           "date": "2026-08-02",
           "breaking": false,
           "path": "oneai-teams/teams-v0.2.46.5-stable"
+        }
+      ]
+    },
+    "onestack-adminui": {
+      "name": "OneStack Admin UI",
+      "description": "",
+      "latest": "admin-v3.8.16",
+      "releases": [
+        {
+          "version": "admin-v3.8.16",
+          "date": "2026-08-11",
+          "breaking": false,
+          "path": "onestack-adminui/admin-v3.8.16"
         }
       ]
     }

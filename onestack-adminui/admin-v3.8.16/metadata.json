@@ -1,0 +1,30 @@
+{
+  "product": "onestack-adminui",
+  "version": "admin-v3.8.16",
+  "date": "2026-08-11",
+  "github_release_url": "https://github.com/oneai-eu/onestack/releases/tag/admin-v3.8.16",
+  "breaking": false,
+  "highlights": [],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 1,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
