@@ -1,0 +1,32 @@
+{
+  "product": "oneglue",
+  "version": "v0.256.0",
+  "date": "2026-08-12",
+  "breaking": false,
+  "highlights": [
+    "Background synchronization and internal database queries tuned for lower load, with permission-revocation hints to connected oneAI workspaces now arriving within about a minute (enforcement on OneGlue's own side remains immediate)",
+    "Audit log: repeated automated background activity is now aggregated into periodic summary entries instead of flooding the log, while every real action is still recorded immediately",
+    "Automated background actions are now correctly attributed to the system instead of a person",
+    "Fixed a false-alarm class in token-cleanup reporting",
+    "Successful automated actions now record network origin details, matching what failed attempts already recorded"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 2,
+    "fixes": 3,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
