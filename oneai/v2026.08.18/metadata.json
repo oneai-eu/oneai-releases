@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v2026.08.18",
+  "date": "2026-08-18",
+  "github_release_url": "https://forgejo.infra.oneai.eu/oneai/oneai/releases/tag/v2026.08.18",
+  "breaking": false,
+  "highlights": [
+    "Präsentationen jetzt in Echtzeit gemeinsam bearbeiten",
+    "Live BI-Dashboards direkt aus euren Datensätzen",
+    "Neue Integrationen-Seite mit granularer Zugriffssteuerung",
+    "Neuer Konnektor: Lexware Office (lexoffice)",
+    "Gesendete Nachrichten lassen sich nachträglich bearbeiten"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
