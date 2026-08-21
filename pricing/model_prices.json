@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-08-05",
+  "version": "2026-08-21",
   "notes": "Prices in cents per 1,000,000 tokens. See README.md for update process. Anthropic entries now split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5-nano": {
