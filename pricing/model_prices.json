@@ -404,17 +404,51 @@
     },
     "gemini-3.5-flash-lite": {
       "provider": "google",
+      "input_cents_per_mtok": 33,
+      "cached_cents_per_mtok": 3.3,
+      "output_cents_per_mtok": 275,
+      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 30/3/250): the old value was the GLOBAL rate, justified by forced-global routing. That justification is void — GLOBAL_ONLY_GEMINI_MODELS was deleted from llm/backends/google/index.ts and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified live against oneai-vertex-prod 2026-08-11), which is a NON-GLOBAL endpoint, so the +10% uplift applies. Vertex table 2026-08-21: global 30/3/250, non-global 33/3.3/275 — the value the superseded note told readers not to 'correct' to. Do not revert without re-checking the routing set. No introductory window on this model. Flat across context length (no >200K premium)."
+    },
+    "gemini-3.5-flash-lite-global": {
+      "provider": "google",
       "input_cents_per_mtok": 30,
       "cached_cents_per_mtok": 3,
       "output_cents_per_mtok": 250,
-      "notes": "Added 2026-07-23. Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS in google.ts), so global rates apply — the +10% non-global uplift on GA Gemini 3+ does NOT apply here; do not 'correct' to 33/3.3/275. Flat across context length (no >200K premium)."
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
+      "notes": "Added 2026-08-21. Global-endpoint rate, no uplift (Vertex table 2026-08-21). Was MISSING from this registry while selectable in the model picker (src/api/util/models.ts), so every request on this wire id billed 0 EUR: getModelPrice does an exact-key lookup with no suffix stripping, so a missing -global key never falls back to its EU twin. No introductory window on this model. Flat across context length (no >200K premium)."
     },
     "gemini-3.6-flash": {
       "provider": "google",
-      "input_cents_per_mtok": 150,
-      "cached_cents_per_mtok": 15,
-      "output_cents_per_mtok": 750,
-      "notes": "Added 2026-07-23. Routed forced-global (GLOBAL_ONLY_GEMINI_MODELS), so global rates apply. Source pricing table showed no global/non-global split for this model; global rate is correct given forced-global routing. Flat across context length (no >200K premium)."
+      "input_cents_per_mtok": 82.5,
+      "cached_cents_per_mtok": 8.25,
+      "output_cents_per_mtok": 412.5,
+      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 150/15/750, ~1.8x OVER-billing on a default: true model): the old value was wrong on two independent counts. (1) INTRODUCTORY pricing runs through 2026-12-31; 150/15/750 is the post-intro rate that starts 2027-01-01. (2) It was the global column, justified by forced-global routing, but GLOBAL_ONLY_GEMINI_MODELS was deleted and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified 2026-08-11), a NON-GLOBAL endpoint, so the +10% uplift applies. The Vertex table 2026-08-21 does split this model global/non-global, superseding the old note's claim that it does not. Intro global 75/7.5/375, intro non-global 82.5/8.25/412.5 — i.e. 3.6 Flash and 3.7 Flash cost the same today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. Flat across context length (no >200K premium)."
+    },
+    "gemini-3.6-flash-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 75,
+      "cached_cents_per_mtok": 7.5,
+      "output_cents_per_mtok": 375,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
+      "notes": "Added 2026-08-21. INTRODUCTORY global rate (Vertex table 2026-08-21), EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Was MISSING from this registry while selectable in the model picker, so every request on this wire id billed 0 EUR (exact-key lookup, no suffix stripping). Flat across context length (no >200K premium)."
+    },
+    "gemini-3.7-flash": {
+      "provider": "google",
+      "input_cents_per_mtok": 82.5,
+      "cached_cents_per_mtok": 8.25,
+      "output_cents_per_mtok": 412.5,
+      "notes": "Added 2026-08-19. INTRODUCTORY pricing, EXPIRES 2026-12-31: on 2027-01-01 Google doubles the base, making this 165/16.5/825. Base (global) intro rate is 75/7.5/375; this entry carries the +10% non-global uplift, which applies because the wire id resolves to the `eu` multi-region — routing confirmed live 2026-08-19 against oneai-vertex-prod: 200 on `eu`, 404 in europe-west4, so EU_MULTIREGION_GEMINI_MODELS. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium)."
+    },
+    "gemini-3.7-flash-global": {
+      "provider": "google",
+      "input_cents_per_mtok": 75,
+      "cached_cents_per_mtok": 7.5,
+      "output_cents_per_mtok": 375,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
+      "notes": "Added 2026-08-19. INTRODUCTORY global rate, EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium)."
     },
     "text-embedding-3-small": {
       "provider": "openai",
