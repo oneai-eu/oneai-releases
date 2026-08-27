@@ -228,18 +228,19 @@ JSON serialization (~6x faster for embedding responses).
 **Pull (no authentication required):**
 
 ```bash
-docker pull ghcr.io/oneai-eu/onestack-vllm:v0.17.1
+docker pull ghcr.io/oneai-eu/onestack-vllm:v0.28.0
 ```
 
 | Image | Base | Addition | Use Case |
 |-------|------|----------|----------|
-| `ghcr.io/oneai-eu/onestack-vllm` | `vllm/vllm-openai` | orjson | vLLM + vLLM Embed engines |
+| `ghcr.io/oneai-eu/onestack-vllm` | `vllm/vllm-openai` | orjson + Qwen3.5 LoRA embedding_modules patch | vLLM + vLLM Embed engines |
 
 **Available Tags:**
 
 | Tag | vLLM Version | Notes |
 |-----|-------------|-------|
-| `v0.17.1` | v0.17.1 | Current stable |
+| `v0.28.0` | v0.28.0 | Current stable |
+| `v0.24.0` | v0.24.0 | Previous stable (Blackwell rollback image) |
 | `latest` | Latest built | Always matches most recent version tag |
 
 **Building a new version:**

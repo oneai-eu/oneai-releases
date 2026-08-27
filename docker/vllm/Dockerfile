@@ -1,4 +1,4 @@
-ARG VLLM_VERSION=v0.23.0
+ARG VLLM_VERSION=v0.28.0
 FROM vllm/vllm-openai:${VLLM_VERSION}
 
 LABEL org.opencontainers.image.title="OneStack vLLM"
@@ -16,32 +16,43 @@ RUN pip install --no-cache-dir orjson
 # ─────────────────────────────────────────────────────────────────────────────
 # Qwen3.5 LoRA embedding_modules patch
 #
-# Upstream vLLM (v0.18.x through v0.23.0) misses the `embedding_modules`
-# class attribute on Qwen3_5ForCausalLMBase + Qwen3_5ForConditionalGeneration.
-# (Re-verified against the v0.23.0 git tag 2026-06-15: module path + class
-#  names unchanged, upstream still has NOT added the attribute — issue #38085
-#  was closed without it, PR #39369 closed unmerged. Patch still required.)
+# Upstream vLLM (v0.18.x through v0.28.0) misses the `embedding_modules`
+# class attribute on the Qwen3.5 model classes. (Re-ported against the
+# v0.28.0 git tag 2026-08-27: qwen3_5.py gained new text-only classes
+# Qwen3_5ForCausalLM / Qwen3_5MoeForCausalLM (subclass Qwen3_5ForCausalLMBase)
+# and Qwen3_5MoeForConditionalGeneration (subclasses
+# Qwen3_5ForConditionalGeneration); upstream still has NOT added the
+# attribute anywhere — issue #38085 was closed without it. Patching the two
+# base classes covers all four generative classes via getattr inheritance.)
 # Without it, LoRA adapters trained with embed_tokens or lm_head in
 # target_modules (e.g. unsloth-trained models with 9 LoRA targets) are
 # rejected at vllm's add_lora() with "expected target modules in {...}
 # but received [...lm_head, ...embed_tokens...]".
 #
-# LlamaForCausalLM and Qwen3 (non-3.5) declare this attribute; Qwen3.5 was
-# added recently and missed it. The patch script adds the missing 4-line
-# declaration to both classes.
+# LlamaForCausalLM and Qwen3 (non-3.5) declare this attribute; Qwen3.5
+# missed it. The patch script adds the missing 4-line declaration to both
+# base classes and guards the inheritance-covered subclasses.
 #
 # Idempotent + hard-fails if vLLM source layout changes — see patch source.
+#
+# NOTE (deliberate non-change): VLLM_USE_DEEP_GEMM is NOT set in this image.
+# The SM120 block-FP8 DeepGEMM workaround (issue #47436) is a per-deployment
+# env decision — v0.28.0 pins DeepGEMM with SM120 SF-transform support
+# (PR #52035), to be confirmed on the summary canary with BOTH kernel paths.
 # ─────────────────────────────────────────────────────────────────────────────
 COPY patches/qwen3_5_lora_embedding_modules.py /tmp/onestack_patches/
 RUN python3 /tmp/onestack_patches/qwen3_5_lora_embedding_modules.py && \
     rm -rf /tmp/onestack_patches
 
-# Sanity-verify the patch landed before the image is published
+# Sanity-verify the patch landed before the image is published.
+# Checks ALL five Qwen3.5 classes (getattr — inheritance-aware), matching
+# how vLLM's get_supported_lora_modules() reads the attribute.
 RUN python3 -c "import vllm.model_executor.models.qwen3_5 as m; \
-    assert getattr(m.Qwen3_5ForCausalLMBase, 'embedding_modules', None) == \
-    {'embed_tokens': 'input_embeddings', 'lm_head': 'output_embeddings'}, \
-    'Qwen3_5ForCausalLMBase patch verification FAILED'; \
-    assert getattr(m.Qwen3_5ForConditionalGeneration, 'embedding_modules', None) == \
-    {'embed_tokens': 'input_embeddings', 'lm_head': 'output_embeddings'}, \
-    'Qwen3_5ForConditionalGeneration patch verification FAILED'; \
-    print('[verify] OK: Qwen3.5 LoRA embedding_modules patch active')"
+    expected = {'embed_tokens': 'input_embeddings', 'lm_head': 'output_embeddings'}; \
+    classes = ['Qwen3_5ForCausalLMBase', 'Qwen3_5ForCausalLM', \
+               'Qwen3_5MoeForCausalLM', 'Qwen3_5ForConditionalGeneration', \
+               'Qwen3_5MoeForConditionalGeneration']; \
+    missing = [c for c in classes \
+               if getattr(getattr(m, c), 'embedding_modules', None) != expected]; \
+    assert not missing, f'embedding_modules patch verification FAILED for: {missing}'; \
+    print('[verify] OK: Qwen3.5 LoRA embedding_modules patch active on all 5 classes')"
