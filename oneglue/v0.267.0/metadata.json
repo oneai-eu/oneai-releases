@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.267.0",
+  "date": "2026-08-29",
+  "breaking": false,
+  "highlights": [
+    "Duplicate any configuration, network, contact, location, domain, or flexible asset from its detail page — the form opens pre-filled, with unique fields like serial numbers and MAC addresses left empty for you to fill in",
+    "Domains with a linked registrar credential now sync automatically every night — expiry date, nameservers, auto-renew, and DNSSEC always stay current, with a manual sync button for when you don't want to wait",
+    "Creating a flexible asset now takes you straight to its detail page"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
