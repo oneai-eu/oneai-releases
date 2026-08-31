@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.269.0",
+  "date": "2026-08-31",
+  "breaking": false,
+  "highlights": [
+    "See in seconds which passwords a departing or disabled user viewed, with a ready rotation list, plus what they looked at, what they were denied, and their login history — export as JSON or CSV",
+    "The audit log now shows who did what by name, its user filter finds disabled users, and CSV exports include the affected item's name",
+    "Promoting someone with an outside e-mail address to a tenant-wide role now e-mails all tenant admins"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
