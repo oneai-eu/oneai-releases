@@ -676,6 +676,50 @@
       "manual_only": true,
       "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo — manage price manually",
       "notes": "UPDATED 2026-07-08: added >200K premium tier (previously single-rate; long-context undercharged). Routing hardcoded global in grok.ts; '-global' suffix is cosmetic."
+    },
+    "deepseek-v4-flash": {
+      "display_name": "DeepSeek V4 Flash",
+      "provider": "deepseek",
+      "hoster": "weber",
+      "location": "baden-wuerttemberg",
+      "input_cents_per_mtok": 70,
+      "cached_cents_per_mtok": 35,
+      "output_cents_per_mtok": 140,
+      "manual_only": true,
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical."
+    },
+    "deepseek-v4-flash-think": {
+      "display_name": "DeepSeek V4 Flash Think",
+      "provider": "deepseek",
+      "hoster": "weber",
+      "location": "baden-wuerttemberg",
+      "input_cents_per_mtok": 70,
+      "cached_cents_per_mtok": 35,
+      "output_cents_per_mtok": 200,
+      "manual_only": true,
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical. Output premium: reasoning traces bill as output."
+    },
+    "deepseek-v4-flash-max": {
+      "display_name": "DeepSeek V4 Flash Max",
+      "provider": "deepseek",
+      "hoster": "weber",
+      "location": "baden-wuerttemberg",
+      "input_cents_per_mtok": 100,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 250,
+      "manual_only": true,
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical."
+    },
+    "qwen3.8-27b": {
+      "display_name": "Qwen3.8 27B",
+      "provider": "qwen",
+      "hoster": "weber",
+      "location": "baden-wuerttemberg",
+      "input_cents_per_mtok": 50,
+      "cached_cents_per_mtok": 25,
+      "output_cents_per_mtok": 100,
+      "manual_only": true,
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical. Entry price: the smallest hosted model, deliberately the cheapest paid row."
     }
   },
   "transcription": {
