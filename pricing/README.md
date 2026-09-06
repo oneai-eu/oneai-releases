@@ -68,7 +68,20 @@ If a provider changes a price and the daily sync hasn't run yet:
   "version": "YYYY-MM-DD",
   "models": {
     "<model-id>": {
-      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai",
+      "display_name": string,          // UI label, e.g. "Opus 5"
+      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai" | "deepseek" | "qwen",
+                                        // the model's AUTHOR — who made the weights
+      "hoster": "openai" | "google-vertex" | "mistral" | "weber" | "oneai",
+                                        // who serves the API we call
+      "location": "global" | "europe" | "germany" | "baden-wuerttemberg",
+                                        // optional — most specific hosting region of the
+                                        // DEFAULT SaaS routing. Each level implies the
+                                        // broader ones: baden-wuerttemberg is also
+                                        // germany- and europe-hosted. Omitted where the
+                                        // location is deployment-specific (internal
+                                        // oneai models). Compliance-authoritative
+                                        // residency stays in the app's routing code,
+                                        // which a deployment can repoint.
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,
       "output_cents_per_mtok": number,
@@ -99,7 +112,7 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 ### Units
 
-- **All prices in cents.** Not dollars, not micros.
+- **All prices in EUR cents.** Not dollars, not micros.
 - **Token prices** are per 1,000,000 tokens (MTok).
 - **Transcription** is per minute.
 - **Images** are per image.
@@ -109,6 +122,14 @@ If a provider changes a price and the daily sync hasn't run yet:
 - **Anthropic**: `input_cents_per_mtok` reflects the cache-write price (1.25× base). Cache reads use `cached_cents_per_mtok`.
 - **Mistral**: no cached pricing — `cached_cents_per_mtok` is `0`.
 - **Embeddings**: only `input_cents_per_mtok` is used; output and cached are `0`.
+- **Provider vs hoster**: `provider` names the model's author (what a customer picks on),
+  `hoster` names whose API bills us. Claude and Gemini rows are `hoster: google-vertex`;
+  the open-weight DeepSeek/Qwen rows are authored by `deepseek`/`qwen` and served by
+  `weber` (weber.cloud, Balingen — `location: baden-wuerttemberg`).
+- **Vertex EU premium**: every Vertex EU-region row prices at exactly 1.10× its
+  `-global` twin (verified across the gemini-3.7 and opus-5 pairs). A derived EU row is
+  marked `manual_only` with the derivation in `manual_only_reason` until confirmed
+  against the Vertex pricing page.
 
 ## Internal Models
 
