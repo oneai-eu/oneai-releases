@@ -129,10 +129,16 @@ If a provider changes a price and the daily sync hasn't run yet:
   `hoster` names whose API bills us. Claude and Gemini rows are `hoster: google-vertex`;
   the open-weight DeepSeek/Qwen rows are authored by `deepseek`/`qwen` and served by
   `weber` (weber.cloud, Balingen — `location: baden-wuerttemberg`).
-- **Vertex EU premium**: every Vertex EU-region row prices at exactly 1.10× its
-  `-global` twin (verified across the gemini-3.7 and opus-5 pairs). A derived EU row is
-  marked `manual_only` with the derivation in `manual_only_reason` until confirmed
-  against the Vertex pricing page.
+- **Vertex EU premium**: Gemini and Claude EU-region rows price at exactly 1.10× their
+  `-global` twin — verified in the Cloud Billing catalog, where those models publish
+  separate `eu` and `global` SKUs (e.g. Gemini 3.8 Flash input: 1416 vs 1287 nanos).
+  **xAI does not follow this**: our price list contains only `global` Grok SKUs, so an
+  EU-served Grok request bills the global rate and the EU row equals the global one.
+- **The catalog carries LIST price only** — promotional/introductory discounts do not
+  appear in it. `gemini-3.7-flash` is on an introductory rate at half its catalog list
+  until 2026-12-31, which is why its row is lower than the catalog suggests. When adding
+  a Vertex model from the catalog, note in `manual_only_reason` that the row is list
+  price and may need halving if the model carries the same promotion.
 
 ## Internal Models
 

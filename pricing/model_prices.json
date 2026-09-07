@@ -611,7 +611,8 @@
       "input_cents_per_mtok": 165,
       "cached_cents_per_mtok": 16.5,
       "output_cents_per_mtok": 825,
-      "notes": "Regional (eu multi-region) rate = global x 1.10, both read directly from the Vertex SKU catalog 2026-09-07 (141.6/14.1/708 EUR-ct at fx 0.8582 = $1.65/$0.165/$8.25). Flat across context length. Equals gemini-3.7-flash's documented post-intro 2027 rate."
+      "manual_only": true,
+      "manual_only_reason": "Vertex catalog list price 2026-09-07: regional input 141.60 / cached 14.10 / output 708.00 EUR ct, global 128.70 / 12.80 / 643.60 -> the USD ct here. Regional is exactly 1.10x global (nanos 1416 vs 1287), the standard non-global uplift. NOTE: the catalog carries LIST price and does not show promotional discounts — gemini-3.7-flash is on an introductory rate at half of its own catalog list until 2026-12-31, so if 3.8 Flash carries the same promotion the real cost is half of this and the row should be halved. Priced at list deliberately: over-recovering is the safe direction. Verified against the Cloud Billing catalog for our own billing account (oneai-vertex-prod / OneAI.eu) on 2026-09-07: the catalog quotes EUR and carries currencyConversionRate 0.8582, so EUR ct / 0.8582 = the USD ct stored here."
     },
     "gemini-3.8-flash-global": {
       "display_name": "Gemini 3.8 Flash",
@@ -621,7 +622,8 @@
       "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 15,
       "output_cents_per_mtok": 750,
-      "notes": "Vertex SKU catalog 2026-09-07: $1.50/$0.15/$7.50 per MTok (128.7/12.8/643.6 EUR-ct at fx 0.8582). Flat across context length."
+      "manual_only": true,
+      "manual_only_reason": "Vertex catalog list price 2026-09-07: regional input 141.60 / cached 14.10 / output 708.00 EUR ct, global 128.70 / 12.80 / 643.60 -> the USD ct here. Regional is exactly 1.10x global (nanos 1416 vs 1287), the standard non-global uplift. NOTE: the catalog carries LIST price and does not show promotional discounts — gemini-3.7-flash is on an introductory rate at half of its own catalog list until 2026-12-31, so if 3.8 Flash carries the same promotion the real cost is half of this and the row should be halved. Priced at list deliberately: over-recovering is the safe direction. Verified against the Cloud Billing catalog for our own billing account (oneai-vertex-prod / OneAI.eu) on 2026-09-07: the catalog quotes EUR and carries currencyConversionRate 0.8582, so EUR ct / 0.8582 = the USD ct stored here."
     },
     "text-embedding-3-small": {
       "display_name": "Text Embedding 3 Small",
@@ -676,11 +678,14 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "europe",
-      "input_cents_per_mtok": 137.5,
-      "cached_cents_per_mtok": 22.0,
-      "output_cents_per_mtok": 275.0,
+      "input_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 250,
       "manual_only": true,
-      "manual_only_reason": "EU-region row derived as grok-4.3-global x 1.10. Since verified: the global base matches the account price list ($2.50/M output, SKU 8ED7-95A8-BF6F, 2026-09-07) and the x1.10 regional premium is confirmed numerically on the Gemini 3.8 SKU pair."
+      "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo. Priced IDENTICALLY to grok-4.3-global on purpose: our Cloud Billing price list contains only `global` Grok SKUs (Grok 4.3 service 0898-1026-4AF5 = input B211-353D-D193 107.28 EUR ct, output 8ED7-95A8-BF6F 214.55 EUR ct -> 125/250 USD ct), so EU-served traffic bills the global rate. The +10% non-global uplift applies to Gemini and Claude, whose SKU sets have explicit `eu` entries — it does not apply here. Verified against the Cloud Billing catalog for our own billing account (oneai-vertex-prod / OneAI.eu) on 2026-09-07: the catalog quotes EUR and carries currencyConversionRate 0.8582, so EUR ct / 0.8582 = the USD ct stored here.",
+      "input_cents_per_mtok_above_200k": 250,
+      "cached_cents_per_mtok_above_200k": 40,
+      "output_cents_per_mtok_above_200k": 500
     },
     "grok-4.3-global": {
       "display_name": "Grok 4.3",
@@ -702,10 +707,11 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "europe",
-      "input_cents_per_mtok": 220,
-      "cached_cents_per_mtok": 55,
-      "output_cents_per_mtok": 660,
-      "notes": "EU = global x 1.10, the Vertex regional premium confirmed numerically on the Gemini 3.8 SKU pair. Global base from the account price list 2026-09-07."
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 600,
+      "manual_only": true,
+      "manual_only_reason": "Vertex catalog list price 2026-09-07, Grok 4.6 service EF1B-101B-5709: input 0963-3694-DBF0 171.64 / cache-read 852A-16BF-206F 42.91 / output 2015-E2E5-56E6 514.92 EUR ct -> 200 / 50 / 600 USD ct. Only `global` SKUs exist, so the EU wire id bills the same rate — no non-global uplift for xAI. Verified against the Cloud Billing catalog for our own billing account (oneai-vertex-prod / OneAI.eu) on 2026-09-07: the catalog quotes EUR and carries currencyConversionRate 0.8582, so EUR ct / 0.8582 = the USD ct stored here."
     },
     "grok-4.6-global": {
       "display_name": "Grok 4.6",
@@ -715,7 +721,8 @@
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 600,
-      "notes": "Account price list 2026-09-07 (SKUs 0963-3694-DBF0 / 852A-16BF-206F / 2015-E2E5-56E6): $2.00/$0.50/$6.00 per MTok (1.7164/0.4291/5.1492 EUR at fx 0.8582), 0-200K tier."
+      "manual_only": true,
+      "manual_only_reason": "Vertex catalog list price 2026-09-07, Grok 4.6 service EF1B-101B-5709: input 0963-3694-DBF0 171.64 / cache-read 852A-16BF-206F 42.91 / output 2015-E2E5-56E6 514.92 EUR ct -> 200 / 50 / 600 USD ct. Only `global` SKUs exist, so the EU wire id bills the same rate — no non-global uplift for xAI. Verified against the Cloud Billing catalog for our own billing account (oneai-vertex-prod / OneAI.eu) on 2026-09-07: the catalog quotes EUR and carries currencyConversionRate 0.8582, so EUR ct / 0.8582 = the USD ct stored here."
     },
     "deepseek-v4-flash": {
       "display_name": "DeepSeek V4 Flash",
@@ -726,7 +733,7 @@
       "cached_cents_per_mtok": 35,
       "output_cents_per_mtok": 140,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical."
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 EUR ct per actual MTok (output/input/cached). This file stores USD ct, so at the catalog's 0.8582 EUR/USD these prices recover 1.72x input, 1.72x cached and 1.72x output against that EUR cost."
     },
     "deepseek-v4-flash-think": {
       "display_name": "DeepSeek V4 Flash Think",
@@ -737,7 +744,7 @@
       "cached_cents_per_mtok": 35,
       "output_cents_per_mtok": 200,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical. Output premium: reasoning traces bill as output."
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 EUR ct per actual MTok (output/input/cached). This file stores USD ct, so at the catalog's 0.8582 EUR/USD these prices recover 1.72x input, 1.72x cached and 2.45x output against that EUR cost."
     },
     "deepseek-v4-flash-max": {
       "display_name": "DeepSeek V4 Flash Max",
@@ -748,7 +755,7 @@
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 250,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical."
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 EUR ct per actual MTok (output/input/cached). This file stores USD ct, so at the catalog's 0.8582 EUR/USD these prices recover 2.45x input, 2.45x cached and 3.06x output against that EUR cost."
     },
     "qwen3.8-27b": {
       "display_name": "Qwen3.8 27B",
@@ -759,7 +766,7 @@
       "cached_cents_per_mtok": 25,
       "output_cents_per_mtok": 100,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 cents per actual MTok (output/input/cached). Prices below keep >=1.4x on the worst line and ~2x typical. Entry price: the smallest hosted model, deliberately the cheapest paid row."
+      "manual_only_reason": "weber.cloud has no public per-token API pricing to scrape; prices are oneAI-set. Cost basis: weber.cloud Managed KI Small Business, EUR 35/month for 50M counted tokens (output 100%, input 50%, cached 25% of the budget) => marginal cost 70/35/17.5 EUR ct per actual MTok (output/input/cached). This file stores USD ct, so at the catalog's 0.8582 EUR/USD these prices recover 1.23x input, 1.23x cached and 1.23x output against that EUR cost."
     }
   },
   "transcription": {
