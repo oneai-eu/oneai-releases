@@ -68,7 +68,20 @@ If a provider changes a price and the daily sync hasn't run yet:
   "version": "YYYY-MM-DD",
   "models": {
     "<model-id>": {
-      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai",
+      "display_name": string,          // UI label, e.g. "Opus 5"
+      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai" | "deepseek" | "qwen",
+                                        // the model's AUTHOR — who made the weights
+      "hoster": "openai" | "google-vertex" | "mistral" | "weber" | "oneai",
+                                        // who serves the API we call
+      "location": "global" | "europe" | "germany" | "baden-wuerttemberg",
+                                        // optional — most specific hosting region of the
+                                        // DEFAULT SaaS routing. Each level implies the
+                                        // broader ones: baden-wuerttemberg is also
+                                        // germany- and europe-hosted. Omitted where the
+                                        // location is deployment-specific (internal
+                                        // oneai models). Compliance-authoritative
+                                        // residency stays in the app's routing code,
+                                        // which a deployment can repoint.
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,
       "output_cents_per_mtok": number,
@@ -99,7 +112,10 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 ### Units
 
-- **All prices in cents.** Not dollars, not micros.
+- **All prices in cents per unit.** Numerals mirror the providers' USD list prices
+  (that is what the scrapers read); oneAI bills them 1:1 as EUR cents, so the EUR/USD
+  spread is a deliberate cushion, not an error. EUR-native providers (weber.cloud)
+  are entered in actual EUR.
 - **Token prices** are per 1,000,000 tokens (MTok).
 - **Transcription** is per minute.
 - **Images** are per image.
@@ -109,6 +125,19 @@ If a provider changes a price and the daily sync hasn't run yet:
 - **Anthropic**: `input_cents_per_mtok` reflects the cache-write price (1.25× base). Cache reads use `cached_cents_per_mtok`.
 - **Mistral**: no cached pricing — `cached_cents_per_mtok` is `0`.
 - **Embeddings**: only `input_cents_per_mtok` is used; output and cached are `0`.
+- **Provider vs hoster**: `provider` names the model's author (what a customer picks on),
+  `hoster` names which API serves it. Claude and Gemini rows are `hoster: google-vertex`;
+  the open-weight DeepSeek/Qwen rows are authored by `deepseek`/`qwen` and served by
+  `weber` (weber.cloud, Balingen — `location: baden-wuerttemberg`).
+- **Vertex EU premium**: Gemini and Claude EU-region rows price at exactly 1.10× their
+  `-global` twin, because Google and Anthropic publish separate global and non-global
+  rates for them. **xAI does not follow this**: only global-region rates are published
+  for Grok, so an EU-served Grok request prices the same as the global twin.
+- **List price only** — promotional/introductory discounts are not reflected.
+  `gemini-3.7-flash` is on an introductory rate at half its list price until
+  2026-12-31, which is why its row is lower than the list suggests. When adding a
+  Vertex model, note in `manual_only_reason` that the row is list price and may need
+  halving if the model carries the same promotion.
 
 ## Internal Models
 
