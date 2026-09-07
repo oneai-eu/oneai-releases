@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-06",
-  "notes": "Prices in EUR cents per 1,000,000 tokens. See README.md for update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
+  "version": "2026-09-07",
+  "notes": "Prices in cents per 1,000,000 tokens. Numerals mirror the providers' USD list prices (that is what the scrapers read) and oneAI bills them 1:1 as EUR cents - the EUR/USD spread is deliberate cushion. EUR-native providers (weber.cloud) are entered in actual EUR. See README.md for update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5-nano": {
       "display_name": "GPT-5 Nano",
@@ -603,6 +603,26 @@
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
       "notes": "Added 2026-08-19. INTRODUCTORY global rate, EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium)."
     },
+    "gemini-3.8-flash": {
+      "display_name": "Gemini 3.8 Flash",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "input_cents_per_mtok": 165,
+      "cached_cents_per_mtok": 16.5,
+      "output_cents_per_mtok": 825,
+      "notes": "Regional (eu multi-region) rate = global x 1.10, both read directly from the Vertex SKU catalog 2026-09-07 (141.6/14.1/708 EUR-ct at fx 0.8582 = $1.65/$0.165/$8.25). Flat across context length. Equals gemini-3.7-flash's documented post-intro 2027 rate."
+    },
+    "gemini-3.8-flash-global": {
+      "display_name": "Gemini 3.8 Flash",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "global",
+      "input_cents_per_mtok": 150,
+      "cached_cents_per_mtok": 15,
+      "output_cents_per_mtok": 750,
+      "notes": "Vertex SKU catalog 2026-09-07: $1.50/$0.15/$7.50 per MTok (128.7/12.8/643.6 EUR-ct at fx 0.8582). Flat across context length."
+    },
     "text-embedding-3-small": {
       "display_name": "Text Embedding 3 Small",
       "provider": "openai",
@@ -660,7 +680,7 @@
       "cached_cents_per_mtok": 22.0,
       "output_cents_per_mtok": 275.0,
       "manual_only": true,
-      "manual_only_reason": "EU-region row derived as grok-4.3-global x 1.10 — the exact premium every other Vertex EU row in this file carries (verified against the gemini-3.7 and opus-5 pairs). Confirm against the Vertex pricing page before relying on it."
+      "manual_only_reason": "EU-region row derived as grok-4.3-global x 1.10. Since verified: the global base matches the account price list ($2.50/M output, SKU 8ED7-95A8-BF6F, 2026-09-07) and the x1.10 regional premium is confirmed numerically on the Gemini 3.8 SKU pair."
     },
     "grok-4.3-global": {
       "display_name": "Grok 4.3",
@@ -676,6 +696,26 @@
       "manual_only": true,
       "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo — manage price manually",
       "notes": "UPDATED 2026-07-08: added >200K premium tier (previously single-rate; long-context undercharged). Routing hardcoded global in grok.ts; '-global' suffix is cosmetic."
+    },
+    "grok-4.6": {
+      "display_name": "Grok 4.6",
+      "provider": "xai",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "input_cents_per_mtok": 220,
+      "cached_cents_per_mtok": 55,
+      "output_cents_per_mtok": 660,
+      "notes": "EU = global x 1.10, the Vertex regional premium confirmed numerically on the Gemini 3.8 SKU pair. Global base from the account price list 2026-09-07."
+    },
+    "grok-4.6-global": {
+      "display_name": "Grok 4.6",
+      "provider": "xai",
+      "hoster": "google-vertex",
+      "location": "global",
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 600,
+      "notes": "Account price list 2026-09-07 (SKUs 0963-3694-DBF0 / 852A-16BF-206F / 2015-E2E5-56E6): $2.00/$0.50/$6.00 per MTok (1.7164/0.4291/5.1492 EUR at fx 0.8582), 0-200K tier."
     },
     "deepseek-v4-flash": {
       "display_name": "DeepSeek V4 Flash",

@@ -112,7 +112,10 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 ### Units
 
-- **All prices in EUR cents.** Not dollars, not micros.
+- **All prices in cents per unit.** Numerals mirror the providers' USD list prices
+  (that is what the scrapers read); oneAI bills them 1:1 as EUR cents, so the EUR/USD
+  spread is a deliberate cushion, not an error. EUR-native providers (weber.cloud)
+  are entered in actual EUR.
 - **Token prices** are per 1,000,000 tokens (MTok).
 - **Transcription** is per minute.
 - **Images** are per image.
