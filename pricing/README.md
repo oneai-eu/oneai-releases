@@ -35,21 +35,15 @@ GET https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/pricing/model
 
 ## How Prices Get Updated
 
-Prices are synced directly from each provider's official pricing page by a per-provider scraper. The [`Sync pricing`](../.github/workflows/sync-pricing.yml) GitHub Action runs daily at 03:00 UTC:
+**All prices are maintained manually.** The provider's own pricing page is the source of truth, and the JSON in this directory is what apps use for billing.
 
-1. **Scrape** — `pricing/_scripts/sync.ts` runs every scraper module under `_scripts/scrapers/` in parallel.
-2. **Hard-fail loudly** — if *any* scraper reports an error (model missing, parse failure, network error), the workflow fails and no PR is opened. We'd rather page someone than silently sync stale data.
-3. **Diff** — if every scraper succeeded, scraped values are compared against `model_prices.json` (rounded to 4dp, threshold 0.001).
-4. **PR** — on drift, the action opens a PR labelled `pricing-sync` against `main` with a markdown table of every change. PRs whose largest diff exceeds 50% are tagged `BIG CHANGE — double-check` in the title.
-5. **Review & merge** — a human confirms each change against the provider's page (links are in the PR body). Merging makes the new prices live. Apps pick them up within their cache TTL (~5–15 min).
+The `Sync pricing` GitHub Action that previously ran daily at 03:00 UTC was removed on 2026-09-07. Its per-provider scrapers broke whenever a vendor restyled a pricing page, so the job failed for long stretches with no visible signal, and it only ever covered OpenAI and Mistral — a minority of the catalogue. Recover it from git history if it is ever needed: see `.github/workflows/sync-pricing.yml` at commit `3eb5d56` or earlier.
 
-There is no detector / source-of-truth split anymore — the provider's own pricing page is the source of truth, and the merged JSON in this directory is what apps use for billing.
+Because nothing checks these values automatically any more, the review step below is the only thing standing between a typo and production billing.
 
 ### Models the scraper skips
 
-Models with `manual_only: true` in the JSON are not touched by the sync. See `manual_only_reason` on each entry for why. Reasons today include: deprecated/internal-only models, providers we don't have a scraper for yet (e.g. Imagen), and product surfaces we aren't actively routing to (e.g. grok-imagine).
-
-To update a manual-only price, edit `model_prices.json` directly, link the provider's pricing page in your PR, and request review.
+Entries carrying `manual_only: true` and a `manual_only_reason` predate the removal of the sync; the flag marked models the scraper was not allowed to overwrite. It now has no effect on any tooling in this repository — every entry is manual. The `manual_only_reason` strings are retained as historical justification for how each price was set.
 
 ### Updating a Price Manually
 
