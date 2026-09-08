@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v2026.09.04",
+  "date": "2026-09-08",
+  "github_release_url": "https://forgejo.infra.oneai.eu/oneai/oneai/releases/tag/v2026.09.04",
+  "breaking": false,
+  "highlights": [
+    "Canvas wird zur öffentlich teilbaren Mini-App",
+    "HubSpot: native CRM-Anbindung mit 26 Werkzeugen",
+    "Chat-Bestätigungen hängen nicht mehr fest, KI kann gezielt nachfragen",
+    "Neue Anbindung Plytix, weiterer Ausbau bei weclapp, ClickUp und Fireflies",
+    "Anmeldung mit Apple-Konto"
+  ],
+  "categories": {
+    "features": 30,
+    "improvements": 0,
+    "fixes": 16,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "product": "oneai",
-  "version": "v2026.08.18",
-  "date": "2026-08-18",
+  "version": "v2026.09.04",
+  "date": "2026-09-08",
   "breaking": false,
   "languages": [
     "de",
@@ -19,5 +19,5 @@
     "developer": "developer.md",
     "summary": "summary.md"
   },
-  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/v2026.08.18/changelog_{lang}.md"
+  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/v2026.09.04/changelog_{lang}.md"
 }
