@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-07",
+  "version": "2026-09-21",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5.5-pro": {
@@ -348,6 +348,36 @@
       "manual_only": true,
       "manual_only_reason": "Vertex AI list price; no xAI text scraper in repo — maintained manually. xAI publishes only global-region rates on Vertex, so the EU wire id and the -global twin price identically — the 1.10x non-global uplift that applies to Gemini and Claude does not apply here.",
       "notes": "Added 2026-09-04; >200K tier added 2026-09-07 (it was missing, so long-context requests billed at the base rate). Vertex 'xAI's Grok models' table: 200/50/600, >200K 400/100/1200. Global endpoint via the '-global' suffix in resolveGrokLocation; identical to its EU twin because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote. No cache-write rate published. On app main (dbbae44dd), not in live release v2026.08.25. App-side Vertex id is 'xai/grok-4.6'."
+    },
+    "grok-4.7": {
+      "display_name": "Grok 4.7",
+      "provider": "xai",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 600,
+      "input_cents_per_mtok_above_200k": 400,
+      "cached_cents_per_mtok_above_200k": 100,
+      "output_cents_per_mtok_above_200k": 1200,
+      "manual_only": true,
+      "manual_only_reason": "PROVISIONAL — no source exists yet. Google has not published Grok 4.7 in the Vertex model garden, so it is absent from the 'xAI's Grok models' pricing table (re-checked 2026-09-21: the page lists 4.1 Fast, 4.20, 4.3 and 4.6 only). These values are INHERITED from grok-4.6, not read from a table, and must be re-verified the moment Vertex publishes the SKU.",
+      "notes": "ADDED 2026-09-21, PRE-PROVISIONED AHEAD OF THE MODEL. Added deliberately before the price is knowable, because the alternative is worse: the app PR (branch feat/models-grok-4-7) puts grok-4.7 in grokModels and in MODELS with default: true, so it seeds into org_base_models for every new org — and a dispatchable model with no row bills 0 EUR with only a console.warn. That exact failure has already happened twice in this file (gemini-3.5-flash-lite-global, and gpt-image-2 plus all five FLUX rows). A stale row costs nothing; a missing row on a default model costs revenue silently. PRICE IS AN ASSUMPTION: inherited from grok-4.6 (200/50/600, >200K 400/100/1200). Do NOT treat the match as verified — xAI did NOT hold price flat across the previous version bump (4.3 was 125/20/250 with >200K 250/40/500, i.e. 4.6 raised the base 1.6x and the tier 2.4x), so 4.7 repricing again is at least as likely as not. Structure follows the family and is safe regardless: bare wire id routes to the Vertex 'eu' multi-region and the -global twin to 'global' (resolveGrokLocation), both priced identically because xAI publishes no region split on Vertex; tier boundary STRICT > at the default 200000, so no tier_boundary_inclusive and no tier_threshold_tokens; no cache-write rate published, so cache_write falls back to the input rate. App-side Vertex id is 'xai/grok-4.7'. The app's own comment records that requests 404 until Vertex serves the model, so no billing can occur on this row until then — which is the window in which to replace these numbers with published ones."
+    },
+    "grok-4.7-global": {
+      "display_name": "Grok 4.7",
+      "provider": "xai",
+      "hoster": "google-vertex",
+      "location": "global",
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 50,
+      "output_cents_per_mtok": 600,
+      "input_cents_per_mtok_above_200k": 400,
+      "cached_cents_per_mtok_above_200k": 100,
+      "output_cents_per_mtok_above_200k": 1200,
+      "manual_only": true,
+      "manual_only_reason": "PROVISIONAL — no source exists yet. Grok 4.7 is not yet published in the Vertex model garden and so is absent from the 'xAI's Grok models' pricing table (re-checked 2026-09-21). Values are INHERITED from grok-4.6-global and must be re-verified once Vertex publishes the SKU.",
+      "notes": "ADDED 2026-09-21, PRE-PROVISIONED AHEAD OF THE MODEL — see grok-4.7 for the full rationale. Global endpoint via the '-global' suffix in resolveGrokLocation; identical to its EU twin because xAI publishes no region split on Vertex. PRICE IS AN ASSUMPTION inherited from grok-4.6 and not verified; note xAI raised the base 1.6x between 4.3 and 4.6, so do not assume flat pricing held. Tier boundary STRICT > at the default 200000. No cache-write rate published. App-side Vertex id is 'xai/grok-4.7'."
     },
     "deepseek-v4-flash": {
       "display_name": "DeepSeek V4 Flash",
