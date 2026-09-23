@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.46.5-stable — Zuverlässigere Meeting-Erinnerungen im Hintergrund
+# oneAI teams-v0.2.46.5-stable — Zuverlässigere Meeting-Erinnerungen im Hintergrund
 
 **Release Date:** 2026-08-02
 
@@ -13,4 +13,4 @@ Vielen Dank an **Mirko** für die Verbesserungen an Monitoring und Qualitätssic
 *9 Commits · 27 geänderte Dateien*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

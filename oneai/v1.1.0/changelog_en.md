@@ -1,8 +1,8 @@
-# OneAI v1.1.0 — Our biggest release since v1.0
+# oneAI v1.1.0 — Our biggest release since v1.0
 
 **Release Date:** 2026-05-28
 
-OneAI v1.1.0 is a major step forward: **AI Chat becomes more capable**, **Knowledge Spaces become easier to manage**, and **admins get stronger controls for regulated environments**. On top of that, this release adds new connectors, a much better project organization experience, and meaningful reliability improvements across the platform.
+oneAI v1.1.0 is a major step forward: **AI Chat becomes more capable**, **Knowledge Spaces become easier to manage**, and **admins get stronger controls for regulated environments**. On top of that, this release adds new connectors, a much better project organization experience, and meaningful reliability improvements across the platform.
 
 ## Highlights
 
@@ -27,19 +27,19 @@ OneAI v1.1.0 is a major step forward: **AI Chat becomes more capable**, **Knowle
   - This is especially useful for compliance reviews, project pauses, or temporary shutdowns.
 
 - **Smarter answers with stronger source control**
-  - Two new organization settings help OneAI prioritize internal sources when generating answers.
-  - If desired, OneAI can also be configured to answer only when information is actually supported by sources.
+  - Two new organization settings help oneAI prioritize internal sources when generating answers.
+  - If desired, oneAI can also be configured to answer only when information is actually supported by sources.
   - This is an important governance capability for regulated industries. Thanks to **Mirko** for delivering these key SAG-related features.
 
 - **New connectors: HubSpot and SMB**
-  - **HubSpot** is now available as a new data source, bringing CRM knowledge into OneAI.
+  - **HubSpot** is now available as a new data source, bringing CRM knowledge into oneAI.
   - The new **SMB connector** makes it possible to connect network drives from your internal environment as a knowledge source.
   - Thanks to **Pascal** for HubSpot and to **Justus** for the SMB connector and the underlying agent foundation.
 
 ## Improvements
 
 - **MCP server for external AI tools**
-  - Tools such as Cursor, Claude Desktop, Copilot, or n8n can now connect to OneAI through the open MCP standard and search your knowledge base.
+  - Tools such as Cursor, Claude Desktop, Copilot, or n8n can now connect to oneAI through the open MCP standard and search your knowledge base.
   - Thanks to **Santi** for this important extension for technical teams.
 
 - **Better visibility into usage, budgets, and overage**
@@ -57,7 +57,7 @@ OneAI v1.1.0 is a major step forward: **AI Chat becomes more capable**, **Knowle
 
 - **Better operational visibility**
   - Paused Spaces are now clearly indicated on both project and Space detail pages.
-  - The OneAI Agent status badge now refreshes automatically.
+  - The oneAI Agent status badge now refreshes automatically.
   - Add-on purchases become available immediately without requiring a page reload.
 
 ## Bug Fixes
@@ -90,7 +90,7 @@ OneAI v1.1.0 is a major step forward: **AI Chat becomes more capable**, **Knowle
   - This reduces the risk of misassignment and strengthens Teams sign-in, especially in hybrid AD scenarios.
 
 - **Agent tokens are no longer stored in plain text**
-  - OneAI Agent upload and download tokens are now stored as hashes.
+  - oneAI Agent upload and download tokens are now stored as hashes.
   - This significantly improves protection for sensitive connection credentials.
 
 ## Under the Hood
@@ -103,4 +103,4 @@ Thanks to **Pascal**, **Mirko**, **Obaid**, **Justus**, and **Santi** for this r
 *43 commits, 43 PRs, 271 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

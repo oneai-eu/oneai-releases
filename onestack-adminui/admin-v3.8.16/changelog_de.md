@@ -1,4 +1,4 @@
-# OneAI admin-v3.8.16 — Stabilere interne Alarmierung
+# oneAI admin-v3.8.16 — Stabilere interne Alarmierung
 
 **Release Date:** 2026-08-11
 
@@ -6,7 +6,7 @@
 
 Wir haben einen Fehler in der internen Monitoring- und Alarmierungsinfrastruktur behoben. Auf neu eingerichteten Servern konnte eine fehlende Kontaktkonfiguration eine Absturzschleife in der Grafana-Alarmierung auslösen. Die erforderliche Konfiguration wird nun automatisch bereitgestellt.
 
-Für die Admin-Oberfläche und die tägliche Nutzung von OneAI ergeben sich **keine sichtbaren Änderungen**.
+Für die Admin-Oberfläche und die tägliche Nutzung von oneAI ergeben sich **keine sichtbaren Änderungen**.
 
 ## Unter der Haube
 
@@ -17,4 +17,4 @@ Danke an **Mirko** für die schnelle Behebung und die Aktualisierung der Release
 *2 Commits · 9 geänderte Dateien*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

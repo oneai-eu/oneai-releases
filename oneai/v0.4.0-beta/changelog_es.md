@@ -1,11 +1,11 @@
-# OneAI v0.4.0-beta — Comprende audio y video, procesamiento de PDF más inteligente
+# oneAI v0.4.0-beta — Comprende audio y video, procesamiento de PDF más inteligente
 
 **Release Date:** 2026-04-10
 
 ## Highlights
 
 ### Los archivos de audio y video ahora son consultables
-Ahora puedes **subir archivos de audio y video directamente a OneAI** — y utilizarlos como cualquier otro documento en tus Knowledge Spaces.
+Ahora puedes **subir archivos de audio y video directamente a oneAI** — y utilizarlos como cualquier otro documento en tus Knowledge Spaces.
 
 - Soporte para MP3, WAV, M4A y más formatos
 - Transcripción automática con marcas de tiempo
@@ -35,7 +35,7 @@ Esta mejora fundamental de nuestra pipeline de documentos también fue desarroll
 ---
 
 ### Procesamiento de documentos más rápido con embeddings por lotes
-En lugar de enviar cada fragmento de texto de forma individual, OneAI ahora procesa los embeddings por lotes.
+En lugar de enviar cada fragmento de texto de forma individual, oneAI ahora procesa los embeddings por lotes.
 
 Esto reduce significativamente la sobrecarga de red y acelera notablemente el procesamiento — especialmente en Knowledge Spaces grandes o en cargas masivas.
 
@@ -117,4 +117,4 @@ Esta versión fue impulsada en gran medida por **Pascal**, desde el soporte de a
 21 commits · 21 PRs · 90 archivos modificados · 2 colaboradores
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

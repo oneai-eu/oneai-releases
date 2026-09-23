@@ -1,4 +1,4 @@
-# OneAI v2026.09.04 — Comparte apps de Canvas y gestiona el CRM desde el Chat
+# oneAI v2026.09.04 — Comparte apps de Canvas y gestiona el CRM desde el Chat
 
 **Release Date:** 2026-09-08
 
@@ -7,7 +7,7 @@
 ### Canvas se convierte en una mini-app compartible
 Ahora puedes publicar apps de Canvas de forma segura mediante un enlace para compartir o en **tu propio dominio empresarial**. Esto convierte las aplicaciones creadas con IA en formularios, portales y herramientas prácticas para audiencias externas.
 
-- Los visitantes pueden iniciar sesión con un enlace por correo electrónico sin necesitar una cuenta de OneAI.
+- Los visitantes pueden iniciar sesión con un enlace por correo electrónico sin necesitar una cuenta de oneAI.
 - Las apps públicas pueden mostrar archivos e imágenes, mientras que los visitantes pueden cargar archivos.
 - Los formularios pueden mostrar quién envió una entrada, y las personas que envían respuestas pueden revisarlas posteriormente.
 - Los equipos se benefician de actualizaciones en directo más fiables y de un uso más fluido de las apps con mucho tráfico.
@@ -15,7 +15,7 @@ Ahora puedes publicar apps de Canvas de forma segura mediante un enlace para com
 
 Gracias a **Pascal** y **Justus**, Canvas ahora es mucho más adecuado para casos de uso externos y seguros.
 
-### HubSpot, conectado de forma nativa a OneAI
+### HubSpot, conectado de forma nativa a oneAI
 El nuevo Connector de HubSpot incorpora **26 herramientas** directamente en AI Chat. Tu IA ahora puede hacer más que buscar y analizar datos de CRM: también puede preparar tareas operativas de CRM.
 
 - Crear, actualizar y asociar contactos, empresas, negocios y tickets
@@ -26,7 +26,7 @@ El nuevo Connector de HubSpot incorpora **26 herramientas** directamente en AI C
 La sincronización también es más resiliente: los problemas de conexión temporales ya no provocan que se eliminen registros existentes de forma incorrecta. Gracias a **Mirko** por la amplia expansión de nuestras capacidades de Connectors.
 
 ### Connectors nuevos y ampliados
-OneAI se conecta a más sistemas empresariales y puede completar más tareas directamente dentro de las herramientas que ya utilizas.
+oneAI se conecta a más sistemas empresariales y puede completar más tareas directamente dentro de las herramientas que ya utilizas.
 
 - **Nuevo: Plytix** – Haz preguntas sobre tu catálogo de productos, atributos, variantes e imágenes directamente desde tu sistema PIM.
 - **weclapp** – Más acciones de lectura y escritura, incluida una sincronización más resiliente y descargas de PDF de facturas.
@@ -46,7 +46,7 @@ OneAI se conecta a más sistemas empresariales y puede completar más tareas dir
 - **Conexiones de Outlook:** Las conexiones interrumpidas se detectan de inmediato y se pueden reparar o desconectar directamente.
 - **Entrada de voz:** La grabación ahora funciona de forma fiable en Safari, en iPhone y iPad, y en Firefox, incluso para grabaciones largas.
 - **PDF escaneados:** La vista previa de PDF escaneados ahora es precisa, más nítida y más estable.
-- **Límites de equipo:** Ahora se pueden gestionar límites de uso individuales para equipos con más de diez miembros. OneAI también avisa a los administradores cuando el límite de un miembro supera el presupuesto de la organización.
+- **Límites de equipo:** Ahora se pueden gestionar límites de uso individuales para equipos con más de diez miembros. oneAI también avisa a los administradores cuando el límite de un miembro supera el presupuesto de la organización.
 
 ## Seguridad
 
@@ -74,4 +74,4 @@ Gracias a **Pascal, Mirko, Justus, Santi, Obaid y Oliver** por sus contribucione
 *139 pull requests, 141 commits y 1.183 archivos modificados.*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

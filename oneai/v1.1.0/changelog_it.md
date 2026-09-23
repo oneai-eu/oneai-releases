@@ -1,8 +1,8 @@
-# OneAI v1.1.0 — Il nostro rilascio più importante dalla v1.0
+# oneAI v1.1.0 — Il nostro rilascio più importante dalla v1.0
 
 **Release Date:** 2026-05-28
 
-OneAI v1.1.0 rappresenta un grande passo avanti: **AI Chat diventa più potente**, **Knowledge Spaces è più semplice da gestire**, e **gli amministratori dispongono di controlli più solidi per ambienti regolamentati**. Inoltre, questa versione introduce nuovi connettori, un’esperienza di organizzazione dei progetti notevolmente migliorata e importanti miglioramenti di affidabilità su tutta la piattaforma.
+oneAI v1.1.0 rappresenta un grande passo avanti: **AI Chat diventa più potente**, **Knowledge Spaces è più semplice da gestire**, e **gli amministratori dispongono di controlli più solidi per ambienti regolamentati**. Inoltre, questa versione introduce nuovi connettori, un’esperienza di organizzazione dei progetti notevolmente migliorata e importanti miglioramenti di affidabilità su tutta la piattaforma.
 
 ## Highlights
 
@@ -27,19 +27,19 @@ OneAI v1.1.0 rappresenta un grande passo avanti: **AI Chat diventa più potente*
   - Particolarmente utile per revisioni di conformità, pause di progetto o interruzioni temporanee.
 
 - **Risposte più intelligenti con maggiore controllo delle fonti**
-  - Due nuove impostazioni a livello di organizzazione aiutano OneAI a dare priorità alle fonti interne nella generazione delle risposte.
-  - Se desiderato, OneAI può essere configurato per rispondere solo quando le informazioni sono effettivamente supportate da fonti.
+  - Due nuove impostazioni a livello di organizzazione aiutano oneAI a dare priorità alle fonti interne nella generazione delle risposte.
+  - Se desiderato, oneAI può essere configurato per rispondere solo quando le informazioni sono effettivamente supportate da fonti.
   - Una funzionalità di governance fondamentale per i settori regolamentati. Grazie a **Mirko** per aver implementato queste funzionalità chiave legate ai requisiti SAG.
 
 - **Nuovi connettori: HubSpot e SMB**
-  - **HubSpot** è ora disponibile come nuova fonte di dati, portando le informazioni CRM in OneAI.
+  - **HubSpot** è ora disponibile come nuova fonte di dati, portando le informazioni CRM in oneAI.
   - Il nuovo **connettore SMB** consente di collegare unità di rete del tuo ambiente interno come fonte di conoscenza.
   - Grazie a **Pascal** per HubSpot e a **Justus** per il connettore SMB e la base agent sottostante.
 
 ## Improvements
 
 - **Server MCP per strumenti AI esterni**
-  - Strumenti come Cursor, Claude Desktop, Copilot o n8n possono ora connettersi a OneAI tramite lo standard aperto MCP e interrogare le tue fonti di conoscenza.
+  - Strumenti come Cursor, Claude Desktop, Copilot o n8n possono ora connettersi a oneAI tramite lo standard aperto MCP e interrogare le tue fonti di conoscenza.
   - Grazie a **Santi** per questa importante estensione dedicata ai team tecnici.
 
 - **Maggiore visibilità su utilizzo, budget e overage**
@@ -57,7 +57,7 @@ OneAI v1.1.0 rappresenta un grande passo avanti: **AI Chat diventa più potente*
 
 - **Maggiore visibilità operativa**
   - Gli Spaces in pausa sono chiaramente indicati nelle pagine di dettaglio dei progetti e degli Spaces.
-  - Il badge di stato del OneAI Agent si aggiorna automaticamente.
+  - Il badge di stato del oneAI Agent si aggiorna automaticamente.
   - Gli acquisti di add-on diventano immediatamente disponibili senza necessità di ricaricare la pagina.
 
 ## Bug Fixes
@@ -90,7 +90,7 @@ OneAI v1.1.0 rappresenta un grande passo avanti: **AI Chat diventa più potente*
   - Questo riduce il rischio di assegnazioni errate e rafforza l’accesso a Teams, soprattutto in scenari AD ibridi.
 
 - **I token dell’Agent non sono più salvati in chiaro**
-  - I token di upload e download del OneAI Agent sono ora salvati come hash.
+  - I token di upload e download del oneAI Agent sono ora salvati come hash.
   - Questo migliora significativamente la protezione delle credenziali di connessione sensibili.
 
 ## Under the Hood
@@ -103,4 +103,4 @@ Grazie a **Pascal**, **Mirko**, **Obaid**, **Justus** e **Santi** per questo ril
 *43 commit, 43 PR, 271 file modificati*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

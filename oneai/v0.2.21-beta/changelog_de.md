@@ -1,8 +1,8 @@
-# OneAI v0.2.21-beta — Zentrale Modell-Governance, stabile Spaces & moderne Dokumentenverarbeitung
+# oneAI v0.2.21-beta — Zentrale Modell-Governance, stabile Spaces & moderne Dokumentenverarbeitung
 
 **Release Date:** 2026-02-24
 
-Mit v0.2.21-beta machen wir OneAI in drei zentralen Bereichen deutlich stärker: **Governance für KI-Modelle**, **Stabilität bei großen Wissensräumen** und eine **grundlegend modernisierte Dokumentenverarbeitung**.
+Mit v0.2.21-beta machen wir oneAI in drei zentralen Bereichen deutlich stärker: **Governance für KI-Modelle**, **Stabilität bei großen Wissensräumen** und eine **grundlegend modernisierte Dokumentenverarbeitung**.
 
 ---
 
@@ -114,4 +114,4 @@ Vielen Dank an Orehman, Justus, Mirko und Pascal für dieses umfangreiche Releas
 _7 PRs · 156 Dateien geändert · 4.346 Einfügungen · 3.268 Löschungen · 4 Mitwirkende_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

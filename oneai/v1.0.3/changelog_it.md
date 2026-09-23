@@ -1,4 +1,4 @@
-# OneAI v1.0.3 — Elaborazione dei documenti affidabile, anche a quota completa
+# oneAI v1.0.3 — Elaborazione dei documenti affidabile, anche a quota completa
 
 **Release Date:** 2026-05-11
 
@@ -34,9 +34,9 @@ Sebbene questi miglioramenti non siano direttamente visibili agli utenti finali,
 
 ---
 
-Grazie a Justus per aver rafforzato l’affidabilità e la trasparenza di un componente fondamentale di OneAI.
+Grazie a Justus per aver rafforzato l’affidabilità e la trasparenza di un componente fondamentale di oneAI.
 
 _2 commit · 2 PR · 3 file modificati_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

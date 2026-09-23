@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.46.5-stable — Promemoria delle riunioni più affidabili dietro le quinte
+# oneAI teams-v0.2.46.5-stable — Promemoria delle riunioni più affidabili dietro le quinte
 
 **Release Date:** 2026-08-02
 
@@ -13,4 +13,4 @@ Grazie a **Mirko** per i miglioramenti al monitoraggio e all'assicurazione della
 *9 commit · 27 file modificati*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

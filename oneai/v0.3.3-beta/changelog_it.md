@@ -1,11 +1,11 @@
-# OneAI v0.3.3-beta — Google SSO, condivisione sicura degli Artifacts e AI Chat più robusta
+# oneAI v0.3.3-beta — Google SSO, condivisione sicura degli Artifacts e AI Chat più robusta
 
 **Release Date:** 2026-03-13
 
 ## Highlights
 
 ### Google Sign-In come nuovo provider SSO
-Oltre a Microsoft, OneAI ora supporta **Google Single Sign-On (SSO)** — sia per l’accesso sia per invitare nuovi membri del team.
+Oltre a Microsoft, oneAI ora supporta **Google Single Sign-On (SSO)** — sia per l’accesso sia per invitare nuovi membri del team.
 
 - Accedi con il tuo account Google in pochi secondi
 - Invia inviti basati su Google direttamente dalla finestra dei membri
@@ -97,4 +97,4 @@ Un grande ringraziamento a **Pascal** (Google SSO, condivisione degli Artifacts,
 _14 PR · 213 file modificati · 4.514 inserimenti · 2 contributor_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

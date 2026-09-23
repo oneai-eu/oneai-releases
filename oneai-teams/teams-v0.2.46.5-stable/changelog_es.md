@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.46.5-stable — Recordatorios de reuniones más fiables entre bastidores
+# oneAI teams-v0.2.46.5-stable — Recordatorios de reuniones más fiables entre bastidores
 
 **Release Date:** 2026-08-02
 
@@ -13,4 +13,4 @@ Gracias a **Mirko** por las mejoras en supervisión y aseguramiento de la calida
 *9 commits · 27 archivos modificados*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

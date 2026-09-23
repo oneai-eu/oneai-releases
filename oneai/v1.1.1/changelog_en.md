@@ -1,17 +1,17 @@
-# OneAI v1.1.1 — Voice Mode, Presentations, and Smarter Automation
+# oneAI v1.1.1 — Voice Mode, Presentations, and Smarter Automation
 
 **Release Date:** 2026-06-24
 
 ## Highlights
 
-OneAI v1.1.1 is one of our biggest releases yet. The focus is on new ways of working in **AI Chat**, stronger **artifacts**, and a major step forward in **automation with control**.
+oneAI v1.1.1 is one of our biggest releases yet. The focus is on new ways of working in **AI Chat**, stronger **artifacts**, and a major step forward in **automation with control**.
 
-- **Voice Mode in AI Chat**: You can now talk to OneAI instead of typing. Thanks to Justus, the first rollout already feels reliable, with improved streaming stability and clearer in-product guidance.
+- **Voice Mode in AI Chat**: You can now talk to oneAI instead of typing. Thanks to Justus, the first rollout already feels reliable, with improved streaming stability and clearer in-product guidance.
 - **Better artifact sharing**: Artifacts now support images and can be shared with **private, project-wide, or public links**. Public and private sharing flows now feel much cleaner for recipients.
 
 ## Improvements
 
-- **Fewer clicks for tool actions**: With the new **trust window** logic, OneAI can now learn when trusted actions may run automatically or be approved more seamlessly — for example with Outlook, n8n, MCP tools, or approved APIs. This makes automation feel much smoother without compromising governance. Much of this foundation was built by Mirko.
+- **Fewer clicks for tool actions**: With the new **trust window** logic, oneAI can now learn when trusted actions may run automatically or be approved more seamlessly — for example with Outlook, n8n, MCP tools, or approved APIs. This makes automation feel much smoother without compromising governance. Much of this foundation was built by Mirko.
 - **Better visibility in Knowledge Spaces**: You can now see document indexing progress directly in the activity bar and on space cards.
 - **Connector-specific views**: Content from connectors is now displayed in more suitable formats, including a dedicated Outlook message view.
 - **Smarter chat suggestions**: AI Chat now suggests more relevant follow-up questions.
@@ -45,4 +45,4 @@ Thanks to **Pascal, Mirko, Justus, Oliver, Obaid, and Santi** for shipping such 
 *111 commits · 108 PRs · 690 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

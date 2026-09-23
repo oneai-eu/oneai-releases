@@ -1,12 +1,12 @@
-# OneAI v1.0.4 — More resilient chat, clearer sources, and better pricing transparency
+# oneAI v1.0.4 — More resilient chat, clearer sources, and better pricing transparency
 
 **Release Date:** 2026-05-15
 
-With **OneAI v1.0.4**, AI Chat becomes noticeably more dependable in day-to-day use — especially for long answers, complex tool flows, and document-based work. At the same time, we’re improving transparency in subscriptions and strengthening privacy for web-based sources.
+With **oneAI v1.0.4**, AI Chat becomes noticeably more dependable in day-to-day use — especially for long answers, complex tool flows, and document-based work. At the same time, we’re improving transparency in subscriptions and strengthening privacy for web-based sources.
 
 ## Highlights
 
-- **Long answers no longer disappear after brief connection drops.** If a stream is interrupted during a response, OneAI now automatically restores it and keeps the text that was already generated. Instead of losing both the question and the answer, users can continue seamlessly. Thanks to **Pascal**, AI Chat is now much more resilient under unstable network conditions.
+- **Long answers no longer disappear after brief connection drops.** If a stream is interrupted during a response, oneAI now automatically restores it and keeps the text that was already generated. Instead of losing both the question and the answer, users can continue seamlessly. Thanks to **Pascal**, AI Chat is now much more resilient under unstable network conditions.
 - **New tool-call bar and a unified sources panel.** Reasoning steps and tool activity now appear where they actually happen in the response. Web sources and file sources are also combined into a single **“All Sources”** view, making complex answers much easier to follow. Thanks to **Oliver** and **Pascal** for this major redesign.
 - **Artifacts are now always within reach.** Created and referenced artifacts are collected in a sticky tray directly above the chat input. That makes them easy to revisit, even in long conversations. Inline references now open artifacts directly in the side panel instead of pulling users away from the chat.
 - **Live model pricing in the Subscription area.** Available model prices are no longer hardcoded. They are now updated dynamically and shown in a new pricing dialog, giving admins a clearer and more current view of model costs. Thanks to **Obaid** for shipping this.
@@ -14,7 +14,7 @@ With **OneAI v1.0.4**, AI Chat becomes noticeably more dependable in day-to-day 
 ## Improvements
 
 - **Faster document processing.** Summaries and embeddings now run in parallel, so documents are processed noticeably faster.
-- **Lower memory usage for search infrastructure.** Document search now uses significantly less RAM while maintaining the same search quality. Thanks to **Justus**, OneAI scales more efficiently for larger Knowledge Spaces.
+- **Lower memory usage for search infrastructure.** Document search now uses significantly less RAM while maintaining the same search quality. Thanks to **Justus**, oneAI scales more efficiently for larger Knowledge Spaces.
 - **No more duplicate PDF content.** We fixed an issue that could cause PDF content to be indexed twice in some cases.
 - **Better audit experience for compliance teams.** Long blocked messages are now readable in the audit dialog, detected content is shown more precisely, and IBAN detection produces fewer false positives.
 - **Cleaner Subscription layout.** Overview, billing, usage, team quota, and add-on tabs now behave more consistently across screen sizes.
@@ -27,7 +27,7 @@ With **OneAI v1.0.4**, AI Chat becomes noticeably more dependable in day-to-day 
 
 ## Security
 
-- **Privacy-friendly favicons for web citations.** Favicons are now loaded through a secure OneAI proxy instead of directly through external services. This means user IP addresses and browsing behavior are no longer exposed to third-party favicon providers such as Google’s CDN.
+- **Privacy-friendly favicons for web citations.** Favicons are now loaded through a secure oneAI proxy instead of directly through external services. This means user IP addresses and browsing behavior are no longer exposed to third-party favicon providers such as Google’s CDN.
 - We also added groundwork for additional supply-chain security scanning behind the scenes.
 
 ## Under the Hood
@@ -41,4 +41,4 @@ Thanks to **Pascal**, **Oliver**, **Obaid**, and **Justus** for this release. A 
 *71 files changed · 20 commits · 4 contributors*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

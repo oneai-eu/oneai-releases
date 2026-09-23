@@ -1,18 +1,18 @@
-# OneAI v1.1.6 — Présentations alignées sur votre marque et chats beaucoup plus résilients
+# oneAI v1.1.6 — Présentations alignées sur votre marque et chats beaucoup plus résilients
 
 **Release Date:** 2026-07-08
 
 ## Highlights
 
-**Les présentations reflètent désormais votre marque dès leur création.** Les decks générés peuvent automatiquement adopter vos couleurs de marque, en utilisant votre couleur principale de CI ainsi qu’un accent secondaire extrait de votre logo. Les présentations générées par l’IA sont ainsi beaucoup plus adaptées à un usage interne et client. Grâce à Pascal, les présentations dans OneAI sont désormais nettement plus professionnelles.
+**Les présentations reflètent désormais votre marque dès leur création.** Les decks générés peuvent automatiquement adopter vos couleurs de marque, en utilisant votre couleur principale de CI ainsi qu’un accent secondaire extrait de votre logo. Les présentations générées par l’IA sont ainsi beaucoup plus adaptées à un usage interne et client. Grâce à Pascal, les présentations dans oneAI sont désormais nettement plus professionnelles.
 
 **Vous pouvez maintenant modifier les slides directement dans le viewer.** Réorganisez, dupliquez ou supprimez des slides par simple glisser-déposer — sans régénérer le deck ni relancer l’IA. Les présentations générées deviennent ainsi des bases de travail rapidement exploitables et faciles à affiner en équipe.
 
 **Les designs peuvent être changés après génération.** Vous pouvez passer à tout moment entre Light, Dark, Corporate, Editorial et Slate, sans recréer la présentation.
 
-**Les résultats Python dans AI Chat prennent désormais en charge le téléchargement complet des fichiers.** En plus des images, OneAI fournit désormais des fichiers Excel, PDF, Word, CSV et autres fichiers générés directement dans le chat avec leur nom de fichier d’origine. Grâce à Mirko, les analyses et rapports s’intègrent beaucoup plus facilement dans vos workflows réels.
+**Les résultats Python dans AI Chat prennent désormais en charge le téléchargement complet des fichiers.** En plus des images, oneAI fournit désormais des fichiers Excel, PDF, Word, CSV et autres fichiers générés directement dans le chat avec leur nom de fichier d’origine. Grâce à Mirko, les analyses et rapports s’intègrent beaucoup plus facilement dans vos workflows réels.
 
-**Les conversations longues sont désormais beaucoup plus fiables.** Lorsque les chats ou les contenus collés deviennent très volumineux, OneAI tronque automatiquement l’ancien contexte au lieu d’afficher une erreur « conversation too large ». Les nouveaux résumés générés sont également correctement réinjectés dans l’appel modèle suivant. Grâce à Pascal, les sessions de travail prolongées dans AI Chat sont désormais bien plus fiables.
+**Les conversations longues sont désormais beaucoup plus fiables.** Lorsque les chats ou les contenus collés deviennent très volumineux, oneAI tronque automatiquement l’ancien contexte au lieu d’afficher une erreur « conversation too large ». Les nouveaux résumés générés sont également correctement réinjectés dans l’appel modèle suivant. Grâce à Pascal, les sessions de travail prolongées dans AI Chat sont désormais bien plus fiables.
 
 ## Improvements
 
@@ -49,4 +49,4 @@ Merci à Pascal, Justus, Mirko, Oliver, Santi et Obaid pour cette release.
 *34 commits, 109 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

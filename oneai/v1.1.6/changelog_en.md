@@ -1,18 +1,18 @@
-# OneAI v1.1.6 — Brand-ready presentations and much more resilient chats
+# oneAI v1.1.6 — Brand-ready presentations and much more resilient chats
 
 **Release Date:** 2026-07-08
 
 ## Highlights
 
-**Presentations now look much more like your brand out of the box.** Generated decks can automatically adopt your brand colors, using your primary CI color plus a secondary accent extracted from your logo. This makes AI-generated presentations feel far more ready for internal and customer-facing use. Thanks to Pascal, presentations in OneAI now feel significantly more polished.
+**Presentations now look much more like your brand out of the box.** Generated decks can automatically adopt your brand colors, using your primary CI color plus a secondary accent extracted from your logo. This makes AI-generated presentations feel far more ready for internal and customer-facing use. Thanks to Pascal, presentations in oneAI now feel significantly more polished.
 
 **You can now edit slides directly in the deck viewer.** Reorder, duplicate, or delete slides with drag and drop — without regenerating the deck or prompting the AI again. This turns generated presentations into something teams can refine much faster.
 
 **Designs can now be switched after generation.** You can move between Light, Dark, Corporate, Editorial, and Slate at any time without recreating the presentation.
 
-**Python outputs in AI Chat now support full file downloads.** In addition to images, OneAI now delivers Excel files, PDFs, Word documents, CSVs, and other generated files directly in chat with their original filenames. Thanks to Mirko, analysis outputs and reports are now much easier to use in real workflows.
+**Python outputs in AI Chat now support full file downloads.** In addition to images, oneAI now delivers Excel files, PDFs, Word documents, CSVs, and other generated files directly in chat with their original filenames. Thanks to Mirko, analysis outputs and reports are now much easier to use in real workflows.
 
-**Long conversations are now far more reliable.** When chats or pasted content get very large, OneAI now trims older context automatically instead of failing with a “conversation too large” error. Newly created summaries are also correctly carried forward into the next model call. Thanks to Pascal, long-running work sessions in AI Chat are now much more dependable.
+**Long conversations are now far more reliable.** When chats or pasted content get very large, oneAI now trims older context automatically instead of failing with a “conversation too large” error. Newly created summaries are also correctly carried forward into the next model call. Thanks to Pascal, long-running work sessions in AI Chat are now much more dependable.
 
 ## Improvements
 
@@ -49,4 +49,4 @@ Thanks to Pascal, Justus, Mirko, Oliver, Santi, and Obaid for this release.
 *34 commits, 109 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

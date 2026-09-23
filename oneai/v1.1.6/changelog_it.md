@@ -1,18 +1,18 @@
-# OneAI v1.1.6 — Presentazioni in linea con il tuo brand e chat molto più resilienti
+# oneAI v1.1.6 — Presentazioni in linea con il tuo brand e chat molto più resilienti
 
 **Release Date:** 2026-07-08
 
 ## Highlights
 
-**Le presentazioni ora rispecchiano il tuo brand fin da subito.** I deck generati possono adottare automaticamente i colori del tuo brand, utilizzando il colore principale della tua CI insieme a un accento secondario estratto dal logo. Le presentazioni generate dall’AI risultano così molto più pronte per l’uso interno e verso i clienti. Grazie a Pascal, le presentazioni in OneAI sono ora decisamente più curate.
+**Le presentazioni ora rispecchiano il tuo brand fin da subito.** I deck generati possono adottare automaticamente i colori del tuo brand, utilizzando il colore principale della tua CI insieme a un accento secondario estratto dal logo. Le presentazioni generate dall’AI risultano così molto più pronte per l’uso interno e verso i clienti. Grazie a Pascal, le presentazioni in oneAI sono ora decisamente più curate.
 
 **Ora puoi modificare le slide direttamente nel deck viewer.** Riordina, duplica o elimina slide con il drag and drop — senza rigenerare il deck o richiamare nuovamente l’AI. Le presentazioni generate diventano così una base di lavoro che i team possono perfezionare molto più rapidamente.
 
 **I design possono essere cambiati dopo la generazione.** Puoi passare in qualsiasi momento tra Light, Dark, Corporate, Editorial e Slate senza dover ricreare la presentazione.
 
-**Gli output Python in AI Chat ora supportano il download completo dei file.** Oltre alle immagini, OneAI fornisce ora file Excel, PDF, Word, CSV e altri file generati direttamente nella chat con il loro nome originale. Grazie a Mirko, analisi e report sono molto più facili da integrare nei workflow reali.
+**Gli output Python in AI Chat ora supportano il download completo dei file.** Oltre alle immagini, oneAI fornisce ora file Excel, PDF, Word, CSV e altri file generati direttamente nella chat con il loro nome originale. Grazie a Mirko, analisi e report sono molto più facili da integrare nei workflow reali.
 
-**Le conversazioni lunghe sono ora molto più affidabili.** Quando le chat o i contenuti incollati diventano molto grandi, OneAI riduce automaticamente il contesto più vecchio invece di interrompersi con un errore “conversation too large”. I riassunti generati vengono inoltre correttamente inclusi nella chiamata successiva al modello. Grazie a Pascal, le sessioni di lavoro prolungate in AI Chat sono ora molto più stabili.
+**Le conversazioni lunghe sono ora molto più affidabili.** Quando le chat o i contenuti incollati diventano molto grandi, oneAI riduce automaticamente il contesto più vecchio invece di interrompersi con un errore “conversation too large”. I riassunti generati vengono inoltre correttamente inclusi nella chiamata successiva al modello. Grazie a Pascal, le sessioni di lavoro prolungate in AI Chat sono ora molto più stabili.
 
 ## Improvements
 
@@ -49,4 +49,4 @@ Grazie a Pascal, Justus, Mirko, Oliver, Santi e Obaid per questa release.
 *34 commits, 109 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

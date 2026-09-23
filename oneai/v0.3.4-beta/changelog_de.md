@@ -1,8 +1,8 @@
-# OneAI v0.3.4-beta — Bildgenerierung, intelligente GitHub-Spaces & starke UX-Upgrades
+# oneAI v0.3.4-beta — Bildgenerierung, intelligente GitHub-Spaces & starke UX-Upgrades
 
 **Release Date:** 2026-03-18
 
-Mit v0.3.4-beta wird OneAI visueller, intelligenter und spürbar stabiler im Alltag. Dieses Release bringt einen zweiten Bildgenerator, hebt GitHub-Spaces auf ein neues Niveau und macht die Arbeit mit Artefakten deutlich produktiver.
+Mit v0.3.4-beta wird oneAI visueller, intelligenter und spürbar stabiler im Alltag. Dieses Release bringt einen zweiten Bildgenerator, hebt GitHub-Spaces auf ein neues Niveau und macht die Arbeit mit Artefakten deutlich produktiver.
 
 ## Highlights
 
@@ -14,12 +14,12 @@ Neben OpenAI steht euch jetzt **Google Imagen 4** als zusätzlicher Bildgenerato
 - **Ultra** – maximale Qualität für anspruchsvolle Visuals  
 - Bis zu **4 Bilder pro Anfrage**
 
-Damit habt ihr mehr Flexibilität bei Stil, Geschwindigkeit und Kosten – direkt integriert in OneAI. Danke an **Mirko**, der die Integration sauber in unsere bestehende LLM-Routing-Architektur eingebettet hat.
+Damit habt ihr mehr Flexibilität bei Stil, Geschwindigkeit und Kosten – direkt integriert in oneAI. Danke an **Mirko**, der die Integration sauber in unsere bestehende LLM-Routing-Architektur eingebettet hat.
 
 ### Intelligente Code-Analyse für GitHub-Spaces
 GitHub-Spaces verstehen eure Repositories jetzt deutlich besser.
 
-Bei jeder Synchronisation analysiert OneAI automatisch:
+Bei jeder Synchronisation analysiert oneAI automatisch:
 
 - Repository- und Verzeichnisstruktur  
 - Verwendete Programmiersprachen  
@@ -28,10 +28,10 @@ Bei jeder Synchronisation analysiert OneAI automatisch:
 
 Zusätzlich werden kontextreiche Übersichtsdateien generiert und Code-Dateien mit strukturellen Hinweisen angereichert. Ergebnis: **präzisere, architektur-bewusste Antworten im AI Chat** – besonders bei größeren Codebasen.
 
-Ebenfalls von **Mirko** umgesetzt – ein großer Schritt für alle Teams, die mit Code in OneAI arbeiten.
+Ebenfalls von **Mirko** umgesetzt – ein großer Schritt für alle Teams, die mit Code in oneAI arbeiten.
 
 ### Artefakte komplett überarbeitet
-Artefakte sind jetzt ein vollwertiger, kollaborativer Bestandteil von OneAI.
+Artefakte sind jetzt ein vollwertiger, kollaborativer Bestandteil von oneAI.
 
 Neu:
 
@@ -121,4 +121,4 @@ Vielen Dank an **Pascal** (13 Changes) und **Mirko** (3 Changes) für die intens
 _16 Commits · 15 PRs · 320 geänderte Dateien_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

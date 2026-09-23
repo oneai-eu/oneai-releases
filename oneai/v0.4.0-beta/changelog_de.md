@@ -1,11 +1,11 @@
-# OneAI v0.4.0-beta — Audio & Video verstehen, PDFs intelligenter verarbeiten
+# oneAI v0.4.0-beta — Audio & Video verstehen, PDFs intelligenter verarbeiten
 
 **Release Date:** 2026-04-10
 
 ## Highlights
 
 ### Audio- und Videodateien werden durchsuchbar
-Ihr könnt jetzt **Audio- und Videodateien direkt in OneAI hochladen** – und sie genauso nutzen wie klassische Dokumente.
+Ihr könnt jetzt **Audio- und Videodateien direkt in oneAI hochladen** – und sie genauso nutzen wie klassische Dokumente.
 
 - Unterstützung für MP3, WAV, M4A und weitere Audioformate
 - Automatische Transkription mit Zeitstempeln
@@ -117,4 +117,4 @@ Dieses Release wurde maßgeblich von **Pascal** umgesetzt – von der neuen Audi
 21 Commits · 21 PRs · 90 Dateien geändert · 2 Mitwirkende
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

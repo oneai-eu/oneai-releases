@@ -1,10 +1,10 @@
-# OneAI 1.0 — Pronto per la produzione con Credit Pool, Partner Program e oltre 80 miglioramenti
+# oneAI 1.0 — Pronto per la produzione con Credit Pool, Partner Program e oltre 80 miglioramenti
 
 **Release Date:** 2026-05-06
 
-Con OneAI 1.0 lasciamo ufficialmente la fase beta.
+Con oneAI 1.0 lasciamo ufficialmente la fase beta.
 
-Questa release rende OneAI pronto per l’uso in produzione enterprise: controllo centralizzato del budget IA, un nuovo Partner Program per organizzazioni gestite, autenticazione a due fattori tramite app e una pipeline di elaborazione documenti completamente rinnovata.
+Questa release rende oneAI pronto per l’uso in produzione enterprise: controllo centralizzato del budget IA, un nuovo Partner Program per organizzazioni gestite, autenticazione a due fattori tramite app e una pipeline di elaborazione documenti completamente rinnovata.
 
 ## Highlights
 
@@ -83,7 +83,7 @@ Ottimo lavoro di **Pascal Schüler**, che ha reso la pipeline di embedding pront
 - Bundle ottimizzato (nessuna libreria duplicata)
 - Risolti errori di caricamento dei chunk sotto carico elevato
 
-OneAI ora risulta significativamente più veloce e stabile.
+oneAI ora risulta significativamente più veloce e stabile.
 
 ---
 
@@ -147,7 +147,7 @@ Per la migliore qualità di ricerca, consigliamo di **rieseguire l’embedding d
 
 ---
 
-OneAI 1.0 rappresenta 96 commit e 88 pull request.
+oneAI 1.0 rappresenta 96 commit e 88 pull request.
 
 Un ringraziamento speciale a **Pascal (47 changes)**, **orehman3035**, **Justus**, **Santi**, **Oliver** e **Mirko** per aver reso possibile questo lancio in produzione.
 
@@ -155,4 +155,4 @@ Un ringraziamento speciale a **Pascal (47 changes)**, **orehman3035**, **Justus*
 96 commit · 88 PRs · 414 file modificati · 7 contributor
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,6 +1,6 @@
-# n8n Nodes for OneAI — Changelogs
+# n8n Nodes for oneAI — Changelogs
 
-Changelogs for [n8n Nodes for OneAI](https://github.com/oneai-eu/n8n-nodes-oneai).
+Changelogs for [n8n Nodes for oneAI](https://github.com/oneai-eu/n8n-nodes-oneai).
 
 ## Latest Version
 

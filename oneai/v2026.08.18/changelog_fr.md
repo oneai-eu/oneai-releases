@@ -1,4 +1,4 @@
-# OneAI v2026.08.18 — Collaboration, tableaux de bord en direct et intégrations sécurisées
+# oneAI v2026.08.18 — Collaboration, tableaux de bord en direct et intégrations sécurisées
 
 **Release Date:** 2026-08-18
 
@@ -19,17 +19,17 @@ La nouvelle page Intégrations vous offre une meilleure visibilité et davantage
 - Les collaborateurs peuvent gérer leurs propres connexions depuis un emplacement central.
 - Les intégrations individuelles peuvent être désactivées au niveau personnel.
 - Les administrateurs peuvent désactiver des intégrations dans toute l’organisation ou les limiter à des projets spécifiques.
-- Les e-mails Outlook peuvent désormais être envoyés directement depuis OneAI.
+- Les e-mails Outlook peuvent désormais être envoyés directement depuis oneAI.
 
 **Nouveau Connector : Lexware Office**
 
-Connectez Lexware Office à OneAI pour rechercher en toute sécurité des données comptables et les exploiter avec des outils alimentés par l’IA.
+Connectez Lexware Office à oneAI pour rechercher en toute sécurité des données comptables et les exploiter avec des outils alimentés par l’IA.
 
 ## Améliorations
 
 **Une expérience AI Chat plus productive**
 
-- Les messages envoyés peuvent désormais être modifiés. OneAI générera une nouvelle réponse à partir de votre demande révisée.
+- Les messages envoyés peuvent désormais être modifiés. oneAI générera une nouvelle réponse à partir de votre demande révisée.
 - Le composeur de chat a été repensé pour une expérience plus claire et plus efficace.
 - Uno est désormais disponible sous la forme d’une fenêtre de chat flottante, afin de garder l’assistance plus proche de votre contexte de travail actuel.
 
@@ -41,7 +41,7 @@ Connectez Lexware Office à OneAI pour rechercher en toute sécurité des donné
 
 ## Sécurité
 
-Cette version inclut des renforcements étendus en matière de sécurité et de conformité afin de permettre une utilisation sûre de OneAI avec les données de l’entreprise :
+Cette version inclut des renforcements étendus en matière de sécurité et de conformité afin de permettre une utilisation sûre de oneAI avec les données de l’entreprise :
 
 - Un mode de recherche interne ne peut plus créer de contenu sans confirmation explicite de l’utilisateur.
 - Les actions destructrices sont désormais systématiquement et clairement signalées comme irréversibles dans les outils concernés.
@@ -64,11 +64,11 @@ Cela permet de garantir que vos politiques d’accès prévues restent en place.
 
 ## Sous le capot
 
-Au-delà des fonctionnalités visibles, nous avons continué à faire évoluer le LLM Routing, le traitement de documents, les outils de données et l’architecture de la plateforme afin de rendre OneAI plus performant et plus résilient.
+Au-delà des fonctionnalités visibles, nous avons continué à faire évoluer le LLM Routing, le traitement de documents, les outils de données et l’architecture de la plateforme afin de rendre oneAI plus performant et plus résilient.
 
 Merci à Pascal, Mirko, Justus, Oliver, Santi et Obaid pour leurs contributions à cette version.
 
 _Périmètre de la version : 660 commits, 2 112 fichiers modifiés et 655 pull requests._
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

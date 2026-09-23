@@ -1,4 +1,4 @@
-# OneAI v0.2.22-beta — Elaborazione più affidabile dei PDF di grandi dimensioni
+# oneAI v0.2.22-beta — Elaborazione più affidabile dei PDF di grandi dimensioni
 
 **Release Date:** 2026-02-24
 
@@ -14,7 +14,7 @@ L’elaborazione non si interrompe più prematuramente per documenti PDF estesi 
 - Meno caricamenti falliti e meno rielaborazioni manuali
 - Una base più stabile per risposte di alta qualità in AI Chat
 
-Grazie a Justus, abbiamo rimosso la precedente limitazione di timeout nel nostro pipeline di elaborazione dei PDF. Ora OneAI può analizzare e indicizzare documenti complessi senza vincoli di tempo artificiali.
+Grazie a Justus, abbiamo rimosso la precedente limitazione di timeout nel nostro pipeline di elaborazione dei PDF. Ora oneAI può analizzare e indicizzare documenti complessi senza vincoli di tempo artificiali.
 
 ## Under the Hood
 
@@ -27,4 +27,4 @@ Grazie a Justus per aver rafforzato l’affidabilità della nostra elaborazione 
 1 commit · 1 file modificato · +2 / −25 righe · 1 collaboratore
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

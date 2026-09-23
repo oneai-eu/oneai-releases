@@ -1,4 +1,4 @@
-# OneAI admin-v3.8.16 — Alertes internes plus fiables
+# oneAI admin-v3.8.16 — Alertes internes plus fiables
 
 **Release Date:** 2026-08-11
 
@@ -6,7 +6,7 @@
 
 Nous avons corrigé un problème dans notre infrastructure interne de surveillance et d’alerte. Sur les serveurs nouvellement provisionnés, l’absence d’une configuration de contact pouvait déclencher une boucle de crash dans les alertes Grafana. La configuration requise est désormais créée automatiquement.
 
-Il n’y a **aucun changement visible** dans l’interface d’administration ni dans l’utilisation quotidienne de OneAI.
+Il n’y a **aucun changement visible** dans l’interface d’administration ni dans l’utilisation quotidienne de oneAI.
 
 ## Sous le capot
 
@@ -17,4 +17,4 @@ Merci à **Mirko** pour la correction rapide et la mise à jour de la documentat
 *2 commits · 9 fichiers modifiés*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,8 +1,8 @@
-# OneAI Releases
+# oneAI Releases
 
-Universal changelog distribution for the **OneAI product family**.
+Universal changelog distribution for the **oneAI product family**.
 
-Every OneAI deployment — SaaS, Private Cloud, and On-Prem — fetches changelogs from this repository via `raw.githubusercontent.com`. This approach provides a universally accessible, CDN-backed changelog source that works regardless of deployment type, replacing the need for a database-backed changelog system.
+Every oneAI deployment — SaaS, Private Cloud, and On-Prem — fetches changelogs from this repository via `raw.githubusercontent.com`. This approach provides a universally accessible, CDN-backed changelog source that works regardless of deployment type, replacing the need for a database-backed changelog system.
 
 ## Quick Start
 
@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/oneai-eu/oneai-releases/main
 | One-line summary | `{base}/{product}/v{version}/summary.md` |
 | Full manifest | `{base}/releases.json` |
 
-### Example: Check for OneAI Updates
+### Example: Check for oneAI Updates
 
 ```
 GET https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneai/latest.json
@@ -92,7 +92,7 @@ oneai-releases/
 ├── .gitignore
 ├── releases.json                      # Root manifest — all products and versions
 │
-├── oneai/                             # OneAI changelogs
+├── oneai/                             # oneAI changelogs
 │   ├── README.md
 │   ├── latest.json                    # Pointer to latest release
 │   └── v{version}/                    # One directory per release
@@ -111,7 +111,7 @@ oneai-releases/
 ├── n8n-nodes-oneai/                   # n8n Nodes changelogs
 │   ├── ...
 │
-├── oneai-teams/                       # OneAI Teams changelogs
+├── oneai-teams/                       # oneAI Teams changelogs
 │   ├── ...
 │
 ├── docker/                            # Custom Docker images
@@ -209,11 +209,11 @@ One per release version. Structured release data for programmatic consumption.
 
 | Product | Key | Source | Description |
 |---------|-----|--------|-------------|
-| **OneAI** | `oneai` | [0codekit/oneai](https://github.com/0codekit/oneai) | Enterprise AI Governance Platform |
+| **oneAI** | `oneai` | [0codekit/oneai](https://github.com/0codekit/oneai) | Enterprise AI Governance Platform |
 | **OneStack** | `onestack` | [oneai-eu/onestack](https://github.com/oneai-eu/onestack) | AI Infrastructure Management Platform |
-| **OneDeploy** | `onedeploy` | [0codekit/onedeploy](https://github.com/0codekit/onedeploy) | Infrastructure-as-Code for OneAI Services |
-| **n8n Nodes for OneAI** | `n8n-nodes-oneai` | [oneai-eu/n8n-nodes-oneai](https://github.com/oneai-eu/n8n-nodes-oneai) | Custom n8n Workflow Nodes |
-| **OneAI Teams** | `oneai-teams` | [oneai-eu/oneai-teams](https://github.com/oneai-eu/oneai-teams) | Microsoft Teams Integration |
+| **OneDeploy** | `onedeploy` | [0codekit/onedeploy](https://github.com/0codekit/onedeploy) | Infrastructure-as-Code for oneAI Services |
+| **n8n Nodes for oneAI** | `n8n-nodes-oneai` | [oneai-eu/n8n-nodes-oneai](https://github.com/oneai-eu/n8n-nodes-oneai) | Custom n8n Workflow Nodes |
+| **oneAI Teams** | `oneai-teams` | [oneai-eu/oneai-teams](https://github.com/oneai-eu/oneai-teams) | Microsoft Teams Integration |
 
 ## Docker Images
 

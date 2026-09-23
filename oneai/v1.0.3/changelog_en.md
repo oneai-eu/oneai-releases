@@ -1,4 +1,4 @@
-# OneAI v1.0.3 — Reliable Document Processing, Even at Full Quota
+# oneAI v1.0.3 — Reliable Document Processing, Even at Full Quota
 
 **Release Date:** 2026-05-11
 
@@ -36,9 +36,9 @@ While not directly visible to end users, these improvements ensure **more stable
 
 ---
 
-Thank you to Justus for strengthening the reliability and transparency of a core component of OneAI.
+Thank you to Justus for strengthening the reliability and transparency of a core component of oneAI.
 
 _2 commits · 2 PRs · 3 files changed_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

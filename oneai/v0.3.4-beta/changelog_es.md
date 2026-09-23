@@ -1,13 +1,13 @@
-# OneAI v0.3.4-beta — Generación de imágenes, GitHub Spaces más inteligentes y grandes mejoras de UX
+# oneAI v0.3.4-beta — Generación de imágenes, GitHub Spaces más inteligentes y grandes mejoras de UX
 
 **Release Date:** 2026-03-18
 
-Con v0.3.4-beta, OneAI se vuelve más visual, más inteligente y notablemente más fiable en el día a día. Esta versión introduce un segundo generador de imágenes, mejora GitHub Spaces con una comprensión profunda del código y hace que trabajar con artefactos sea mucho más potente.
+Con v0.3.4-beta, oneAI se vuelve más visual, más inteligente y notablemente más fiable en el día a día. Esta versión introduce un segundo generador de imágenes, mejora GitHub Spaces con una comprensión profunda del código y hace que trabajar con artefactos sea mucho más potente.
 
 ## Highlights
 
 ### Google Imagen 4 para generación de imágenes
-Además de OpenAI, ahora puedes usar **Google Imagen 4** directamente en OneAI.
+Además de OpenAI, ahora puedes usar **Google Imagen 4** directamente en oneAI.
 
 Disponible en tres variantes:
 
@@ -21,7 +21,7 @@ Esto ofrece a los equipos mayor flexibilidad en calidad, velocidad y coste — p
 ### Análisis inteligente de código para GitHub Spaces
 GitHub Spaces ahora realmente entiende tus repositorios.
 
-En cada sincronización, OneAI analiza automáticamente:
+En cada sincronización, oneAI analiza automáticamente:
 
 - Estructura del repositorio y directorios  
 - Distribución de lenguajes de programación  
@@ -30,10 +30,10 @@ En cada sincronización, OneAI analiza automáticamente:
 
 Generamos archivos de resumen estructurados y enriquecemos los archivos de código con contexto arquitectónico. El resultado: **respuestas más precisas y conscientes de la arquitectura en AI Chat**, especialmente en bases de código grandes.
 
-También desarrollado por **Mirko** — un gran paso adelante para los equipos de ingeniería que usan OneAI.
+También desarrollado por **Mirko** — un gran paso adelante para los equipos de ingeniería que usan oneAI.
 
 ### Artefactos — completamente rediseñados
-Los artefactos ahora son un componente colaborativo de primera clase en OneAI.
+Los artefactos ahora son un componente colaborativo de primera clase en oneAI.
 
 Nuevas capacidades:
 
@@ -123,4 +123,4 @@ Gracias a **Pascal** (13 changes) y **Mirko** (3 changes) por impulsar este avan
 _16 commits · 15 PRs · 320 archivos modificados_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

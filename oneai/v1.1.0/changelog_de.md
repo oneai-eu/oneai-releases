@@ -1,8 +1,8 @@
-# OneAI v1.1.0 — Das größte Release seit v1.0
+# oneAI v1.1.0 — Das größte Release seit v1.0
 
 **Release Date:** 2026-05-28
 
-OneAI v1.1.0 ist ein großer Schritt nach vorn: **AI Chat wird kreativer**, **Wissensräume werden besser steuerbar** und **Admins erhalten mehr Kontrolle für regulierte Umgebungen**. Dazu kommen neue Konnektoren, eine deutlich bessere Projektorganisation und viele Stabilitätsverbesserungen im Alltag.
+oneAI v1.1.0 ist ein großer Schritt nach vorn: **AI Chat wird kreativer**, **Wissensräume werden besser steuerbar** und **Admins erhalten mehr Kontrolle für regulierte Umgebungen**. Dazu kommen neue Konnektoren, eine deutlich bessere Projektorganisation und viele Stabilitätsverbesserungen im Alltag.
 
 ## Highlights
 
@@ -28,18 +28,18 @@ OneAI v1.1.0 ist ein großer Schritt nach vorn: **AI Chat wird kreativer**, **Wi
 
 - **Smartere Antworten mit klarer Quellenkontrolle**
   - Zwei neue Organisationseinstellungen helfen, Antworten gezielt auf interne Quellen zu stützen.
-  - Auf Wunsch antwortet OneAI nur dann, wenn die Aussage tatsächlich belegt ist.
+  - Auf Wunsch antwortet oneAI nur dann, wenn die Aussage tatsächlich belegt ist.
   - Für regulierte Branchen ist das ein besonders wichtiges Governance-Feature. Danke an **Mirko** für die Umsetzung dieser zentralen SAG-Anforderungen.
 
 - **Neue Konnektoren: HubSpot und SMB**
-  - **HubSpot** ist jetzt als neue Datenquelle verfügbar und bringt CRM-Inhalte in OneAI.
+  - **HubSpot** ist jetzt als neue Datenquelle verfügbar und bringt CRM-Inhalte in oneAI.
   - Mit dem neuen **SMB-Konnektor** können auch Netzlaufwerke aus dem internen Unternehmensnetz als Wissensquelle angebunden werden.
   - Danke an **Pascal** für HubSpot und an **Justus** für den SMB-Konnektor und die dafür nötige Agent-Basis.
 
 ## Verbesserungen
 
 - **MCP-Server für externe AI-Tools**
-  - Externe Tools wie Cursor, Claude Desktop, Copilot oder n8n können OneAI jetzt über den offenen MCP-Standard anbinden und Wissensquellen durchsuchen.
+  - Externe Tools wie Cursor, Claude Desktop, Copilot oder n8n können oneAI jetzt über den offenen MCP-Standard anbinden und Wissensquellen durchsuchen.
   - Danke an **Santi** für diese wichtige Erweiterung für technische Teams.
 
 - **Verbrauch, Budgets und Overage besser im Blick**
@@ -57,7 +57,7 @@ OneAI v1.1.0 ist ein großer Schritt nach vorn: **AI Chat wird kreativer**, **Wi
 
 - **Bessere Sichtbarkeit im Betrieb**
   - Der Status von pausierten Spaces wird auf Projekt- und Space-Detailseiten klar angezeigt.
-  - Der OneAI-Agent zeigt seinen Online-Status jetzt laufend aktualisiert an.
+  - Der oneAI-Agent zeigt seinen Online-Status jetzt laufend aktualisiert an.
   - Add-on-Käufe werden sofort sichtbar, ohne dass ein Reload nötig ist.
 
 ## Fehlerbehebungen
@@ -90,7 +90,7 @@ OneAI v1.1.0 ist ein großer Schritt nach vorn: **AI Chat wird kreativer**, **Wi
   - Das reduziert das Risiko von Fehlzuordnungen und härtet die Teams-Anmeldung insbesondere in Hybrid-AD-Szenarien.
 
 - **Agent-Tokens werden nicht mehr im Klartext gespeichert**
-  - Upload- und Download-Tokens des OneAI-Agent werden jetzt gehasht gespeichert.
+  - Upload- und Download-Tokens des oneAI-Agent werden jetzt gehasht gespeichert.
   - Das verbessert den Schutz sensibler Verbindungsdaten deutlich.
 
 ## Unter der Haube
@@ -103,4 +103,4 @@ Danke an **Pascal**, **Mirko**, **Obaid**, **Justus** und **Santi** für dieses 
 *43 Commits, 43 PRs, 271 geänderte Dateien*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

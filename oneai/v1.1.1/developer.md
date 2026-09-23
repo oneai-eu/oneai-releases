@@ -28,25 +28,25 @@
 
 - Ihr könnt jetzt KI-Antworten bewerten — Administratoren sehen das aggregierte Feedback in einem neuen Dashboard.
 - Bilder lassen sich jetzt überall in Artefakte einfügen — egal ob per Zwischenablage, Upload, Drag&Drop oder direkt von der KI generiert.
-- OneAI schlägt sinnvolle nächste Fragen vor — direkt im Chat.
+- oneAI schlägt sinnvolle nächste Fragen vor — direkt im Chat.
 - Spaces zeigen jetzt für jeden Connector eine passende Ansicht — z. B. eine eigene E-Mail-Vorschau für Outlook.
 - Die KI kann jetzt eure Spaces, Projekte und Dateien selbständig erkunden und gezielt auf Inhalte zugreifen.
 - Self-Service-Anmeldung für das OneGateway mit zugehörigem Frontend.
-- Neue Foundation für OneAI-Integrationen.
+- Neue Foundation für oneAI-Integrationen.
 - Teilt Artefakte als privat, projektweit oder öffentlich — mit eigenem Share-Link pro Sichtbarkeit.
 - Ihr könnt jetzt im Gateway eine Obergrenze für die monatlichen Ausgaben festlegen.
 - HubSpot-Anbindung mit neuen Chat-Tools, Setup-Assistent und ausgereifteren Live-Tests.
-- OneAI kann jetzt direkt mit eurem Outlook-Postfach interagieren — auf der neuen Tool-Calling-Plattform.
+- oneAI kann jetzt direkt mit eurem Outlook-Postfach interagieren — auf der neuen Tool-Calling-Plattform.
 - Erste Phase des neuen Uno-Assistenten: Backend + Frontend hinter einem Feature-Flag.
 - Die KI kann jetzt generische HTTP-APIs ansteuern und entdecken — der erste Schritt zu universellen Integrationen.
 - Bindet Model-Context-Protocol-Server an — verwaltet auf Org-Ebene durch Admins.
 - Die KI kann jetzt nach geeigneten Tools für eure Aufgabe suchen — schnellerer Zugriff bei vielen verfügbaren Tools.
 - Backend-Verdrahtung der n8n-Generierung + neues run_n8n_workflow-Tool.
 - Vollständige Workflow-Verwaltung: ändern, löschen, aktivieren und automatisch reparieren.
-- n8n-Workflows aus Templates haben automatisch korrekte Credentials und respektieren OneAI-Compliance-Regeln.
+- n8n-Workflows aus Templates haben automatisch korrekte Credentials und respektieren oneAI-Compliance-Regeln.
 - Sprecht eure Fragen statt sie zu tippen — der neue Voice-Mode unterstützt natürliche Konversationen.
 - Eure Python-Code-Snippets können jetzt Bilder zurückliefern, die direkt im Chat angezeigt werden.
-- Neues Partner-Portal für OneAI-Partner — mit eigener Routing- und Build-Pipeline.
+- Neues Partner-Portal für oneAI-Partner — mit eigener Routing- und Build-Pipeline.
 - Fundament für KI-generierte Präsentationen — Schema und Speicherung.
 - Anbindung an Google Vertex AI als Modell-Provider.
 - LLM-Tools, mit denen die KI Präsentationen anlegen und aktualisieren kann.
@@ -91,10 +91,10 @@
 - Bild-Kosten werden in der richtigen Größe abgerechnet und Provider-Fehler richtig kategorisiert.
 - Bei abgelaufenen Microsoft-Tokens seht ihr die genaue Fehlerursache und das System markiert dauerhafte Auth-Probleme korrekt.
 - Diagramme und Syntax-Highlighting werden jetzt vollständig gerendert, bevor das PDF erzeugt wird.
-- Wenn ihr ein Artefakt ohne expliziten Verweis nennt, weiß OneAI jetzt, dass das aktive Artefakt gemeint ist.
+- Wenn ihr ein Artefakt ohne expliziten Verweis nennt, weiß oneAI jetzt, dass das aktive Artefakt gemeint ist.
 - Behebt einen Fehler, bei dem Artefakte beim ersten Öffnen leer angezeigt wurden.
 - Agent-Shutdown crasht nicht mehr, wenn der DB-Socket bereits geschlossen ist.
-- OneAI findet Empfänger-Namen jetzt über Kontakte → People → Verzeichnis → Mailbox — keine kryptischen E-Mail-Adressen mehr.
+- oneAI findet Empfänger-Namen jetzt über Kontakte → People → Verzeichnis → Mailbox — keine kryptischen E-Mail-Adressen mehr.
 - Chat-Vorschläge wurden überarbeitet, sodass sie nicht mehr unsinnige Fragen an die KI vorschlagen.
 - Die Admin-Modelle-Seite bleibt beim Öffnen oben — kein nerviges Auto-Scrollen mehr.
 - Vertex-AI-Authentifizierung läuft jetzt zuverlässig, Modelle werden korrekt zur passenden Region geroutet.

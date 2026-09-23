@@ -1,8 +1,8 @@
-# OneAI v1.1.0 — Nuestro mayor lanzamiento desde v1.0
+# oneAI v1.1.0 — Nuestro mayor lanzamiento desde v1.0
 
 **Release Date:** 2026-05-28
 
-OneAI v1.1.0 supone un gran paso adelante: **AI Chat es más capaz**, **Knowledge Spaces es más fácil de gestionar**, y **los administradores disponen de controles más sólidos para entornos regulados**. Además, esta versión incorpora nuevos conectores, una experiencia de organización de proyectos mucho mejor y mejoras relevantes de fiabilidad en toda la plataforma.
+oneAI v1.1.0 supone un gran paso adelante: **AI Chat es más capaz**, **Knowledge Spaces es más fácil de gestionar**, y **los administradores disponen de controles más sólidos para entornos regulados**. Además, esta versión incorpora nuevos conectores, una experiencia de organización de proyectos mucho mejor y mejoras relevantes de fiabilidad en toda la plataforma.
 
 ## Highlights
 
@@ -27,19 +27,19 @@ OneAI v1.1.0 supone un gran paso adelante: **AI Chat es más capaz**, **Knowledg
   - Especialmente útil para revisiones de cumplimiento, pausas de proyectos o cierres temporales.
 
 - **Respuestas más inteligentes con mayor control de fuentes**
-  - Dos nuevos ajustes de organización ayudan a OneAI a priorizar fuentes internas al generar respuestas.
-  - Si se desea, OneAI también puede configurarse para responder solo cuando la información esté realmente respaldada por fuentes.
+  - Dos nuevos ajustes de organización ayudan a oneAI a priorizar fuentes internas al generar respuestas.
+  - Si se desea, oneAI también puede configurarse para responder solo cuando la información esté realmente respaldada por fuentes.
   - Una capacidad clave de gobernanza para sectores regulados. Gracias a **Mirko** por implementar estas funcionalidades relacionadas con los requisitos SAG.
 
 - **Nuevos conectores: HubSpot y SMB**
-  - **HubSpot** ya está disponible como nueva fuente de datos, incorporando el conocimiento del CRM en OneAI.
+  - **HubSpot** ya está disponible como nueva fuente de datos, incorporando el conocimiento del CRM en oneAI.
   - El nuevo **conector SMB** permite conectar unidades de red de tu entorno interno como fuente de conocimiento.
   - Gracias a **Pascal** por HubSpot y a **Justus** por el conector SMB y la base del agente necesaria.
 
 ## Improvements
 
 - **Servidor MCP para herramientas AI externas**
-  - Herramientas como Cursor, Claude Desktop, Copilot o n8n pueden ahora conectarse a OneAI mediante el estándar abierto MCP y consultar tus fuentes de conocimiento.
+  - Herramientas como Cursor, Claude Desktop, Copilot o n8n pueden ahora conectarse a oneAI mediante el estándar abierto MCP y consultar tus fuentes de conocimiento.
   - Gracias a **Santi** por esta importante ampliación para equipos técnicos.
 
 - **Mejor visibilidad del uso, presupuestos y sobrecostes**
@@ -57,7 +57,7 @@ OneAI v1.1.0 supone un gran paso adelante: **AI Chat es más capaz**, **Knowledg
 
 - **Mejor visibilidad operativa**
   - Los Spaces en pausa se indican claramente en las páginas de detalle de proyectos y Spaces.
-  - El indicador de estado del OneAI Agent se actualiza automáticamente.
+  - El indicador de estado del oneAI Agent se actualiza automáticamente.
   - Las compras de add-ons están disponibles de inmediato sin necesidad de recargar la página.
 
 ## Bug Fixes
@@ -90,7 +90,7 @@ OneAI v1.1.0 supone un gran paso adelante: **AI Chat es más capaz**, **Knowledg
   - Esto reduce el riesgo de asignaciones incorrectas y refuerza el inicio de sesión en Teams, especialmente en escenarios de AD híbrido.
 
 - **Los tokens del Agent ya no se almacenan en texto plano**
-  - Los tokens de subida y descarga del OneAI Agent ahora se almacenan como hashes.
+  - Los tokens de subida y descarga del oneAI Agent ahora se almacenan como hashes.
   - Esto mejora significativamente la protección de credenciales de conexión sensibles.
 
 ## Under the Hood
@@ -103,4 +103,4 @@ Gracias a **Pascal**, **Mirko**, **Obaid**, **Justus** y **Santi** por este lanz
 *43 commits, 43 PRs, 271 archivos modificados*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

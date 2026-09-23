@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.48.2-stable — Refuerzo de seguridad y monitorización
+# oneAI teams-v0.2.48.2-stable — Refuerzo de seguridad y monitorización
 
 **Release Date:** 2026-08-11
 
@@ -27,4 +27,4 @@ Gracias a **Mirko** por implementar estas mejoras de seguridad y operaciones.
 _13 commits · 32 archivos modificados_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

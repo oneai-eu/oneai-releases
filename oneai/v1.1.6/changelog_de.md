@@ -1,18 +1,18 @@
-# OneAI v1.1.6 — Präsentationen im Markenlook und deutlich robustere Chats
+# oneAI v1.1.6 — Präsentationen im Markenlook und deutlich robustere Chats
 
 **Release Date:** 2026-07-08
 
 ## Highlights
 
-**Präsentationen wirken jetzt sofort wie eure Marke.** Generierte Decks können automatisch eure Brand-Farben übernehmen: mit Primärfarbe aus eurer CI und einem zusätzlichen Akzent aus dem Logo. So passen Präsentationen deutlich besser in bestehende Unternehmensvorlagen. Thanks to Pascal, ist das Präsentations-Erlebnis in OneAI damit ein großes Stück professioneller geworden.
+**Präsentationen wirken jetzt sofort wie eure Marke.** Generierte Decks können automatisch eure Brand-Farben übernehmen: mit Primärfarbe aus eurer CI und einem zusätzlichen Akzent aus dem Logo. So passen Präsentationen deutlich besser in bestehende Unternehmensvorlagen. Thanks to Pascal, ist das Präsentations-Erlebnis in oneAI damit ein großes Stück professioneller geworden.
 
 **Präsentationen lassen sich jetzt direkt im Viewer bearbeiten.** Folien können per Drag-and-Drop umsortiert, dupliziert oder gelöscht werden — ohne das Deck neu generieren oder die KI erneut anweisen zu müssen. Das macht aus generierten Präsentationen deutlich schneller nutzbare Arbeitsstände.
 
 **Designs lassen sich nachträglich umschalten.** Zwischen Light, Dark, Corporate, Editorial und Slate könnt ihr jetzt jederzeit wechseln, ohne die Präsentation neu erstellen zu müssen.
 
-**Python-Ergebnisse im Chat sind jetzt vollständig als Download verfügbar.** Neben Bildern stellt OneAI nun auch Excel-, PDF-, Word- und CSV-Dateien direkt im AI Chat bereit — inklusive korrektem Dateinamen. Thanks to Mirko, lassen sich Analyseergebnisse und Reports jetzt deutlich einfacher weiterverwenden.
+**Python-Ergebnisse im Chat sind jetzt vollständig als Download verfügbar.** Neben Bildern stellt oneAI nun auch Excel-, PDF-, Word- und CSV-Dateien direkt im AI Chat bereit — inklusive korrektem Dateinamen. Thanks to Mirko, lassen sich Analyseergebnisse und Reports jetzt deutlich einfacher weiterverwenden.
 
-**Lange Chats bleiben stabil.** Wenn Unterhaltungen oder eingefügte Inhalte sehr groß werden, kürzt OneAI ältere Inhalte jetzt automatisch, statt mit „Konversation zu groß“ abzubrechen. Zusätzlich werden erzeugte Zusammenfassungen wieder korrekt in den weiteren Kontext übernommen. Thanks to Pascal, sind lange Arbeitsgespräche mit dem AI Chat jetzt deutlich zuverlässiger.
+**Lange Chats bleiben stabil.** Wenn Unterhaltungen oder eingefügte Inhalte sehr groß werden, kürzt oneAI ältere Inhalte jetzt automatisch, statt mit „Konversation zu groß“ abzubrechen. Zusätzlich werden erzeugte Zusammenfassungen wieder korrekt in den weiteren Kontext übernommen. Thanks to Pascal, sind lange Arbeitsgespräche mit dem AI Chat jetzt deutlich zuverlässiger.
 
 ## Verbesserungen
 
@@ -49,4 +49,4 @@ Danke an Pascal, Justus, Mirko, Oliver, Santi und Obaid für diese Version.
 *34 Commits, 109 geänderte Dateien*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -5,12 +5,12 @@
 
 ## Feature
 
-- Öffentlich geteilte Canvas-Apps können Besucher jetzt per E-Mail-Link anmelden, ohne dass diese ein OneAI-Konto brauchen.
+- Öffentlich geteilte Canvas-Apps können Besucher jetzt per E-Mail-Link anmelden, ohne dass diese ein oneAI-Konto brauchen.
 - Eine Canvas-App kann jetzt erkennen und anzeigen, wer eingeloggt ist bzw. wer einen Formular-Eintrag abgeschickt hat.
 - Wer über ein Formular in einer geteilten Canvas-App etwas eingereicht hat, kann seine eigene Antwort danach korrigieren, statt eine neue Zeile anzulegen.
 - Eine Canvas-App kann jetzt Dateien aus dem Space lesen, verarbeiten und dort ablegen — zum Beispiel eine CSV-Datei hochladen und direkt als Diagramm anzeigen.
 - Öffentlich geteilte Canvas-Apps können jetzt Bilder und Dateien direkt anzeigen, und Besucher können Dateien hochladen — ganz ohne Login.
-- Eine geteilte Canvas-App kann jetzt unter der eigenen Firmendomain statt einer OneAI-URL veröffentlicht werden, inklusive automatischer Einrichtung.
+- Eine geteilte Canvas-App kann jetzt unter der eigenen Firmendomain statt einer oneAI-URL veröffentlicht werden, inklusive automatischer Einrichtung.
 - Eigene, bereits im Space abgelegte Bilder können jetzt direkt auf Präsentationsfolien platziert werden, nicht nur von der KI erzeugte Bilder.
 - Unternehmen können ihre eigene PowerPoint-Vorlage hochladen, statt das Layout manuell nachzubauen — erzeugte Präsentationen übernehmen automatisch das echte Corporate Design.
 - Unternehmen können bald eigene KI-Agenten erstellen, die selbstständig nach Zeitplan laufen und sensible Aktionen erst nach Freigabe ausführen. Diese Funktion ist aktuell noch nicht für Kunden aktiv.
@@ -18,7 +18,7 @@
 - Die KI kann jetzt einzelne HubSpot-Datensätze im Detail abrufen, verfügbare Felder nachschlagen und den vollständigen Verlauf zu einem Kontakt anzeigen.
 - Die KI kann jetzt in HubSpot direkt Kontakte und Firmen anlegen oder ändern und sie miteinander verknüpfen — jede Änderung wird vorher als Karte mit Vorher/Nachher-Vergleich zur Bestätigung angezeigt.
 - Die KI kann Notizen und Aufgaben anlegen, Anrufe/Termine protokollieren sowie Deals und Tickets erstellen, bearbeiten und deren Phase bzw. Status ändern — jede Aktion erfordert immer eine ausdrückliche Bestätigung.
-- Sie können jetzt Ihren Plytix-Produktkatalog mit OneAI verbinden — Ihr KI-Assistent kann direkt Fragen zu Produkten, Attributen und Bildern aus Ihrem PIM-System beantworten.
+- Sie können jetzt Ihren Plytix-Produktkatalog mit oneAI verbinden — Ihr KI-Assistent kann direkt Fragen zu Produkten, Attributen und Bildern aus Ihrem PIM-System beantworten.
 - Im Hintergrund wurde eine neue Anbindung an selbstgehostetes Forgejo/Git gebaut — Repository-Inhalte, Issues und Pull Requests durchsuchbar machen, mit bestätigungspflichtigen Schreibaktionen. Diese Funktion ist noch nicht für Kunden freigeschaltet.
 - Der Assistent kann Pull-Request-Diffs und Review-Status lesen, um beim Code-Review zu helfen; eine bestätigte Aktion wird auch bei Netzwerkfehlern nie versehentlich doppelt ausgeführt. Noch nicht für Kunden aktiv.
 - Die weclapp-Anbindung kann jetzt mehr Geschäftsvorgänge direkt erstellen und ändern, Rechnungen als PDF herunterladen, und bricht bei einem unvollständigen Sync keine Daten mehr fälschlich ab.

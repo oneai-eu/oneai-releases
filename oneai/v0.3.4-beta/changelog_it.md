@@ -1,13 +1,13 @@
-# OneAI v0.3.4-beta — Generazione di immagini, GitHub Spaces più intelligenti e importanti upgrade UX
+# oneAI v0.3.4-beta — Generazione di immagini, GitHub Spaces più intelligenti e importanti upgrade UX
 
 **Release Date:** 2026-03-18
 
-Con v0.3.4-beta, OneAI diventa più visivo, più intelligente e sensibilmente più affidabile nell’uso quotidiano. Questa release introduce un secondo generatore di immagini, potenzia GitHub Spaces con una profonda comprensione del codice e rende il lavoro con gli artefatti molto più potente.
+Con v0.3.4-beta, oneAI diventa più visivo, più intelligente e sensibilmente più affidabile nell’uso quotidiano. Questa release introduce un secondo generatore di immagini, potenzia GitHub Spaces con una profonda comprensione del codice e rende il lavoro con gli artefatti molto più potente.
 
 ## Highlights
 
 ### Google Imagen 4 per la generazione di immagini
-Oltre a OpenAI, ora puoi utilizzare **Google Imagen 4** direttamente in OneAI.
+Oltre a OpenAI, ora puoi utilizzare **Google Imagen 4** direttamente in oneAI.
 
 Disponibile in tre varianti:
 
@@ -21,7 +21,7 @@ Questo offre ai team maggiore flessibilità in termini di qualità, velocità e 
 ### Analisi intelligente del codice per GitHub Spaces
 GitHub Spaces ora comprendono realmente i vostri repository.
 
-A ogni sincronizzazione, OneAI analizza automaticamente:
+A ogni sincronizzazione, oneAI analizza automaticamente:
 
 - Struttura del repository e delle directory  
 - Distribuzione dei linguaggi di programmazione  
@@ -30,10 +30,10 @@ A ogni sincronizzazione, OneAI analizza automaticamente:
 
 Generiamo file di panoramica strutturati e arricchiamo i file di codice con contesto architetturale. Il risultato: **risposte più precise e consapevoli dell’architettura in AI Chat**, soprattutto per codebase di grandi dimensioni.
 
-Anche questa funzionalità è stata realizzata da **Mirko** — un importante passo avanti per i team di ingegneria che utilizzano OneAI.
+Anche questa funzionalità è stata realizzata da **Mirko** — un importante passo avanti per i team di ingegneria che utilizzano oneAI.
 
 ### Artefatti — completamente riprogettati
-Gli artefatti sono ora un componente collaborativo di primo livello in OneAI.
+Gli artefatti sono ora un componente collaborativo di primo livello in oneAI.
 
 Nuove funzionalità:
 
@@ -123,4 +123,4 @@ Grazie a **Pascal** (13 changes) e **Mirko** (3 changes) per aver guidato questa
 _16 commit · 15 PR · 320 file modificati_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

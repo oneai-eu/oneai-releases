@@ -1,4 +1,4 @@
-# OneAI v2026.08.18 — Collaborazione, dashboard live e integrazioni sicure
+# oneAI v2026.08.18 — Collaborazione, dashboard live e integrazioni sicure
 
 **Release Date:** 2026-08-18
 
@@ -19,17 +19,17 @@ La nuova pagina Integrazioni offre maggiore visibilità e più controllo sulle c
 - I dipendenti possono gestire le proprie connessioni in un unico luogo centralizzato.
 - Le singole integrazioni possono essere disabilitate a livello personale.
 - Gli amministratori possono disabilitare le integrazioni a livello di organizzazione o limitarle a progetti specifici.
-- Ora è possibile inviare e-mail di Outlook direttamente da OneAI.
+- Ora è possibile inviare e-mail di Outlook direttamente da oneAI.
 
 **Nuovo Connector: Lexware Office**
 
-Collegate Lexware Office a OneAI per cercare in modo sicuro i dati contabili e utilizzarli tramite strumenti basati sull’IA.
+Collegate Lexware Office a oneAI per cercare in modo sicuro i dati contabili e utilizzarli tramite strumenti basati sull’IA.
 
 ## Miglioramenti
 
 **Un’esperienza AI Chat più produttiva**
 
-- I messaggi già inviati possono ora essere modificati. OneAI genererà una nuova risposta in base alla richiesta aggiornata.
+- I messaggi già inviati possono ora essere modificati. oneAI genererà una nuova risposta in base alla richiesta aggiornata.
 - Il composer della chat è stato riprogettato per offrire un’esperienza più chiara ed efficiente.
 - Uno è ora disponibile come finestra di chat mobile, mantenendo l’assistenza più vicina al vostro attuale contesto di lavoro.
 
@@ -41,7 +41,7 @@ Collegate Lexware Office a OneAI per cercare in modo sicuro i dati contabili e u
 
 ## Sicurezza
 
-Questa release include un ampio rafforzamento della sicurezza e della compliance per supportare l’uso sicuro di OneAI con i dati aziendali:
+Questa release include un ampio rafforzamento della sicurezza e della compliance per supportare l’uso sicuro di oneAI con i dati aziendali:
 
 - Una modalità di ricerca interna non può più creare contenuti senza l’esplicita conferma dell’utente.
 - Le azioni distruttive sono ora contrassegnate in modo chiaro e coerente come irreversibili in tutti gli strumenti interessati.
@@ -64,11 +64,11 @@ Questo aiuta a garantire che le politiche di accesso previste restino in vigore.
 
 ## Dietro le quinte
 
-Oltre alle funzionalità visibili, abbiamo continuato a sviluppare LLM Routing, l’elaborazione dei documenti, gli strumenti dati e l’architettura della piattaforma per rendere OneAI più potente e resiliente.
+Oltre alle funzionalità visibili, abbiamo continuato a sviluppare LLM Routing, l’elaborazione dei documenti, gli strumenti dati e l’architettura della piattaforma per rendere oneAI più potente e resiliente.
 
 Grazie a Pascal, Mirko, Justus, Oliver, Santi e Obaid per i loro contributi a questa release.
 
 _Ambito della release: 660 commit, 2.112 file modificati e 655 pull request._
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,10 +1,10 @@
-# OneAI v0.3.0-beta — Volle Chat-Kontrolle, neuer Activity Hub & stärkere KI-Modelle
+# oneAI v0.3.0-beta — Volle Chat-Kontrolle, neuer Activity Hub & stärkere KI-Modelle
 
 **Release Date:** 2026-02-26
 
-Mit **OneAI v0.3.0-beta** geben wir euch mehr Kontrolle, mehr Transparenz und mehr Leistung im Arbeitsalltag mit KI.
+Mit **oneAI v0.3.0-beta** geben wir euch mehr Kontrolle, mehr Transparenz und mehr Leistung im Arbeitsalltag mit KI.
 
-Von stoppbaren und wiederaufnehmbaren KI-Antworten über einen zentralen Activity Hub bis hin zu neuen Anthropic-Modellen und Multi-API-Keys mit Ablaufdatum – dieses Release bringt spürbare Verbesserungen für alle, die OneAI produktiv im Unternehmen einsetzen.
+Von stoppbaren und wiederaufnehmbaren KI-Antworten über einen zentralen Activity Hub bis hin zu neuen Anthropic-Modellen und Multi-API-Keys mit Ablaufdatum – dieses Release bringt spürbare Verbesserungen für alle, die oneAI produktiv im Unternehmen einsetzen.
 
 ## Highlights
 
@@ -60,7 +60,7 @@ Großes Dankeschön an **Justus** für diesen Architektur-Umbau.
 ## Verbesserungen
 
 ### Dokumentenverarbeitung wird automatisch wiederholt
-Wenn die Verarbeitung eines Dokuments fehlschlägt (z. B. durch temporäre API-Fehler), versucht OneAI es automatisch erneut – mit intelligentem Backoff.
+Wenn die Verarbeitung eines Dokuments fehlschlägt (z. B. durch temporäre API-Fehler), versucht oneAI es automatisch erneut – mit intelligentem Backoff.
 
 Ergebnis: **deutlich robustere Wissensräume** und weniger manuelle Eingriffe.
 
@@ -146,4 +146,4 @@ Ein großes Dankeschön an **Pascal, Mirko, Justus und Orehman** für dieses umf
 *26 Commits · 25 PRs · 264 Dateien geändert*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

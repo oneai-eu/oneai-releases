@@ -1,8 +1,8 @@
-# OneAI v0.2.21-beta — Central Model Governance, Stable Spaces & Modern Document Processing
+# oneAI v0.2.21-beta — Central Model Governance, Stable Spaces & Modern Document Processing
 
 **Release Date:** 2026-02-24
 
-With v0.2.21-beta, we’re strengthening OneAI in three critical areas: **AI model governance**, **stability for large Knowledge Spaces**, and a **fully modernized document processing pipeline**.
+With v0.2.21-beta, we’re strengthening oneAI in three critical areas: **AI model governance**, **stability for large Knowledge Spaces**, and a **fully modernized document processing pipeline**.
 
 ---
 
@@ -114,4 +114,4 @@ Many thanks to Orehman, Justus, Mirko, and Pascal for delivering this substantia
 _7 PRs · 156 files changed · 4,346 insertions · 3,268 deletions · 4 contributors_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

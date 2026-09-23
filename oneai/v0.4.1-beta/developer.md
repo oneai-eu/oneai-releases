@@ -5,7 +5,7 @@
 
 ## Feature
 
-- Teams koennen jetzt ClickUp-Spaces und -Listen direkt mit OneAI verbinden. Aufgaben, Kommentare und Beschreibungen werden automatisch synchronisiert und fuer die KI-Suche aufbereitet.
+- Teams koennen jetzt ClickUp-Spaces und -Listen direkt mit oneAI verbinden. Aufgaben, Kommentare und Beschreibungen werden automatisch synchronisiert und fuer die KI-Suche aufbereitet.
 - Ihr koennt jetzt direkt im Chat Bilder generieren lassen und dabei Modell, Qualitaet und Groesse selbst waehlen. Admins koennen festlegen, welche Bildmodelle der Organisation zur Verfuegung stehen.
 - Das Dashboard zeigt Nutzungsdaten jetzt mit moderneren Diagrammen an — inklusive eines neuen Modellverteilungs-Charts und verbesserter Filteroptionen.
 - Der Referenzen-Dialog in Projekten wurde komplett neu gestaltet — mit einer uebersichtlichen Ordnernavigation und Dateidetails.

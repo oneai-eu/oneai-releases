@@ -1,4 +1,4 @@
-# OneAI v1.0.3 — Traitement fiable des documents, même à quota complet
+# oneAI v1.0.3 — Traitement fiable des documents, même à quota complet
 
 **Release Date:** 2026-05-11
 
@@ -34,9 +34,9 @@ Bien que ces améliorations ne soient pas directement visibles pour les utilisat
 
 ---
 
-Merci à Justus pour avoir renforcé la fiabilité et la transparence d’un composant clé de OneAI.
+Merci à Justus pour avoir renforcé la fiabilité et la transparence d’un composant clé de oneAI.
 
 _2 commits · 2 PRs · 3 fichiers modifiés_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

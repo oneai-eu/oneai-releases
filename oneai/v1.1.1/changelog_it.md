@@ -1,12 +1,12 @@
-# OneAI v1.1.1 — Modalità vocale, presentazioni e automazione più intelligente
+# oneAI v1.1.1 — Modalità vocale, presentazioni e automazione più intelligente
 
 **Release Date:** 2026-06-24
 
 ## Highlights
 
-OneAI v1.1.1 è una delle nostre release più importanti finora. Il focus è su nuovi modi di lavorare in **AI Chat**, **artifacts** più potenti e un grande passo avanti nell’**automazione con controllo**.
+oneAI v1.1.1 è una delle nostre release più importanti finora. Il focus è su nuovi modi di lavorare in **AI Chat**, **artifacts** più potenti e un grande passo avanti nell’**automazione con controllo**.
 
-- **Modalità vocale in AI Chat**: Ora puoi parlare con OneAI invece di digitare. Grazie a Justus, il primo rollout è già affidabile, con streaming più stabile e indicazioni più chiare all’interno del prodotto.
+- **Modalità vocale in AI Chat**: Ora puoi parlare con oneAI invece di digitare. Grazie a Justus, il primo rollout è già affidabile, con streaming più stabile e indicazioni più chiare all’interno del prodotto.
 - **Presentazioni generate dall’IA nella chat**: Crea presentazioni complete direttamente da una conversazione, visualizzale in anteprima nel pannello artifact ed esportale come **PowerPoint o PDF**. Grazie a Pascal per aver realizzato questa funzionalità end-to-end.
 - **Uno – il tuo nuovo assistente**: Con un proprio sistema di conoscenza, contesto di workspace e un flusso conversazionale migliorato, Uno introduce un’esperienza di assistente più focalizzata. Santi ha posto le basi per i prossimi sviluppi.
 - **Condivisione migliorata degli artifacts**: Gli artifacts ora supportano le immagini e possono essere condivisi tramite **link privati, di progetto o pubblici**. I flussi di condivisione sono ora molto più chiari per i destinatari.
@@ -14,7 +14,7 @@ OneAI v1.1.1 è una delle nostre release più importanti finora. Il focus è su 
 
 ## Improvements
 
-- **Meno clic per le azioni degli strumenti**: Con la nuova logica di **trust window**, OneAI può imparare quando azioni affidabili possono essere eseguite automaticamente o approvate in modo più fluido — ad esempio con Outlook, n8n, strumenti MCP o API approvate. L’automazione diventa così molto più scorrevole senza compromettere la governance. Gran parte di questa base è stata sviluppata da Mirko.
+- **Meno clic per le azioni degli strumenti**: Con la nuova logica di **trust window**, oneAI può imparare quando azioni affidabili possono essere eseguite automaticamente o approvate in modo più fluido — ad esempio con Outlook, n8n, strumenti MCP o API approvate. L’automazione diventa così molto più scorrevole senza compromettere la governance. Gran parte di questa base è stata sviluppata da Mirko.
 - **Maggiore visibilità in Knowledge Spaces**: Ora puoi vedere lo stato di avanzamento dell’indicizzazione dei documenti direttamente nella barra delle attività e nelle schede degli spazi.
 - **Viste specifiche per Connector**: I contenuti provenienti dai Connectors sono ora mostrati in formati più adeguati, inclusa una vista dedicata per i messaggi Outlook.
 - **Suggerimenti di chat più intelligenti**: AI Chat suggerisce ora domande di follow-up più pertinenti.
@@ -48,4 +48,4 @@ Grazie a **Pascal, Mirko, Justus, Oliver, Obaid e Santi** per aver rilasciato un
 *111 commit · 108 PR · 690 file modificati*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

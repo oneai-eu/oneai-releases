@@ -1,4 +1,4 @@
-# OneAI v0.4.1-beta — Nuevas integraciones, generación de imágenes con IA y una experiencia de AI Chat más inteligente
+# oneAI v0.4.1-beta — Nuevas integraciones, generación de imágenes con IA y una experiencia de AI Chat más inteligente
 
 **Release Date:** 2026-04-16
 
@@ -7,7 +7,7 @@ La versión v0.4.1-beta incorpora mejoras significativas en toda la plataforma: 
 ## Aspectos destacados
 
 ### Nuevo conector ClickUp con sincronización completa
-Ahora puedes conectar Spaces y Lists de ClickUp directamente a OneAI.
+Ahora puedes conectar Spaces y Lists de ClickUp directamente a oneAI.
 
 - Sincronización de tareas, descripciones, comentarios y checklists
 - Procesamiento automático para búsqueda impulsada por IA en Knowledge Spaces
@@ -98,4 +98,4 @@ Un gran agradecimiento a **Pascal, Mirko, Justus y Oliver** por 18 PRs en 124 ar
 _18 commits · 18 PRs · 124 archivos modificados · +9,242 / −4,347 líneas_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

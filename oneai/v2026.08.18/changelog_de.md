@@ -1,4 +1,4 @@
-# OneAI v2026.08.18 — Zusammenarbeit, Live-Dashboards und sichere Integrationen
+# oneAI v2026.08.18 — Zusammenarbeit, Live-Dashboards und sichere Integrationen
 
 **Release Date:** 2026-08-18
 
@@ -19,17 +19,17 @@ Die neue Integrationen-Seite macht Verbindungen zu Outlook, n8n, HubSpot, Lexwar
 - Mitarbeitende verwalten ihre eigenen Verbindungen an einem zentralen Ort.
 - Einzelne Integrationen können persönlich deaktiviert werden.
 - Admins können Integrationen organisationsweit sperren oder auf bestimmte Projekte begrenzen.
-- Outlook-E-Mails können jetzt direkt aus OneAI versendet werden.
+- Outlook-E-Mails können jetzt direkt aus oneAI versendet werden.
 
 **Neuer Connector: Lexware Office**
 
-Bindet Lexware Office an OneAI an, um Buchhaltungsdaten sicher zu durchsuchen und mit KI-gestützten Werkzeugen weiterzuverarbeiten.
+Bindet Lexware Office an oneAI an, um Buchhaltungsdaten sicher zu durchsuchen und mit KI-gestützten Werkzeugen weiterzuverarbeiten.
 
 ## Verbesserungen
 
 **Produktiveres Arbeiten im AI Chat**
 
-- Bereits gesendete Nachrichten können jetzt bearbeitet werden. OneAI erstellt anschließend eine neue Antwort auf Basis eurer überarbeiteten Anfrage.
+- Bereits gesendete Nachrichten können jetzt bearbeitet werden. oneAI erstellt anschließend eine neue Antwort auf Basis eurer überarbeiteten Anfrage.
 - Der Chat-Composer wurde klarer und effizienter gestaltet.
 - Uno steht jetzt als schwebendes Chat-Fenster zur Verfügung und bleibt damit näher an eurem aktuellen Arbeitskontext.
 
@@ -41,7 +41,7 @@ Bindet Lexware Office an OneAI an, um Buchhaltungsdaten sicher zu durchsuchen un
 
 ## Sicherheit
 
-Dieses Release enthält umfassende Sicherheits- und Compliance-Härtungen für den sicheren Einsatz von OneAI mit Unternehmensdaten:
+Dieses Release enthält umfassende Sicherheits- und Compliance-Härtungen für den sicheren Einsatz von oneAI mit Unternehmensdaten:
 
 - Ein interner Recherche-Modus kann keine Inhalte mehr ohne ausdrückliche Nutzerbestätigung erstellen.
 - Löschende Aktionen werden jetzt bei allen betroffenen Werkzeugen zuverlässig und deutlich als unwiderruflich markiert.
@@ -64,11 +64,11 @@ So stellt ihr sicher, dass eure gewünschten Zugriffsvorgaben weiterhin gelten.
 
 ## Unter der Haube
 
-Neben den sichtbaren Neuerungen wurden LLM Routing, Dokumentenverarbeitung, Datenwerkzeuge und die Plattformarchitektur weiterentwickelt, um OneAI leistungsfähiger und robuster zu machen.
+Neben den sichtbaren Neuerungen wurden LLM Routing, Dokumentenverarbeitung, Datenwerkzeuge und die Plattformarchitektur weiterentwickelt, um oneAI leistungsfähiger und robuster zu machen.
 
 Vielen Dank an Pascal, Mirko, Justus, Oliver, Santi und Obaid für ihre Beiträge zu diesem Release.
 
 _Release-Umfang: 660 Commits, 2.112 geänderte Dateien und 655 Pull Requests._
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*
