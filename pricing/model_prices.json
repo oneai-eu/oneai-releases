@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-24",
+  "version": "2026-09-25",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5.5-pro": {
@@ -532,7 +532,12 @@
           "1536x1024": 6.3
         }
       },
-      "notes": "Per-image estimates from OpenAI calculator; NOT re-verified in the 2026-07-08 audit (image models out of scope). OpenAI bills per-token, so this is an approximation by design."
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 1000,
+        "output_cents_per_mtok": 4000
+      },
+      "notes": "Per-image estimates from OpenAI calculator; NOT re-verified in the 2026-07-08 audit (image models out of scope). OpenAI bills per-token, so this is an approximation by design. token_pricing ADDED 2026-09-23 from OpenAI's image-model pricing table ($5.00/1M text input, $10.00/1M image input, $40.00/1M image output; no text output listed): the app now bills from the response's measured tokens and keeps this table only as the fallback when usage is missing."
     },
     "gpt-image-1-mini": {
       "provider": "openai",
@@ -559,7 +564,12 @@
           "1536x1024": 1.5
         }
       },
-      "notes": "Not re-verified in the 2026-07-08 audit; see gpt-image-1."
+      "token_pricing": {
+        "text_input_cents_per_mtok": 200,
+        "image_input_cents_per_mtok": 250,
+        "output_cents_per_mtok": 800
+      },
+      "notes": "Not re-verified in the 2026-07-08 audit; see gpt-image-1. token_pricing ADDED 2026-09-23 from OpenAI's image-model pricing table ($2.00/1M text input, $2.50/1M image input, $8.00/1M image output; no text output listed). The per-image table stays as the fallback."
     },
     "gpt-image-1.5": {
       "provider": "openai",
@@ -586,7 +596,13 @@
           "1536x1024": 5
         }
       },
-      "notes": "Re-verified 2026-09-07 against the OpenAI image-generation guide's per-image table (Low 0.009/0.013/0.013, Medium 0.034/0.05/0.05, High 0.133/0.2/0.2 USD): all nine values match. 'auto' mirrors 'medium', the OpenAI default."
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3200,
+        "text_output_cents_per_mtok": 1000
+      },
+      "notes": "Re-verified 2026-09-07 against the OpenAI image-generation guide's per-image table (Low 0.009/0.013/0.013, Medium 0.034/0.05/0.05, High 0.133/0.2/0.2 USD): all nine values match. 'auto' mirrors 'medium', the OpenAI default. token_pricing ADDED 2026-09-23 from OpenAI's image-model pricing table ($5.00/1M text input, $8.00/1M image input, $32.00/1M image output, $10.00/1M text output). gpt-image-1.5 is the only model here that reports text OUTPUT tokens (hidden reasoning, in usage.output_tokens_details.text_tokens), hence text_output_cents_per_mtok; an app build that does not know that field bills those tokens at the $32 image rate instead. The per-image table stays as the fallback."
     },
     "gpt-image-2": {
       "provider": "openai",
