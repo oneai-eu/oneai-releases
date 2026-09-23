@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-21",
+  "version": "2026-09-23",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5.5-pro": {
@@ -64,6 +64,54 @@
       "output_cents_per_mtok_above_200k": 180,
       "tier_threshold_tokens": 272000,
       "notes": "CORRECTED 2026-09-07 (was 100/125/10/600 short and 200/250/20/900 long — a uniform 5x OVER-billing, the largest error found in this file, on a default: true high-volume model): the old base rates were stale and matched no published OpenAI tier (not Standard, Batch, Flex or Fast). Re-entered from the OpenAI Standard-tier table: short context $0.20 input / $0.02 cached / $0.25 cache-write / $1.20 output; long context $0.40 / $0.04 / $0.50 / $1.80. GPT-5.6 Luna (cost-optimized, high-volume) — carries default: true, so it seeds into org_base_models for every new org, which is why the 5x error compounded fastest here. Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+    },
+    "gpt-6-astra": {
+      "display_name": "GPT-6 Astra",
+      "provider": "openai",
+      "hoster": "openai",
+      "location": "global",
+      "input_cents_per_mtok": 1000,
+      "cache_write_cents_per_mtok": 1250,
+      "cached_cents_per_mtok": 100,
+      "output_cents_per_mtok": 5000,
+      "input_cents_per_mtok_above_200k": 2000,
+      "cache_write_cents_per_mtok_above_200k": 2500,
+      "cached_cents_per_mtok_above_200k": 200,
+      "output_cents_per_mtok_above_200k": 7500,
+      "tier_threshold_tokens": 272000,
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. Read from the OpenAI model page for gpt-6-astra: short context $10.00 input / $1.00 cached / $12.50 cache-write / $50.00 output. The page footnote prices a prompt over 272K input tokens at 2x input and cache rates and 1.5x output FOR THE FULL REQUEST, giving 2000/2500/200/7500 long; boundary is STRICT > at 272000, the same as the whole GPT-5.6 family. Cache writes are stated on the page as 1.25x the uncached input rate, which is the family constant the 5.6 rows already encode. GPT-6 Astra is the frontier rung (1.05M context, 128K max output) and does NOT carry default: true in the app, so it reaches org_base_models only when an admin enables it. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at the base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+    },
+    "gpt-6-sol": {
+      "display_name": "GPT-6 Sol",
+      "provider": "openai",
+      "hoster": "openai",
+      "location": "global",
+      "input_cents_per_mtok": 200,
+      "cache_write_cents_per_mtok": 250,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 1000,
+      "input_cents_per_mtok_above_200k": 400,
+      "cache_write_cents_per_mtok_above_200k": 500,
+      "cached_cents_per_mtok_above_200k": 40,
+      "output_cents_per_mtok_above_200k": 1500,
+      "tier_threshold_tokens": 272000,
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $2.00 input / $10.00 output, which puts GPT-6 Sol on GPT-5.6 TERRA's input rate rather than GPT-5.6 Sol's despite the shared name. cached (20) and cache_write (250) are DERIVED, not read: cached = 0.1x input and cache_write = 1.25x input hold on every GPT-5.6 row and on the published gpt-6-astra row, so they are the family constants rather than a guess — but they are the first thing to re-check against the pricing table. The >272K tier is derived the same way (2x input and cache rates, 1.5x output, strict > at 272000): the footnote is quoted on Astra's page and the entire 5.6 family carries it, and omitting it would UNDER-bill long-context requests by 2x. Carries default: true in the app, so it seeds into org_base_models for every new org — a wrong number here compounds across every new tenant. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+    },
+    "gpt-6-luna": {
+      "display_name": "GPT-6 Luna",
+      "provider": "openai",
+      "hoster": "openai",
+      "location": "global",
+      "input_cents_per_mtok": 10,
+      "cache_write_cents_per_mtok": 12.5,
+      "cached_cents_per_mtok": 1,
+      "output_cents_per_mtok": 50,
+      "input_cents_per_mtok_above_200k": 20,
+      "cache_write_cents_per_mtok_above_200k": 25,
+      "cached_cents_per_mtok_above_200k": 2,
+      "output_cents_per_mtok_above_200k": 75,
+      "tier_threshold_tokens": 272000,
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $0.10 input / $0.50 output — half of GPT-5.6 Luna's input and well under half its output, making this the cheapest model in the catalogue. cached (1) and cache_write (12.5) are DERIVED from the family constants (cached = 0.1x input, cache_write = 1.25x input), as is the >272K tier (2x input and cache rates, 1.5x output, strict > at 272000); see gpt-6-sol for why they are applied rather than omitted. The fractional cache_write is intentional and already has precedent in this file (claude-opus-5 carries 687.5). Carries default: true in the app, so it seeds into org_base_models for every new org, and it is the row a high-volume tenant will spend the most tokens against — the 5x error corrected on gpt-5.6-luna on 2026-09-07 compounded fastest for exactly that reason. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
     },
     "claude-haiku-4-5": {
       "display_name": "Haiku 4.5",
