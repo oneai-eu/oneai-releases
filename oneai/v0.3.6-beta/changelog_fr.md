@@ -1,8 +1,8 @@
-# OneAI v0.3.6-beta — Contrôles de conformité renforcés, chats plus intelligents, prise en charge complète de GPT‑5.4
+# oneAI v0.3.6-beta — Contrôles de conformité renforcés, chats plus intelligents, prise en charge complète de GPT‑5.4
 
 **Release Date:** 2026-03-27
 
-Avec v0.3.6-beta, OneAI devient plus sécurisé, plus performant et plus fluide au quotidien. Cette version introduit un système de conformité entièrement repensé, un workflow de chat considérablement amélioré, un filtrage GitHub avancé et la prise en charge de tous les nouveaux modèles GPT‑5.4.
+Avec v0.3.6-beta, oneAI devient plus sécurisé, plus performant et plus fluide au quotidien. Cette version introduit un système de conformité entièrement repensé, un workflow de chat considérablement amélioré, un filtrage GitHub avancé et la prise en charge de tous les nouveaux modèles GPT‑5.4.
 
 ## Highlights
 
@@ -95,4 +95,4 @@ Merci à **Pascal, Oliver, Mirko et Santi** — ainsi qu’à nos mises à jour 
 _24 PRs · 147 fichiers modifiés · 14 422 insertions · 5 595 suppressions_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

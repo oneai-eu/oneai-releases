@@ -1,4 +1,4 @@
-# OneAI v0.3.7-beta — Recherche plus intelligente, personas personnalisées et audit complet
+# oneAI v0.3.7-beta — Recherche plus intelligente, personas personnalisées et audit complet
 
 **Release Date:** 2026-04-03
 
@@ -7,7 +7,7 @@
 ### Recherche documentaire plus intelligente avec récupération hybride & reranking
 La recherche dans les Knowledge Spaces a été profondément améliorée.
 
-OneAI combine désormais la **recherche classique par mots-clés (BM25)** avec la **recherche vectorielle basée sur l’IA**, suivie d’une étape de reranking par pertinence. Résultat : des réponses nettement plus précises, notamment pour les requêtes complexes ou nuancées.
+oneAI combine désormais la **recherche classique par mots-clés (BM25)** avec la **recherche vectorielle basée sur l’IA**, suivie d’une étape de reranking par pertinence. Résultat : des réponses nettement plus précises, notamment pour les requêtes complexes ou nuancées.
 
 - Meilleurs résultats pour la terminologie métier et les synonymes
 - Réponses plus cohérentes sur de grands volumes de documents
@@ -109,4 +109,4 @@ Un grand merci à Pascal, Oliver, Mirko, Justus et à toute l’équipe pour les
 _39 commits · 38 PRs · 160 fichiers modifiés_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

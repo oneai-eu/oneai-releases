@@ -259,7 +259,7 @@
       ]
     },
     "oneai": {
-      "name": "OneAI",
+      "name": "oneAI",
       "description": "Enterprise AI Governance Platform",
       "source_repo": "https://github.com/0codekit/oneai",
       "latest": "v2026.09.04",
@@ -383,20 +383,20 @@
     },
     "onedeploy": {
       "name": "OneDeploy",
-      "description": "Infrastructure-as-Code for OneAI Services",
+      "description": "Infrastructure-as-Code for oneAI Services",
       "source_repo": "https://github.com/0codekit/onedeploy",
       "latest": null,
       "releases": []
     },
     "n8n-nodes-oneai": {
-      "name": "n8n Nodes for OneAI",
+      "name": "n8n Nodes for oneAI",
       "description": "Custom n8n Workflow Nodes",
       "source_repo": "https://github.com/oneai-eu/n8n-nodes-oneai",
       "latest": null,
       "releases": []
     },
     "oneai-teams": {
-      "name": "OneAI Teams",
+      "name": "oneAI Teams",
       "description": "Microsoft Teams Integration",
       "source_repo": "https://github.com/oneai-eu/oneai-teams",
       "latest": "teams-v0.2.48.2-stable",

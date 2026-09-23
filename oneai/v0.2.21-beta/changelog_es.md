@@ -1,8 +1,8 @@
-# OneAI v0.2.21-beta — Gobernanza centralizada de modelos, Spaces estables y procesamiento moderno de documentos
+# oneAI v0.2.21-beta — Gobernanza centralizada de modelos, Spaces estables y procesamiento moderno de documentos
 
 **Release Date:** 2026-02-24
 
-Con v0.2.21-beta, estamos fortaleciendo OneAI en tres áreas críticas: **gobernanza de modelos de IA**, **estabilidad para Knowledge Spaces de gran tamaño** y una **pipeline de procesamiento de documentos totalmente modernizada**.
+Con v0.2.21-beta, estamos fortaleciendo oneAI en tres áreas críticas: **gobernanza de modelos de IA**, **estabilidad para Knowledge Spaces de gran tamaño** y una **pipeline de procesamiento de documentos totalmente modernizada**.
 
 ---
 
@@ -114,4 +114,4 @@ Muchas gracias a Orehman, Justus, Mirko y Pascal por hacer posible este importan
 _7 PRs · 156 files changed · 4,346 insertions · 3,268 deletions · 4 contributors_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

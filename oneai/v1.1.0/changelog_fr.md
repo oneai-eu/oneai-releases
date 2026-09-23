@@ -1,8 +1,8 @@
-# OneAI v1.1.0 — Notre plus grande release depuis v1.0
+# oneAI v1.1.0 — Notre plus grande release depuis v1.0
 
 **Release Date:** 2026-05-28
 
-OneAI v1.1.0 marque une étape majeure : **AI Chat devient plus performant**, **Knowledge Spaces est plus facile à administrer**, et **les administrateurs bénéficient de contrôles renforcés pour les environnements réglementés**. En complément, cette version introduit de nouveaux connecteurs, une organisation des projets nettement améliorée et des gains significatifs de fiabilité sur l’ensemble de la plateforme.
+oneAI v1.1.0 marque une étape majeure : **AI Chat devient plus performant**, **Knowledge Spaces est plus facile à administrer**, et **les administrateurs bénéficient de contrôles renforcés pour les environnements réglementés**. En complément, cette version introduit de nouveaux connecteurs, une organisation des projets nettement améliorée et des gains significatifs de fiabilité sur l’ensemble de la plateforme.
 
 ## Highlights
 
@@ -27,19 +27,19 @@ OneAI v1.1.0 marque une étape majeure : **AI Chat devient plus performant**, **
   - Particulièrement utile pour les audits de conformité, les pauses de projet ou les interruptions temporaires.
 
 - **Des réponses plus fiables avec un meilleur contrôle des sources**
-  - Deux nouveaux paramètres d’organisation permettent à OneAI de prioriser les sources internes lors de la génération de réponses.
-  - Si souhaité, OneAI peut également être configuré pour répondre uniquement lorsque l’information est effectivement étayée par des sources.
+  - Deux nouveaux paramètres d’organisation permettent à oneAI de prioriser les sources internes lors de la génération de réponses.
+  - Si souhaité, oneAI peut également être configuré pour répondre uniquement lorsque l’information est effectivement étayée par des sources.
   - Une fonctionnalité de gouvernance essentielle pour les secteurs réglementés. Merci à **Mirko** pour la mise en œuvre de ces fonctionnalités clés liées aux exigences SAG.
 
 - **Nouveaux connecteurs : HubSpot et SMB**
-  - **HubSpot** est désormais disponible comme nouvelle source de données et apporte les contenus CRM dans OneAI.
+  - **HubSpot** est désormais disponible comme nouvelle source de données et apporte les contenus CRM dans oneAI.
   - Le nouveau **connecteur SMB** permet de connecter des lecteurs réseau de votre environnement interne comme source de connaissances.
   - Merci à **Pascal** pour HubSpot et à **Justus** pour le connecteur SMB et la base agent associée.
 
 ## Improvements
 
 - **Serveur MCP pour outils AI externes**
-  - Des outils tels que Cursor, Claude Desktop, Copilot ou n8n peuvent désormais se connecter à OneAI via le standard ouvert MCP et interroger vos bases de connaissances.
+  - Des outils tels que Cursor, Claude Desktop, Copilot ou n8n peuvent désormais se connecter à oneAI via le standard ouvert MCP et interroger vos bases de connaissances.
   - Merci à **Santi** pour cette extension clé destinée aux équipes techniques.
 
 - **Meilleure visibilité sur l’usage, les budgets et les dépassements**
@@ -57,7 +57,7 @@ OneAI v1.1.0 marque une étape majeure : **AI Chat devient plus performant**, **
 
 - **Meilleure visibilité opérationnelle**
   - Les Spaces en pause sont clairement signalés sur les pages de détail des projets et des Spaces.
-  - Le badge de statut du OneAI Agent se met désormais à jour automatiquement.
+  - Le badge de statut du oneAI Agent se met désormais à jour automatiquement.
   - Les achats d’add-ons sont disponibles immédiatement, sans rechargement de page.
 
 ## Bug Fixes
@@ -90,7 +90,7 @@ OneAI v1.1.0 marque une étape majeure : **AI Chat devient plus performant**, **
   - Cela réduit les risques de mauvaise attribution et renforce la connexion Teams, en particulier dans les scénarios AD hybrides.
 
 - **Les tokens Agent ne sont plus stockés en clair**
-  - Les tokens d’upload et de download du OneAI Agent sont désormais stockés sous forme de hash.
+  - Les tokens d’upload et de download du oneAI Agent sont désormais stockés sous forme de hash.
   - Cela améliore significativement la protection des identifiants de connexion sensibles.
 
 ## Under the Hood
@@ -103,4 +103,4 @@ Merci à **Pascal**, **Mirko**, **Obaid**, **Justus** et **Santi** pour cette re
 *43 commits, 43 PRs, 271 fichiers modifiés*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

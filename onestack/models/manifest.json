@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "description": "OneAI self-hosted model registry manifest. Consumed by OneStack's `oneai_releases` model-catalog source. Each model is published as a GHCR OCI artifact (via the build-model-artifact workflow) and deployed by Core via ORAS-pull into the local serving path.",
+  "description": "oneAI self-hosted model registry manifest. Consumed by OneStack's `oneai_releases` model-catalog source. Each model is published as a GHCR OCI artifact (via the build-model-artifact workflow) and deployed by Core via ORAS-pull into the local serving path.",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "models": [
     {

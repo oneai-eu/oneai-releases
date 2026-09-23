@@ -5,7 +5,7 @@
 
 ## Bugfix
 
-- Die Erstellung von Chunk-Zusammenfassungen für die Suchvorschau funktioniert jetzt unabhängig vom LLM-Kontingent der Organisation. Damit verarbeitet OneAI Dokumente weiterhin vollständig für die Suche, auch wenn das reguläre Kontingent ausgeschöpft ist – die Nutzung wird intern für die Abrechnung weiter erfasst.
+- Die Erstellung von Chunk-Zusammenfassungen für die Suchvorschau funktioniert jetzt unabhängig vom LLM-Kontingent der Organisation. Damit verarbeitet oneAI Dokumente weiterhin vollständig für die Suche, auch wenn das reguläre Kontingent ausgeschöpft ist – die Nutzung wird intern für die Abrechnung weiter erfasst.
 
 ## Infra
 

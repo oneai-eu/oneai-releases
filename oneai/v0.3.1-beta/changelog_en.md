@@ -1,8 +1,8 @@
-# OneAI v0.3.1-beta — Faster Document Processing & Full Control in Chat
+# oneAI v0.3.1-beta — Faster Document Processing & Full Control in Chat
 
 **Release Date:** 2026-02-27
 
-With v0.3.1-beta, we’ve made document processing in OneAI significantly faster and more flexible. Your manually uploaded documents become available sooner — and if you change your mind, you can now cancel processing instantly.
+With v0.3.1-beta, we’ve made document processing in oneAI significantly faster and more flexible. Your manually uploaded documents become available sooner — and if you change your mind, you can now cancel processing instantly.
 
 ## Highlights
 
@@ -47,4 +47,4 @@ Special thanks to **Pascal** and **Mirko** for their contributions to this relea
 _2 PRs · 2 commits · 19 files changed · 2 contributors_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

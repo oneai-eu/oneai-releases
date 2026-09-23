@@ -1,8 +1,8 @@
-# OneAI v0.3.6-beta — Compliance-Kontrolle, smartere Chats und volle GPT‑5.4‑Power
+# oneAI v0.3.6-beta — Compliance-Kontrolle, smartere Chats und volle GPT‑5.4‑Power
 
 **Release Date:** 2026-03-27
 
-Mit v0.3.6-beta machen wir OneAI noch sicherer, leistungsfähiger und intuitiver im täglichen Einsatz. Dieses Release bringt ein vollständig überarbeitetes Compliance-System, einen deutlich verbesserten Chat-Workflow, erweiterte GitHub-Filteroptionen und Unterstützung für alle neuen GPT‑5.4-Modelle.
+Mit v0.3.6-beta machen wir oneAI noch sicherer, leistungsfähiger und intuitiver im täglichen Einsatz. Dieses Release bringt ein vollständig überarbeitetes Compliance-System, einen deutlich verbesserten Chat-Workflow, erweiterte GitHub-Filteroptionen und Unterstützung für alle neuen GPT‑5.4-Modelle.
 
 ## Highlights
 
@@ -17,7 +17,7 @@ Das Compliance-Modul wurde grundlegend neu gedacht. Admins können jetzt **pro R
   - Änderungen an Space-Berechtigungen
 - Klar strukturierte, tab-basierte Compliance-Einstellungen
 
-Damit wird OneAI noch besser steuerbar im Sinne des EU AI Act und interner Governance-Vorgaben.
+Damit wird oneAI noch besser steuerbar im Sinne des EU AI Act und interner Governance-Vorgaben.
 
 Vielen Dank an **Oliver**, der dieses Rework federführend umgesetzt hat.
 
@@ -95,4 +95,4 @@ Ein großes Dankeschön an **Pascal, Oliver, Mirko und Santi** sowie an unsere a
 _24 PRs · 147 Dateien geändert · 14.422 Ergänzungen · 5.595 Löschungen_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

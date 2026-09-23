@@ -1,4 +1,4 @@
-# OneAI v2026.08.18 — Colaboración, dashboards en vivo e integraciones seguras
+# oneAI v2026.08.18 — Colaboración, dashboards en vivo e integraciones seguras
 
 **Release Date:** 2026-08-18
 
@@ -19,17 +19,17 @@ La nueva página de Integraciones les ofrece una visibilidad más clara y un may
 - Los empleados pueden gestionar sus propias conexiones desde un único lugar centralizado.
 - Las integraciones individuales pueden desactivarse de forma personal.
 - Los administradores pueden desactivar integraciones en toda la organización o limitarlas a proyectos específicos.
-- Ahora se pueden enviar correos electrónicos de Outlook directamente desde OneAI.
+- Ahora se pueden enviar correos electrónicos de Outlook directamente desde oneAI.
 
 **Nuevo Connector: Lexware Office**
 
-Conecten Lexware Office con OneAI para buscar datos contables de forma segura y trabajar con ellos mediante herramientas impulsadas por IA.
+Conecten Lexware Office con oneAI para buscar datos contables de forma segura y trabajar con ellos mediante herramientas impulsadas por IA.
 
 ## Mejoras
 
 **Una experiencia de AI Chat más productiva**
 
-- Ahora se pueden editar los mensajes enviados. OneAI generará una nueva respuesta basándose en su solicitud revisada.
+- Ahora se pueden editar los mensajes enviados. oneAI generará una nueva respuesta basándose en su solicitud revisada.
 - El compositor de chat se ha rediseñado para ofrecer una experiencia más clara y eficiente.
 - Uno ahora está disponible como una ventana de chat flotante, manteniendo la asistencia más cerca de su contexto de trabajo actual.
 
@@ -41,7 +41,7 @@ Conecten Lexware Office con OneAI para buscar datos contables de forma segura y 
 
 ## Seguridad
 
-Esta versión incluye amplios refuerzos de seguridad y cumplimiento normativo para facilitar el uso seguro de OneAI con datos empresariales:
+Esta versión incluye amplios refuerzos de seguridad y cumplimiento normativo para facilitar el uso seguro de oneAI con datos empresariales:
 
 - Un modo de investigación interno ya no puede crear contenido sin la confirmación explícita del usuario.
 - Las acciones destructivas ahora se identifican de forma clara y coherente como irreversibles en todas las herramientas afectadas.
@@ -64,11 +64,11 @@ Esto ayuda a garantizar que sus políticas de acceso previstas sigan vigentes.
 
 ## Detrás de escena
 
-Además de las funcionalidades visibles, seguimos desarrollando LLM Routing, el procesamiento de documentos, las herramientas de datos y la arquitectura de la plataforma para hacer que OneAI sea más capaz y resiliente.
+Además de las funcionalidades visibles, seguimos desarrollando LLM Routing, el procesamiento de documentos, las herramientas de datos y la arquitectura de la plataforma para hacer que oneAI sea más capaz y resiliente.
 
 Gracias a Pascal, Mirko, Justus, Oliver, Santi y Obaid por sus contribuciones a esta versión.
 
 _Alcance de la versión: 660 commits, 2.112 archivos modificados y 655 pull requests._
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

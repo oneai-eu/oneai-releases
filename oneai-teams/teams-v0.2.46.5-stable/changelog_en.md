@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.46.5-stable — More reliable meeting reminders behind the scenes
+# oneAI teams-v0.2.46.5-stable — More reliable meeting reminders behind the scenes
 
 **Release Date:** 2026-08-02
 
@@ -13,4 +13,4 @@ Thanks to **Mirko** for the monitoring and quality assurance improvements.
 *9 commits · 27 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,4 +1,4 @@
-# OneAI v0.2.22-beta — Traitement plus fiable des PDF volumineux
+# oneAI v0.2.22-beta — Traitement plus fiable des PDF volumineux
 
 **Release Date:** 2026-02-24
 
@@ -14,7 +14,7 @@ Le traitement ne s’interrompt plus prématurément pour les documents PDF volu
 - Moins d’uploads échoués et moins de retouches manuelles
 - Une base plus stable pour des réponses de haute qualité dans AI Chat
 
-Grâce à Justus, nous avons supprimé la précédente limitation de délai (timeout) dans notre pipeline de traitement des PDF. OneAI peut désormais analyser et intégrer des documents exigeants sans contraintes de temps artificielles.
+Grâce à Justus, nous avons supprimé la précédente limitation de délai (timeout) dans notre pipeline de traitement des PDF. oneAI peut désormais analyser et intégrer des documents exigeants sans contraintes de temps artificielles.
 
 ## Under the Hood
 
@@ -27,4 +27,4 @@ Merci à Justus pour avoir renforcé la fiabilité de notre traitement des docum
 1 commit · 1 fichier modifié · +2 / −25 lignes · 1 contributeur
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

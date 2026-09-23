@@ -1,4 +1,4 @@
-# OneAI v0.2.22-beta — More Reliable Processing for Large PDFs
+# oneAI v0.2.22-beta — More Reliable Processing for Large PDFs
 
 **Release Date:** 2026-02-24
 
@@ -14,7 +14,7 @@ Processing no longer stops prematurely for extensive or complex PDF documents. F
 - Fewer failed uploads and less manual rework
 - A more stable foundation for high-quality answers in AI Chat
 
-Thanks to Justus, we removed the previous timeout limitation in our PDF processing pipeline. OneAI can now analyze and embed demanding documents without artificial time constraints.
+Thanks to Justus, we removed the previous timeout limitation in our PDF processing pipeline. oneAI can now analyze and embed demanding documents without artificial time constraints.
 
 ## Under the Hood
 
@@ -27,4 +27,4 @@ Thank you to Justus for strengthening the reliability of our document processing
 1 commit · 1 file changed · +2 / −25 lines · 1 contributor
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,8 +1,8 @@
-# OneAI v0.3.2-beta — Research Agent, generazione di immagini e integrazione Outlook
+# oneAI v0.3.2-beta — Research Agent, generazione di immagini e integrazione Outlook
 
 **Release Date:** 2026-03-10
 
-Con la v0.3.2-beta, OneAI compie un importante passo avanti. Questa release introduce un nuovo **Research Agent** per analisi multi-step, la **generazione di immagini AI direttamente in chat**, un **connettore Outlook per Knowledge Spaces basati su email** e **input vocale basato su Whisper** con una qualità di trascrizione nettamente migliorata. Inoltre, abbiamo ampliato gli strumenti di compliance e migliorato l’affidabilità complessiva della piattaforma.
+Con la v0.3.2-beta, oneAI compie un importante passo avanti. Questa release introduce un nuovo **Research Agent** per analisi multi-step, la **generazione di immagini AI direttamente in chat**, un **connettore Outlook per Knowledge Spaces basati su email** e **input vocale basato su Whisper** con una qualità di trascrizione nettamente migliorata. Inoltre, abbiamo ampliato gli strumenti di compliance e migliorato l’affidabilità complessiva della piattaforma.
 
 ## Highlights
 
@@ -14,7 +14,7 @@ Ideale per analisi di mercato, ricerche competitive e indagini interne complesse
 Un ringraziamento speciale a **Justus**, che ha costruito la base flessibile dell’agente che rende possibile questa funzionalità.
 
 ### Generazione di immagini AI in chat
-Ora puoi chiedere a OneAI di **generare immagini** direttamente in AI Chat — ideale per presentazioni, concept di prodotto o comunicazione interna.
+Ora puoi chiedere a oneAI di **generare immagini** direttamente in AI Chat — ideale per presentazioni, concept di prodotto o comunicazione interna.
 
 - Immagini visualizzate direttamente in chat
 - Download come file
@@ -105,4 +105,4 @@ Grazie a **Pascal, Justus, Oliver, Orehman e Mirko** per aver realizzato questa 
 _29 PRs · 218 file modificati · 6 contributor_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,8 +1,8 @@
-# OneAI v0.3.2-beta — Agent de recherche, génération d’images et intégration Outlook
+# oneAI v0.3.2-beta — Agent de recherche, génération d’images et intégration Outlook
 
 **Release Date:** 2026-03-10
 
-Avec la v0.3.2-beta, OneAI franchit une étape majeure. Cette version introduit un nouveau **Research Agent** pour des analyses multi-étapes, la **génération d’images par IA directement dans le chat**, un **connecteur Outlook pour les Knowledge Spaces basés sur les e-mails**, ainsi qu’une **saisie vocale propulsée par Whisper** pour une qualité de transcription nettement améliorée. Nous avons également renforcé les outils de conformité et amélioré la fiabilité globale de la plateforme.
+Avec la v0.3.2-beta, oneAI franchit une étape majeure. Cette version introduit un nouveau **Research Agent** pour des analyses multi-étapes, la **génération d’images par IA directement dans le chat**, un **connecteur Outlook pour les Knowledge Spaces basés sur les e-mails**, ainsi qu’une **saisie vocale propulsée par Whisper** pour une qualité de transcription nettement améliorée. Nous avons également renforcé les outils de conformité et amélioré la fiabilité globale de la plateforme.
 
 ## Highlights
 
@@ -14,7 +14,7 @@ Idéal pour les analyses de marché, les études concurrentielles et les investi
 Un grand merci à **Justus**, qui a conçu la base flexible de l’agent permettant cette fonctionnalité.
 
 ### Génération d’images IA dans le chat
-Vous pouvez désormais demander à OneAI de **générer des images** directement dans AI Chat — idéal pour des présentations, des concepts produits ou la communication interne.
+Vous pouvez désormais demander à oneAI de **générer des images** directement dans AI Chat — idéal pour des présentations, des concepts produits ou la communication interne.
 
 - Images affichées directement dans le chat
 - Téléchargement sous forme de fichiers
@@ -105,4 +105,4 @@ Merci à **Pascal, Justus, Oliver, Orehman et Mirko** pour cette release majeure
 _29 PRs · 218 fichiers modifiés · 6 contributeurs_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

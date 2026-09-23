@@ -1,8 +1,8 @@
-# OneAI v0.3.2-beta — Research-Agent, Bildgenerierung & Outlook-Integration
+# oneAI v0.3.2-beta — Research-Agent, Bildgenerierung & Outlook-Integration
 
 **Release Date:** 2026-03-10
 
-Mit v0.3.2-beta erweitern wir OneAI deutlich: Der neue **Research-Agent** führt eigenständig mehrstufige Recherchen durch, ihr könnt **KI-Bilder direkt im Chat generieren**, Outlook-E-Mails als **Wissensraum synchronisieren**, und die Spracheingabe basiert jetzt auf **Whisper** für deutlich präzisere Transkription. Dazu kommen Audit-Log-Export, neue Compliance-Muster und viele Stabilitätsverbesserungen.
+Mit v0.3.2-beta erweitern wir oneAI deutlich: Der neue **Research-Agent** führt eigenständig mehrstufige Recherchen durch, ihr könnt **KI-Bilder direkt im Chat generieren**, Outlook-E-Mails als **Wissensraum synchronisieren**, und die Spracheingabe basiert jetzt auf **Whisper** für deutlich präzisere Transkription. Dazu kommen Audit-Log-Export, neue Compliance-Muster und viele Stabilitätsverbesserungen.
 
 ## Highlights
 
@@ -14,7 +14,7 @@ Ideal für Marktanalysen, Wettbewerbsvergleiche oder komplexe interne Fragestell
 Großartige Arbeit von **Justus**, der die zugrunde liegende Agent-Logik entwickelt und flexibel erweiterbar gemacht hat.
 
 ### KI-Bildgenerierung direkt im AI Chat
-Ihr könnt OneAI jetzt bitten, **Bilder zu erstellen** – z. B. für Präsentationen, Konzepte oder interne Kommunikation.
+Ihr könnt oneAI jetzt bitten, **Bilder zu erstellen** – z. B. für Präsentationen, Konzepte oder interne Kommunikation.
 
 - Anzeige direkt im Chat
 - Download als Datei
@@ -105,4 +105,4 @@ Ein großes Dankeschön an **Pascal, Justus, Oliver, Orehman und Mirko** für di
 _29 PRs · 218 Dateien geändert · 6 Mitwirkende_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

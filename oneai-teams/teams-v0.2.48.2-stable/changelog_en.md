@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.48.2-stable — Security and Monitoring Hardening
+# oneAI teams-v0.2.48.2-stable — Security and Monitoring Hardening
 
 **Release Date:** 2026-08-11
 
@@ -27,4 +27,4 @@ Thanks to **Mirko** for delivering these security and operational improvements.
 _13 commits · 32 files changed_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

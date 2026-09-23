@@ -15,7 +15,7 @@
 - Wenn ein Cloud-Sync den gleichen Pfad zweimal liefert, bricht die Synchronisation nicht mehr ab — der Sync läuft sauber durch.
 - Wenn die Sitzung im Chat abläuft, landet ihr nicht mehr in einem hängenden Fehlerzustand, sondern werdet direkt zur erneuten Anmeldung geführt.
 - Internes Build-Issue rund um den neuen Connector-Code behoben.
-- Der grüne „Online"-Punkt am OneAI-Agent aktualisiert sich jetzt automatisch — ihr seht sofort, wenn ein Agent die Verbindung verliert oder zurückkehrt.
+- Der grüne „Online"-Punkt am oneAI-Agent aktualisiert sich jetzt automatisch — ihr seht sofort, wenn ein Agent die Verbindung verliert oder zurückkehrt.
 - Nach dem Kauf eines Add-ons aktualisiert sich der Abo-Status ohne Reload — die freigeschalteten Features sind sofort verfügbar.
 - Artefakte aus einem Chat tauchen nicht mehr in fremden Projekten auf. Außerdem seht ihr, ob ein Dokument noch indexiert wird oder bereits für RAG nutzbar ist.
 - Wenn die Graph-Abo-Verlängerung scheitert, versucht das System nicht mehr in einer Endlos-Schleife — die Renewal-Logik ist mit Backoff abgesichert.
@@ -23,7 +23,7 @@
 
 ## Refactor
 
-- Interne Aufräumarbeit am OneAI-Standardmodell — keine sichtbare Änderung für Endnutzer*innen, aber sauberere Basis für künftige Modell-Updates.
+- Interne Aufräumarbeit am oneAI-Standardmodell — keine sichtbare Änderung für Endnutzer*innen, aber sauberere Basis für künftige Modell-Updates.
 - Interne Architektur-Umstellung: Konnektoren laufen jetzt über eine zentrale Registry. Sichtbarer Effekt für Nutzer*innen: konsistenteres Verhalten und schnellere Anbindung neuer Quellen wie HubSpot oder SMB.
 - OneDrive nutzt intern dieselbe Registry-Architektur wie GitHub und HubSpot. Für Nutzer*innen ändert sich nichts — Verbindung, Sync und Reconnect verhalten sich identisch.
 
@@ -48,14 +48,14 @@
 - Die Suche findet jetzt auch Wörter aus euren Nachrichten — nicht mehr nur Chat-Titel.
 - Projekte lassen sich archivieren, taggen und in Gruppen verwalten.
 - Wenn sich eine neue Organisation registriert, geht jetzt automatisch eine Benachrichtigungs-E-Mail an das interne Team raus.
-- Externe Tools wie Cursor, Claude Desktop, Copilot oder n8n können sich jetzt direkt mit OneAI verbinden und die Wissensdatenbank durchsuchen — über den offenen Model-Context-Protocol-Standard.
+- Externe Tools wie Cursor, Claude Desktop, Copilot oder n8n können sich jetzt direkt mit oneAI verbinden und die Wissensdatenbank durchsuchen — über den offenen Model-Context-Protocol-Standard.
 - Ihr könnt jetzt generierte oder hochgeladene Bilder per natürlicher Sprache anpassen lassen.
 - Grundlage für SMB-Konnektor und On-Prem-Anbindungen: Agent und Hub sprechen jetzt über ein verschlüsseltes Protokoll mit gehashten Upload-/Download-Tokens.
 - Admins deaktivieren Spaces auf Knopfdruck ohne Datenverlust.
 - Zwei neue Org-Settings: Antworten bevorzugt aus euren eigenen Dokumenten ableiten — und nur antworten, wenn die Quelle wirklich belegt ist.
 - Im Abo-Bereich gibt es einen neuen Verbrauchs-Tab: ihr seht Auslastung in Echtzeit, definiert Budget-Limits und entscheidet selbst, ob Overage-Verbrauch erlaubt sein soll.
-- Neuer Konnektor für SMB-Shares — ihr könnt ein Netzlaufwerk in eurem internen Netz als Space anbinden, ohne Daten in die Cloud zu spiegeln. Verbindung läuft über den OneAI-Agent.
-- Neuer Konnektor für HubSpot CRM — verbindet euer CRM mit OneAI: OAuth, Sync, Webhooks. Chat-Tools für HubSpot kommen in einem Folge-Release.
+- Neuer Konnektor für SMB-Shares — ihr könnt ein Netzlaufwerk in eurem internen Netz als Space anbinden, ohne Daten in die Cloud zu spiegeln. Verbindung läuft über den oneAI-Agent.
+- Neuer Konnektor für HubSpot CRM — verbindet euer CRM mit oneAI: OAuth, Sync, Webhooks. Chat-Tools für HubSpot kommen in einem Folge-Release.
 - Wenn das OAuth-Token abgelaufen ist, könnt ihr die Verbindung mit einem Klick erneuern — ohne den Space neu anzulegen oder zu re-konfigurieren.
 - Die Dateiansicht in Projekten nutzt jetzt denselben File-Explorer wie Spaces — gleiche Bedienung, gleiche Vorschau, gleiche Aktionen.
 - Die Projektübersicht passt sich jetzt sauber an kleine Bildschirme an. Im Tag-Manager könnt ihr mehrere Tags in einem Rutsch anlegen — neue Inline-Create-Row.

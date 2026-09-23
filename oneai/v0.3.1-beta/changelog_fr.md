@@ -1,8 +1,8 @@
-# OneAI v0.3.1-beta — Traitement des documents plus rapide & contrôle total dans le Chat
+# oneAI v0.3.1-beta — Traitement des documents plus rapide & contrôle total dans le Chat
 
 **Release Date:** 2026-02-27
 
-Avec la v0.3.1-beta, nous avons rendu le traitement des documents dans OneAI nettement plus rapide et plus flexible. Vos documents téléchargés manuellement sont disponibles plus rapidement — et si vous changez d’avis, vous pouvez désormais annuler le traitement instantanément.
+Avec la v0.3.1-beta, nous avons rendu le traitement des documents dans oneAI nettement plus rapide et plus flexible. Vos documents téléchargés manuellement sont disponibles plus rapidement — et si vous changez d’avis, vous pouvez désormais annuler le traitement instantanément.
 
 ## Highlights
 
@@ -47,4 +47,4 @@ Un grand merci à **Pascal** et **Mirko** pour leurs contributions à cette rele
 _2 PRs · 2 commits · 19 fichiers modifiés · 2 contributeurs_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

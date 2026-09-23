@@ -342,7 +342,7 @@
       "cached_cents_per_mtok": 38,
       "output_cents_per_mtok": 38,
       "manual_only": true,
-      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+      "manual_only_reason": "oneAI Gateway own-model; no public pricing page to scrape"
     },
     "oneai-vision": {
       "display_name": "oneAI Vision",
@@ -352,7 +352,7 @@
       "cached_cents_per_mtok": 57,
       "output_cents_per_mtok": 57,
       "manual_only": true,
-      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+      "manual_only_reason": "oneAI Gateway own-model; no public pricing page to scrape"
     },
     "oneai-summary": {
       "display_name": "oneAI Summary",
@@ -362,7 +362,7 @@
       "cached_cents_per_mtok": 38,
       "output_cents_per_mtok": 38,
       "manual_only": true,
-      "manual_only_reason": "OneAI Gateway own-model; no public pricing page to scrape"
+      "manual_only_reason": "oneAI Gateway own-model; no public pricing page to scrape"
     },
     "grok-4.3": {
       "display_name": "Grok 4.3",

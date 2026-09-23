@@ -1,4 +1,4 @@
-# OneAI v1.0.3 — Procesamiento de documentos fiable, incluso con el cupo completo
+# oneAI v1.0.3 — Procesamiento de documentos fiable, incluso con el cupo completo
 
 **Release Date:** 2026-05-11
 
@@ -34,9 +34,9 @@ Aunque estos cambios no son directamente visibles para los usuarios finales, gar
 
 ---
 
-Gracias a Justus por reforzar la fiabilidad y la transparencia de un componente central de OneAI.
+Gracias a Justus por reforzar la fiabilidad y la transparencia de un componente central de oneAI.
 
 _2 commits · 2 PRs · 3 archivos modificados_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

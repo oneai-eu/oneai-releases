@@ -1,17 +1,17 @@
-# OneAI v1.1.1 — Voice Mode, Präsentationen und intelligentere Automatisierung
+# oneAI v1.1.1 — Voice Mode, Präsentationen und intelligentere Automatisierung
 
 **Release Date:** 2026-06-24
 
 ## Highlights
 
-OneAI v1.1.1 ist eines unserer größten Releases bisher. Im Mittelpunkt stehen neue Arbeitsweisen in **AI Chat**, deutlich stärkere **Artefakte** und ein großer Schritt nach vorn bei **Automatisierung mit Kontrolle**.
+oneAI v1.1.1 ist eines unserer größten Releases bisher. Im Mittelpunkt stehen neue Arbeitsweisen in **AI Chat**, deutlich stärkere **Artefakte** und ein großer Schritt nach vorn bei **Automatisierung mit Kontrolle**.
 
-- **Voice Mode in AI Chat**: Ihr könnt jetzt direkt mit OneAI sprechen, statt zu tippen. Dank Justus ist der neue Sprachmodus bereits im ersten Rollout zuverlässig nutzbar – inklusive stabilerem Streaming und verständlicher Bedienhinweise.
+- **Voice Mode in AI Chat**: Ihr könnt jetzt direkt mit oneAI sprechen, statt zu tippen. Dank Justus ist der neue Sprachmodus bereits im ersten Rollout zuverlässig nutzbar – inklusive stabilerem Streaming und verständlicher Bedienhinweise.
 - **Artefakte besser teilen**: Artefakte unterstützen jetzt Bilder und lassen sich mit **privaten, projektweiten oder öffentlichen Links** teilen. Öffentliche und private Freigaben wirken dabei deutlich sauberer und empfängerfreundlicher.
 
 ## Verbesserungen
 
-- **Weniger Klicks bei Tool-Aufrufen**: Mit der neuen **Trust-Window-Logik** lernt OneAI, wann vertrauenswürdige Aktionen automatisch ausgeführt oder bestätigt werden dürfen – z. B. bei Outlook, n8n, MCP-Tools oder freigegebenen APIs. Das macht Automatisierung spürbar flüssiger, ohne die Governance aus dem Blick zu verlieren. Große Teile dieses Fundaments kommen von Mirko.
+- **Weniger Klicks bei Tool-Aufrufen**: Mit der neuen **Trust-Window-Logik** lernt oneAI, wann vertrauenswürdige Aktionen automatisch ausgeführt oder bestätigt werden dürfen – z. B. bei Outlook, n8n, MCP-Tools oder freigegebenen APIs. Das macht Automatisierung spürbar flüssiger, ohne die Governance aus dem Blick zu verlieren. Große Teile dieses Fundaments kommen von Mirko.
 - **Bessere Transparenz in Wissensräumen**: In **Wissensräumen** seht ihr jetzt den Fortschritt der Dokumenten-Indexierung direkt in der Activity Bar und auf den Space-Karten.
 - **Connector-spezifische Ansichten**: Inhalte aus Connectors werden passender dargestellt, inklusive einer eigenen Outlook-Nachrichtenansicht.
 - **Sinnvollere Chat-Vorschläge**: AI Chat schlägt jetzt relevantere nächste Fragen vor.
@@ -45,4 +45,4 @@ Danke an **Pascal, Mirko, Justus, Oliver, Obaid und Santi** für dieses außerge
 *111 Commits · 108 PRs · 690 geänderte Dateien*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

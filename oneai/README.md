@@ -1,6 +1,6 @@
-# OneAI — Changelogs
+# oneAI — Changelogs
 
-Changelogs for [OneAI](undefined).
+Changelogs for [oneAI](undefined).
 
 ## Latest Version
 

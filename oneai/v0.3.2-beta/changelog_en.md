@@ -1,8 +1,8 @@
-# OneAI v0.3.2-beta — Research Agent, Image Generation & Outlook Integration
+# oneAI v0.3.2-beta — Research Agent, Image Generation & Outlook Integration
 
 **Release Date:** 2026-03-10
 
-With v0.3.2-beta, OneAI takes a significant step forward. This release introduces a new **Research Agent** for multi-step analysis, **AI image generation directly in chat**, an **Outlook connector for email-based Knowledge Spaces**, and **Whisper-powered voice input** for dramatically improved transcription quality. In addition, we’ve expanded compliance tooling and improved reliability across the platform.
+With v0.3.2-beta, oneAI takes a significant step forward. This release introduces a new **Research Agent** for multi-step analysis, **AI image generation directly in chat**, an **Outlook connector for email-based Knowledge Spaces**, and **Whisper-powered voice input** for dramatically improved transcription quality. In addition, we’ve expanded compliance tooling and improved reliability across the platform.
 
 ## Highlights
 
@@ -14,7 +14,7 @@ Perfect for market analysis, competitive research, and complex internal investig
 Special thanks to **Justus**, who built the flexible agent foundation powering this capability.
 
 ### AI image generation in chat
-You can now ask OneAI to **generate images** directly inside AI Chat — ideal for presentations, product concepts, or internal communication.
+You can now ask oneAI to **generate images** directly inside AI Chat — ideal for presentations, product concepts, or internal communication.
 
 - Images displayed directly in chat
 - Download as files
@@ -105,4 +105,4 @@ Thank you to **Pascal, Justus, Oliver, Orehman, and Mirko** for delivering this 
 _29 PRs · 218 files changed · 6 contributors_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

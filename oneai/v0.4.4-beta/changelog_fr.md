@@ -1,4 +1,4 @@
-# OneAI v0.4.4-beta — Automatisation, protection des accès & un AI Chat nettement plus stable
+# oneAI v0.4.4-beta — Automatisation, protection des accès & un AI Chat nettement plus stable
 
 **Release Date:** 2026-04-27
 
@@ -8,7 +8,7 @@ Cette version apporte trois avancées majeures : **l’automatisation des workfl
 
 ## Highlights
 
-### Connecteur n8n : créez des workflows directement depuis OneAI
+### Connecteur n8n : créez des workflows directement depuis oneAI
 Vous pouvez désormais connecter votre **instance n8n comme un Space** et créer des workflows d’automatisation directement depuis AI Chat.
 
 - Assistant de configuration guidé avec validation API  
@@ -17,7 +17,7 @@ Vous pouvez désormais connecter votre **instance n8n comme un Space** et créer
 - Synchronisation automatique via webhooks  
 - Suppression propre lors de la suppression d’un Space  
 
-OneAI devient votre couche de contrôle d’automatisation pilotée par l’IA — ancrée dans vos données d’entreprise.
+oneAI devient votre couche de contrôle d’automatisation pilotée par l’IA — ancrée dans vos données d’entreprise.
 
 Un grand merci à **Mirko**, qui a développé le connecteur de bout en bout.
 
@@ -133,4 +133,4 @@ Merci à **Pascal, Mirko, Justus, Oliver** et dependabot pour cette version maje
 — 40 PRs · 114 fichiers modifiés · ~7 900 lignes ajoutées
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

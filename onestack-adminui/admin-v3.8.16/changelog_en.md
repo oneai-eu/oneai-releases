@@ -1,4 +1,4 @@
-# OneAI admin-v3.8.16 — More reliable internal alerting
+# oneAI admin-v3.8.16 — More reliable internal alerting
 
 **Release Date:** 2026-08-11
 
@@ -6,7 +6,7 @@
 
 We fixed an issue in our internal monitoring and alerting infrastructure. On newly provisioned servers, a missing contact configuration could trigger a crash loop in Grafana alerting. The required configuration is now created automatically.
 
-There are **no visible changes** to the Admin interface or day-to-day use of OneAI.
+There are **no visible changes** to the Admin interface or day-to-day use of oneAI.
 
 ## Under the Hood
 
@@ -17,4 +17,4 @@ Thanks to **Mirko** for the swift fix and the release documentation update.
 *2 commits · 9 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

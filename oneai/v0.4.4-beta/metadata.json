@@ -5,7 +5,7 @@
   "github_release_url": "https://github.com/0codekit/oneai/releases/tag/v0.4.4-beta",
   "breaking": false,
   "highlights": [
-    "n8n-Connector: Workflows direkt aus OneAI erstellen und synchronisieren",
+    "n8n-Connector: Workflows direkt aus oneAI erstellen und synchronisieren",
     "Zugriffsschutz: Konflikterkennung und Datenleck-Prävention in Projekten",
     "Private Modelle: Stabileres Streaming und sichtbar in der Modellauswahl",
     "Proaktives Session-Management: Warnung und automatischer Logout",

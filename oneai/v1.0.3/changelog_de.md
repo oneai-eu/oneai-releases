@@ -1,4 +1,4 @@
-# OneAI v1.0.3 — Zuverlässige Dokumentenverarbeitung, auch bei voller Quota
+# oneAI v1.0.3 — Zuverlässige Dokumentenverarbeitung, auch bei voller Quota
 
 **Release Date:** 2026-05-11
 
@@ -36,9 +36,9 @@ Diese Änderungen sind für Endnutzer nicht direkt sichtbar, sorgen aber für ei
 
 ---
 
-Danke an Justus für die konsequente Verbesserung von Stabilität und Transparenz in einem zentralen Bestandteil von OneAI.
+Danke an Justus für die konsequente Verbesserung von Stabilität und Transparenz in einem zentralen Bestandteil von oneAI.
 
 _2 Commits · 2 PRs · 3 Dateien geändert_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

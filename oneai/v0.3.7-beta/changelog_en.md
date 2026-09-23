@@ -1,15 +1,15 @@
-# OneAI v0.3.7-beta — Smarter Search, Personal Personas & Comprehensive Audit Reviews
+# oneAI v0.3.7-beta — Smarter Search, Personal Personas & Comprehensive Audit Reviews
 
 **Release Date:** 2026-04-03
 
-This release delivers one of the most significant quality upgrades since the start of our beta. With intelligent hybrid search, fully customizable personas and a powerful audit review system, OneAI becomes more accurate, secure and tailored to each user.
+This release delivers one of the most significant quality upgrades since the start of our beta. With intelligent hybrid search, fully customizable personas and a powerful audit review system, oneAI becomes more accurate, secure and tailored to each user.
 
 ## Highlights
 
 ### Smarter Document Search with Hybrid Retrieval & Reranking
 Search across Knowledge Spaces has been fundamentally upgraded.
 
-OneAI now combines **classic keyword search (BM25)** with **AI-based vector search**, followed by a relevance reranking step. The result: significantly more accurate answers, especially for complex or nuanced queries.
+oneAI now combines **classic keyword search (BM25)** with **AI-based vector search**, followed by a relevance reranking step. The result: significantly more accurate answers, especially for complex or nuanced queries.
 
 - Better results for domain-specific terminology and synonyms
 - More consistent answers across large document collections
@@ -111,4 +111,4 @@ Many thanks to Pascal, Oliver, Mirko, Justus and the entire team for 39 commits 
 _39 commits · 38 PRs · 160 files changed_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

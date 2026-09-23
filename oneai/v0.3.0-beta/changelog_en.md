@@ -1,8 +1,8 @@
-# OneAI v0.3.0-beta — Full Chat Control, New Activity Hub & Latest Anthropic Models
+# oneAI v0.3.0-beta — Full Chat Control, New Activity Hub & Latest Anthropic Models
 
 **Release Date:** 2026-02-26
 
-With **OneAI v0.3.0-beta**, we’re delivering more control, more transparency, and more performance across the platform.
+With **oneAI v0.3.0-beta**, we’re delivering more control, more transparency, and more performance across the platform.
 
 From stoppable and reconnectable AI responses to a centralized Activity Hub and multi-API keys with expiration dates, this release significantly strengthens day-to-day AI usage in enterprise environments.
 
@@ -60,7 +60,7 @@ Major architectural work by **Justus**.
 ## Improvements
 
 ### Automatic Retry for Document Processing
-If document processing fails (e.g., due to transient API issues), OneAI automatically retries with intelligent backoff.
+If document processing fails (e.g., due to transient API issues), oneAI automatically retries with intelligent backoff.
 
 Result: **more reliable Knowledge Spaces** with less manual intervention.
 
@@ -146,4 +146,4 @@ A big thank you to **Pascal, Mirko, Justus, and Orehman** for delivering this su
 *26 commits · 25 PRs · 264 files changed*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

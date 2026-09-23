@@ -4,7 +4,7 @@ FROM vllm/vllm-openai:${VLLM_VERSION}
 LABEL org.opencontainers.image.title="OneStack vLLM"
 LABEL org.opencontainers.image.description="vLLM with orjson + Qwen3.5 LoRA embedding_modules patch"
 LABEL org.opencontainers.image.source="https://github.com/oneai-eu/oneai-releases"
-LABEL org.opencontainers.image.vendor="OneAI"
+LABEL org.opencontainers.image.vendor="oneAI"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 # ─────────────────────────────────────────────────────────────────────────────

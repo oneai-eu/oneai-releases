@@ -1,4 +1,4 @@
-# OneAI v2026.09.04 — Canvas-Apps teilen, CRM direkt im Chat verwalten
+# oneAI v2026.09.04 — Canvas-Apps teilen, CRM direkt im Chat verwalten
 
 **Release Date:** 2026-09-08
 
@@ -7,7 +7,7 @@
 ### Canvas wird zur teilbaren Mini-App
 Canvas-Apps lassen sich jetzt sicher über einen Link oder unter Ihrer **eigenen Firmendomain** veröffentlichen. Damit werden aus KI-erstellten Anwendungen direkt nutzbare Formulare, Portale und Tools für externe Zielgruppen.
 
-- Besucher können sich per E-Mail-Link anmelden, ohne ein OneAI-Konto zu benötigen.
+- Besucher können sich per E-Mail-Link anmelden, ohne ein oneAI-Konto zu benötigen.
 - Öffentliche Apps können Dateien und Bilder anzeigen; Besucher können Dateien hochladen.
 - Formulare können nachvollziehbar machen, wer eine Einreichung vorgenommen hat. Eingereichte Antworten lassen sich anschließend korrigieren.
 - Teams profitieren von stabileren Live-Updates und einer zuverlässigeren Nutzung auch bei vielen gleichzeitigen Besuchern.
@@ -15,7 +15,7 @@ Canvas-Apps lassen sich jetzt sicher über einen Link oder unter Ihrer **eigenen
 
 Dank **Pascal** und **Justus** ist Canvas damit deutlich besser für sichere, externe Anwendungsfälle geeignet.
 
-### HubSpot nativ in OneAI
+### HubSpot nativ in oneAI
 Die neue HubSpot-Anbindung bringt **26 Werkzeuge** direkt in den AI Chat. Ihre KI kann HubSpot-Daten nicht nur durchsuchen und analysieren, sondern auch operative CRM-Aufgaben vorbereiten.
 
 - Kontakte, Unternehmen, Deals und Tickets erstellen, aktualisieren und verknüpfen
@@ -26,7 +26,7 @@ Die neue HubSpot-Anbindung bringt **26 Werkzeuge** direkt in den AI Chat. Ihre K
 Die Synchronisierung arbeitet zudem robuster: Vorübergehende Verbindungsprobleme führen nicht mehr dazu, dass bestehende Datensätze fälschlich verschwinden. Vielen Dank an **Mirko** für den umfassenden Ausbau unserer Connector-Landschaft.
 
 ### Neue und erweiterte Connectors
-OneAI verbindet sich mit noch mehr Systemen und kann in bestehenden Tools mehr Aufgaben direkt erledigen.
+oneAI verbindet sich mit noch mehr Systemen und kann in bestehenden Tools mehr Aufgaben direkt erledigen.
 
 - **Neu: Plytix** – Fragen Sie Ihren Produktkatalog, Attribute, Varianten und Bilder direkt aus Ihrem PIM-System ab.
 - **weclapp** – Mehr Lese- und Schreibaktionen, inklusive robusterer Synchronisierung und Rechnungs-PDFs.
@@ -46,7 +46,7 @@ OneAI verbindet sich mit noch mehr Systemen und kann in bestehenden Tools mehr A
 - **Outlook-Verbindungen:** Unterbrochene Verbindungen werden sofort erkannt und können direkt repariert oder getrennt werden.
 - **Spracheingabe:** Die Aufnahme funktioniert nun zuverlässig in Safari, auf iPhone und iPad sowie in Firefox – auch bei längeren Aufnahmen.
 - **Gescannte PDFs:** Die Vorschau zeigt gescannte PDFs wieder korrekt und stabil an.
-- **Team-Limits:** Die Verwaltung individueller Nutzungslimits funktioniert nun auch bei Teams mit mehr als zehn Mitgliedern. Zusätzlich warnt OneAI, wenn ein persönliches Limit das Organisationsbudget übersteigt.
+- **Team-Limits:** Die Verwaltung individueller Nutzungslimits funktioniert nun auch bei Teams mit mehr als zehn Mitgliedern. Zusätzlich warnt oneAI, wenn ein persönliches Limit das Organisationsbudget übersteigt.
 
 ## Sicherheit
 
@@ -74,4 +74,4 @@ Danke an **Pascal, Mirko, Justus, Santi, Obaid und Oliver** für ihre Beiträge 
 *139 Pull Requests, 141 Commits und 1.183 geänderte Dateien.*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

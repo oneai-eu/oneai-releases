@@ -1,6 +1,6 @@
 # Pricing
 
-Source of truth for LLM, image, and transcription model prices used by OneAI products for billing.
+Source of truth for LLM, image, and transcription model prices used by oneAI products for billing.
 
 Like changelogs, prices change more often than code and need to be consumed by every deployment type — SaaS, Private Cloud, and On-Prem — without requiring an app release. Apps fetch this JSON from `raw.githubusercontent.com` at runtime, cache it, and fall back to a bundled snapshot if the fetch fails.
 
@@ -137,7 +137,7 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 Some platform-internal models (vision OCR, embeddings used for RAG, summarization) were historically not billed to customers — configured in apps via environment variables and treated as zero-cost by the billing layer.
 
-As of the **Gateway plan launch**, OneAI's own models are billed and live in this file under `provider: "oneai"` (`oneai-embed`, `oneai-vision`, `oneai-summarization`). They are flagged `manual_only: true` because there is no public pricing page to scrape — update their prices by editing this file directly. Any remaining internal usage outside the Gateway plan may still be zero-rated by the consuming app's configuration.
+As of the **Gateway plan launch**, oneAI's own models are billed and live in this file under `provider: "oneai"` (`oneai-embed`, `oneai-vision`, `oneai-summarization`). They are flagged `manual_only: true` because there is no public pricing page to scrape — update their prices by editing this file directly. Any remaining internal usage outside the Gateway plan may still be zero-rated by the consuming app's configuration.
 
 ## Integration Example
 

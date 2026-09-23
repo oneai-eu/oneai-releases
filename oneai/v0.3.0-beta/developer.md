@@ -19,7 +19,7 @@
 - Wenn die Verarbeitung eines Dokuments fehlschlägt, wird sie automatisch erneut versucht — mit zunehmenden Wartezeiten, um das System nicht zu überlasten.
 - Die Grundlage für KI-Bildgenerierung ist gelegt — die API unterstützt jetzt Bildgenerierung über OpenAI-kompatible Modelle.
 - Artefakte zeigen jetzt an, wer sie erstellt hat und wann sie zuletzt bearbeitet wurden. Außerdem können Artefakte zwischen Projekten verschoben oder kopiert werden.
-- Eine neue Seite zeigt euch alle bisherigen Updates und Änderungen von OneAI — inklusive automatischer Benachrichtigung bei neuen Releases.
+- Eine neue Seite zeigt euch alle bisherigen Updates und Änderungen von oneAI — inklusive automatischer Benachrichtigung bei neuen Releases.
 - Neue Startseite nach dem Login, Massenlöschung für Artefakte und Chats, und eine aufgeräumte Admin-Navigation.
 - Der weclapp-Connector erstellt jetzt automatisch verständliche Zusammenfassungen eurer Geschäftsdaten und reichert sie mit Kundenkontext an.
 - Der weclapp-Connector bietet jetzt gezieltere Datenauswahl und übersichtlichere Ordnerstrukturen.

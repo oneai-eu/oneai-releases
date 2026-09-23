@@ -1,8 +1,8 @@
-# OneAI v0.3.2-beta — Agente de investigación, generación de imágenes e integración con Outlook
+# oneAI v0.3.2-beta — Agente de investigación, generación de imágenes e integración con Outlook
 
 **Release Date:** 2026-03-10
 
-Con la v0.3.2-beta, OneAI da un paso significativo hacia adelante. Esta versión introduce un nuevo **Research Agent** para análisis de múltiples pasos, **generación de imágenes con IA directamente en el chat**, un **conector de Outlook para Knowledge Spaces basados en correo electrónico** y **entrada de voz impulsada por Whisper** con una calidad de transcripción notablemente superior. Además, hemos ampliado las capacidades de cumplimiento normativo y mejorado la fiabilidad en toda la plataforma.
+Con la v0.3.2-beta, oneAI da un paso significativo hacia adelante. Esta versión introduce un nuevo **Research Agent** para análisis de múltiples pasos, **generación de imágenes con IA directamente en el chat**, un **conector de Outlook para Knowledge Spaces basados en correo electrónico** y **entrada de voz impulsada por Whisper** con una calidad de transcripción notablemente superior. Además, hemos ampliado las capacidades de cumplimiento normativo y mejorado la fiabilidad en toda la plataforma.
 
 ## Highlights
 
@@ -14,7 +14,7 @@ Perfecto para análisis de mercado, estudios competitivos e investigaciones inte
 Agradecimiento especial a **Justus**, quien construyó la base flexible del agente que impulsa esta funcionalidad.
 
 ### Generación de imágenes con IA en el chat
-Ahora puedes pedirle a OneAI que **genere imágenes** directamente en AI Chat — ideal para presentaciones, conceptos de producto o comunicación interna.
+Ahora puedes pedirle a oneAI que **genere imágenes** directamente en AI Chat — ideal para presentaciones, conceptos de producto o comunicación interna.
 
 - Imágenes mostradas directamente en el chat
 - Descarga como archivos
@@ -105,4 +105,4 @@ Gracias a **Pascal, Justus, Oliver, Orehman y Mirko** por hacer posible esta imp
 _29 PRs · 218 archivos modificados · 6 colaboradores_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

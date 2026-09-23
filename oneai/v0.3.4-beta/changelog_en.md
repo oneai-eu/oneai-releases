@@ -1,13 +1,13 @@
-# OneAI v0.3.4-beta — Image Generation, Smarter GitHub Spaces & Major UX Upgrades
+# oneAI v0.3.4-beta — Image Generation, Smarter GitHub Spaces & Major UX Upgrades
 
 **Release Date:** 2026-03-18
 
-With v0.3.4-beta, OneAI becomes more visual, more intelligent, and noticeably more reliable in day-to-day use. This release introduces a second image generator, upgrades GitHub Spaces with deep code awareness, and makes working with artifacts far more powerful.
+With v0.3.4-beta, oneAI becomes more visual, more intelligent, and noticeably more reliable in day-to-day use. This release introduces a second image generator, upgrades GitHub Spaces with deep code awareness, and makes working with artifacts far more powerful.
 
 ## Highlights
 
 ### Google Imagen 4 for Image Generation
-In addition to OpenAI, you can now use **Google Imagen 4** directly in OneAI.
+In addition to OpenAI, you can now use **Google Imagen 4** directly in oneAI.
 
 Available in three variants:
 
@@ -21,7 +21,7 @@ This gives teams more flexibility across quality, speed, and cost — seamlessly
 ### Intelligent Code Analysis for GitHub Spaces
 GitHub Spaces now truly understand your repositories.
 
-During each sync, OneAI automatically analyzes:
+During each sync, oneAI automatically analyzes:
 
 - Repository and directory structure  
 - Programming language distribution  
@@ -30,10 +30,10 @@ During each sync, OneAI automatically analyzes:
 
 We generate structured overview files and enrich code files with architectural context. The result: **more precise, architecture-aware answers in AI Chat**, especially for larger codebases.
 
-Also delivered by **Mirko** — a major step forward for engineering teams using OneAI.
+Also delivered by **Mirko** — a major step forward for engineering teams using oneAI.
 
 ### Artifacts — Fully Reworked
-Artifacts are now a first-class, collaborative component in OneAI.
+Artifacts are now a first-class, collaborative component in oneAI.
 
 New capabilities:
 
@@ -123,4 +123,4 @@ Thank you to **Pascal** (13 changes) and **Mirko** (3 changes) for driving this 
 _16 commits · 15 PRs · 320 files changed_
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,6 +1,6 @@
-# OneAI Teams — Changelogs
+# oneAI Teams — Changelogs
 
-Changelogs for [OneAI Teams](undefined).
+Changelogs for [oneAI Teams](undefined).
 
 ## Latest Version
 

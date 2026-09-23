@@ -1,4 +1,4 @@
-# OneAI v2026.08.18 — Collaboration, Live Dashboards, and Secure Integrations
+# oneAI v2026.08.18 — Collaboration, Live Dashboards, and Secure Integrations
 
 **Release Date:** 2026-08-18
 
@@ -19,17 +19,17 @@ The new Integrations page gives you clearer visibility and more control over con
 - Employees can manage their own connections in one central place.
 - Individual integrations can be disabled personally.
 - Admins can disable integrations across the organization or limit them to specific projects.
-- Outlook emails can now be sent directly from OneAI.
+- Outlook emails can now be sent directly from oneAI.
 
 **New connector: Lexware Office**
 
-Connect Lexware Office to OneAI to securely search accounting data and work with it through AI-powered tools.
+Connect Lexware Office to oneAI to securely search accounting data and work with it through AI-powered tools.
 
 ## Improvements
 
 **A more productive AI Chat experience**
 
-- Sent messages can now be edited. OneAI will generate a new response based on your revised request.
+- Sent messages can now be edited. oneAI will generate a new response based on your revised request.
 - The chat composer has been redesigned for a clearer, more efficient experience.
 - Uno is now available as a floating chat window, keeping assistance closer to your current work context.
 
@@ -41,7 +41,7 @@ Connect Lexware Office to OneAI to securely search accounting data and work with
 
 ## Security
 
-This release includes extensive security and compliance hardening to support the safe use of OneAI with company data:
+This release includes extensive security and compliance hardening to support the safe use of oneAI with company data:
 
 - An internal research mode can no longer create content without explicit user confirmation.
 - Destructive actions are now consistently and clearly marked as irreversible across affected tools.
@@ -64,11 +64,11 @@ This helps ensure that your intended access policies remain in place.
 
 ## Under the Hood
 
-Beyond the visible features, we continued to advance LLM Routing, Document Processing, data tools, and platform architecture to make OneAI more capable and resilient.
+Beyond the visible features, we continued to advance LLM Routing, Document Processing, data tools, and platform architecture to make oneAI more capable and resilient.
 
 Thank you to Pascal, Mirko, Justus, Oliver, Santi, and Obaid for their contributions to this release.
 
 _Release scope: 660 commits, 2,112 files changed, and 655 pull requests._
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

@@ -1,4 +1,4 @@
-# OneAI teams-v0.2.46.5-stable — Des rappels de réunion plus fiables en coulisses
+# oneAI teams-v0.2.46.5-stable — Des rappels de réunion plus fiables en coulisses
 
 **Release Date:** 2026-08-02
 
@@ -13,4 +13,4 @@ Merci à **Mirko** pour les améliorations apportées à la surveillance et à l
 *9 commits · 27 fichiers modifiés*
 
 ---
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+*This changelog was generated automatically by the oneAI Changelog Pipeline.*

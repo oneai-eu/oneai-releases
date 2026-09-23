@@ -1,4 +1,4 @@
-"""OneAI patch for vLLM: enable LoRA on embed_tokens + lm_head for Qwen3.5.
+"""oneAI patch for vLLM: enable LoRA on embed_tokens + lm_head for Qwen3.5.
 
 Root cause: the Qwen3.5 model classes in
 vllm/model_executor/models/qwen3_5.py do NOT declare an `embedding_modules`
@@ -75,7 +75,7 @@ EXPECTED_EMBEDDING_MODULES = {
 }
 
 PATCH_BLOCK = (
-    "    # OneAI patch (qwen3_5_lora_embedding_modules.py):\n"
+    "    # oneAI patch (qwen3_5_lora_embedding_modules.py):\n"
     "    # enable LoRA on embed_tokens + lm_head — mirrors the Llama / Qwen3 declaration.\n"
     "    embedding_modules = {\n"
     '        "embed_tokens": "input_embeddings",\n'
