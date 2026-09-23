@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-23",
-  "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
+  "version": "2026-09-24",
+  "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "models": {
     "gpt-5.5-pro": {
       "display_name": "GPT-5.5 Pro",
@@ -613,6 +613,11 @@
           "1536x1024": 4.1
         }
       },
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3000
+      },
       "manual_only": true,
       "manual_only_reason": "gpt-image-2 is absent from the openai-images scraper's source: the image-generation guide publishes a LEGACY per-image table for gpt-image-1/1-mini/1.5 only, and directs gpt-image-2 users to an interactive calculator. These values come from the guide's separate size-comparison table and must be maintained by hand.",
       "notes": "ADDED 2026-09-07 — the row was missing entirely while the model was live in the app's IMAGE_MODELS, so every gpt-image-2 generation billed 0 (computeImageCost returns 0 + a console.warn for an unknown model). Values are the OpenAI image-generation guide's per-image comparison table: Low $0.006/$0.005/$0.005, Medium $0.053/$0.041/$0.041, High $0.211/$0.165/$0.165 for 1024x1024 / 1024x1536 / 1536x1024. 'auto' mirrors 'medium' (pricing.ts resolves a null quality to 'auto'). CAVEAT: unlike the older GPT Image models, gpt-image-2 is billed purely per output token ($30.00/1M image output tokens) and 'supports thousands of valid resolutions', so these three sizes are only the subset this schema can express — the guide also warns a larger non-square resolution can produce FEWER tokens than a smaller square one. Correct for the sizes the app actually sends; re-verify if a resolution selector beyond these three is added."
@@ -642,6 +647,11 @@
           "1536x1024": 4.1
         }
       },
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3000
+      },
       "manual_only": true,
       "manual_only_reason": "GPT Image 2.5 publishes token rates only, and no per-image table at all; the openai-images scraper's source covers the legacy gpt-image-1 family. Maintained by hand.",
       "notes": "GPT Image 2.5 Sunburst (highest-capability, editing precision). ADDED 2026-09-23 for the model dated 2026-09-08. PER-IMAGE VALUES ARE INHERITED FROM gpt-image-2, NOT MEASURED, and that is the number to fix first. What IS published is that the token RATES match GPT Image 2 exactly ($5.00/1M text input, $8.00/1M image input, $30.00/1M image output), and this schema cannot express token rates for an image model — it needs cents per image, which is rate x tokens-consumed. OpenAI's own page states that the GPT Image 2 calculator does NOT estimate GPT Image 2.5 token consumption, so the second factor is explicitly unknown and these figures can be wrong in either direction. The row is added anyway because the alternative is worse: the model is selectable in the app's IMAGE_MODELS, and a live image model with no row bills 0 with only a console.warn — exactly the defect found on gpt-image-2 itself on 2026-09-07. REPLACE THESE with measured values as soon as a generation at each quality can be read back from llm_usage. 'auto' mirrors 'medium' because pricing.ts resolves a null quality to 'auto'. The model also offers xhigh and max quality tiers, which the app does not expose and which therefore have no rows here; if the app ever sends one, add them in the same change."
@@ -670,6 +680,11 @@
           "1024x1536": 4.1,
           "1536x1024": 4.1
         }
+      },
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3000
       },
       "manual_only": true,
       "manual_only_reason": "GPT Image 2.5 publishes token rates only, and no per-image table at all; the openai-images scraper's source covers the legacy gpt-image-1 family. Maintained by hand.",

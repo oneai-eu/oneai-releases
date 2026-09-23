@@ -98,11 +98,28 @@ If a provider changes a price and the daily sync hasn't run yet:
       "cents_per_image": number,       // when type=flat
       "pricing": {                      // when type=quality_size
         "<quality>": { "<size>": number }
+      },
+      "token_pricing": {                // optional — see "Token-priced images"
+        "text_input_cents_per_mtok": number,
+        "image_input_cents_per_mtok": number,
+        "output_cents_per_mtok": number
       }
     }
   }
 }
 ```
+
+### Token-priced images
+
+OpenAI stopped publishing a per-image table with GPT Image 2: those models bill purely per token, and the GPT Image 2.5 page states that the GPT Image 2 calculator does not even estimate its token consumption. Any per-image figure for them is therefore an assumption.
+
+`token_pricing` is the exact alternative. When an image entry carries it, the app prices the request from the token counts the provider returned (`usage.output_tokens` plus the `input_tokens_details` text/image split) instead of from the table. Text and image input are separate rates because OpenAI charges $5.00 and $8.00 per MTok respectively, and an edit request is mostly image tokens.
+
+Three rules for maintaining it:
+
+- **It is additive, never a replacement.** Keep the `pricing` table on the same entry. The app falls back to it when a response reports no usable usage, and an older deployment that does not know the field keeps billing the table — which is what lets this file and the app ship in either order.
+- **No cached rate.** OpenAI publishes one, but the Images API response has no cached-token breakdown, so it cannot be observed and must not be guessed.
+- **Only for models the provider bills per token.** `gpt-image-1`, `-1-mini` and `-1.5` have real published per-image tables and stay on them. Gemini and FLUX report no token usage at all.
 
 ### Units
 
