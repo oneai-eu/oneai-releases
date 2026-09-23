@@ -102,7 +102,8 @@ If a provider changes a price and the daily sync hasn't run yet:
       "token_pricing": {                // optional — see "Token-priced images"
         "text_input_cents_per_mtok": number,
         "image_input_cents_per_mtok": number,
-        "output_cents_per_mtok": number
+        "output_cents_per_mtok": number,
+        "text_output_cents_per_mtok": number   // optional — gpt-image-1.5 only
       }
     }
   }
@@ -119,7 +120,9 @@ Three rules for maintaining it:
 
 - **It is additive, never a replacement.** Keep the `pricing` table on the same entry. The app falls back to it when a response reports no usable usage, and an older deployment that does not know the field keeps billing the table — which is what lets this file and the app ship in either order.
 - **No cached rate.** OpenAI publishes one, but the Images API response has no cached-token breakdown, so it cannot be observed and must not be guessed.
-- **Only for models the provider bills per token.** `gpt-image-1`, `-1-mini` and `-1.5` have real published per-image tables and stay on them. Gemini and FLUX report no token usage at all.
+- **Only for models whose response reports token usage.** Every OpenAI image model does, so all of them carry `token_pricing` — including `gpt-image-1`, `-1-mini` and `-1.5`, whose published per-image tables stay as the fallback. Gemini and FLUX report no token usage at all.
+
+`text_output_cents_per_mtok` is optional. Only `gpt-image-1.5` reports text output (hidden reasoning, in `usage.output_tokens_details.text_tokens`), and OpenAI bills it at $10.00/MTok against $32.00/MTok for image output. When the field is absent, every output token bills at `output_cents_per_mtok`.
 
 ### Units
 
