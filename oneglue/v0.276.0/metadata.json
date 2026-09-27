@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.276.0",
+  "date": "2026-09-27",
+  "breaking": false,
+  "highlights": [
+    "Report a problem or request a feature without leaving OneGlue — choose support case or feature request, the page's technical context is attached automatically, and you get a case number plus an e-mail confirmation",
+    "When the application hits an error, a \"Report this problem\" button appears right there with the error context already filled in",
+    "Attachments can finally be deleted, and deleted files go to a trash where you can see how long they remain restorable"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 1,
+    "fixes": 1,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
