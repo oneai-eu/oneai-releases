@@ -1,15 +1,16 @@
-# oneAI — Changelogs
+# OneAI — Changelogs
 
-Changelogs for [oneAI](undefined).
+Changelogs for [OneAI](undefined).
 
 ## Latest Version
 
-**[v2026.09.04](v2026.09.04/changelog_en.md)** — released 2026-09-08
+**[v2026.09.27](v2026.09.27/changelog_en.md)** — released 2026-09-27
 
 ## All Releases
 
 | Version | Date | Breaking | Changelogs |
 |---------|------|----------|------------|
+| [v2026.09.27](oneai/v2026.09.27/changelog_en.md) | 2026-09-27 |  | [DE](oneai/v2026.09.27/changelog_de.md) · [EN](oneai/v2026.09.27/changelog_en.md) · [FR](oneai/v2026.09.27/changelog_fr.md) · [ES](oneai/v2026.09.27/changelog_es.md) · [IT](oneai/v2026.09.27/changelog_it.md) |
 | [v2026.09.04](oneai/v2026.09.04/changelog_en.md) | 2026-09-08 |  | [DE](oneai/v2026.09.04/changelog_de.md) · [EN](oneai/v2026.09.04/changelog_en.md) · [FR](oneai/v2026.09.04/changelog_fr.md) · [ES](oneai/v2026.09.04/changelog_es.md) · [IT](oneai/v2026.09.04/changelog_it.md) |
 | [v2026.08.18](oneai/v2026.08.18/changelog_en.md) | 2026-08-18 |  | [DE](oneai/v2026.08.18/changelog_de.md) · [EN](oneai/v2026.08.18/changelog_en.md) · [FR](oneai/v2026.08.18/changelog_fr.md) · [ES](oneai/v2026.08.18/changelog_es.md) · [IT](oneai/v2026.08.18/changelog_it.md) |
 | [v1.1.6](oneai/v1.1.6/changelog_en.md) | 2026-07-08 |  | [DE](oneai/v1.1.6/changelog_de.md) · [EN](oneai/v1.1.6/changelog_en.md) · [FR](oneai/v1.1.6/changelog_fr.md) · [ES](oneai/v1.1.6/changelog_es.md) · [IT](oneai/v1.1.6/changelog_it.md) |

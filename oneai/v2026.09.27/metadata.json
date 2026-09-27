@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v2026.09.27",
+  "date": "2026-09-27",
+  "github_release_url": "https://forgejo.infra.oneai.eu/oneai/oneai/releases/tag/v2026.09.27",
+  "breaking": false,
+  "highlights": [
+    "Neu: Microsoft Dynamics 365 Business Central jetzt anbindbar",
+    "Neu: Dynamics 365 Sales ist jetzt für alle verfügbar",
+    "Neu: GitLab-Projekte als durchsuchbare Wissensquelle verbinden",
+    "Neu: NinjaOne – Geräte, Alarme und Patches direkt im Chat",
+    "Der Assistent merkt sich eure Vorlieben dauerhaft"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
