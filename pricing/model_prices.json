@@ -1,7 +1,14 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-09-25",
+  "version": "2026-10-03",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
+  "benchmark_source": {
+    "name": "Artificial Analysis Intelligence Index",
+    "version": "4.3",
+    "url": "https://artificialanalysis.ai/models",
+    "retrieved": "2026-10-03",
+    "notes": "A model row's optional benchmark block is display-only (the chat model picker's cost-to-capability meter) and never read by billing. intelligence_index is the Artificial Analysis Intelligence Index score of the measured variant. tokens_per_task is the average token use of one index task, derived from Artificial Analysis' per-task cost breakdown divided by the reference prices it used: input = uncached input, cache_read and cache_write = cached input, output = reasoning + answer. Token counts are price-independent, so the app re-prices them at this row's own rates. variant is the Artificial Analysis model slug that was measured; effort is its reasoning effort. Rows are matched to oneAI's DEFAULT effort (medium); where that variant was not measured the nearest measured one is used and effort says so. A -global twin carries the same benchmark as its EU row. A row without a benchmark has no measured variant matching what oneAI sends and shows no meter."
+  },
   "models": {
     "gpt-5.5-pro": {
       "display_name": "GPT-5.5 Pro",
@@ -31,7 +38,18 @@
       "cached_cents_per_mtok_above_200k": 80,
       "output_cents_per_mtok_above_200k": 3000,
       "tier_threshold_tokens": 272000,
-      "notes": "CORRECTED 2026-09-07 (was 500/625/50/3000 short and 1000/1250/100/4500 long — OVER-billing input/cached/cache-write by 1.25x and output by 1.5x): the old base rates were stale. Re-entered from the OpenAI Standard-tier table (developers.openai.com/api/docs/pricing): short context $4.00 input / $0.40 cached / $5.00 cache-write / $20.00 output; long context $8.00 / $0.80 / $10.00 / $30.00. PROMOTIONAL RATE: the page footnote states Sol's promotional pricing runs 'at least through November 21, 2026' — re-check after that date, this row will rise. GPT-5.6 Sol (flagship). Alias 'gpt-5.6' resolves here — add a 'gpt-5.6' key if the app sends the bare alias as wire model (billing matches exact wire ID). Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only — Batch and Flex (half Standard) and Fast (2x Standard) are not expressible in this format."
+      "notes": "CORRECTED 2026-09-07 (was 500/625/50/3000 short and 1000/1250/100/4500 long — OVER-billing input/cached/cache-write by 1.25x and output by 1.5x): the old base rates were stale. Re-entered from the OpenAI Standard-tier table (developers.openai.com/api/docs/pricing): short context $4.00 input / $0.40 cached / $5.00 cache-write / $20.00 output; long context $8.00 / $0.80 / $10.00 / $30.00. PROMOTIONAL RATE: the page footnote states Sol's promotional pricing runs 'at least through November 21, 2026' — re-check after that date, this row will rise. GPT-5.6 Sol (flagship). Alias 'gpt-5.6' resolves here — add a 'gpt-5.6' key if the app sends the bare alias as wire model (billing matches exact wire ID). Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only — Batch and Flex (half Standard) and Fast (2x Standard) are not expressible in this format.",
+      "benchmark": {
+        "intelligence_index": 39.24,
+        "tokens_per_task": {
+          "input": 20389,
+          "cache_read": 370514,
+          "cache_write": 23550,
+          "output": 7874
+        },
+        "effort": "medium",
+        "variant": "gpt-5-6-sol-medium"
+      }
     },
     "gpt-5.6-terra": {
       "display_name": "GPT-5.6 Terra",
@@ -47,7 +65,18 @@
       "cached_cents_per_mtok_above_200k": 40,
       "output_cents_per_mtok_above_200k": 1800,
       "tier_threshold_tokens": 272000,
-      "notes": "CORRECTED 2026-09-07 (was 250/312.5/25/1500 short and 500/625/50/2250 long — a uniform 1.25x OVER-billing on a default: true model): the old base rates were stale. Re-entered from the OpenAI Standard-tier table: short context $2.00 input / $0.20 cached / $2.50 cache-write / $12.00 output; long context $4.00 / $0.40 / $5.00 / $18.00. GPT-5.6 Terra (balances intelligence and cost). Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+      "notes": "CORRECTED 2026-09-07 (was 250/312.5/25/1500 short and 500/625/50/2250 long — a uniform 1.25x OVER-billing on a default: true model): the old base rates were stale. Re-entered from the OpenAI Standard-tier table: short context $2.00 input / $0.20 cached / $2.50 cache-write / $12.00 output; long context $4.00 / $0.40 / $5.00 / $18.00. GPT-5.6 Terra (balances intelligence and cost). Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable.",
+      "benchmark": {
+        "intelligence_index": 30.09,
+        "tokens_per_task": {
+          "input": 21531,
+          "cache_read": 165717,
+          "cache_write": 16573,
+          "output": 5478
+        },
+        "effort": "medium",
+        "variant": "gpt-5-6-terra-medium"
+      }
     },
     "gpt-5.6-luna": {
       "display_name": "GPT-5.6 Luna",
@@ -63,7 +92,18 @@
       "cached_cents_per_mtok_above_200k": 4,
       "output_cents_per_mtok_above_200k": 180,
       "tier_threshold_tokens": 272000,
-      "notes": "CORRECTED 2026-09-07 (was 100/125/10/600 short and 200/250/20/900 long — a uniform 5x OVER-billing, the largest error found in this file, on a default: true high-volume model): the old base rates were stale and matched no published OpenAI tier (not Standard, Batch, Flex or Fast). Re-entered from the OpenAI Standard-tier table: short context $0.20 input / $0.02 cached / $0.25 cache-write / $1.20 output; long context $0.40 / $0.04 / $0.50 / $1.80. GPT-5.6 Luna (cost-optimized, high-volume) — carries default: true, so it seeds into org_base_models for every new org, which is why the 5x error compounded fastest here. Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+      "notes": "CORRECTED 2026-09-07 (was 100/125/10/600 short and 200/250/20/900 long — a uniform 5x OVER-billing, the largest error found in this file, on a default: true high-volume model): the old base rates were stale and matched no published OpenAI tier (not Standard, Batch, Flex or Fast). Re-entered from the OpenAI Standard-tier table: short context $0.20 input / $0.02 cached / $0.25 cache-write / $1.20 output; long context $0.40 / $0.04 / $0.50 / $1.80. GPT-5.6 Luna (cost-optimized, high-volume) — carries default: true, so it seeds into org_base_models for every new org, which is why the 5x error compounded fastest here. Derived relationships re-verified and unchanged: cache_write=1.25x uncached input; >272K tier (strict >, threshold 272000) = 2x input / 1.5x output, cached & cache_write scaling with input. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable.",
+      "benchmark": {
+        "intelligence_index": 25.04,
+        "tokens_per_task": {
+          "input": 21693,
+          "cache_read": 131283,
+          "cache_write": 13001,
+          "output": 4486
+        },
+        "effort": "medium",
+        "variant": "gpt-5-6-luna-medium"
+      }
     },
     "gpt-6-astra": {
       "display_name": "GPT-6 Astra",
@@ -79,7 +119,18 @@
       "cached_cents_per_mtok_above_200k": 200,
       "output_cents_per_mtok_above_200k": 7500,
       "tier_threshold_tokens": 272000,
-      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. Read from the OpenAI model page for gpt-6-astra: short context $10.00 input / $1.00 cached / $12.50 cache-write / $50.00 output. The page footnote prices a prompt over 272K input tokens at 2x input and cache rates and 1.5x output FOR THE FULL REQUEST, giving 2000/2500/200/7500 long; boundary is STRICT > at 272000, the same as the whole GPT-5.6 family. Cache writes are stated on the page as 1.25x the uncached input rate, which is the family constant the 5.6 rows already encode. GPT-6 Astra is the frontier rung (1.05M context, 128K max output) and does NOT carry default: true in the app, so it reaches org_base_models only when an admin enables it. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at the base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. Read from the OpenAI model page for gpt-6-astra: short context $10.00 input / $1.00 cached / $12.50 cache-write / $50.00 output. The page footnote prices a prompt over 272K input tokens at 2x input and cache rates and 1.5x output FOR THE FULL REQUEST, giving 2000/2500/200/7500 long; boundary is STRICT > at 272000, the same as the whole GPT-5.6 family. Cache writes are stated on the page as 1.25x the uncached input rate, which is the family constant the 5.6 rows already encode. GPT-6 Astra is the frontier rung (1.05M context, 128K max output) and does NOT carry default: true in the app, so it reaches org_base_models only when an admin enables it. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens, else cache-writes bill at the base input rate (undercharge). Standard tier only; Batch/Flex (half) and Fast (2x) are not representable.",
+      "benchmark": {
+        "intelligence_index": 49.57,
+        "tokens_per_task": {
+          "input": 21687,
+          "cache_read": 480445,
+          "cache_write": 29108,
+          "output": 9590
+        },
+        "effort": "medium",
+        "variant": "gpt-6-astra-medium"
+      }
     },
     "gpt-6-sol": {
       "display_name": "GPT-6 Sol",
@@ -95,7 +146,18 @@
       "cached_cents_per_mtok_above_200k": 40,
       "output_cents_per_mtok_above_200k": 1500,
       "tier_threshold_tokens": 272000,
-      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $2.00 input / $10.00 output, which puts GPT-6 Sol on GPT-5.6 TERRA's input rate rather than GPT-5.6 Sol's despite the shared name. cached (20) and cache_write (250) are DERIVED, not read: cached = 0.1x input and cache_write = 1.25x input hold on every GPT-5.6 row and on the published gpt-6-astra row, so they are the family constants rather than a guess — but they are the first thing to re-check against the pricing table. The >272K tier is derived the same way (2x input and cache rates, 1.5x output, strict > at 272000): the footnote is quoted on Astra's page and the entire 5.6 family carries it, and omitting it would UNDER-bill long-context requests by 2x. Carries default: true in the app, so it seeds into org_base_models for every new org — a wrong number here compounds across every new tenant. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $2.00 input / $10.00 output, which puts GPT-6 Sol on GPT-5.6 TERRA's input rate rather than GPT-5.6 Sol's despite the shared name. cached (20) and cache_write (250) are DERIVED, not read: cached = 0.1x input and cache_write = 1.25x input hold on every GPT-5.6 row and on the published gpt-6-astra row, so they are the family constants rather than a guess — but they are the first thing to re-check against the pricing table. The >272K tier is derived the same way (2x input and cache rates, 1.5x output, strict > at 272000): the footnote is quoted on Astra's page and the entire 5.6 family carries it, and omitting it would UNDER-bill long-context requests by 2x. Carries default: true in the app, so it seeds into org_base_models for every new org — a wrong number here compounds across every new tenant. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable.",
+      "benchmark": {
+        "intelligence_index": 39.81,
+        "tokens_per_task": {
+          "input": 21362,
+          "cache_read": 438620,
+          "cache_write": 20745,
+          "output": 6498
+        },
+        "effort": "medium",
+        "variant": "gpt-6-sol-medium"
+      }
     },
     "gpt-6-luna": {
       "display_name": "GPT-6 Luna",
@@ -111,7 +173,18 @@
       "cached_cents_per_mtok_above_200k": 2,
       "output_cents_per_mtok_above_200k": 75,
       "tier_threshold_tokens": 272000,
-      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $0.10 input / $0.50 output — half of GPT-5.6 Luna's input and well under half its output, making this the cheapest model in the catalogue. cached (1) and cache_write (12.5) are DERIVED from the family constants (cached = 0.1x input, cache_write = 1.25x input), as is the >272K tier (2x input and cache rates, 1.5x output, strict > at 272000); see gpt-6-sol for why they are applied rather than omitted. The fractional cache_write is intentional and already has precedent in this file (claude-opus-5 carries 687.5). Carries default: true in the app, so it seeds into org_base_models for every new org, and it is the row a high-volume tenant will spend the most tokens against — the 5x error corrected on gpt-5.6-luna on 2026-09-07 compounded fastest for exactly that reason. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable."
+      "notes": "ADDED 2026-09-23, the day GPT-6 shipped. PUBLISHED RATES COVER INPUT AND OUTPUT ONLY: $0.10 input / $0.50 output — half of GPT-5.6 Luna's input and well under half its output, making this the cheapest model in the catalogue. cached (1) and cache_write (12.5) are DERIVED from the family constants (cached = 0.1x input, cache_write = 1.25x input), as is the >272K tier (2x input and cache rates, 1.5x output, strict > at 272000); see gpt-6-sol for why they are applied rather than omitted. The fractional cache_write is intentional and already has precedent in this file (claude-opus-5 carries 687.5). Carries default: true in the app, so it seeds into org_base_models for every new org, and it is the row a high-volume tenant will spend the most tokens against — the 5x error corrected on gpt-5.6-luna on 2026-09-07 compounded fastest for exactly that reason. REQUIRES the app's OpenAI adapter to populate cacheWriteTokens. Standard tier only; Batch/Flex (half) and Fast (2x) are not representable.",
+      "benchmark": {
+        "intelligence_index": 29.93,
+        "tokens_per_task": {
+          "input": 21401,
+          "cache_read": 605047,
+          "cache_write": 28465,
+          "output": 11456
+        },
+        "effort": "medium",
+        "variant": "gpt-6-luna-medium"
+      }
     },
     "claude-haiku-4-5": {
       "display_name": "Haiku 4.5",
@@ -122,7 +195,17 @@
       "cache_write_cents_per_mtok": 125,
       "cached_cents_per_mtok": 10,
       "output_cents_per_mtok": 500,
-      "notes": "Routed to Vertex 'global' (CLAUDE_MODEL_LOCATIONS pin). input=base 1x; cache_write=5m cache-write; cached=cache-hit."
+      "notes": "Routed to Vertex 'global' (CLAUDE_MODEL_LOCATIONS pin). input=base 1x; cache_write=5m cache-write; cached=cache-hit.",
+      "benchmark": {
+        "intelligence_index": 16.88,
+        "tokens_per_task": {
+          "input": 13468,
+          "cache_read": 360269,
+          "cache_write": 107923,
+          "output": 18485
+        },
+        "variant": "claude-4-5-haiku-reasoning"
+      }
     },
     "claude-sonnet-5": {
       "display_name": "Sonnet 5",
@@ -135,7 +218,18 @@
       "output_cents_per_mtok": 1100,
       "manual_only": true,
       "manual_only_reason": "EU-priced entry (routed to 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
-      "notes": "RE-VERIFIED 2026-09-07 against the Vertex EU Anthropic table: 2.20 input / 2.75 5m cache-write / 0.22 cache hit / 11.00 output — these values are CORRECT. A previous note instructed a bump to 330/412.5/33/1650 on 2026-09-01 as an intro rate ending; that date has passed and the EU table still shows 2.20/11.00, so the instruction was wrong and has been removed — do NOT re-apply it. EU = global x1.1. Routed to the Vertex 'eu' multi-region default. Flat across context length (no >200K premium). input=base 1x; cache_write=5m cache-write; cached=cache-hit. Only the 5m cache-write rate is representable: 1h cache-write (4.40) and all batch rates (input 1.10 / output 5.50) are not expressible in this format."
+      "notes": "RE-VERIFIED 2026-09-07 against the Vertex EU Anthropic table: 2.20 input / 2.75 5m cache-write / 0.22 cache hit / 11.00 output — these values are CORRECT. A previous note instructed a bump to 330/412.5/33/1650 on 2026-09-01 as an intro rate ending; that date has passed and the EU table still shows 2.20/11.00, so the instruction was wrong and has been removed — do NOT re-apply it. EU = global x1.1. Routed to the Vertex 'eu' multi-region default. Flat across context length (no >200K premium). input=base 1x; cache_write=5m cache-write; cached=cache-hit. Only the 5m cache-write rate is representable: 1h cache-write (4.40) and all batch rates (input 1.10 / output 5.50) are not expressible in this format.",
+      "benchmark": {
+        "intelligence_index": 28.05,
+        "tokens_per_task": {
+          "input": 25711,
+          "cache_read": 2533862,
+          "cache_write": 67016,
+          "output": 27337
+        },
+        "effort": "medium",
+        "variant": "claude-sonnet-5-medium"
+      }
     },
     "claude-sonnet-5-global": {
       "display_name": "Sonnet 5",
@@ -148,7 +242,18 @@
       "output_cents_per_mtok": 1000,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
-      "notes": "RE-VERIFIED 2026-09-07 against the Vertex Global Anthropic table: 2.00 input / 2.50 5m cache-write / 0.20 cache hit / 10.00 output — these values are CORRECT. A previous note instructed a bump to 300/375/30/1500 on 2026-09-01; that date has passed and the Global table still shows 2.00/10.00, so the instruction was wrong and has been removed — do NOT re-apply it. Global endpoint via the '-global' suffix override. Flat across context length. input=base 1x; cache_write=5m cache-write; cached=cache-hit. 1h cache-write (4.00) and batch rates (1.00/5.00) are not representable."
+      "notes": "RE-VERIFIED 2026-09-07 against the Vertex Global Anthropic table: 2.00 input / 2.50 5m cache-write / 0.20 cache hit / 10.00 output — these values are CORRECT. A previous note instructed a bump to 300/375/30/1500 on 2026-09-01; that date has passed and the Global table still shows 2.00/10.00, so the instruction was wrong and has been removed — do NOT re-apply it. Global endpoint via the '-global' suffix override. Flat across context length. input=base 1x; cache_write=5m cache-write; cached=cache-hit. 1h cache-write (4.00) and batch rates (1.00/5.00) are not representable.",
+      "benchmark": {
+        "intelligence_index": 28.05,
+        "tokens_per_task": {
+          "input": 25711,
+          "cache_read": 2533862,
+          "cache_write": 67016,
+          "output": 27337
+        },
+        "effort": "medium",
+        "variant": "claude-sonnet-5-medium"
+      }
     },
     "claude-opus-5": {
       "display_name": "Opus 5",
@@ -161,7 +266,18 @@
       "output_cents_per_mtok": 2750,
       "manual_only": true,
       "manual_only_reason": "EU-priced entry (routed to 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
-      "notes": "Added 2026-07-27 (app model id 'opus-5', 1M context). EU rate 5.50/6.875/0.55/27.50 (global x1.1). Flat across context length — >200K bills the same as <=200K, so no tier fields. Only the 5m cache-write rate is representable: 1h cache-write (11.00) and all batch rates (input 2.75 / output 13.75 / cache hit 0.275) are NOT in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
+      "notes": "Added 2026-07-27 (app model id 'opus-5', 1M context). EU rate 5.50/6.875/0.55/27.50 (global x1.1). Flat across context length — >200K bills the same as <=200K, so no tier fields. Only the 5m cache-write rate is representable: 1h cache-write (11.00) and all batch rates (input 2.75 / output 13.75 / cache hit 0.275) are NOT in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit.",
+      "benchmark": {
+        "intelligence_index": 44.83,
+        "tokens_per_task": {
+          "input": 25781,
+          "cache_read": 2017451,
+          "cache_write": 52386,
+          "output": 28977
+        },
+        "effort": "medium",
+        "variant": "claude-opus-5-medium"
+      }
     },
     "claude-opus-5-global": {
       "display_name": "Opus 5",
@@ -174,7 +290,18 @@
       "output_cents_per_mtok": 2500,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape",
-      "notes": "Global endpoint (suffix override; app model id 'opus-5-global'). Added 2026-07-27. Flat across context length (no >200K premium). 1h cache-write (10.00) and batch rates (2.50/12.50/0.25) are not representable in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit."
+      "notes": "Global endpoint (suffix override; app model id 'opus-5-global'). Added 2026-07-27. Flat across context length (no >200K premium). 1h cache-write (10.00) and batch rates (2.50/12.50/0.25) are not representable in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit.",
+      "benchmark": {
+        "intelligence_index": 44.83,
+        "tokens_per_task": {
+          "input": 25781,
+          "cache_read": 2017451,
+          "cache_write": 52386,
+          "output": 28977
+        },
+        "effort": "medium",
+        "variant": "claude-opus-5-medium"
+      }
     },
     "claude-opus-5-5": {
       "display_name": "Opus 5.5",
@@ -187,7 +314,18 @@
       "output_cents_per_mtok": 2200,
       "manual_only": true,
       "manual_only_reason": "EU-priced entry (routed to the 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
-      "notes": "Added 2026-09-23 for the model released on Vertex 2026-09-22 (app model id 'opus-5-5', 1M context, 128K max output). EU rate 4.40/5.50/0.22/22.00, exactly 1.10x the -global twin, the same premium Opus 5 carries. CHEAPER THAN OPUS 5, which is unusual for a version bump and is the reason this row is entered from the published table rather than inherited: Opus 5 EU is 5.50/6.875/0.55/27.50, so do not copy the older row's numbers forward. Flat across context length — the published table prices >200K identically to <=200K, so no tier fields. Only the 5m cache-write rate is representable: 1h cache-write (8.80) and all batch rates (input 2.20 / output 11.00 / cache hit 0.11 / 5m batch cache-write 2.75 / 1h batch cache-write 4.40) are NOT in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit. The app routes the unsuffixed wire id to the Vertex 'eu' multi-region through VERTEX_CLAUDE_LOCATION (resolveAnthropicLocation), which is what this row prices. Not default: true in the app, so it bills only once an admin enables it."
+      "notes": "Added 2026-09-23 for the model released on Vertex 2026-09-22 (app model id 'opus-5-5', 1M context, 128K max output). EU rate 4.40/5.50/0.22/22.00, exactly 1.10x the -global twin, the same premium Opus 5 carries. CHEAPER THAN OPUS 5, which is unusual for a version bump and is the reason this row is entered from the published table rather than inherited: Opus 5 EU is 5.50/6.875/0.55/27.50, so do not copy the older row's numbers forward. Flat across context length — the published table prices >200K identically to <=200K, so no tier fields. Only the 5m cache-write rate is representable: 1h cache-write (8.80) and all batch rates (input 2.20 / output 11.00 / cache hit 0.11 / 5m batch cache-write 2.75 / 1h batch cache-write 4.40) are NOT in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit. The app routes the unsuffixed wire id to the Vertex 'eu' multi-region through VERTEX_CLAUDE_LOCATION (resolveAnthropicLocation), which is what this row prices. Not default: true in the app, so it bills only once an admin enables it.",
+      "benchmark": {
+        "intelligence_index": 51.24,
+        "tokens_per_task": {
+          "input": 25712,
+          "cache_read": 2047706,
+          "cache_write": 61743,
+          "output": 25745
+        },
+        "effort": "medium",
+        "variant": "claude-opus-5-5-medium"
+      }
     },
     "claude-opus-5-5-global": {
       "display_name": "Opus 5.5",
@@ -200,7 +338,18 @@
       "output_cents_per_mtok": 2000,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape.",
-      "notes": "Added 2026-09-23 for the model released on Vertex 2026-09-22. Global endpoint (suffix override; app model id 'opus-5-5-global'). Rate 4.00/5.00/0.20/20.00 read from the published global table. CHEAPER THAN OPUS 5 GLOBAL (5.00/6.25/0.50/25.00) — a version bump that lowers the price, so nothing here is inherited from the older row. Flat across context length (>200K bills the same as <=200K), so no tier fields. 1h cache-write (8.00) and batch rates (input 2.50 / output 12.50 / cache hit 0.10 / 5m batch cache-write 2.50 / 1h batch cache-write 4.00) are not representable in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit. Not default: true in the app."
+      "notes": "Added 2026-09-23 for the model released on Vertex 2026-09-22. Global endpoint (suffix override; app model id 'opus-5-5-global'). Rate 4.00/5.00/0.20/20.00 read from the published global table. CHEAPER THAN OPUS 5 GLOBAL (5.00/6.25/0.50/25.00) — a version bump that lowers the price, so nothing here is inherited from the older row. Flat across context length (>200K bills the same as <=200K), so no tier fields. 1h cache-write (8.00) and batch rates (input 2.50 / output 12.50 / cache hit 0.10 / 5m batch cache-write 2.50 / 1h batch cache-write 4.00) are not representable in this format. input=base 1x; cache_write=5m cache-write; cached=cache-hit. Not default: true in the app.",
+      "benchmark": {
+        "intelligence_index": 51.24,
+        "tokens_per_task": {
+          "input": 25712,
+          "cache_read": 2047706,
+          "cache_write": 61743,
+          "output": 25745
+        },
+        "effort": "medium",
+        "variant": "claude-opus-5-5-medium"
+      }
     },
     "mistral-small-latest": {
       "display_name": "Mistral Small 4",
@@ -220,7 +369,18 @@
       "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 750,
-      "notes": "Mistral Medium 3.5. See '-latest' alias warning on mistral-small-latest."
+      "notes": "Mistral Medium 3.5. See '-latest' alias warning on mistral-small-latest.",
+      "benchmark": {
+        "intelligence_index": 14.19,
+        "tokens_per_task": {
+          "input": 10806,
+          "cache_read": 787359,
+          "cache_write": 114723,
+          "output": 26086
+        },
+        "effort": "high",
+        "variant": "mistral-medium-3-5"
+      }
     },
     "mistral-large-latest": {
       "display_name": "Mistral Large 3",
@@ -230,7 +390,17 @@
       "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 150,
-      "notes": "Mistral Large 3 (price DROPPED vs Large 2). See '-latest' alias warning on mistral-small-latest."
+      "notes": "Mistral Large 3 (price DROPPED vs Large 2). See '-latest' alias warning on mistral-small-latest.",
+      "benchmark": {
+        "intelligence_index": 9.27,
+        "tokens_per_task": {
+          "input": 11098,
+          "cache_read": 162761,
+          "cache_write": 18179,
+          "output": 5566
+        },
+        "variant": "mistral-large-3"
+      }
     },
     "mistral-euaiact-finetuned": {
       "display_name": "Mistral EU AI Act Fine-tuned",
@@ -252,7 +422,18 @@
       "input_cents_per_mtok": 33,
       "cached_cents_per_mtok": 3.3,
       "output_cents_per_mtok": 275,
-      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 30/3/250): the old value was the GLOBAL rate, justified by forced-global routing. That justification is void — GLOBAL_ONLY_GEMINI_MODELS was deleted from llm/backends/google/index.ts and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified live against oneai-vertex-prod 2026-08-11), which is a NON-GLOBAL endpoint, so the +10% uplift applies. Vertex table 2026-08-21: global 30/3/250, non-global 33/3.3/275 — the value the superseded note told readers not to 'correct' to. Do not revert without re-checking the routing set. No introductory window on this model. Flat across context length (no >200K premium)."
+      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 30/3/250): the old value was the GLOBAL rate, justified by forced-global routing. That justification is void — GLOBAL_ONLY_GEMINI_MODELS was deleted from llm/backends/google/index.ts and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified live against oneai-vertex-prod 2026-08-11), which is a NON-GLOBAL endpoint, so the +10% uplift applies. Vertex table 2026-08-21: global 30/3/250, non-global 33/3.3/275 — the value the superseded note told readers not to 'correct' to. Do not revert without re-checking the routing set. No introductory window on this model. Flat across context length (no >200K premium).",
+      "benchmark": {
+        "intelligence_index": 22.17,
+        "tokens_per_task": {
+          "input": 14735,
+          "cache_read": 702980,
+          "cache_write": 180834,
+          "output": 17507
+        },
+        "effort": "high",
+        "variant": "gemini-3-5-flash-lite"
+      }
     },
     "gemini-3.5-flash-lite-global": {
       "display_name": "Gemini 3.5 Flash Lite",
@@ -264,7 +445,18 @@
       "output_cents_per_mtok": 250,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
-      "notes": "Added 2026-08-21. Global-endpoint rate, no uplift (Vertex table 2026-08-21). Was MISSING from this registry while selectable in the model picker (src/api/util/models.ts), so every request on this wire id billed 0 EUR: getModelPrice does an exact-key lookup with no suffix stripping, so a missing -global key never falls back to its EU twin. No introductory window on this model. Flat across context length (no >200K premium)."
+      "notes": "Added 2026-08-21. Global-endpoint rate, no uplift (Vertex table 2026-08-21). Was MISSING from this registry while selectable in the model picker (src/api/util/models.ts), so every request on this wire id billed 0 EUR: getModelPrice does an exact-key lookup with no suffix stripping, so a missing -global key never falls back to its EU twin. No introductory window on this model. Flat across context length (no >200K premium).",
+      "benchmark": {
+        "intelligence_index": 22.17,
+        "tokens_per_task": {
+          "input": 14735,
+          "cache_read": 702980,
+          "cache_write": 180834,
+          "output": 17507
+        },
+        "effort": "high",
+        "variant": "gemini-3-5-flash-lite"
+      }
     },
     "gemini-3.6-flash": {
       "display_name": "Gemini 3.6 Flash",
@@ -274,7 +466,18 @@
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
-      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 150/15/750, ~1.8x OVER-billing on a default: true model): the old value was wrong on two independent counts. (1) INTRODUCTORY pricing runs through 2026-12-31; 150/15/750 is the post-intro rate that starts 2027-01-01. (2) It was the global column, justified by forced-global routing, but GLOBAL_ONLY_GEMINI_MODELS was deleted and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified 2026-08-11), a NON-GLOBAL endpoint, so the +10% uplift applies. The Vertex table 2026-08-21 does split this model global/non-global, superseding the old note's claim that it does not. Intro global 75/7.5/375, intro non-global 82.5/8.25/412.5 — i.e. 3.6 Flash and 3.7 Flash cost the same today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost, and half of 1.65 is exactly 0.825. Do NOT 'correct' this upward to the metered rate before the promotion ends. ACTION REQUIRED 2027-01-01: the credit expires with the promotion, so cost becomes the full metered rate and this row MUST become 165/16.5/825."
+      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 150/15/750, ~1.8x OVER-billing on a default: true model): the old value was wrong on two independent counts. (1) INTRODUCTORY pricing runs through 2026-12-31; 150/15/750 is the post-intro rate that starts 2027-01-01. (2) It was the global column, justified by forced-global routing, but GLOBAL_ONLY_GEMINI_MODELS was deleted and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified 2026-08-11), a NON-GLOBAL endpoint, so the +10% uplift applies. The Vertex table 2026-08-21 does split this model global/non-global, superseding the old note's claim that it does not. Intro global 75/7.5/375, intro non-global 82.5/8.25/412.5 — i.e. 3.6 Flash and 3.7 Flash cost the same today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost, and half of 1.65 is exactly 0.825. Do NOT 'correct' this upward to the metered rate before the promotion ends. ACTION REQUIRED 2027-01-01: the credit expires with the promotion, so cost becomes the full metered rate and this row MUST become 165/16.5/825.",
+      "benchmark": {
+        "intelligence_index": 33.98,
+        "tokens_per_task": {
+          "input": 14804,
+          "cache_read": 2982238,
+          "cache_write": 419180,
+          "output": 41606
+        },
+        "effort": "high",
+        "variant": "gemini-3-6-flash"
+      }
     },
     "gemini-3.6-flash-global": {
       "display_name": "Gemini 3.6 Flash",
@@ -286,7 +489,18 @@
       "output_cents_per_mtok": 375,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
-      "notes": "Added 2026-08-21. INTRODUCTORY global rate (Vertex table 2026-08-21), EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Was MISSING from this registry while selectable in the model picker, so every request on this wire id billed 0 EUR (exact-key lookup, no suffix stripping). Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Global SKUs at EUR 1.2873 input / 0.12873 cached / 6.4365 output per 1M ('Default' consumption model) — the standard USD 150/15/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750."
+      "notes": "Added 2026-08-21. INTRODUCTORY global rate (Vertex table 2026-08-21), EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Was MISSING from this registry while selectable in the model picker, so every request on this wire id billed 0 EUR (exact-key lookup, no suffix stripping). Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Global SKUs at EUR 1.2873 input / 0.12873 cached / 6.4365 output per 1M ('Default' consumption model) — the standard USD 150/15/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750.",
+      "benchmark": {
+        "intelligence_index": 33.98,
+        "tokens_per_task": {
+          "input": 14804,
+          "cache_read": 2982238,
+          "cache_write": 419180,
+          "output": 41606
+        },
+        "effort": "high",
+        "variant": "gemini-3-6-flash"
+      }
     },
     "gemini-3.7-flash": {
       "display_name": "Gemini 3.7 Flash",
@@ -296,7 +510,18 @@
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
-      "notes": "Added 2026-08-19. INTRODUCTORY pricing, EXPIRES 2026-12-31: on 2027-01-01 Google doubles the base, making this 165/16.5/825. Base (global) intro rate is 75/7.5/375; this entry carries the +10% non-global uplift, which applies because the wire id resolves to the `eu` multi-region — routing confirmed live 2026-08-19 against oneai-vertex-prod: 200 on `eu`, 404 in europe-west4, so EU_MULTIREGION_GEMINI_MODELS. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 165/16.5/825."
+      "notes": "Added 2026-08-19. INTRODUCTORY pricing, EXPIRES 2026-12-31: on 2027-01-01 Google doubles the base, making this 165/16.5/825. Base (global) intro rate is 75/7.5/375; this entry carries the +10% non-global uplift, which applies because the wire id resolves to the `eu` multi-region — routing confirmed live 2026-08-19 against oneai-vertex-prod: 200 on `eu`, 404 in europe-west4, so EU_MULTIREGION_GEMINI_MODELS. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 165/16.5/825.",
+      "benchmark": {
+        "intelligence_index": 39.06,
+        "tokens_per_task": {
+          "input": 14808,
+          "cache_read": 3814032,
+          "cache_write": 545635,
+          "output": 58387
+        },
+        "effort": "high",
+        "variant": "gemini-3-7-flash"
+      }
     },
     "gemini-3.7-flash-global": {
       "display_name": "Gemini 3.7 Flash",
@@ -308,7 +533,18 @@
       "output_cents_per_mtok": 375,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
-      "notes": "Added 2026-08-19. INTRODUCTORY global rate, EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters Gemini 3.7 Flash Global Text Input at EUR 1.2873 and Text Output at EUR 6.4365 per 1M ('Default' consumption model) — the standard USD 150/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The export carries no Global caching SKU for 3.7, so the cached rate follows the family pattern (10% of input). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750."
+      "notes": "Added 2026-08-19. INTRODUCTORY global rate, EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Prices re-verified against the Vertex table 2026-08-21. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters Gemini 3.7 Flash Global Text Input at EUR 1.2873 and Text Output at EUR 6.4365 per 1M ('Default' consumption model) — the standard USD 150/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The export carries no Global caching SKU for 3.7, so the cached rate follows the family pattern (10% of input). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750.",
+      "benchmark": {
+        "intelligence_index": 39.06,
+        "tokens_per_task": {
+          "input": 14808,
+          "cache_read": 3814032,
+          "cache_write": 545635,
+          "output": 58387
+        },
+        "effort": "high",
+        "variant": "gemini-3-7-flash"
+      }
     },
     "gemini-3.8-flash": {
       "display_name": "Gemini 3.8 Flash",
@@ -320,7 +556,18 @@
       "output_cents_per_mtok": 412.5,
       "manual_only": true,
       "manual_only_reason": "Vertex AI EU multi-region entry; no Google text scraper in repo — maintained manually. A global-rate source would wrongly overwrite the +10% non-global uplift.",
-      "notes": "CORRECTED 2026-09-07 (was 165/16.5/825, 2x OVER-billing on a default: true model): the old values were the 2027 row. The Vertex page lists two dated rows per Flash model, and the 'Gemini 3.8 Flash* through December 31, 2026' table gives non-global 0.825/0.0825/4.125 — identical to 3.6 and 3.7 Flash today. INTRODUCTORY pricing, EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. This wire id resolves to the Vertex 'eu' multi-region via EU_MULTIREGION_GEMINI_MODELS, a NON-GLOBAL endpoint, hence the +10% uplift over the 75/7.5/375 global intro rate. Added to the app on main (commit ac078ed64, 2026-09-02) but not in the live release v2026.08.25; carries default: true, so it seeds into org_base_models for every new org once released. Flat across context length — the page shows identical values in the <=200K and >200K columns, so no tier fields. MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line on the 3.6 Flash SKUs: the docs-page 'through December 31, 2026' figure is NET OF A 50% CREDIT, not Google's metered rate. Google meters at the standard rate and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. CAVEAT SPECIFIC TO 3.8 — two Google sources, differing coverage. The DOCS pricing page DOES publish this non-global rate directly (re-confirmed 2026-09-07: 'Gemini 3.8 Flash* through December 31, 2026' Non-global $0.825 input / $0.0825 cached / $4.125 output, and the 'Starting January 1, 2027' block Non-global $1.65 / $0.165), so these values are read off a published table, not inferred. What is missing is the BILLING SKU: oneAI's Vertex SKU export lists only 'Gemini 3.8 Flash Global Text Input' (EUR 1.2873) and 'Global Text Output' (EUR 6.4365) — no Regional SKU exists yet, consistent with 3.8 not being deployed. Consequence: the rate is documented but has never appeared on an invoice line, so it is unconfirmed against actual billing. Re-check the SKU list once 3.8 ships, since this row carries default: true. ACTION REQUIRED 2027-01-01: the credit expires with the promotion and this row MUST become 165/16.5/825."
+      "notes": "CORRECTED 2026-09-07 (was 165/16.5/825, 2x OVER-billing on a default: true model): the old values were the 2027 row. The Vertex page lists two dated rows per Flash model, and the 'Gemini 3.8 Flash* through December 31, 2026' table gives non-global 0.825/0.0825/4.125 — identical to 3.6 and 3.7 Flash today. INTRODUCTORY pricing, EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. This wire id resolves to the Vertex 'eu' multi-region via EU_MULTIREGION_GEMINI_MODELS, a NON-GLOBAL endpoint, hence the +10% uplift over the 75/7.5/375 global intro rate. Added to the app on main (commit ac078ed64, 2026-09-02) but not in the live release v2026.08.25; carries default: true, so it seeds into org_base_models for every new org once released. Flat across context length — the page shows identical values in the <=200K and >200K columns, so no tier fields. MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line on the 3.6 Flash SKUs: the docs-page 'through December 31, 2026' figure is NET OF A 50% CREDIT, not Google's metered rate. Google meters at the standard rate and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. CAVEAT SPECIFIC TO 3.8 — two Google sources, differing coverage. The DOCS pricing page DOES publish this non-global rate directly (re-confirmed 2026-09-07: 'Gemini 3.8 Flash* through December 31, 2026' Non-global $0.825 input / $0.0825 cached / $4.125 output, and the 'Starting January 1, 2027' block Non-global $1.65 / $0.165), so these values are read off a published table, not inferred. What is missing is the BILLING SKU: oneAI's Vertex SKU export lists only 'Gemini 3.8 Flash Global Text Input' (EUR 1.2873) and 'Global Text Output' (EUR 6.4365) — no Regional SKU exists yet, consistent with 3.8 not being deployed. Consequence: the rate is documented but has never appeared on an invoice line, so it is unconfirmed against actual billing. Re-check the SKU list once 3.8 ships, since this row carries default: true. ACTION REQUIRED 2027-01-01: the credit expires with the promotion and this row MUST become 165/16.5/825.",
+      "benchmark": {
+        "intelligence_index": 39.77,
+        "tokens_per_task": {
+          "input": 14851,
+          "cache_read": 4016438,
+          "cache_write": 561895,
+          "output": 52599
+        },
+        "effort": "medium",
+        "variant": "gemini-3-8-flash-medium"
+      }
     },
     "gemini-3.8-flash-global": {
       "display_name": "Gemini 3.8 Flash",
@@ -332,7 +579,18 @@
       "output_cents_per_mtok": 375,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
-      "notes": "CORRECTED 2026-09-07 (was 150/15/750, 2x OVER-billing): the old values were the 2027 row. INTRODUCTORY global rate per the 'Gemini 3.8 Flash* through December 31, 2026' table (0.75/0.075/3.75), matching 3.6 and 3.7 Flash global today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Global endpoint via the '-global' suffix override in resolveGeminiLocation. On app main (ac078ed64) but not in live release v2026.08.25. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. The export lists Gemini 3.8 Flash Global Text Input at EUR 1.2873 and Global Text Output at EUR 6.4365 per 1M ('Default' consumption model) — the standard USD 150/750 at the export's implied 1.16523 USD/EUR — and Google returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). No Global caching SKU is listed for 3.8, so the cached rate follows the family pattern (10% of input). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750."
+      "notes": "CORRECTED 2026-09-07 (was 150/15/750, 2x OVER-billing): the old values were the 2027 row. INTRODUCTORY global rate per the 'Gemini 3.8 Flash* through December 31, 2026' table (0.75/0.075/3.75), matching 3.6 and 3.7 Flash global today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Global endpoint via the '-global' suffix override in resolveGeminiLocation. On app main (ac078ed64) but not in live release v2026.08.25. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. The export lists Gemini 3.8 Flash Global Text Input at EUR 1.2873 and Global Text Output at EUR 6.4365 per 1M ('Default' consumption model) — the standard USD 150/750 at the export's implied 1.16523 USD/EUR — and Google returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). No Global caching SKU is listed for 3.8, so the cached rate follows the family pattern (10% of input). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750.",
+      "benchmark": {
+        "intelligence_index": 39.77,
+        "tokens_per_task": {
+          "input": 14851,
+          "cache_read": 4016438,
+          "cache_write": 561895,
+          "output": 52599
+        },
+        "effort": "medium",
+        "variant": "gemini-3-8-flash-medium"
+      }
     },
     "oneai-embed": {
       "display_name": "oneAI Embed",
@@ -376,7 +634,17 @@
       "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo — maintained manually. Priced identically to grok-4.3-global: xAI publishes only global-region rates on Vertex, so the 1.10x non-global uplift that applies to Gemini and Claude does not apply here.",
       "input_cents_per_mtok_above_200k": 250,
       "cached_cents_per_mtok_above_200k": 40,
-      "output_cents_per_mtok_above_200k": 500
+      "output_cents_per_mtok_above_200k": 500,
+      "benchmark": {
+        "intelligence_index": 13.99,
+        "tokens_per_task": {
+          "input": 16496,
+          "cache_read": 251236,
+          "cache_write": 60859,
+          "output": 9122
+        },
+        "variant": "grok-4-3-non-reasoning"
+      }
     },
     "grok-4.3-global": {
       "display_name": "Grok 4.3",
@@ -391,7 +659,17 @@
       "output_cents_per_mtok_above_200k": 500,
       "manual_only": true,
       "manual_only_reason": "xAI Grok on Vertex; no xAI text scraper in repo — manage price manually",
-      "notes": "UPDATED 2026-07-08: added >200K premium tier (previously single-rate; long-context undercharged). Re-verified 2026-09-07 against the Vertex 'xAI's Grok models' table: 125/20/250, >200K 250/40/500. CORRECTION to a previous note that called the '-global' suffix cosmetic: resolveGrokLocation (grok/index.ts) DOES read it — the bare id routes to the Vertex 'eu' multi-region and this suffixed id routes to 'global'. The suffix is functional for routing; it just does not change the price, because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote. App-side Vertex id is 'xai/grok-4.3'."
+      "notes": "UPDATED 2026-07-08: added >200K premium tier (previously single-rate; long-context undercharged). Re-verified 2026-09-07 against the Vertex 'xAI's Grok models' table: 125/20/250, >200K 250/40/500. CORRECTION to a previous note that called the '-global' suffix cosmetic: resolveGrokLocation (grok/index.ts) DOES read it — the bare id routes to the Vertex 'eu' multi-region and this suffixed id routes to 'global'. The suffix is functional for routing; it just does not change the price, because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote. App-side Vertex id is 'xai/grok-4.3'.",
+      "benchmark": {
+        "intelligence_index": 13.99,
+        "tokens_per_task": {
+          "input": 16496,
+          "cache_read": 251236,
+          "cache_write": 60859,
+          "output": 9122
+        },
+        "variant": "grok-4-3-non-reasoning"
+      }
     },
     "grok-4.6": {
       "display_name": "Grok 4.6",
@@ -406,7 +684,18 @@
       "output_cents_per_mtok_above_200k": 1200,
       "manual_only": true,
       "manual_only_reason": "Vertex AI list price; no xAI text scraper in repo — maintained manually. xAI publishes only global-region rates on Vertex, so the EU wire id and the -global twin price identically — the 1.10x non-global uplift that applies to Gemini and Claude does not apply here.",
-      "notes": "Added 2026-09-04; >200K tier added 2026-09-07 (it was missing, so long-context requests billed at the base rate — roughly half). Vertex 'xAI's Grok models' table: 200/50/600, >200K 400/100/1200. Bare wire id routes to the Vertex 'eu' multi-region (resolveGrokLocation, grok/index.ts); priced identically to grok-4.6-global because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote ('longer than 200K tokens') — do not add tier_boundary_inclusive, which exists only for Anthropic's '>=' wording. xAI publishes no cache-write rate, so cache_write falls back to the input rate. On app main (dbbae44dd, 2026-09-02), not in live release v2026.08.25; carries default: true. App-side Vertex id is 'xai/grok-4.6'."
+      "notes": "Added 2026-09-04; >200K tier added 2026-09-07 (it was missing, so long-context requests billed at the base rate — roughly half). Vertex 'xAI's Grok models' table: 200/50/600, >200K 400/100/1200. Bare wire id routes to the Vertex 'eu' multi-region (resolveGrokLocation, grok/index.ts); priced identically to grok-4.6-global because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote ('longer than 200K tokens') — do not add tier_boundary_inclusive, which exists only for Anthropic's '>=' wording. xAI publishes no cache-write rate, so cache_write falls back to the input rate. On app main (dbbae44dd, 2026-09-02), not in live release v2026.08.25; carries default: true. App-side Vertex id is 'xai/grok-4.6'.",
+      "benchmark": {
+        "intelligence_index": 42.84,
+        "tokens_per_task": {
+          "input": 16480,
+          "cache_read": 1074312,
+          "cache_write": 377705,
+          "output": 28466
+        },
+        "effort": "medium",
+        "variant": "grok-4-6-medium"
+      }
     },
     "grok-4.6-global": {
       "display_name": "Grok 4.6",
@@ -421,7 +710,18 @@
       "output_cents_per_mtok_above_200k": 1200,
       "manual_only": true,
       "manual_only_reason": "Vertex AI list price; no xAI text scraper in repo — maintained manually. xAI publishes only global-region rates on Vertex, so the EU wire id and the -global twin price identically — the 1.10x non-global uplift that applies to Gemini and Claude does not apply here.",
-      "notes": "Added 2026-09-04; >200K tier added 2026-09-07 (it was missing, so long-context requests billed at the base rate). Vertex 'xAI's Grok models' table: 200/50/600, >200K 400/100/1200. Global endpoint via the '-global' suffix in resolveGrokLocation; identical to its EU twin because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote. No cache-write rate published. On app main (dbbae44dd), not in live release v2026.08.25. App-side Vertex id is 'xai/grok-4.6'."
+      "notes": "Added 2026-09-04; >200K tier added 2026-09-07 (it was missing, so long-context requests billed at the base rate). Vertex 'xAI's Grok models' table: 200/50/600, >200K 400/100/1200. Global endpoint via the '-global' suffix in resolveGrokLocation; identical to its EU twin because xAI publishes no region split on Vertex. Tier boundary is STRICT > per the page footnote. No cache-write rate published. On app main (dbbae44dd), not in live release v2026.08.25. App-side Vertex id is 'xai/grok-4.6'.",
+      "benchmark": {
+        "intelligence_index": 42.84,
+        "tokens_per_task": {
+          "input": 16480,
+          "cache_read": 1074312,
+          "cache_write": 377705,
+          "output": 28466
+        },
+        "effort": "medium",
+        "variant": "grok-4-6-medium"
+      }
     },
     "grok-4.7": {
       "display_name": "Grok 4.7",
@@ -484,7 +784,18 @@
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 250,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud publishes no per-token API pricing to scrape; this row is maintained manually by oneAI."
+      "manual_only_reason": "weber.cloud publishes no per-token API pricing to scrape; this row is maintained manually by oneAI.",
+      "benchmark": {
+        "intelligence_index": 34.33,
+        "tokens_per_task": {
+          "input": 8675,
+          "cache_read": 4335597,
+          "cache_write": 166404,
+          "output": 62054
+        },
+        "effort": "max",
+        "variant": "deepseek-v4-flash"
+      }
     },
     "qwen3.8-27b": {
       "display_name": "Qwen3.8 27B",
@@ -495,7 +806,18 @@
       "cached_cents_per_mtok": 25,
       "output_cents_per_mtok": 100,
       "manual_only": true,
-      "manual_only_reason": "weber.cloud publishes no per-token API pricing to scrape; this row is maintained manually by oneAI."
+      "manual_only_reason": "weber.cloud publishes no per-token API pricing to scrape; this row is maintained manually by oneAI.",
+      "benchmark": {
+        "intelligence_index": 27.55,
+        "tokens_per_task": {
+          "input": 18468,
+          "cache_read": 4592949,
+          "cache_write": 1017409,
+          "output": 51943
+        },
+        "effort": "medium",
+        "variant": "qwen3-8-27b-medium"
+      }
     }
   },
   "transcription": {

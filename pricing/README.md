@@ -60,6 +60,9 @@ If a provider changes a price and the daily sync hasn't run yet:
 ```jsonc
 {
   "version": "YYYY-MM-DD",
+  "benchmark_source": {                 // where every row's `benchmark` comes from - see "Benchmarks"
+    "name": string, "version": string, "url": string, "retrieved": "YYYY-MM-DD", "notes": string
+  },
   "models": {
     "<model-id>": {
       "display_name": string,          // UI label, e.g. "Opus 5"
@@ -82,7 +85,18 @@ If a provider changes a price and the daily sync hasn't run yet:
       "notes": string,                 // optional
       "manual_only": true,             // optional — skip in daily sync
       "manual_only_reason": string,    // required when manual_only is true
-      "gemini_tier_preference": "at_or_under_200k" | "above_200k" // Gemini Pro models only
+      "gemini_tier_preference": "at_or_under_200k" | "above_200k", // Gemini Pro models only
+      "benchmark": {                    // optional - display only, see "Benchmarks"
+        "intelligence_index": number,   // Artificial Analysis Intelligence Index score
+        "tokens_per_task": {            // average tokens of one index task
+          "input": number,              // uncached input
+          "cache_read": number,
+          "cache_write": number,
+          "output": number              // reasoning + answer
+        },
+        "effort": string,               // optional - reasoning effort of the measured variant
+        "variant": string               // Artificial Analysis model slug that was measured
+      }
     }
   },
   "transcription": {
@@ -152,6 +166,46 @@ Three rules for maintaining it:
   2026-12-31, which is why its row is lower than the list suggests. When adding a
   Vertex model, note in `manual_only_reason` that the row is list price and may need
   halving if the model carries the same promotion.
+
+## Benchmarks (cost to capability)
+
+The chat model picker shows a **cost-to-capability** meter next to the price: how a model's capability compares with what it costs, relative to every other row in this file. The `benchmark` block on a model row is the data behind it. It is **display only** - billing never reads it, and the app validates it separately so a malformed block cannot affect prices.
+
+### Source
+
+[Artificial Analysis Intelligence Index](https://artificialanalysis.ai/models) (`benchmark_source` records the version and the retrieval date). It is an independent composite of agentic, coding, knowledge and reasoning evaluations, and it publishes, per model, both the score and what one evaluation task cost.
+
+- `intelligence_index` - the score of the measured variant.
+- `tokens_per_task` - the average tokens of one index task. Derived from Artificial Analysis' per-task **cost** breakdown divided by the reference prices it used (`nonCacheInput / input price`, `cacheRead / cache-hit price`, `cacheWrite / cache-write price` - the input price where none is published - and `output / output price`). The derived `output` equals Artificial Analysis' own published output tokens per task for every row, which is the check that the derivation is right.
+
+Token counts rather than a cost are stored because they do not depend on price: the app re-prices them at **this row's own rates**, so the EU uplift, weber.cloud's EUR prices and every future price change flow into the meter without touching the benchmark. A cached rate of `0` means the provider does not cache (Mistral), so those tokens price at the input rate.
+
+### Which variant a row gets
+
+Reasoning models are measured at several efforts, and the score moves a lot with it (Opus 5.5: 42 at low, 58 at max). A row carries the variant matching what oneAI actually sends by default - reasoning effort **medium**, or the non-reasoning variant for a model the app runs without reasoning. Where that exact variant was not measured, the nearest measured one is used and `effort` says so. A row is left **without** a benchmark rather than guessed when no measured variant matches:
+
+| Row | Variant used | Why |
+|---|---|---|
+| `gemini-3.6-flash`, `gemini-3.7-flash` (+ `-global`) | `high` | medium not measured (3.7 medium is only an estimate) |
+| `gemini-3.5-flash-lite` (+ `-global`) | single measured variant (`high`) | only variant published |
+| `deepseek-v4-flash-max` | DeepSeek V4 Flash **0731** (Max) | weber.cloud serves the 0731 snapshot |
+| `claude-haiku-4-5` | Claude 4.5 Haiku (Reasoning) | runs with thinking enabled |
+| `grok-4.3` (+ `-global`) | Non-reasoning | the app runs it without reasoning |
+| *none*: `deepseek-v4-flash`, `deepseek-v4-flash-think` | - | only the 0420 snapshot was measured without/with high thinking |
+| *none*: `mistral-small-latest` | - | the non-reasoning variant the app uses is only an estimate |
+| *none*: `gpt-5.5-pro`, `grok-4.7` (+ `-global`), `mistral-euaiact-finetuned`, `oneai-*` | - | not scored, no medium variant, or not a public model |
+
+### How the app turns it into a tier
+
+1. Cost of one task at this row's rates: `input × input + cache_read × cached + cache_write × cache_write + output × output` (falling back as described above).
+2. **Overpay factor**: this row's cost divided by the cost of the **cheapest row that scores at least as high**. `1` means nothing in this file delivers the same capability for less.
+3. Tier: up to 1.25× *excellent*, up to 2× *good*, up to 4× *fair*, above *low*.
+
+A plain score-per-cent ratio was rejected because it rewards weak cheap models: a model scoring 9 at 10 cents would rank above one scoring 40 at 25.
+
+### Refreshing
+
+Re-read the variants from Artificial Analysis when a model is added, when its row's default effort changes, or when the index version changes, and update `benchmark_source.retrieved`. Keep the attribution: the scores are Artificial Analysis' work, and any surface showing them must credit it.
 
 ## Internal Models
 
