@@ -1,0 +1,50 @@
+name: Validate pricing
+
+# Every oneAI deployment fetches pricing/model_prices.json from main at runtime,
+# and it drives billing and the model catalog. A malformed row or a deleted key
+# reaches production within minutes of a merge, so it is checked before one.
+#
+# pull_request deliberately has no paths filter: this is a required check on
+# main, and a required check that never starts blocks the PR forever. A PR that
+# does not touch pricing/ simply passes.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "pricing/**"
+      - ".github/workflows/validate-pricing.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Schema and cross-row rules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Schema
+        run: npx --yes ajv-cli@5.0.0 validate --spec=draft2020 --errors=text -s pricing/schema.json -d pricing/model_prices.json
+
+      - name: Cross-row rules against the previous main
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            base="origin/$BASE_REF"
+          else
+            base="$BEFORE_SHA"
+          fi
+          git show "$base:pricing/model_prices.json" > "$RUNNER_TEMP/base.json"
+          node --experimental-strip-types pricing/_scripts/validate.ts --base "$RUNNER_TEMP/base.json"

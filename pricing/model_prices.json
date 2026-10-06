@@ -15,6 +15,41 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-5.5-pro",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Maximum OpenAI intelligence for the hardest problems and highest-accuracy research and analysis. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Maximum-intelligence model for the hardest problems and highest-accuracy analysis.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 220,
       "input_cents_per_mtok": 3000,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 18000,
@@ -29,6 +64,43 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-5.6-sol",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Frontier model in the GPT-5.6 family for complex professional work, reasoning, and agentic tasks with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Frontier GPT-5.6 model for complex professional work, reasoning, and agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 210,
       "input_cents_per_mtok": 400,
       "cache_write_cents_per_mtok": 500,
       "cached_cents_per_mtok": 40,
@@ -56,6 +128,46 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-5.6-terra",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "GPT-5.6 model balancing intelligence and cost for everyday coding, reasoning, and agentic tasks with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Balances intelligence and cost for everyday coding, reasoning, and agentic tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 200,
       "input_cents_per_mtok": 200,
       "cache_write_cents_per_mtok": 250,
       "cached_cents_per_mtok": 20,
@@ -83,6 +195,47 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-5.6-luna",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Fastest, most cost-efficient GPT-5.6 model for high-volume, cost-sensitive workloads with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Fastest, most cost-efficient GPT-5.6 model for high-volume workloads.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "policy": {
+        "seed_default": true,
+        "free_plan": true
+      },
+      "sort": 190,
       "input_cents_per_mtok": 20,
       "cache_write_cents_per_mtok": 25,
       "cached_cents_per_mtok": 2,
@@ -110,6 +263,43 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-6-astra",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "OpenAI's most capable model, built for the hardest end-to-end work across complex reasoning, coding, research, and document creation. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Most capable model for the hardest end-to-end reasoning, coding, and research work.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 250,
       "input_cents_per_mtok": 1000,
       "cache_write_cents_per_mtok": 1250,
       "cached_cents_per_mtok": 100,
@@ -137,6 +327,46 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-6-sol",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "GPT-6 model built to power complex coding and agentic workflows with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Powers complex coding and agentic workflows at a mid-tier price.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 240,
       "input_cents_per_mtok": 200,
       "cache_write_cents_per_mtok": 250,
       "cached_cents_per_mtok": 20,
@@ -164,6 +394,46 @@
       "provider": "openai",
       "hoster": "openai",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-6-luna",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Fastest, most cost-efficient GPT-6 model for focused, high-volume tasks with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Fastest, most cost-efficient GPT-6 model for high-volume workloads.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 230,
       "input_cents_per_mtok": 10,
       "cache_write_cents_per_mtok": 12.5,
       "cached_cents_per_mtok": 1,
@@ -191,6 +461,48 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "aliases": [
+        "haiku-4-5"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-haiku-4-5@20251001",
+        "region": "global"
+      },
+      "context_window": 200000,
+      "max_output_tokens": 64000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "budget"
+      },
+      "description": {
+        "en": "Anthropic's fastest model with near-frontier intelligence."
+      },
+      "purpose": {
+        "text": "Fast model with near-frontier quality for everyday tasks.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "free_plan": true
+      },
+      "sort": 120,
       "input_cents_per_mtok": 100,
       "cache_write_cents_per_mtok": 125,
       "cached_cents_per_mtok": 10,
@@ -212,6 +524,47 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "sonnet-5"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-sonnet-5",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's best balance of intelligence, speed, and cost, with near-Opus quality on coding and agentic work and 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Best balance of intelligence, speed, and cost, with near-Opus quality on coding.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "content_creation"
+        ]
+      },
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 130,
       "input_cents_per_mtok": 220,
       "cache_write_cents_per_mtok": 275,
       "cached_cents_per_mtok": 22,
@@ -236,6 +589,44 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "aliases": [
+        "sonnet-5-global"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-sonnet-5",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's best balance of intelligence, speed, and cost, with near-Opus quality on coding and agentic work and 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Best balance of intelligence, speed, and cost, with near-Opus quality on coding.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "content_creation"
+        ]
+      },
+      "sort": 140,
       "input_cents_per_mtok": 200,
       "cache_write_cents_per_mtok": 250,
       "cached_cents_per_mtok": 20,
@@ -260,6 +651,44 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "opus-5"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-opus-5",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's most advanced Opus model for long-running agents, coding, and professional work with 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Most advanced Opus model for long-running agents, coding, and professional work.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 150,
       "input_cents_per_mtok": 550,
       "cache_write_cents_per_mtok": 687.5,
       "cached_cents_per_mtok": 55,
@@ -284,6 +713,44 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "aliases": [
+        "opus-5-global"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-opus-5",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's most advanced Opus model for long-running agents, coding, and professional work with 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Most advanced Opus model for long-running agents, coding, and professional work.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 160,
       "input_cents_per_mtok": 500,
       "cache_write_cents_per_mtok": 625,
       "cached_cents_per_mtok": 50,
@@ -308,6 +775,44 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "opus-5-5"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-opus-5-5",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's most capable Opus model for coding, knowledge work, and long-running agentic tasks with 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Most capable Opus model for coding, knowledge work, and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 170,
       "input_cents_per_mtok": 440,
       "cache_write_cents_per_mtok": 550,
       "cached_cents_per_mtok": 22,
@@ -332,6 +837,44 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "aliases": [
+        "opus-5-5-global"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-opus-5-5",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "thinking": "adaptive"
+      },
+      "description": {
+        "en": "Anthropic's most capable Opus model for coding, knowledge work, and long-running agentic tasks with 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Most capable Opus model for coding, knowledge work, and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 180,
       "input_cents_per_mtok": 400,
       "cache_write_cents_per_mtok": 500,
       "cached_cents_per_mtok": 20,
@@ -356,6 +899,40 @@
       "provider": "mistral",
       "hoster": "mistral",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "mistral-small"
+      ],
+      "route": {
+        "backend": "mistral",
+        "upstream_model": "mistral-small-latest",
+        "region": "eu"
+      },
+      "context_window": 256000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "Mistral's compact model for everyday tasks and assistance. EU-resident."
+      },
+      "purpose": {
+        "text": "Compact EU-hosted model for everyday tasks and general assistance.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "free_plan": true,
+        "uno": "selectable"
+      },
+      "sort": 90,
       "input_cents_per_mtok": 15,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 60,
@@ -366,6 +943,37 @@
       "provider": "mistral",
       "hoster": "mistral",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "mistral-medium"
+      ],
+      "route": {
+        "backend": "mistral",
+        "upstream_model": "mistral-medium-latest",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "Mistral's frontier-class model for general-purpose use cases. EU-resident."
+      },
+      "purpose": {
+        "text": "General-purpose model for a broad range of use cases.",
+        "tier": 2,
+        "great_for": [
+          "marketing",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 110,
       "input_cents_per_mtok": 150,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 750,
@@ -387,6 +995,37 @@
       "provider": "mistral",
       "hoster": "mistral",
       "location": "europe",
+      "status": "active",
+      "aliases": [
+        "mistral-large"
+      ],
+      "route": {
+        "backend": "mistral",
+        "upstream_model": "mistral-large-latest",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "Mistral's most capable model for complex tasks and applications. EU-resident."
+      },
+      "purpose": {
+        "text": "Capable model for complex tasks and applications.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 100,
       "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 0,
       "output_cents_per_mtok": 150,
@@ -419,6 +1058,46 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.5-flash-lite",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "oneAI's included model, hosted in Europe. Available on every plan at no extra cost. Fast and reliable for everyday tasks, tool use, and document work."
+      },
+      "purpose": {
+        "text": "Included EU-hosted model for everyday tasks, tool use, and document work.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "free_plan": true,
+        "included": true,
+        "uno": "selectable"
+      },
+      "sort": 10,
       "input_cents_per_mtok": 33,
       "cached_cents_per_mtok": 3.3,
       "output_cents_per_mtok": 275,
@@ -440,6 +1119,40 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.5-flash-lite",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's low-latency, cost-effective model for high-throughput tasks. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Low-latency, cost-effective model for high-throughput and latency-sensitive tasks.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "sort": 20,
       "input_cents_per_mtok": 30,
       "cached_cents_per_mtok": 3,
       "output_cents_per_mtok": 250,
@@ -463,6 +1176,44 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.6-flash",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's well-rounded model with strong coding, knowledge work and multimodal performance. EU-resident."
+      },
+      "purpose": {
+        "text": "Well-rounded model with strong coding, knowledge work and multimodal performance.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "uno": "selectable"
+      },
+      "sort": 30,
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
@@ -484,6 +1235,40 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.6-flash",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's well-rounded model with strong coding, knowledge work and multimodal performance. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Well-rounded model with strong coding, knowledge work and multimodal performance.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "sort": 40,
       "input_cents_per_mtok": 75,
       "cached_cents_per_mtok": 7.5,
       "output_cents_per_mtok": 375,
@@ -507,6 +1292,35 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.7-flash",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's workhorse model for multi-step planning and tool use, with strong coding and document performance. EU-resident."
+      },
+      "policy": {
+        "seed_default": true,
+        "uno": "default"
+      },
+      "sort": 50,
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
@@ -528,6 +1342,31 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.7-flash",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's workhorse model for multi-step planning and tool use, with strong coding and document performance. Global endpoint, no EU data residency."
+      },
+      "sort": 60,
       "input_cents_per_mtok": 75,
       "cached_cents_per_mtok": 7.5,
       "output_cents_per_mtok": 375,
@@ -551,6 +1390,44 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.8-flash",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's most capable Flash model, with its strongest agentic, coding and multi-step reasoning performance at Flash pricing. EU-resident."
+      },
+      "purpose": {
+        "text": "Most capable Flash model for agentic, coding and multi-step reasoning tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "uno": "selectable"
+      },
+      "sort": 70,
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
@@ -574,6 +1451,40 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-3.8-flash",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's most capable Flash model, with its strongest agentic, coding and multi-step reasoning performance at Flash pricing. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Most capable Flash model for agentic, coding and multi-step reasoning tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 80,
       "input_cents_per_mtok": 75,
       "cached_cents_per_mtok": 7.5,
       "output_cents_per_mtok": 375,
@@ -627,6 +1538,34 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.3",
+        "region": "eu"
+      },
+      "context_window": 256000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "xAI's flagship model, served on Google Vertex AI. EU-resident. Created by xAI."
+      },
+      "purpose": {
+        "text": "Flagship general-purpose model for coding and analytical tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 260,
       "input_cents_per_mtok": 125,
       "cached_cents_per_mtok": 20,
       "output_cents_per_mtok": 250,
@@ -651,6 +1590,31 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.3",
+        "region": "global"
+      },
+      "context_window": 256000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "xAI's flagship model, served on Google Vertex AI. Global endpoint, no EU data residency. Created by xAI."
+      },
+      "purpose": {
+        "text": "Flagship general-purpose model for coding and analytical tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 270,
       "input_cents_per_mtok": 125,
       "cached_cents_per_mtok": 20,
       "output_cents_per_mtok": 250,
@@ -676,6 +1640,41 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.6",
+        "region": "eu"
+      },
+      "context_window": 500000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "xAI's smartest model for coding, agentic tasks and knowledge work, served on Google Vertex AI. EU-resident. Created by xAI."
+      },
+      "purpose": {
+        "text": "Smartest xAI model for coding, agentic tasks and knowledge work.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "policy": {
+        "seed_default": true
+      },
+      "sort": 280,
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 600,
@@ -702,6 +1701,38 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.6",
+        "region": "global"
+      },
+      "context_window": 500000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "xAI's smartest model for coding, agentic tasks and knowledge work, served on Google Vertex AI. Global endpoint, no EU data residency. Created by xAI."
+      },
+      "purpose": {
+        "text": "Smartest xAI model for coding, agentic tasks and knowledge work.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 290,
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 600,
@@ -758,6 +1789,31 @@
       "provider": "deepseek",
       "hoster": "weber",
       "location": "baden-wuerttemberg",
+      "status": "active",
+      "route": {
+        "backend": "weber",
+        "upstream_model": "deepseek/deepseek-v4-flash",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "DeepSeek's fast general-purpose model, hosted in Germany. EU-resident."
+      },
+      "purpose": {
+        "text": "Fast EU-hosted model for everyday tasks and general assistance.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "sort": 300,
       "input_cents_per_mtok": 70,
       "cached_cents_per_mtok": 35,
       "output_cents_per_mtok": 140,
@@ -769,6 +1825,37 @@
       "provider": "deepseek",
       "hoster": "weber",
       "location": "baden-wuerttemberg",
+      "status": "active",
+      "route": {
+        "backend": "weber",
+        "upstream_model": "deepseek/deepseek-v4-flash-think",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "DeepSeek's reasoning variant for multi-step analysis and coding, hosted in Germany. EU-resident."
+      },
+      "purpose": {
+        "text": "EU-hosted reasoning model for multi-step analysis and coding tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 320,
       "input_cents_per_mtok": 70,
       "cached_cents_per_mtok": 35,
       "output_cents_per_mtok": 200,
@@ -780,6 +1867,31 @@
       "provider": "deepseek",
       "hoster": "weber",
       "location": "baden-wuerttemberg",
+      "status": "active",
+      "route": {
+        "backend": "weber",
+        "upstream_model": "deepseek/deepseek-v4-flash-max",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": false,
+      "description": {
+        "en": "DeepSeek's largest Flash variant for demanding knowledge work, hosted in Germany. EU-resident."
+      },
+      "purpose": {
+        "text": "Larger EU-hosted model for demanding knowledge work.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "sort": 310,
       "input_cents_per_mtok": 100,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 250,
@@ -802,6 +1914,37 @@
       "provider": "qwen",
       "hoster": "weber",
       "location": "baden-wuerttemberg",
+      "status": "active",
+      "route": {
+        "backend": "weber",
+        "upstream_model": "qwen/qwen3.8-27b",
+        "region": "eu"
+      },
+      "context_window": 128000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Qwen's compact reasoning model for everyday tasks, hosted in Germany. EU-resident."
+      },
+      "purpose": {
+        "text": "Compact EU-hosted reasoning model for everyday tasks.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "sort": 340,
       "input_cents_per_mtok": 50,
       "cached_cents_per_mtok": 25,
       "output_cents_per_mtok": 100,

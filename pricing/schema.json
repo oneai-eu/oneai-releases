@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/pricing/schema.json",
+  "title": "oneAI model prices and model catalog",
+  "description": "Structure of model_prices.json. Cross-row rules that JSON Schema cannot express (exactly one included model, no removed keys, alias collisions) are checked by _scripts/validate.ts. See README.md for the meaning of every field.",
+  "type": "object",
+  "required": ["version", "models", "transcription", "images"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "notes": { "type": "string" },
+    "benchmark_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "url", "retrieved"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "url": { "type": "string" },
+        "retrieved": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "notes": { "type": "string" }
+      }
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/model" }
+    },
+    "transcription": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/perMinute" }
+    },
+    "speech": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/perMinute" }
+    },
+    "images": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/image" }
+    }
+  },
+  "$defs": {
+    "cents": { "type": "number", "minimum": 0 },
+    "manualOnly": {
+      "type": "object",
+      "dependentRequired": { "manual_only": ["manual_only_reason"] }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display_name",
+        "provider",
+        "hoster",
+        "input_cents_per_mtok",
+        "cached_cents_per_mtok",
+        "output_cents_per_mtok"
+      ],
+      "properties": {
+        "display_name": { "type": "string", "minLength": 1 },
+        "provider": {
+          "description": "The model's author, who made the weights.",
+          "enum": ["openai", "anthropic", "google", "mistral", "xai", "oneai", "deepseek", "qwen"]
+        },
+        "hoster": {
+          "description": "Who serves the API oneAI calls.",
+          "enum": ["openai", "google-vertex", "mistral", "weber", "oneai"]
+        },
+        "location": {
+          "description": "Display hint: most specific region of the default SaaS routing.",
+          "enum": ["global", "europe", "germany", "baden-wuerttemberg"]
+        },
+        "status": {
+          "description": "Marks a catalog row. preview: offered only on deployments that opt into the preview channel. active: offered everywhere. retired: never offered; stored references resolve to replaced_by.",
+          "enum": ["preview", "active", "retired"]
+        },
+        "replaced_by": {
+          "description": "Successor model key for a retired row.",
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "description": "Older ids this model is still known by (stored grants, API clients).",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "route": { "$ref": "#/$defs/route" },
+        "context_window": { "type": "integer", "minimum": 1 },
+        "max_output_tokens": {
+          "description": "Provider-documented maximum output. Absent means unknown: the app sends no limit.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "capabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["advanced", "stream", "vision", "multimodal"] }
+        },
+        "reasoning": {
+          "oneOf": [
+            { "const": false },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["efforts"],
+              "properties": {
+                "efforts": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": { "enum": ["low", "medium", "high"] }
+                },
+                "thinking": {
+                  "description": "Anthropic only: adaptive thinking (output_config.effort) or the legacy budget_tokens shape.",
+                  "enum": ["adaptive", "budget"]
+                }
+              }
+            }
+          ]
+        },
+        "description": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["en"],
+          "properties": {
+            "en": { "type": "string", "minLength": 1 },
+            "de": { "type": "string", "minLength": 1 }
+          }
+        },
+        "purpose": {
+          "description": "Input for the Auto routing classifier.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "tier", "great_for"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "tier": { "enum": [1, 2, 3] },
+            "great_for": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "marketing",
+                  "development",
+                  "research",
+                  "content_creation",
+                  "data_analysis",
+                  "customer_support"
+                ]
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["recommended", "quality"] }
+        },
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "seed_default": {
+              "description": "Enabled for every newly created organization.",
+              "type": "boolean"
+            },
+            "free_plan": {
+              "description": "Usable on the Free plan.",
+              "type": "boolean"
+            },
+            "included": {
+              "description": "The included model: never billed, and the fallback every quota and payment gate falls back to. Exactly one row.",
+              "type": "boolean"
+            },
+            "uno": {
+              "description": "Selectable as Uno's model; default is Uno's model on paid plans when the org chose none.",
+              "enum": ["default", "selectable"]
+            }
+          }
+        },
+        "sort": {
+          "description": "Position in pickers, ascending.",
+          "type": "integer"
+        },
+        "input_cents_per_mtok": { "$ref": "#/$defs/cents" },
+        "cached_cents_per_mtok": { "$ref": "#/$defs/cents" },
+        "output_cents_per_mtok": { "$ref": "#/$defs/cents" },
+        "cache_write_cents_per_mtok": { "$ref": "#/$defs/cents" },
+        "input_cents_per_mtok_above_200k": { "$ref": "#/$defs/cents" },
+        "cached_cents_per_mtok_above_200k": { "$ref": "#/$defs/cents" },
+        "output_cents_per_mtok_above_200k": { "$ref": "#/$defs/cents" },
+        "cache_write_cents_per_mtok_above_200k": { "$ref": "#/$defs/cents" },
+        "tier_threshold_tokens": { "type": "integer", "minimum": 1 },
+        "tier_boundary_inclusive": { "type": "boolean" },
+        "gemini_tier_preference": { "enum": ["at_or_under_200k", "above_200k"] },
+        "benchmark": { "$ref": "#/$defs/benchmark" },
+        "notes": { "type": "string" },
+        "manual_only": { "const": true },
+        "manual_only_reason": { "type": "string", "minLength": 1 }
+      },
+      "dependentRequired": {
+        "input_cents_per_mtok_above_200k": ["cached_cents_per_mtok_above_200k", "output_cents_per_mtok_above_200k"],
+        "cached_cents_per_mtok_above_200k": ["input_cents_per_mtok_above_200k", "output_cents_per_mtok_above_200k"],
+        "output_cents_per_mtok_above_200k": ["input_cents_per_mtok_above_200k", "cached_cents_per_mtok_above_200k"],
+        "replaced_by": ["status"]
+      },
+      "allOf": [
+        { "$ref": "#/$defs/manualOnly" },
+        {
+          "if": { "required": ["status"] },
+          "then": {
+            "required": ["route", "context_window", "capabilities", "reasoning", "description", "sort"]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                { "required": ["aliases"] },
+                { "required": ["route"] },
+                { "required": ["context_window"] },
+                { "required": ["max_output_tokens"] },
+                { "required": ["capabilities"] },
+                { "required": ["reasoning"] },
+                { "required": ["description"] },
+                { "required": ["purpose"] },
+                { "required": ["tags"] },
+                { "required": ["policy"] },
+                { "required": ["sort"] }
+              ]
+            }
+          }
+        },
+        {
+          "if": { "required": ["replaced_by"] },
+          "then": { "properties": { "status": { "const": "retired" } } }
+        },
+        {
+          "if": {
+            "required": ["route", "reasoning"],
+            "properties": {
+              "route": { "type": "object", "properties": { "backend": { "const": "anthropic" } } },
+              "reasoning": { "type": "object" }
+            }
+          },
+          "then": { "properties": { "reasoning": { "type": "object", "required": ["thinking"] } } }
+        },
+        {
+          "if": {
+            "required": ["route"],
+            "properties": { "route": { "type": "object", "properties": { "backend": { "not": { "const": "anthropic" } } } } }
+          },
+          "then": {
+            "properties": { "reasoning": { "not": { "type": "object", "required": ["thinking"] } } }
+          }
+        }
+      ]
+    },
+    "route": {
+      "description": "How the gateway serves the model. Hosts, URLs and credentials never live here: backend picks one of the adapters built into the app, and region one of the locations that adapter knows.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["backend", "upstream_model", "region"],
+      "properties": {
+        "backend": { "enum": ["anthropic", "google", "grok", "mistral", "openai", "weber"] },
+        "upstream_model": {
+          "description": "The model id sent to the provider.",
+          "type": "string",
+          "minLength": 1
+        },
+        "region": {
+          "description": "eu: the backend's EU location (data stays in the EU). global: the provider's global endpoint (no EU data residency).",
+          "enum": ["eu", "global"]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "backend": { "const": "openai" } } },
+          "then": { "properties": { "region": { "const": "global" } } }
+        },
+        {
+          "if": { "properties": { "backend": { "enum": ["mistral", "weber"] } } },
+          "then": { "properties": { "region": { "const": "eu" } } }
+        }
+      ]
+    },
+    "benchmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intelligence_index", "tokens_per_task", "variant"],
+      "properties": {
+        "intelligence_index": { "type": "number", "minimum": 0 },
+        "tokens_per_task": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["input", "cache_read", "cache_write", "output"],
+          "properties": {
+            "input": { "type": "number", "minimum": 0 },
+            "cache_read": { "type": "number", "minimum": 0 },
+            "cache_write": { "type": "number", "minimum": 0 },
+            "output": { "type": "number", "minimum": 0 }
+          }
+        },
+        "effort": { "type": "string" },
+        "variant": { "type": "string", "minLength": 1 }
+      }
+    },
+    "perMinute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cents_per_minute"],
+      "properties": {
+        "provider": { "type": "string" },
+        "cents_per_minute": { "$ref": "#/$defs/cents" },
+        "notes": { "type": "string" },
+        "manual_only": { "const": true },
+        "manual_only_reason": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [{ "$ref": "#/$defs/manualOnly" }]
+    },
+    "sizes": {
+      "type": "object",
+      "required": ["1024x1024", "1024x1536", "1536x1024"],
+      "additionalProperties": { "$ref": "#/$defs/cents" }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "provider": { "type": "string" },
+        "type": { "enum": ["quality_size", "flat"] },
+        "pricing": {
+          "type": "object",
+          "required": ["low", "medium", "high", "auto"],
+          "additionalProperties": { "$ref": "#/$defs/sizes" }
+        },
+        "cents_per_image": { "$ref": "#/$defs/cents" },
+        "token_pricing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text_input_cents_per_mtok", "image_input_cents_per_mtok", "output_cents_per_mtok"],
+          "properties": {
+            "text_input_cents_per_mtok": { "$ref": "#/$defs/cents" },
+            "image_input_cents_per_mtok": { "$ref": "#/$defs/cents" },
+            "output_cents_per_mtok": { "$ref": "#/$defs/cents" },
+            "text_output_cents_per_mtok": { "$ref": "#/$defs/cents" }
+          }
+        },
+        "notes": { "type": "string" },
+        "manual_only": { "const": true },
+        "manual_only_reason": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        { "$ref": "#/$defs/manualOnly" },
+        {
+          "if": { "properties": { "type": { "const": "quality_size" } } },
+          "then": { "required": ["pricing"] },
+          "else": { "required": ["cents_per_image"] }
+        }
+      ]
+    }
+  }
+}
