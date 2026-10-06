@@ -28,7 +28,9 @@ GET https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/pricing/model
 
 | File | Purpose |
 |---|---|
-| `model_prices.json` | All token, image, and transcription pricing — **consumed by apps** |
+| `model_prices.json` | All token, image, and transcription pricing, plus the model catalog - **consumed by apps** |
+| `schema.json` | JSON Schema for `model_prices.json` (see "Validation") |
+| `_scripts/validate.ts` | Cross-row rules the schema cannot express (see "Validation") |
 | `_scripts/sync.ts` | Daily sync orchestrator (see [`_scripts/README.md`](_scripts/README.md)) |
 | `_scripts/scrapers/` | Per-provider scraper modules |
 | `README.md` | This file |
@@ -39,7 +41,7 @@ GET https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/pricing/model
 
 The `Sync pricing` GitHub Action that previously ran daily at 03:00 UTC was removed on 2026-09-07. Its per-provider scrapers broke whenever a vendor restyled a pricing page, so the job failed for long stretches with no visible signal, and it only ever covered OpenAI and Mistral — a minority of the catalogue. Recover it from git history if it is ever needed: see `.github/workflows/sync-pricing.yml` at commit `3eb5d56` or earlier.
 
-Because nothing checks these values automatically any more, the review step below is the only thing standing between a typo and production billing.
+CI (see "Validation") checks the file's shape and that no row disappears, but not whether a price is right, so the review step below is still the only thing standing between a wrong price and production billing.
 
 ### Models the scraper skips
 
@@ -51,7 +53,8 @@ If a provider changes a price and the daily sync hasn't run yet:
 
 1. Open a PR editing `model_prices.json`
 2. Link the provider's pricing page in the PR description
-3. Get one review, merge
+3. Wait for the `Validate pricing` check to pass
+4. Get one review, merge
 
 ## File Formats
 
@@ -79,6 +82,7 @@ If a provider changes a price and the daily sync hasn't run yet:
                                         // oneai models). Compliance-authoritative
                                         // residency stays in the app's routing code,
                                         // which a deployment can repoint.
+      // catalog fields (status, route, policy, ...) - see "Model catalog"
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,
       "output_cents_per_mtok": number,
@@ -166,6 +170,106 @@ Three rules for maintaining it:
   2026-12-31, which is why its row is lower than the list suggests. When adding a
   Vertex model, note in `manual_only_reason` that the row is list price and may need
   halving if the model carries the same promotion.
+
+## Model catalog
+
+A row that carries `status` is a **catalog row**: besides its prices it describes everything oneAI needs to offer the model - how the gateway reaches it, what it can do, where it appears in the pickers and which plan rules apply. A row without `status` is **price-only**: it is billed when used (the internal `oneai-*` models, or a model priced ahead of its launch) but never offered.
+
+> **The app does not read these fields yet.** oneAI still takes its model list from its own code. The catalog fields are the target of that migration: they were generated from the app's code on 2026-10-06 and checked field by field against it, and they are kept in step with it until the app switches over. Until then, adding a catalog row here does not make a model appear.
+
+### Fields
+
+```jsonc
+"<model-key>": {                  // the billing key, and the model id the app uses today
+  "status": "preview" | "active" | "retired",
+  "replaced_by": string,          // retired rows only: the active successor
+  "aliases": [string],            // optional: older ids the model is still known by
+                                  // (stored grants, API clients)
+  "route": {
+    "backend": "anthropic" | "google" | "grok" | "mistral" | "openai" | "weber",
+    "upstream_model": string,     // the model id sent to the provider,
+                                  // e.g. "xai/grok-4.3", "claude-haiku-4-5@20251001"
+    "region": "eu" | "global"     // see "Route"
+  },
+  "context_window": number,       // input context in tokens
+  "max_output_tokens": number,    // optional: provider-documented maximum output. Absent
+                                  // means unknown, and the app then sends no limit at all
+  "capabilities": ["advanced" | "stream" | "vision" | "multimodal"],
+  "reasoning": false | {
+    "efforts": ["low" | "medium" | "high"],  // the efforts the model accepts
+    "thinking": "adaptive" | "budget"         // Anthropic only: adaptive thinking or
+                                              // the legacy budget_tokens shape
+  },
+  "description": { "en": string, "de": string },  // de optional
+  "purpose": {                    // optional: input for the Auto routing classifier
+    "text": string,
+    "tier": 1 | 2 | 3,            // fast and cheap | balanced | frontier
+    "great_for": ["marketing" | "development" | "research" | "content_creation" | "data_analysis" | "customer_support"]
+  },
+  "tags": ["recommended" | "quality"],  // optional
+  "policy": {                     // optional, active rows only
+    "seed_default": true,         // enabled for every newly created organization
+    "free_plan": true,            // usable on the Free plan
+    "included": true,             // never billed, and the fallback every quota and
+                                  // payment gate falls back to
+    "uno": "default" | "selectable"  // Uno may run on it; default = Uno's model on paid
+                                     // plans when the organization chose none
+  },
+  "sort": number                  // position in the pickers, ascending
+}
+```
+
+### Lifecycle
+
+- `preview` - offered only on deployments that opt into the preview channel (hub-dev, staging), so a new model can be verified before production sees it. Promote it by setting `active`.
+- `active` - offered everywhere.
+- `retired` - never offered. Anything that still points at the model (an organization's default, an agent, Uno) resolves to `replaced_by`. The row keeps its prices: deployments run different app versions, and an older one that still offers the model would bill it at 0 without its price row.
+
+**Rows are never deleted, and aliases are never dropped.** CI checks both against main.
+
+### Route
+
+`route` picks one of the gateway adapters built into the app. It never carries a host, URL or credential, so no change to this file can send traffic or API keys anywhere the app does not already know. `region` is where the request is served:
+
+| `backend` | `eu` | `global` |
+|---|---|---|
+| `anthropic` | Vertex, `VERTEX_CLAUDE_LOCATION` (default: the `eu` multi-region) | Vertex `global` |
+| `google` | Vertex `eu` multi-region | Vertex `global` |
+| `grok` | Vertex `eu` multi-region | Vertex `global` |
+| `mistral` | Mistral's EU API | not available |
+| `weber` | weber.cloud, Germany | not available |
+| `openai` | not available | OpenAI |
+
+A model's EU residency claim is derived from `region`, so the claim and the routing cannot disagree. `location` stays a display hint: it may narrow `eu` to Germany, never widen `global`. Adding a backend or a region is an app change by design.
+
+An EU model and its `-global` twin are two catalog rows with the same `upstream_model` and different regions.
+
+### Plan rules
+
+Checked by `_scripts/validate.ts`:
+
+- exactly one `included` row, which is active, routed to `eu` and on the Free plan
+- at least one active `seed_default` row, or new organizations start with no models
+- exactly one `uno: "default"` row (on the Free plan Uno always runs on the included model)
+- `policy` only on active rows, and `replaced_by` always points at an active row
+- aliases and `sort` values are unique, and no alias is also a model key
+
+## Validation
+
+Every PR, and every push to main that touches `pricing/`, runs `.github/workflows/validate-pricing.yml`:
+
+1. **Schema** - `schema.json` checks the shape of every row, including the price fields every app version requires. An unknown field fails, which catches typos.
+2. **Cross-row rules** - `_scripts/validate.ts` checks the plan rules above and compares with main: no key removed from `models`, `transcription`, `speech` or `images`, no catalog row turned back into a price-only row, no alias dropped.
+
+Run both locally before pushing:
+
+```bash
+npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -s pricing/schema.json -d pricing/model_prices.json
+git show origin/main:pricing/model_prices.json > /tmp/base.json
+node --experimental-strip-types pricing/_scripts/validate.ts --base /tmp/base.json
+```
+
+CI checks the shape, not whether a price is right. The review against the provider's pricing page is still what protects billing.
 
 ## Benchmarks (cost to capability)
 
