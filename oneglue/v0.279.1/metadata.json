@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.279.0",
+  "date": "2026-10-11",
+  "breaking": false,
+  "highlights": [
+    "Every tenant-wide role now states that it applies to all organizations — on the invite screen, in the role-change dialog and in the superadmin area — with the organization count shown when you invite, and a short confirmation the first time you grant one",
+    "People pickers, permission overviews, sharing lists, naming prefixes and group details now follow the organization you are working in, while your own access stays visible and Tenant-Admins keep the full picture",
+    "Every new version must now pass a dedicated organization-boundary check before it is shipped, to the test environment or to production"
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
