@@ -1,4 +1,4 @@
-# OneGlue v0.279.0 — Neuigkeiten
+# OneGlue v0.279.1 — Neuigkeiten
 
 **Veröffentlicht am:** 2026-10-11
 
