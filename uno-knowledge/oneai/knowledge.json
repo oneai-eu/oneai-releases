@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "product": "oneai",
+  "release": "v2026.09.27",
+  "previous_release": "v2026.09.04",
+  "updated_at": "2026-10-13T13:55:25.402Z",
+  "topics": {
+    "account-security": [
+      {
+        "id": "member-login-methods",
+        "text": "An organization admin can choose which sign-in methods each member may use, and can change this at any time. This includes turning off the email sign-in flow (the invitation and recovery links) for a member, so that person can then sign in only through single sign-on. Passkeys are not affected and stay available to every member.",
+        "since": "v2026.09.27",
+        "updated": "v2026.09.27"
+      }
+    ],
+    "ai-capabilities": [
+      {
+        "id": "presentation-decks",
+        "text": "The assistant can create PowerPoint presentations (slide decks) in a chat. Where your organization or you have uploaded a company PowerPoint template, decks are exported in that template's own layouts, and you can ask for a specific template by name. You manage your own templates in your settings; an admin manages the organization-wide ones.",
+        "since": "v2026.09.27",
+        "updated": "v2026.09.27"
+      }
+    ],
+    "chats": [
+      {
+        "id": "standing-chat-preferences",
+        "text": "You can save standing preferences that the assistant applies to all your later chats, for example to always answer in German or in short bullet points. Add or remove them under Settings → Memory, or just ask the assistant in a chat to remember something. They are on by default, you can switch them off, and everything saved stays visible and editable by you. They apply to your own chats, not to automations or the API.",
+        "since": "v2026.09.27",
+        "updated": "v2026.09.27"
+      }
+    ],
+    "projects": [
+      {
+        "id": "project-apps-tab",
+        "text": "Interactive apps the assistant builds for you in a chat (shown as a canvas) now appear on their own **Apps** tab in a project, listed separately from documents and files. From there an app can be opened, used, and shared with a link, rather than being mixed in among the project's artifacts.",
+        "since": "v2026.09.27",
+        "updated": "v2026.09.27"
+      }
+    ]
+  }
+}
