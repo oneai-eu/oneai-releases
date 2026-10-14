@@ -9,6 +9,18 @@
     "retrieved": "2026-10-03",
     "notes": "A model row's optional benchmark block is display-only (the chat model picker's cost-to-capability meter) and never read by billing. intelligence_index is the Artificial Analysis Intelligence Index score of the measured variant. tokens_per_task is the average token use of one index task, derived from Artificial Analysis' per-task cost breakdown divided by the reference prices it used: input = uncached input, cache_read and cache_write = cached input, output = reasoning + answer. Token counts are price-independent, so the app re-prices them at this row's own rates. variant is the Artificial Analysis model slug that was measured; effort is its reasoning effort. Rows are matched to oneAI's DEFAULT effort (medium); where that variant was not measured the nearest measured one is used and effort says so. A -global twin carries the same benchmark as its EU row. A row without a benchmark has no measured variant matching what oneAI sends and shows no meter."
   },
+  "cost_profile": {
+    "basis": "estimate",
+    "retrieved": "2026-10-14",
+    "notes": "One typical oneAI request: the workload the chat model picker's cost-to-capability meter prices every row at, in place of the Artificial Analysis benchmark task, whose millions of cache reads per task make a row's cache rate decide its whole cost. Display only, never read by billing. input_tokens and output_tokens are per request. A row's output is scaled by its benchmark's output tokens per task over reference_output_tokens_per_task (the median over the active benchmarked rows), so a verbose model costs more. cache_hit_share is the share of input served from cache, per hoster, with default for every hoster not listed; weber.cloud reports no cache hits. basis 'estimate' until the figures are measured from llm_usage (see README.md, Cost profile).",
+    "input_tokens": 30000,
+    "output_tokens": 1500,
+    "reference_output_tokens_per_task": 26086,
+    "cache_hit_share": {
+      "default": 0.6,
+      "weber": 0
+    }
+  },
   "models": {
     "gpt-5.5-pro": {
       "display_name": "GPT-5.5 Pro",
