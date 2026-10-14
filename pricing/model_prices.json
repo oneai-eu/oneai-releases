@@ -1350,7 +1350,7 @@
         ]
       },
       "description": {
-        "en": "oneAI's included model, hosted in Europe. Available on every plan at no extra cost. Fast and reliable for everyday tasks, tool use, and document work."
+        "en": "oneAI's included model, hosted in Europe. Free in the oneAI app on Free, Starter and Team; billed like every other model through an API key or the Microsoft Teams bot, and on Gateway. Fast and reliable for everyday tasks, tool use, and document work."
       },
       "purpose": {
         "text": "Included EU-hosted model for everyday tasks, tool use, and document work.",
