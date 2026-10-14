@@ -293,6 +293,7 @@ Reasoning models are measured at several efforts, and the score moves a lot with
 | `gemini-3.6-flash`, `gemini-3.7-flash` (+ `-global`) | `high` | medium not measured (3.7 medium is only an estimate) |
 | `gemini-3.5-flash-lite` (+ `-global`) | single measured variant (`high`) | only variant published |
 | `deepseek-v4-flash-max` | DeepSeek V4 Flash **0731** (Max) | weber.cloud serves the 0731 snapshot |
+| `deepseek-v4.1-flash` | DeepSeek V4.1 Flash (Max) | weber.cloud runs it at its default thinking effort, which tracks high; only Max and non-reasoning were measured |
 | `claude-haiku-4-5` | Claude 4.5 Haiku (Reasoning) | runs with thinking enabled |
 | `grok-4.3` (+ `-global`) | Non-reasoning | the app runs it without reasoning |
 | *none*: `deepseek-v4-flash`, `deepseek-v4-flash-think` | - | only the 0420 snapshot was measured without/with high thinking |
@@ -301,11 +302,31 @@ Reasoning models are measured at several efforts, and the score moves a lot with
 
 ### How the app turns it into a tier
 
-1. Cost of one task at this row's rates: `input × input + cache_read × cached + cache_write × cache_write + output × output` (falling back as described above).
-2. **Overpay factor**: this row's cost divided by the cost of the **cheapest row that scores at least as high**. `1` means nothing in this file delivers the same capability for less.
+1. Cost of one **typical oneAI request** at this row's rates, from `cost_profile` (below): `input_tokens × (1 − s) × input + input_tokens × s × cached + output_tokens × (benchmark output per task / reference_output_tokens_per_task) × output`, where `s` is the profile's `cache_hit_share` for the row's `hoster` (else its `default`). A cached rate of `0` prices cached tokens at the input rate. Without a usable `cost_profile` the app falls back to the cost of one benchmark task: `input × input + cache_read × cached + cache_write × cache_write + output × output`.
+2. **Overpay factor**: this row's cost divided by the cost of the **cheapest offered row that scores at least as high and is hosted at least as strictly**. Hosting ranks Germany above EU above global (the route region, narrowed to Germany by `location`), so a German-hosted model is weighed against German-hosted models only, an EU model against EU and German ones, and a global model against all of them. A retired row is no alternative anyone can pick and takes no part. `1` means no model a customer with the same hosting requirement could pick delivers the same capability for less.
 3. Tier: up to 1.25× *excellent*, up to 2× *good*, up to 4× *fair*, above *low*.
 
 A plain score-per-cent ratio was rejected because it rewards weak cheap models: a model scoring 9 at 10 cents would rank above one scoring 40 at 25.
+
+The benchmark task is not the cost basis because it is agentic: one task reads 1 to 22 million cached tokens, so with the task mix a row's cache rate decided its whole cost. weber.cloud prices cached input at half its input rate where Anthropic and OpenAI charge a tenth, which put DeepSeek and Qwen at the bottom of the meter on a workload our chat does not have.
+
+### Cost profile
+
+`cost_profile` is one typical request on our platform: `input_tokens` and `output_tokens` per request, `cache_hit_share` per hoster, and `reference_output_tokens_per_task`, the median benchmark output per task over the active rows, which scales each row's output by how verbose the model is. It is display only, like the benchmarks. `basis` says whether the figures are an `estimate` or `measured`; measure them from the gateway's own usage table over the last 30 days:
+
+```sql
+SELECT model_id,
+       sum(requests) AS requests,
+       round(sum(input_tokens)::numeric / sum(requests)) AS input_per_request,
+       round(sum(output_tokens)::numeric / sum(requests)) AS output_per_request,
+       round(sum(cached_tokens)::numeric / nullif(sum(input_tokens), 0), 2) AS cache_hit_share
+FROM llm_usage
+WHERE kind = 'responses' AND usage_date >= current_date - 30
+GROUP BY model_id
+ORDER BY requests DESC;
+```
+
+Take the request-weighted input and output per request across all models, and the cache hit share per hoster, then set `basis` to `measured` and `retrieved` to the day of the query. Recompute `reference_output_tokens_per_task` whenever a benchmarked row is added or retired.
 
 ### Refreshing
 
