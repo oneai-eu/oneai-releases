@@ -293,6 +293,7 @@ Reasoning models are measured at several efforts, and the score moves a lot with
 | `gemini-3.6-flash`, `gemini-3.7-flash` (+ `-global`) | `high` | medium not measured (3.7 medium is only an estimate) |
 | `gemini-3.5-flash-lite` (+ `-global`) | single measured variant (`high`) | only variant published |
 | `deepseek-v4-flash-max` | DeepSeek V4 Flash **0731** (Max) | weber.cloud serves the 0731 snapshot |
+| `deepseek-v4.1-flash` | DeepSeek V4.1 Flash (Max) | weber.cloud runs it at its default thinking effort, which tracks high; only Max and non-reasoning were measured |
 | `claude-haiku-4-5` | Claude 4.5 Haiku (Reasoning) | runs with thinking enabled |
 | `grok-4.3` (+ `-global`) | Non-reasoning | the app runs it without reasoning |
 | *none*: `deepseek-v4-flash`, `deepseek-v4-flash-think` | - | only the 0420 snapshot was measured without/with high thinking |
