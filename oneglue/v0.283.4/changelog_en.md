@@ -1,0 +1,11 @@
+# OneGlue v0.283.4 — What's New
+
+**Released:** 2026-10-15
+
+**Your customers can now finish onboarding with their own passkey sign-in.**
+
+- **Their own access, right at the end of onboarding.** If you offered access when inviting, the customer sets it up at the end: confirmation by fingerprint, PIN or phone, plus emergency codes shown once. From then on they sign in with their passkey and see only their own organization.
+- **Login details at the end — optional.** In the last step the customer can enter login details. They are stored encrypted.
+- **Continue later.** Customers who already submitted can return via the invitation link and set up their access afterwards.
+- **Certificates:** certificate files without a private key stay directly downloadable. Files that contain a key are sealed automatically and shown only after a logged reveal.
+- **Invitation and code emails** are protected against repeated requests.
