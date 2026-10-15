@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.283.2",
+  "date": "2026-10-15",
+  "breaking": false,
+  "highlights": [
+    "Invite new customers to get started: a guided, ten-minute set of questions in their language fills their organization with locations, contacts, devices and documents, marked as customer-provided — with optional encrypted login details and an optional passkey sign-in",
+    "Locked passwords stay locked: only tenant administrators and explicitly entrusted people can change their permissions or unlock them, and they can no longer be used through shared credentials",
+    "Every uploaded file is checked before it is released and cannot be swapped unnoticed afterwards; private SSL keys in PEM format are stored encrypted"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 1,
+    "fixes": 3,
+    "security": 2
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
