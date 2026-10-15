@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.282.0",
+  "date": "2026-10-15",
+  "breaking": false,
+  "highlights": [
+    "Store your own oneAI key under \"Personal integrations\" — checked on save, stored encrypted, never shown again — and administrators choose which official oneAI instance OneGlue talks to",
+    "44 OneGlue tools and device analyses by a OneGlue agent for your oneAI chat, available as soon as the new oneAI integration is rolled out for your organization; reading works right away and every change is confirmed in oneAI",
+    "Passwords and secrets never leave OneGlue, and every access through oneAI is logged"
+  ],
+  "categories": {
+    "features": 2,
+    "improvements": 1,
+    "fixes": 2,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
