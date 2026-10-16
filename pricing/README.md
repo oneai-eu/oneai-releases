@@ -69,9 +69,10 @@ If a provider changes a price and the daily sync hasn't run yet:
   "models": {
     "<model-id>": {
       "display_name": string,          // UI label, e.g. "Opus 5"
-      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai" | "deepseek" | "qwen",
+      "provider": "openai" | "anthropic" | "google" | "mistral" | "xai" | "oneai" | "deepseek" | "qwen"
+                | "moonshotai" | "zai" | "minimax",
                                         // the model's AUTHOR — who made the weights
-      "hoster": "openai" | "google-vertex" | "mistral" | "weber" | "oneai",
+      "hoster": "openai" | "google-vertex" | "mistral" | "weber" | "greenpt" | "oneai",
                                         // who serves the API we call
       "location": "global" | "europe" | "germany" | "baden-wuerttemberg",
                                         // optional — most specific hosting region of the
@@ -146,7 +147,7 @@ Three rules for maintaining it:
 
 - **All prices in cents per unit.** Numerals mirror the providers' USD list prices
   (that is what the scrapers read); oneAI bills them 1:1 as EUR cents, so the EUR/USD
-  spread is a deliberate cushion, not an error. EUR-native providers (weber.cloud)
+  spread is a deliberate cushion, not an error. EUR-native providers (weber.cloud, GreenPT)
   are entered in actual EUR.
 - **Token prices** are per 1,000,000 tokens (MTok).
 - **Transcription** is per minute.
@@ -160,7 +161,9 @@ Three rules for maintaining it:
 - **Provider vs hoster**: `provider` names the model's author (what a customer picks on),
   `hoster` names which API serves it. Claude and Gemini rows are `hoster: google-vertex`;
   the open-weight DeepSeek/Qwen rows are authored by `deepseek`/`qwen` and served by
-  `weber` (weber.cloud, Balingen — `location: baden-wuerttemberg`).
+  `weber` (weber.cloud, Balingen — `location: baden-wuerttemberg`). The Kimi, GLM and
+  MiniMax rows are authored by `moonshotai`/`zai`/`minimax` and served by `greenpt`
+  (GreenPT BV, Utrecht; EU inference in France and Finland - `location: europe`).
 - **Vertex EU premium**: Gemini and Claude EU-region rows price at exactly 1.10× their
   `-global` twin, because Google and Anthropic publish separate global and non-global
   rates for them. **xAI does not follow this**: only global-region rates are published
@@ -186,7 +189,7 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
   "aliases": [string],            // optional: older ids the model is still known by
                                   // (stored grants, API clients)
   "route": {
-    "backend": "anthropic" | "google" | "grok" | "mistral" | "openai" | "weber",
+    "backend": "anthropic" | "google" | "grok" | "greenpt" | "mistral" | "openai" | "weber",
     "upstream_model": string,     // the model id sent to the provider,
                                   // e.g. "xai/grok-4.3", "claude-haiku-4-5@20251001"
     "region": "eu" | "global"     // see "Route"
@@ -236,6 +239,7 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
 | `anthropic` | Vertex, `VERTEX_CLAUDE_LOCATION` (default: the `eu` multi-region) | Vertex `global` |
 | `google` | Vertex `eu` multi-region | Vertex `global` |
 | `grok` | Vertex `eu` multi-region | Vertex `global` |
+| `greenpt` | GreenPT's EU API (France, Finland) | not available |
 | `mistral` | Mistral's EU API | not available |
 | `weber` | weber.cloud, Germany | not available |
 | `openai` | not available | OpenAI |
@@ -299,6 +303,7 @@ Reasoning models are measured at several efforts, and the score moves a lot with
 | *none*: `deepseek-v4-flash`, `deepseek-v4-flash-think` | - | only the 0420 snapshot was measured without/with high thinking |
 | *none*: `mistral-small-latest` | - | the non-reasoning variant the app uses is only an estimate |
 | *none*: `gpt-5.5-pro`, `grok-4.7` (+ `-global`), `mistral-euaiact-finetuned`, `oneai-*` | - | not scored, no medium variant, or not a public model |
+| *none*: `kimi-k3`, `glm-5.3`, `glm-5.3-flash`, `minimax-m3` | - | added 2026-10-16 without a benchmark; not yet read from Artificial Analysis |
 
 ### How the app turns it into a tier
 

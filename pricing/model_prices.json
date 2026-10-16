@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-10-14",
+  "version": "2026-10-16",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -2288,6 +2288,182 @@
         "effort": "medium",
         "variant": "qwen3-8-27b-medium"
       }
+    },
+    "kimi-k3": {
+      "display_name": "Kimi K3",
+      "provider": "moonshotai",
+      "hoster": "greenpt",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "greenpt",
+        "upstream_model": "kimi-k3",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Moonshot's open-weight multimodal agentic model with hybrid reasoning for long-horizon coding and knowledge work, served by GreenPT from EU data centres. EU-resident."
+      },
+      "purpose": {
+        "text": "EU-hosted frontier open-weight model for agentic coding, research and long-horizon work.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 350,
+      "input_cents_per_mtok": 330,
+      "cached_cents_per_mtok": 82.5,
+      "output_cents_per_mtok": 1650,
+      "manual_only": true,
+      "manual_only_reason": "GreenPT publishes these prices in EUR (docs.greenpt.ai/model-cards); entered 1:1 in EUR cents, maintained manually by oneAI.",
+      "notes": "Added 2026-10-16. Served by GreenPT (GreenPT BV, Utrecht) from EU inference in France (Scaleway, Paris) and Finland. Vision and tool calls verified live 2026-10-16; reasoning tokens bill as output."
+    },
+    "glm-5.3": {
+      "display_name": "GLM-5.3",
+      "provider": "zai",
+      "hoster": "greenpt",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "greenpt",
+        "upstream_model": "glm-5.3",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Z.ai's flagship reasoning model with agentic tool use and 1M context, served by GreenPT from EU data centres. EU-resident."
+      },
+      "purpose": {
+        "text": "EU-hosted reasoning model for agentic tool use, coding and analysis.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 360,
+      "input_cents_per_mtok": 110,
+      "cached_cents_per_mtok": 27.5,
+      "output_cents_per_mtok": 440,
+      "manual_only": true,
+      "manual_only_reason": "GreenPT publishes these prices in EUR (docs.greenpt.ai/model-cards); entered 1:1 in EUR cents, maintained manually by oneAI.",
+      "notes": "Added 2026-10-16. Served by GreenPT from EU inference in France and Finland. Text only: verified live 2026-10-16 that an attached image is silently dropped, so it is not declared vision."
+    },
+    "glm-5.3-flash": {
+      "display_name": "GLM-5.3 Flash",
+      "provider": "zai",
+      "hoster": "greenpt",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "greenpt",
+        "upstream_model": "glm-5.3-flash",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "The light tier of Z.ai's GLM-5.3 with 1M context and reasoning, served by GreenPT from EU data centres. EU-resident."
+      },
+      "purpose": {
+        "text": "Fast, low-cost EU-hosted reasoning model for everyday tasks.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "sort": 370,
+      "input_cents_per_mtok": 11,
+      "cached_cents_per_mtok": 2.2,
+      "output_cents_per_mtok": 44,
+      "manual_only": true,
+      "manual_only_reason": "GreenPT publishes these prices in EUR (docs.greenpt.ai/model-cards); entered 1:1 in EUR cents, maintained manually by oneAI.",
+      "notes": "Added 2026-10-16. Served by GreenPT from EU inference in France and Finland. GreenPT's card does not list vision, but image input was verified live 2026-10-16 (two-colour test image answered correctly, repeatably)."
+    },
+    "minimax-m3": {
+      "display_name": "MiniMax M3",
+      "provider": "minimax",
+      "hoster": "greenpt",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "greenpt",
+        "upstream_model": "minimax-m3",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "MiniMax's reasoning model with image input, tool calling and 1M context for agentic coding and long-horizon workflows, served by GreenPT from EU data centres. EU-resident."
+      },
+      "purpose": {
+        "text": "EU-hosted reasoning model with image input for agentic coding and long workflows.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 380,
+      "input_cents_per_mtok": 44,
+      "cached_cents_per_mtok": 11,
+      "output_cents_per_mtok": 220,
+      "manual_only": true,
+      "manual_only_reason": "GreenPT publishes these prices in EUR (docs.greenpt.ai/model-cards); entered 1:1 in EUR cents, maintained manually by oneAI.",
+      "notes": "Added 2026-10-16. Served by GreenPT from EU inference in France and Finland. Max output 64k per GreenPT's model card. Vision and tool calls verified live 2026-10-16."
     }
   },
   "transcription": {
