@@ -80,11 +80,11 @@
         "display_name": { "type": "string", "minLength": 1 },
         "provider": {
           "description": "The model's author, who made the weights.",
-          "enum": ["openai", "anthropic", "google", "mistral", "xai", "oneai", "deepseek", "qwen"]
+          "enum": ["openai", "anthropic", "google", "mistral", "xai", "oneai", "deepseek", "qwen", "moonshotai", "zai", "minimax"]
         },
         "hoster": {
           "description": "Who serves the API oneAI calls.",
-          "enum": ["openai", "google-vertex", "mistral", "weber", "oneai"]
+          "enum": ["openai", "google-vertex", "mistral", "weber", "greenpt", "oneai"]
         },
         "location": {
           "description": "Display hint: most specific region of the default SaaS routing.",
@@ -283,7 +283,7 @@
       "additionalProperties": false,
       "required": ["backend", "upstream_model", "region"],
       "properties": {
-        "backend": { "enum": ["anthropic", "google", "grok", "mistral", "openai", "weber"] },
+        "backend": { "enum": ["anthropic", "google", "grok", "greenpt", "mistral", "openai", "weber"] },
         "upstream_model": {
           "description": "The model id sent to the provider.",
           "type": "string",
@@ -300,7 +300,7 @@
           "then": { "properties": { "region": { "const": "global" } } }
         },
         {
-          "if": { "properties": { "backend": { "enum": ["mistral", "weber"] } } },
+          "if": { "properties": { "backend": { "enum": ["greenpt", "mistral", "weber"] } } },
           "then": { "properties": { "region": { "const": "eu" } } }
         }
       ]
