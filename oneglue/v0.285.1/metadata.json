@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.285.1",
+  "date": "2026-10-17",
+  "breaking": false,
+  "highlights": [
+    "Real entries instead of free text. Services such as email/Office, backup, website, business software, internet connection and remote access become their own entries, the web address becomes a domain, contacts get a role and a primary contact, devices get their device type. Login details are attached to the device or service they belong to.",
+    "\"From the customer, unchecked\". Everything the customer entered is marked. On the new review list per organization you accept entries one by one or all at once.",
+    "The questions you actually need — all optional. Approval and emergency contact, notes for on-site visits, firewall, switch and UPS, registrar and DNS, Microsoft 365, remote access, previous IT provider (including \"still has access\") and internet contract details."
+  ],
+  "categories": {
+    "features": 5,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
