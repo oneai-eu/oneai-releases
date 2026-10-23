@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-10-16",
+  "version": "2026-10-23",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -1772,6 +1772,98 @@
         "effort": "medium",
         "variant": "gemini-3-8-flash-medium"
       }
+    },
+    "gemini-4-argon": {
+      "display_name": "Gemini 4 Argon",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-argon",
+        "region": "eu"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's frontier Gemini model for complex reasoning, coding and long-running agentic work over very long contexts. EU-resident."
+      },
+      "purpose": {
+        "text": "Frontier Gemini model for complex reasoning, coding and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 83,
+      "input_cents_per_mtok": 220,
+      "cached_cents_per_mtok": 11,
+      "output_cents_per_mtok": 1100,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI EU multi-region entry; non-global price (+10% uplift); maintained manually",
+      "notes": "Added 2026-10-23 from the Vertex pricing page, 'Gemini 4 Argon* through November 30, 2026' table (Non-global 2.2/0.11/11.0 USD per Mtok; flat, no >200K tier). INTRODUCTORY, NET OF A 50% CREDIT (same mechanism as the 3.x Flash rows). ACTION REQUIRED 2026-12-01: becomes 440/22/2200. Not seed_default: orgs opt in."
+    },
+    "gemini-4-argon-global": {
+      "display_name": "Gemini 4 Argon",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-argon",
+        "region": "global"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Google's frontier Gemini model for complex reasoning, coding and long-running agentic work over very long contexts. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Frontier Gemini model for complex reasoning, coding and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "sort": 86,
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 10,
+      "output_cents_per_mtok": 1000,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price; maintained manually",
+      "notes": "Added 2026-10-23 from the Vertex pricing page, 'Gemini 4 Argon* through November 30, 2026' table (Global 2.0/0.1/10.0 USD per Mtok; flat, no >200K tier). INTRODUCTORY, NET OF A 50% CREDIT (same mechanism as the 3.x Flash rows). ACTION REQUIRED 2026-12-01: becomes 400/20/2000. Not seed_default: orgs opt in."
     },
     "oneai-embed": {
       "display_name": "oneAI Embed",
