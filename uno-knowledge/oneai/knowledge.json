@@ -1,24 +1,36 @@
 {
   "schema_version": 1,
   "product": "oneai",
-  "release": "v2026.09.27",
-  "previous_release": "v2026.09.04",
-  "updated_at": "2026-10-13T13:55:25.402Z",
+  "release": "v2026.10.25",
+  "previous_release": "v2026.09.27",
+  "updated_at": "2026-10-25T16:16:03.350Z",
   "topics": {
-    "account-security": [
-      {
-        "id": "member-login-methods",
-        "text": "An organization admin can choose which sign-in methods each member may use, and can change this at any time. This includes turning off the email sign-in flow (the invitation and recovery links) for a member, so that person can then sign in only through single sign-on. Passkeys are not affected and stay available to every member.",
-        "since": "v2026.09.27",
-        "updated": "v2026.09.27"
-      }
-    ],
     "ai-capabilities": [
       {
         "id": "presentation-decks",
         "text": "The assistant can create PowerPoint presentations (slide decks) in a chat. Where your organization or you have uploaded a company PowerPoint template, decks are exported in that template's own layouts, and you can ask for a specific template by name. You manage your own templates in your settings; an admin manages the organization-wide ones.",
         "since": "v2026.09.27",
         "updated": "v2026.09.27"
+      },
+      {
+        "id": "agents",
+        "text": "You can build agents: reusable assistants that use your projects' knowledge and connected tools and run on demand or on a schedule. Start from a ready-made template, for sales, finance, office, operations or compliance, or from scratch. Any member can create one unless an admin restricts it. An agent asks a person to approve actions that change something, a run can wait for approval or be cancelled, and an admin sets its defaults and approvers.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      },
+      {
+        "id": "convert-document",
+        "text": "In a chat the assistant can convert a Word, PowerPoint or OpenDocument file into a PDF for you to download or keep in a space. Spreadsheets are not supported.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "artifact-pdf-bulk",
+        "text": "You can select several documents in an artifacts list and download them together, exported as real PDFs or as Markdown files. From the same selection you can also start one new chat that references all the documents you picked, up to ten. This works both in a project's artifacts list and in the overall artifacts overview.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
       }
     ],
     "chats": [
@@ -27,6 +39,42 @@
         "text": "You can save standing preferences that the assistant applies to all your later chats, for example to always answer in German or in short bullet points. Add or remove them under Settings → Memory, or just ask the assistant in a chat to remember something. They are on by default, you can switch them off, and everything saved stays visible and editable by you. They apply to your own chats, not to automations or the API.",
         "since": "v2026.09.27",
         "updated": "v2026.09.27"
+      },
+      {
+        "id": "chat-uploads-folder",
+        "text": "Files you upload inside a chat are kept in a \"Chat uploads\" folder in that project, in a subfolder under your name. Only you and the project's admins can change them, and in a project where chats are private, other members cannot see them.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      }
+    ],
+    "getting-started": [
+      {
+        "id": "onboarding-tour",
+        "text": "New members get a short guided onboarding when they first sign in: it asks about your goals, offers an optional tour of the app, and then hands you to the assistant to get going. You can skip the tour if you already know oneAI.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      },
+      {
+        "id": "org-switching",
+        "text": "If you belong to more than one organization, you can switch between them from the organization menu at the top of the sidebar, which also lets you add another organization. You stay signed in to each one and switch without signing in again, unless that session has expired.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      }
+    ],
+    "integrations": [
+      {
+        "id": "mcp-servers-self-service",
+        "text": "Any member can add their own MCP (Model Context Protocol) server to bring its tools into chats: add it by its address and sign in with OAuth or a key, up to ten servers per person. It becomes a space you own and can share with others. Connecting an external API service stays with an admin, who approves each service for the organization.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      }
+    ],
+    "private-models": [
+      {
+        "id": "private-models-byo",
+        "text": "Connecting your organization's own model is now a guided flow: you enter the server's address and key, and it checks the connection and lists the models the server offers, so you can add as many of them as you want from a single connection. It works with OpenAI-compatible servers and with the Anthropic Messages format, whether you host the server yourself or use your own key with a provider. An admin still sets this up.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
       }
     ],
     "projects": [
@@ -35,6 +83,32 @@
         "text": "Interactive apps the assistant builds for you in a chat (shown as a canvas) now appear on their own **Apps** tab in a project, listed separately from documents and files. From there an app can be opened, used, and shared with a link, rather than being mixed in among the project's artifacts.",
         "since": "v2026.09.27",
         "updated": "v2026.09.27"
+      },
+      {
+        "id": "project-favorites",
+        "text": "You can mark any number of projects as favorites for yourself. They gather in a Favorites section in the projects list and the sidebar. Favorites are personal, so yours never change what colleagues see, and you can favorite any project you can open, including one shared with you for reading only.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      },
+      {
+        "id": "project-private-chats",
+        "text": "A project admin can make each member's chats private, so only the person who started a chat can see it and the files and documents in it. The admin can grant named people or teams a \"Can see everyone's chats\" exception, which is read only. It covers existing chats as well and can be switched off again; project admins always see every chat.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      }
+    ],
+    "spaces": [
+      {
+        "id": "space-scheduled-sync",
+        "text": "For a space whose connector supports it, a space admin can switch on automatic syncing on a schedule, for example every few hours, daily or weekly, instead of syncing by hand. You set this in the space's settings.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
+      },
+      {
+        "id": "space-password-protected",
+        "text": "If a document in a space is protected by a password, it is now marked as unreadable with a clear reason rather than failing quietly. Remove the password at the source and add the file again to have it read.",
+        "since": "v2026.10.25",
+        "updated": "v2026.10.25"
       }
     ]
   }
