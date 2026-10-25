@@ -1,0 +1,36 @@
+{
+  "product": "oneai",
+  "version": "v2026.10.25",
+  "date": "2026-10-25",
+  "github_release_url": "https://forgejo.onedeploy.dev/oneai/oneai/releases/tag/v2026.10.25",
+  "breaking": false,
+  "highlights": [
+    "Eigene KI-Modelle anbinden – mit eigenen Schlüsseln (BYOK)",
+    "Private Chats in Projekten schützen jetzt auch Dateien",
+    "PDFs über 200 Seiten werden jetzt vollständig durchsucht",
+    "Uno erstellt Projekte aus Vorlagen und verwaltet eure Agentenläufe",
+    "Eigene MCP-Server anbinden – mit OAuth-Login"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}
