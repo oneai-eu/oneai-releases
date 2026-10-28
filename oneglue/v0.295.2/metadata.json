@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.295.2",
+  "date": "2026-10-28",
+  "breaking": false,
+  "highlights": [
+    "Roles & groups by organization. Search for an organization by name and see right away who is an admin, contributor or viewer there. Expanded, the row shows the people, since when they have access, who added them and until when the role applies.",
+    "Grant access in one go. The new \"Grant access\" assistant gives several people access to several organizations at the same time: choose people, choose organizations, choose a role, optionally add an end date and a reason, review, apply. Before applying you see exactly what is new and what changes. You can open it from \"Users & Roles\", from \"Roles & Groups\" and from the members of an organization (\"Add user\").",
+    "Time-limited access. Roles in an organization can have an end date. After that date they no longer apply – automatically, with no follow-up work."
+  ],
+  "categories": {
+    "features": 6,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
