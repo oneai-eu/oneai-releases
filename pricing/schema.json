@@ -130,7 +130,7 @@
                   "type": "array",
                   "minItems": 1,
                   "uniqueItems": true,
-                  "items": { "enum": ["low", "medium", "high"] }
+                  "items": { "enum": ["low", "medium", "high", "xhigh", "max"] }
                 },
                 "thinking": {
                   "description": "Anthropic only: adaptive thinking (output_config.effort) or the legacy budget_tokens shape.",
