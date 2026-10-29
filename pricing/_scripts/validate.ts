@@ -5,7 +5,8 @@
 // JSON Schema cannot express, because it spans several rows or two versions of
 // the file:
 //   - catalog invariants: exactly one included model, a Uno default, no alias
-//     collisions, a valid successor for every retired row
+//     collisions, a valid successor for every retired row, reasoning fields
+//     only on the backend that reads them
 //   - with --base (the file as it is on main): no key disappears, a catalog row
 //     never falls back to a price-only row, and no alias is dropped
 //
@@ -28,11 +29,21 @@ type Policy = {
   uno?: "default" | "selectable";
 };
 
+type Reasoning =
+  | false
+  | {
+      efforts: string[];
+      thinking?: "adaptive" | "budget";
+      off?: "disabled" | "between_tools" | "unsupported";
+      control?: "budget" | "level";
+    };
+
 type ModelRow = {
-  status?: "preview" | "active" | "retired";
+  status?: "active" | "retired";
   replaced_by?: string;
   aliases?: string[];
   route?: { backend: string; upstream_model: string; region: "eu" | "global" };
+  reasoning?: Reasoning;
   policy?: Policy;
   sort?: number;
 };
@@ -99,6 +110,25 @@ function checkCatalog(doc: PricingDocument, errors: string[]): void {
         errors.push(`${key}: replaced_by "${row.replaced_by}" is not a model in this file`);
       } else if (successor.status !== "active") {
         errors.push(`${key}: replaced_by "${row.replaced_by}" must be an active model, it is ${successor.status ?? "price-only"}`);
+      }
+    }
+  }
+
+  // Each reasoning field tells one backend how to shape its request; on any
+  // other backend nothing reads it, so it can only be a mistake.
+  const backendOnly = [
+    ["thinking", "anthropic"],
+    ["off", "anthropic"],
+    ["control", "google"],
+  ] as const;
+  for (const [key, row] of rows) {
+    const reasoning = row.reasoning;
+    if (reasoning === undefined || reasoning === false) {
+      continue;
+    }
+    for (const [field, backend] of backendOnly) {
+      if (reasoning[field] !== undefined && row.route?.backend !== backend) {
+        errors.push(`${key}: reasoning.${field} is only read for ${backend} models, this one is routed to ${row.route?.backend}`);
       }
     }
   }

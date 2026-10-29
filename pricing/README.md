@@ -184,7 +184,7 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
 
 ```jsonc
 "<model-key>": {                  // the billing key, and the model id the app uses today
-  "status": "preview" | "active" | "retired",
+  "status": "active" | "retired",
   "replaced_by": string,          // retired rows only: the active successor
   "aliases": [string],            // optional: older ids the model is still known by
                                   // (stored grants, API clients)
@@ -203,8 +203,14 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
                                               // the efforts the model accepts, from the
                                               // provider's model page; xhigh/max only
                                               // where documented
-    "thinking": "adaptive" | "budget"         // Anthropic only: adaptive thinking or
+    "thinking": "adaptive" | "budget",        // Anthropic only: adaptive thinking or
                                               // the legacy budget_tokens shape
+    "off": "disabled" | "between_tools" | "unsupported",
+                                              // Anthropic only, optional: how the model
+                                              // runs with the least thinking (see
+                                              // "Reasoning")
+    "control": "budget" | "level"             // Google only, optional: thinking sized
+                                              // by a token budget or by a level
   },
   "description": { "en": string, "de": string },  // de optional
   "purpose": {                    // optional: input for the Auto routing classifier
@@ -227,11 +233,22 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
 
 ### Lifecycle
 
-- `preview` - offered only on deployments that opt into the preview channel (hub-dev, staging), so a new model can be verified before production sees it. Promote it by setting `active`.
 - `active` - offered everywhere.
 - `retired` - never offered. Anything that still points at the model (an organization's default, an agent, Uno) resolves to `replaced_by`. The row keeps its prices: deployments run different app versions, and an older one that still offers the model would bill it at 0 without its price row.
 
 **Rows are never deleted, and aliases are never dropped.** CI checks both against main.
+
+### Reasoning
+
+`efforts` lists what the model accepts; the app never sends an effort outside it. Some models also need their request shaped differently, and two optional fields say how, so such a model needs no app change:
+
+| Field | Backend | Values |
+|---|---|---|
+| `thinking` | `anthropic` | `adaptive`: thinking sized by `effort`. `budget`: the older `budget_tokens` shape. |
+| `off` | `anthropic` | How the model runs with the least thinking. `disabled` (the default when absent): thinking `{ "type": "disabled" }`. `between_tools`: the model rejects `disabled` and takes `{ "type": "between_tools" }` instead. `unsupported`: thinking cannot be switched off at all, so the field is left out and the lowest effort is sent. |
+| `control` | `google` | `budget` (the default when absent): a `thinking_budget` in tokens. `level`: a `thinking_level`, for models that reject a budget. |
+
+Each field is checked against `route.backend`, because no other backend reads it.
 
 ### Route
 
