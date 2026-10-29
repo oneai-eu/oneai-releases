@@ -91,8 +91,8 @@
           "enum": ["global", "europe", "germany", "baden-wuerttemberg"]
         },
         "status": {
-          "description": "Marks a catalog row. preview: offered only on deployments that opt into the preview channel. active: offered everywhere. retired: never offered; stored references resolve to replaced_by.",
-          "enum": ["preview", "active", "retired"]
+          "description": "Marks a catalog row. active: offered everywhere. retired: never offered; stored references resolve to replaced_by.",
+          "enum": ["active", "retired"]
         },
         "replaced_by": {
           "description": "Successor model key for a retired row.",
@@ -135,6 +135,14 @@
                 "thinking": {
                   "description": "Anthropic only: adaptive thinking (output_config.effort) or the legacy budget_tokens shape.",
                   "enum": ["adaptive", "budget"]
+                },
+                "off": {
+                  "description": "Anthropic only: how the model runs with the least thinking. disabled (default): thinking type disabled. between_tools: thinking type between_tools, the model rejects disabled. unsupported: thinking cannot be switched off, so the field is omitted and the lowest effort is sent.",
+                  "enum": ["disabled", "between_tools", "unsupported"]
+                },
+                "control": {
+                  "description": "Google only: how thinking is sized. budget (default): thinking_budget in tokens. level: thinking_level, the model rejects a budget.",
+                  "enum": ["budget", "level"]
                 }
               }
             }

@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-10-23",
+  "version": "2026-10-29",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -843,7 +843,8 @@
           "xhigh",
           "max"
         ],
-        "thinking": "adaptive"
+        "thinking": "adaptive",
+        "off": "between_tools"
       },
       "description": {
         "en": "Anthropic's fast Sonnet for everyday coding, agentic and enterprise work, with 1M context. EU-resident."
@@ -907,7 +908,8 @@
           "xhigh",
           "max"
         ],
-        "thinking": "adaptive"
+        "thinking": "adaptive",
+        "off": "between_tools"
       },
       "description": {
         "en": "Anthropic's fast Sonnet for everyday coding, agentic and enterprise work, with 1M context. Global endpoint, no EU data residency."
@@ -1099,7 +1101,8 @@
           "xhigh",
           "max"
         ],
-        "thinking": "adaptive"
+        "thinking": "adaptive",
+        "off": "unsupported"
       },
       "description": {
         "en": "Anthropic's most capable Opus model for coding, knowledge work, and long-running agentic tasks with 1M context. EU-resident."
@@ -1163,7 +1166,8 @@
           "xhigh",
           "max"
         ],
-        "thinking": "adaptive"
+        "thinking": "adaptive",
+        "off": "unsupported"
       },
       "description": {
         "en": "Anthropic's most capable Opus model for coding, knowledge work, and long-running agentic tasks with 1M context. Global endpoint, no EU data residency."
@@ -1830,7 +1834,8 @@
           "low",
           "medium",
           "high"
-        ]
+        ],
+        "control": "level"
       },
       "description": {
         "en": "Google's frontier Gemini model for complex reasoning, coding and long-running agentic work over very long contexts. EU-resident."
@@ -1876,7 +1881,8 @@
           "low",
           "medium",
           "high"
-        ]
+        ],
+        "control": "level"
       },
       "description": {
         "en": "Google's frontier Gemini model for complex reasoning, coding and long-running agentic work over very long contexts. Global endpoint, no EU data residency."
