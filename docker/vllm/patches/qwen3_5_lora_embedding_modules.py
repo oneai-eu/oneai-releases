@@ -37,6 +37,11 @@ Re-port history:
   shadow the attribute with a conflicting declaration of their own.
   Upstream at v0.28.0 still declares NO embedding_modules anywhere in
   qwen3_5.py or qwen3_vl.py (verified in source) — patch still required.
+- 2026-10-29: re-checked against the v0.32.0 tag. Upstream now declares
+  `embedding_modules` on Qwen3_5ForCausalLMBase (qwen3_5.py L319, same
+  mapping) — skipped via the per-class check below. Qwen3_5ForConditionalGeneration
+  and its base Qwen3VLForConditionalGeneration still declare none — patch
+  still required for that class. Layout and class names unchanged.
 
 Idempotent — running twice is a no-op. Hard-fails if the source layout
 differs (e.g. class signatures changed) so we don't silently produce a
