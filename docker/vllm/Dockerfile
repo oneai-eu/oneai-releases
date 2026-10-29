@@ -1,5 +1,8 @@
-ARG VLLM_VERSION=v0.28.0
-FROM vllm/vllm-openai:${VLLM_VERSION}
+ARG VLLM_VERSION=v0.32.0
+# Optional digest pin of the base, including the leading '@'
+# (e.g. @sha256:...). Empty = resolve the tag at build time.
+ARG VLLM_DIGEST=
+FROM vllm/vllm-openai:${VLLM_VERSION}${VLLM_DIGEST}
 
 LABEL org.opencontainers.image.title="OneStack vLLM"
 LABEL org.opencontainers.image.description="vLLM with orjson + Qwen3.5 LoRA embedding_modules patch"
@@ -21,9 +24,12 @@ RUN pip install --no-cache-dir orjson
 # v0.28.0 git tag 2026-08-27: qwen3_5.py gained new text-only classes
 # Qwen3_5ForCausalLM / Qwen3_5MoeForCausalLM (subclass Qwen3_5ForCausalLMBase)
 # and Qwen3_5MoeForConditionalGeneration (subclasses
-# Qwen3_5ForConditionalGeneration); upstream still has NOT added the
-# attribute anywhere — issue #38085 was closed without it. Patching the two
-# base classes covers all four generative classes via getattr inheritance.)
+# Qwen3_5ForConditionalGeneration). Patching the two base classes covers
+# all four generative classes via getattr inheritance.)
+# v0.32.0 (re-checked 2026-10-29): upstream now declares the attribute on
+# Qwen3_5ForCausalLMBase (qwen3_5.py L319) but still NOT on
+# Qwen3_5ForConditionalGeneration nor its Qwen3VL base — the patch skips
+# the first class and still inserts into the second (the VL/LoRA path).
 # Without it, LoRA adapters trained with embed_tokens or lm_head in
 # target_modules (e.g. unsloth-trained models with 9 LoRA targets) are
 # rejected at vllm's add_lora() with "expected target modules in {...}

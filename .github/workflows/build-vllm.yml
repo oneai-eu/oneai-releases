@@ -7,6 +7,18 @@ on:
         description: 'vLLM version tag (e.g., v0.20.1)'
         required: true
         default: 'v0.20.1'
+      vllm_digest:
+        description: 'Optional base digest pin incl. @ (e.g. @sha256:...); empty = tag only'
+        required: false
+        default: ''
+      tag_latest:
+        description: 'Also move the :latest tag?'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
       push:
         description: 'Push image to GHCR?'
         required: true
@@ -49,10 +61,11 @@ jobs:
           push: ${{ inputs.push == 'true' }}
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.vllm_version }}
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ inputs.tag_latest == 'true' && format('{0}/{1}:latest', env.REGISTRY, env.IMAGE_NAME) || '' }}
           build-args: |
             VLLM_VERSION=${{ inputs.vllm_version }}
+            VLLM_DIGEST=${{ inputs.vllm_digest }}
           labels: |
-            org.opencontainers.image.base=vllm/vllm-openai:${{ inputs.vllm_version }}
+            org.opencontainers.image.base=vllm/vllm-openai:${{ inputs.vllm_version }}${{ inputs.vllm_digest }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
