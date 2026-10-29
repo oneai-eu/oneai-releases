@@ -43,8 +43,7 @@
       "reasoning": {
         "efforts": [
           "medium",
-          "high",
-          "xhigh"
+          "high"
         ]
       },
       "description": {
@@ -95,9 +94,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -161,9 +158,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -230,9 +225,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -300,9 +293,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -366,9 +357,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -435,9 +424,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ]
       },
       "description": {
@@ -570,9 +557,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -639,9 +624,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -708,9 +691,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -775,9 +756,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -839,9 +818,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive",
         "off": "between_tools"
@@ -904,9 +881,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive",
         "off": "between_tools"
@@ -969,9 +944,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -1033,9 +1006,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive"
       },
@@ -1097,9 +1068,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive",
         "off": "unsupported"
@@ -1162,9 +1131,7 @@
         "efforts": [
           "low",
           "medium",
-          "high",
-          "xhigh",
-          "max"
+          "high"
         ],
         "thinking": "adaptive",
         "off": "unsupported"
