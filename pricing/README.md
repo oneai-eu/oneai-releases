@@ -199,7 +199,10 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
                                   // means unknown, and the app then sends no limit at all
   "capabilities": ["advanced" | "stream" | "vision" | "multimodal"],
   "reasoning": false | {
-    "efforts": ["low" | "medium" | "high"],  // the efforts the model accepts
+    "efforts": ["low" | "medium" | "high" | "xhigh" | "max"],
+                                              // the efforts the model accepts, from the
+                                              // provider's model page; xhigh/max only
+                                              // where documented
     "thinking": "adaptive" | "budget"         // Anthropic only: adaptive thinking or
                                               // the legacy budget_tokens shape
   },
