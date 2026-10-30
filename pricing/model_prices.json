@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-10-29",
+  "version": "2026-10-30",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -1327,8 +1327,69 @@
       "manual_only_reason": "Fine-tuned model; not on Mistral's public pricing page",
       "notes": "Contract-priced; verify against the Mistral agreement, not public pages."
     },
-    "gemini-3.5-flash-lite": {
+    "oneai-standard": {
       "display_name": "oneAI Standard",
+      "provider": "deepseek",
+      "hoster": "weber",
+      "location": "baden-wuerttemberg",
+      "status": "active",
+      "route": {
+        "backend": "weber",
+        "upstream_model": "deepseek/deepseek-v4.1-flash",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "capabilities": [
+        "advanced",
+        "stream"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "oneAI's included model: DeepSeek V4.1 Flash, hosted by weber.cloud in Germany. Your data stays in Germany and never goes to DeepSeek. Free in the oneAI app on Free, Starter and Team; billed like every other model through an API key or the Microsoft Teams bot, and on Gateway.",
+        "de": "Das inklusive Modell von oneAI: DeepSeek V4.1 Flash, betrieben von weber.cloud in Deutschland. Ihre Daten bleiben in Deutschland und gehen nie an DeepSeek. Kostenlos in der oneAI-App bei Free, Starter und Team; über einen API-Schlüssel, den Microsoft-Teams-Bot und bei Gateway wie jedes andere Modell abgerechnet."
+      },
+      "purpose": {
+        "text": "Included model hosted in Germany for everyday tasks, tool use, and document work.",
+        "tier": 1,
+        "great_for": [
+          "marketing",
+          "customer_support",
+          "content_creation"
+        ]
+      },
+      "policy": {
+        "seed_default": true,
+        "free_plan": true,
+        "included": true,
+        "uno": "selectable"
+      },
+      "sort": 5,
+      "input_cents_per_mtok": 70,
+      "cached_cents_per_mtok": 35,
+      "output_cents_per_mtok": 140,
+      "manual_only": true,
+      "manual_only_reason": "weber.cloud publishes no per-token API pricing to scrape; this row is maintained manually by oneAI.",
+      "notes": "Added 2026-10-30. oneAI Standard under its own id, served by DeepSeek V4.1 Flash on weber.cloud; until then the included model was the gemini-3.5-flash-lite row. Priced like the deepseek-v4.1-flash row, which it routes to: keep the two in step. No vision: images go nowhere on the Free plan until a vision model is added to it.",
+      "benchmark": {
+        "intelligence_index": 39.46,
+        "tokens_per_task": {
+          "input": 12906,
+          "cache_read": 9737240,
+          "cache_write": 322138,
+          "output": 88574
+        },
+        "effort": "max",
+        "variant": "deepseek-v4-1-flash"
+      }
+    },
+    "gemini-3.5-flash-lite": {
+      "display_name": "Gemini 3.5 Flash Lite",
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
@@ -1354,22 +1415,16 @@
         ]
       },
       "description": {
-        "en": "oneAI's included model, hosted in Europe. Free in the oneAI app on Free, Starter and Team; billed like every other model through an API key or the Microsoft Teams bot, and on Gateway. Fast and reliable for everyday tasks, tool use, and document work."
+        "en": "Google's low-latency, cost-effective model for high-throughput tasks. EU-resident."
       },
       "purpose": {
-        "text": "Included EU-hosted model for everyday tasks, tool use, and document work.",
+        "text": "Low-latency, cost-effective model for high-throughput and latency-sensitive tasks.",
         "tier": 1,
         "great_for": [
           "marketing",
           "customer_support",
           "content_creation"
         ]
-      },
-      "policy": {
-        "seed_default": true,
-        "free_plan": true,
-        "included": true,
-        "uno": "selectable"
       },
       "sort": 10,
       "input_cents_per_mtok": 33,
