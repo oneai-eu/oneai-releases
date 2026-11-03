@@ -19,6 +19,22 @@ on:
         options:
           - 'true'
           - 'false'
+      context:
+        description: 'Build context: docker/vllm (from upstream) or docker/vllm-overlay (patches on top of an existing onestack-vllm image)'
+        required: true
+        default: 'docker/vllm'
+        type: choice
+        options:
+          - 'docker/vllm'
+          - 'docker/vllm-overlay'
+      base_image:
+        description: 'Overlay only: full base reference incl. digest (e.g. ghcr.io/oneai-eu/onestack-vllm:v0.32.0@sha256:...)'
+        required: false
+        default: ''
+      tag_suffix:
+        description: 'Suffix for the version tag (e.g. -p1 gives v0.32.0-p1); empty = plain version tag'
+        required: false
+        default: ''
       push:
         description: 'Push image to GHCR?'
         required: true
@@ -54,18 +70,33 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check overlay inputs
+        if: inputs.context == 'docker/vllm-overlay'
+        env:
+          BASE_IMAGE: ${{ inputs.base_image }}
+          TAG_SUFFIX: ${{ inputs.tag_suffix }}
+          TAG_LATEST: ${{ inputs.tag_latest }}
+        run: |
+          case "$BASE_IMAGE" in
+            ghcr.io/oneai-eu/onestack-vllm:*@sha256:*) ;;
+            *) echo "overlay needs base_image ghcr.io/oneai-eu/onestack-vllm:<tag>@sha256:<digest>"; exit 1 ;;
+          esac
+          [ -n "$TAG_SUFFIX" ] || { echo "overlay needs a tag_suffix, so it never overwrites the plain version tag"; exit 1; }
+          [ "$TAG_LATEST" = "false" ] || { echo "overlay must not move :latest"; exit 1; }
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: docker/vllm
+          context: ${{ inputs.context }}
           push: ${{ inputs.push == 'true' }}
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.vllm_version }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.vllm_version }}${{ inputs.tag_suffix }}
             ${{ inputs.tag_latest == 'true' && format('{0}/{1}:latest', env.REGISTRY, env.IMAGE_NAME) || '' }}
           build-args: |
             VLLM_VERSION=${{ inputs.vllm_version }}
             VLLM_DIGEST=${{ inputs.vllm_digest }}
+            BASE_IMAGE=${{ inputs.base_image }}
           labels: |
-            org.opencontainers.image.base=vllm/vllm-openai:${{ inputs.vllm_version }}${{ inputs.vllm_digest }}
+            org.opencontainers.image.base=${{ inputs.context == 'docker/vllm-overlay' && inputs.base_image || format('vllm/vllm-openai:{0}{1}', inputs.vllm_version, inputs.vllm_digest) }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
