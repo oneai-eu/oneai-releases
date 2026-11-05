@@ -5,8 +5,8 @@
   "breaking": false,
   "highlights": [
     "External people with organization roles now see and reveal what their role allows. Imported entries behave like entries created in OneGlue.",
-    "A way back after a lost Passkey for everyone: an e-mailed link to register a new Passkey. Recovery codes alone no longer create a Passkey.",
-    "Invitations always match the current access, and a clear warning with an extra confirmation comes before any tenant-wide role. Open sessions and remote sessions end when access ends.",
+    "A way back after a lost Passkey for every account in a tenant: an e-mailed link to register a new Passkey. For accounts in a tenant, recovery codes alone no longer create a Passkey.",
+    "Invitations always match the current access. Before a tenant-wide role is given, OneGlue shows with numbers what it does, and addresses outside your domains need a separate confirmation. Open remote sessions end about a minute after access is removed.",
     "Important: Organization viewers, organization contributors and tenant viewers can now reveal all passwords with default access in their organization(s). For entries that only certain people should see, please set them to \"restricted\" (\"Reveal default → Restricted\")."
   ],
   "categories": {
