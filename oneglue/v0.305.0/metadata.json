@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.305.0",
+  "date": "2026-11-07",
+  "breaking": false,
+  "highlights": [
+    "If your Tenant requires two Passkeys, a locked account signs in with its Passkey and lands on a mandatory page to add the second one.",
+    "As soon as the second Passkey is added, the account works again automatically, without any admin action.",
+    "Until then, every other request from the account is refused, including through API keys and MCP."
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 2,
+    "fixes": 0,
+    "security": 1
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
