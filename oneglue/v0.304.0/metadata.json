@@ -1,7 +1,7 @@
 {
   "product": "oneglue",
   "version": "v0.304.0",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "breaking": false,
   "highlights": [
     "Microsoft sign-in is safer: fresh actions ask for a fresh Microsoft sign-in, and Microsoft sessions end after 24 hours at the latest.",
