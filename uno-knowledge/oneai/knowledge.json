@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
   "product": "oneai",
-  "release": "v2026.10.25",
-  "previous_release": "v2026.09.27",
-  "updated_at": "2026-10-25T16:16:03.350Z",
+  "release": "v2026.11.08",
+  "previous_release": "v2026.10.25",
+  "updated_at": "2026-11-08T20:29:16.349Z",
   "topics": {
+    "account-security": [
+      {
+        "id": "microsoft-entra-tenant",
+        "text": "Where your organization signs in with Microsoft, an org admin can restrict Microsoft sign-in to the organization's own Microsoft Entra tenant, so Microsoft accounts from other tenants and personal Microsoft accounts can no longer get in. Passkeys and email sign-in are not affected.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      }
+    ],
     "ai-capabilities": [
       {
         "id": "presentation-decks",
@@ -23,6 +31,30 @@
         "text": "In a chat the assistant can convert a Word, PowerPoint or OpenDocument file into a PDF for you to download or keep in a space. Spreadsheets are not supported.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "generate-speech",
+        "text": "In a chat the assistant can read text aloud and give you an audio file you can play, download, or save to a space. An agent can save such a file to its destination space too.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "space-file-edits",
+        "text": "In a chat the assistant can create, change, move and delete files inside a space, but only in the part of the space the chat is allowed to write to. An earlier version of a changed file stays restorable for several days, and deleting a file is confirmed with you first.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "agent-triggers",
+        "text": "Besides running on demand or on a schedule, an agent can start on its own: from an incoming webhook, when a connected system reports an event, when a file is added to a space, when a new row is added to a dataset, or when another agent finishes. You choose the trigger when you build the agent, and a run started by a trigger always asks for approval before it changes anything.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "agent-result-actions",
+        "text": "An agent can finish by doing one thing with its result through a connected app, for example drafting or sending an Outlook email, creating a task in HubSpot or ClickUp, opening a GitHub issue, or adding a row to a dataset. Only apps you have connected are offered, and the step follows the agent's approval setting.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "artifacts": [
@@ -31,20 +63,44 @@
         "text": "You can select several documents in an artifacts list and download them together, exported as real PDFs or as Markdown files. From the same selection you can also start one new chat that references all the documents you picked, up to ten. This works both in a project's artifacts list and in the overall artifacts overview.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "artifact-search",
+        "text": "You can search the text inside artifacts, not only their titles, and the search takes you to the matching passage.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "canvas-version-history",
+        "text": "Every save of an interactive app (canvas) is kept in a version history, where you can restore an earlier version or mark a version as working so it is always kept. Recent versions and any you have marked as working are retained.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "app-trash",
+        "text": "A deleted app (canvas) goes to a trash and can be restored for a limited time. Its public share link and custom domain are switched off the moment it is deleted and stay off after a restore, so you would share it again to get a new link.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "chats": [
       {
         "id": "standing-chat-preferences",
-        "text": "You can save standing preferences that the assistant applies to all your later chats, for example to always answer in German or in short bullet points. Add or remove them under Settings → Memory, or just ask the assistant in a chat to remember something. They are on by default, you can switch them off, and everything saved stays visible and editable by you. They apply to your own chats, not to automations or the API.",
+        "text": "The assistant can remember things across all your chats: facts about you under \"About you\", and how you like answers (such as language, tone or format) under \"Preferences\". Ask it in a chat to remember something, or manage the entries in your settings. It is on by default and can be switched off, and everything saved stays visible and editable by you. It applies to your own chats, not to automations or the API.",
         "since": "v2026.09.27",
-        "updated": "v2026.09.27"
+        "updated": "v2026.11.08"
       },
       {
         "id": "chat-uploads-folder",
         "text": "Files you upload inside a chat are kept in a \"Chat uploads\" folder in that project, in a subfolder under your name. Only you and the project's admins can change them, and in a project where chats are private, other members cannot see them.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "chat-work-plan",
+        "text": "For a task with several steps the assistant shows a plan in the chat, with each step and its progress, so you can follow what it is doing.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "getting-started": [
@@ -59,14 +115,28 @@
         "text": "If you belong to more than one organization, you can switch between them from the organization menu at the top of the sidebar, which also lets you add another organization. You stay signed in to each one and switch without signing in again, unless that session has expired.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "roadmap",
+        "text": "You can see what oneAI is planning and building on a public roadmap, with items shown as planned, in progress or shipped. Recent releases are listed on a Releases tab alongside it, both in the What's New area.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "integrations": [
       {
         "id": "mcp-servers-self-service",
-        "text": "Any member can add their own MCP (Model Context Protocol) server to bring its tools into chats: add it by its address and sign in with OAuth or a key, up to ten servers per person. It becomes a space you own and can share with others. Connecting an external API service stays with an admin, who approves each service for the organization.",
+        "text": "Any member can add their own MCP (Model Context Protocol) server to bring its tools into chats: add it by its address and sign in with OAuth or a key. It becomes a space you own and can share with others. An admin can also offer ready-made MCP servers as templates you add with just your own key or sign-in, and can let members use an admin-approved external API with their own key.",
         "since": "v2026.10.25",
-        "updated": "v2026.10.25"
+        "updated": "v2026.11.08"
+      }
+    ],
+    "models": [
+      {
+        "id": "reasoning-efforts",
+        "text": "For a model that supports reasoning you can choose how hard it thinks. Two deeper levels are available for the models that offer them: \"Very high\" for demanding coding and agentic work, and \"Max\" for when correctness matters more than speed or cost.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "private-models": [
@@ -95,6 +165,18 @@
         "text": "A project admin can make each member's chats private, so only the person who started a chat can see it and the files and documents in it. The admin can grant named people or teams a \"Can see everyone's chats\" exception, which is read only. It covers existing chats as well and can be switched off again; project admins always see every chat.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "project-default-model",
+        "text": "A project can set the model new chats start with, and optionally lock it so every chat in the project, including agent chats, uses that model and members cannot pick another. A project can also set a fallback model that answers when the default is unavailable, and the chat shows when the fallback was used. A project's admins set these.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      },
+      {
+        "id": "project-tags",
+        "text": "You can add personal tags to projects, chats and artifacts and filter by them, including requiring all of several tags at once. Tags are personal: they only change your own view and never affect what colleagues see.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ],
     "spaces": [
@@ -109,6 +191,20 @@
         "text": "If a document in a space is protected by a password, it is now marked as unreadable with a clear reason rather than failing quietly. Remove the password at the source and add the file again to have it read.",
         "since": "v2026.10.25",
         "updated": "v2026.10.25"
+      },
+      {
+        "id": "space-trash",
+        "text": "When you delete files that oneAI stores in a space, they go to the space's trash and can be restored for a limited time before they are removed for good. A deleted folder's files can be restored together, and you can empty the trash to remove everything at once.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
+      }
+    ],
+    "teams": [
+      {
+        "id": "everyone-team",
+        "text": "Your organization has a \"Whole organization\" team that always includes every member, including anyone who joins later, and cannot be deleted. Share something with it to share with everyone at once.",
+        "since": "v2026.11.08",
+        "updated": "v2026.11.08"
       }
     ]
   }
