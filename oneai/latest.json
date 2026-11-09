@@ -2,7 +2,7 @@
   "product": "oneai",
   "version": "v2026.11.08",
   "date": "2026-11-09",
-  "breaking": false,
+  "breaking": true,
   "languages": [
     "de",
     "en",

@@ -1,31 +1,27 @@
-# OneAI v2026.11.08 — Knowledge Spaces plus rapides, agents plus flexibles et une feuille de route publique
+# OneAI v2026.11.08 — Spaces plus rapides, modification des agents dans le chat, corbeille
 
 **Release Date:** 2026-11-09
 
-Cette version rassemble deux semaines de développement. Certaines de ces améliorations vous ont déjà été livrées via des correctifs ciblés. Elles sont désormais toutes disponibles ensemble.
+## Nouveautés
 
-## Points forts
+- **Les grands Spaces s'ouvrent nettement plus vite.** Les dossiers se chargent désormais page par page.
+- **Trouver et modifier des agents dans le chat.** Vous n'avez plus besoin de créer un nouvel agent pour chaque modification.
+- **Corbeille pour les fichiers supprimés.** Vous pouvez restaurer les fichiers supprimés pendant 30 jours. Passé ce délai, ils sont définitivement perdus.
+- **Temps gagné estimé.** Passez la souris sur le montant en € sous une nouvelle réponse. Cette valeur est une estimation approximative, pas une mesure.
+- **Onglet Feuille de route dans What's New.** L'onglet est en place, mais encore vide. Les entrées suivront.
 
-- **Les grands Knowledge Spaces se chargent en quelques secondes au lieu de plus de 30 secondes.** Même les Spaces contenant des centaines de milliers de fichiers s'ouvrent désormais nettement plus vite, ce qui facilite considérablement le travail quotidien avec de vastes collections de documents.
-- **Trouvez et modifiez vos agents dans AI Chat.** Vous pouvez désormais retrouver directement dans le chat les agents existants et les modifier, au lieu de créer un nouvel agent à chaque changement nécessaire.
-- **Corbeille de 30 jours pour les fichiers supprimés.** Les fichiers supprimés sont conservés pendant 30 jours et peuvent être restaurés en cas de besoin : les suppressions accidentelles ne sont donc plus un risque.
-- **Feuille de route publique.** Pour la première fois, vous pouvez voir sur quoi nous travaillons actuellement et ce qui arrive prochainement.
-- **Estimation du temps gagné par réponse.** Le badge de coût dans AI Chat affiche désormais aussi le temps de travail estimé économisé, ce qui rend la valeur quotidienne de l'assistance IA plus tangible.
+## ⚠️ Ce qui change pour vous
 
-## ⚠️ Sécurité
+Veuillez vérifier ces points si vous utilisez ces fonctions :
 
-Cette version inclut plusieurs correctifs liés à la sécurité concernant les **boîtes de dialogue de confirmation** et la **connexion**. Nous recommandons à tous nos clients de passer rapidement à cette version.
+- **Agents avec Spaces ou connexions définis :** si l'utilisateur n'a pas accès à l'un d'eux, l'agent ne continue plus avec des droits réduits, il est refusé. Les exécutions planifiées échouent et leur déclencheur est suspendu. Accordez l'accès ou adaptez l'agent.
+- **Agents sans supervision :** ils s'arrêtent désormais avant les actions irréversibles et avant les outils MCP sans annotation, jusqu'à ce que cela soit autorisé dans l'organisation et dans l'agent.
+- **Confirmations :** les actions irréversibles affichent désormais toujours une carte de confirmation, même lorsqu'une fenêtre de confiance est ouverte.
+- **Datasets :** les modèles écrivent désormais du SQL. Les anciens outils tels que `insert_data`, `update_data` et `delete_data` n'existent plus, et les agents enregistrés les perdent sans avertissement. Veuillez vérifier les agents qui écrivent dans des datasets. La modification des lignes, la création de tables et l'import CSV continuent de fonctionner. Les colonnes ne peuvent plus être modifiées dans l'écran des datasets, seulement dans le chat : le modèle effectue la modification et vous la confirmez.
+- **Applications Canvas et tableaux de bord utilisant des datasets :** nous les avons migrés vers la nouvelle base de données. Si une application n'enregistre plus ou si une requête échoue, veuillez nous contacter.
+- **oneAI Standard :** nous avons basculé le modèle oneAI Standard vers DeepSeek V4.1, hébergé en Allemagne.
+- **Bot Teams :** la connexion exige désormais que la connexion Microsoft soit activée pour vous.
 
-## Sous le capot
+## Merci
 
-Nous avons également mené à bien d'importants travaux de maintenance interne et de préparation qui posent les bases des fonctionnalités à venir. Ces changements ne sont pas encore visibles pour les utilisateurs finaux.
-
-## Remerciements
-
-Merci à Pascal, Justus, Obaid, Mirko, Oliver et Santi pour leurs contributions à cette version.
-
----
-*202 commits · 2 174 fichiers modifiés · +190 251 / −44 338 lignes · 6 contributeurs*
-
----
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+À Pascal, Justus, Obaid, Mirko, Oliver et Santi.

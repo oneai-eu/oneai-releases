@@ -1,1 +1,1 @@
-**v2026.11.08** — Large Knowledge Spaces now load in seconds, deleted files are recoverable, and agents can be found and edited right from the chat.
+**v2026.11.08** — Large Spaces open much faster, deleted files can be restored for 30 days, and agents can be edited in chat. Some existing agents, datasets and Canvas apps need checking.

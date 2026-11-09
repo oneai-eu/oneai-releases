@@ -1,31 +1,27 @@
-# OneAI v2026.11.08 — Faster Knowledge Spaces, More Flexible Agents, and a Public Roadmap
+# OneAI v2026.11.08 — Faster Spaces, Edit Agents in Chat, File Trash
 
 **Release Date:** 2026-11-09
 
-This release brings together two weeks of development. Some of these improvements have already reached you through targeted hotfixes. Now they are all available together.
+## New
 
-## Highlights
+- **Large Spaces open much faster.** Folders now load page by page.
+- **Find and edit agents in chat.** You no longer need to create a new agent for every change.
+- **Trash for deleted files.** You can restore deleted files for 30 days. After that they are permanently gone.
+- **Estimated time saved.** Hover over the € amount below a new answer. The value is a rule of thumb, not a measurement.
+- **Roadmap tab under What's New.** The tab is there but still empty. Entries will follow.
 
-- **Large Knowledge Spaces load in seconds instead of 30+ seconds.** Even Spaces with hundreds of thousands of files now open noticeably faster, making day-to-day work with extensive document collections much smoother.
-- **Find and edit agents in Chat.** You can now find existing agents directly in the chat and modify them, instead of creating a new agent every time you need a change.
-- **30-day recycle bin for deleted files.** Deleted files are kept for 30 days and can be restored when needed, so accidental deletions are no longer a risk.
-- **Public roadmap.** For the first time, you can see what we are currently working on and what is coming next.
-- **Estimated time saved per response.** The cost chip in Chat now also shows the estimated working time saved, making the day-to-day value of AI assistance easier to see.
+## ⚠️ What changes for you
 
-## ⚠️ Security
+Please check these points if you use these features:
 
-This release includes several security-related fixes around **confirmation dialogs** and **sign-in**. We recommend that all customers update to this version promptly.
+- **Agents with fixed Spaces or connections:** If the user lacks access to one of them, the agent no longer continues with reduced access. It is refused instead. Scheduled runs fail and their trigger is paused. Grant the access or adjust the agent.
+- **Unattended agents:** They now stop before irreversible actions and before MCP tools without an annotation, until this is allowed in both the organization and the agent.
+- **Confirmations:** Irreversible actions now always show a confirmation card, even while a trust window is open.
+- **Datasets:** Models now write SQL. The previous tools such as `insert_data`, `update_data` and `delete_data` no longer exist, and saved agents lose them without notice. Please check agents that write to datasets. Editing rows, creating tables and CSV import keep working. Changing columns is no longer possible on the dataset screen, only in chat: the model makes the change and you confirm it.
+- **Canvas apps and dashboards using datasets:** We have moved them to the new database. If an app no longer saves or a query fails, please contact us.
+- **oneAI Standard:** We have switched the oneAI Standard model to DeepSeek V4.1, hosted in Germany.
+- **Teams bot:** The connection now requires Microsoft sign-in to be enabled for you.
 
-## Under the Hood
+## Thank you
 
-We also completed extensive internal maintenance and groundwork that prepares the ground for upcoming features. These changes are not yet visible to end users.
-
-## Acknowledgments
-
-Thank you to Pascal, Justus, Obaid, Mirko, Oliver, and Santi for their contributions to this release.
-
----
-*202 commits · 2,174 files changed · +190,251 / −44,338 lines · 6 contributors*
-
----
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+To Pascal, Justus, Obaid, Mirko, Oliver and Santi.
