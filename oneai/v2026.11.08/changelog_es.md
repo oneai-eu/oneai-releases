@@ -1,31 +1,27 @@
-# OneAI v2026.11.08 — Knowledge Spaces más rápidos, agentes más flexibles y una hoja de ruta pública
+# OneAI v2026.11.08 — Spaces más rápidos, edición de agentes en el chat, papelera
 
 **Release Date:** 2026-11-09
 
-Esta versión reúne dos semanas de desarrollo. Algunas de estas mejoras ya han llegado a usted a través de hotfixes específicos. Ahora están todas disponibles en conjunto.
+## Novedades
 
-## Aspectos destacados
+- **Los Spaces grandes se abren mucho más rápido.** Las carpetas ahora se cargan por páginas.
+- **Buscar y editar agentes en el chat.** Ya no necesita crear un agente nuevo para cada cambio.
+- **Papelera para archivos eliminados.** Puede restaurar los archivos eliminados durante 30 días. Después se eliminan definitivamente.
+- **Tiempo ahorrado estimado.** Pase el ratón sobre el importe en € debajo de una respuesta nueva. El valor es una regla aproximada, no una medición.
+- **Pestaña Hoja de ruta en What's New.** La pestaña ya está disponible, pero todavía vacía. Las entradas llegarán más adelante.
 
-- **Los Knowledge Spaces grandes cargan en segundos en lugar de más de 30 segundos.** Incluso los Spaces con cientos de miles de archivos ahora se abren notablemente más rápido, lo que facilita mucho el trabajo diario con colecciones extensas de documentos.
-- **Encuentre y edite agentes en AI Chat.** Ahora puede encontrar directamente en el chat los agentes existentes y modificarlos, en lugar de crear un agente nuevo cada vez que necesite un cambio.
-- **Papelera de reciclaje de 30 días para archivos eliminados.** Los archivos eliminados se conservan durante 30 días y pueden restaurarse cuando sea necesario, por lo que las eliminaciones accidentales dejan de ser un riesgo.
-- **Hoja de ruta pública.** Por primera vez, puede ver en qué estamos trabajando actualmente y qué viene a continuación.
-- **Tiempo ahorrado estimado por respuesta.** El indicador de coste en AI Chat ahora muestra también el tiempo de trabajo estimado que se ha ahorrado, haciendo más visible el valor diario de la asistencia de IA.
+## ⚠️ Qué cambia para usted
 
-## ⚠️ Seguridad
+Compruebe estos puntos si utiliza estas funciones:
 
-Esta versión incluye varias correcciones relacionadas con la seguridad en torno a los **cuadros de diálogo de confirmación** y el **inicio de sesión**. Recomendamos a todos nuestros clientes actualizar a esta versión cuanto antes.
+- **Agentes con Spaces o conexiones definidos:** si el usuario no tiene acceso a alguno de ellos, el agente ya no continúa con menos permisos, sino que se rechaza. Las ejecuciones programadas fallan y su activador se pausa. Conceda el acceso o ajuste el agente.
+- **Agentes sin supervisión:** ahora se detienen antes de las acciones irreversibles y antes de las herramientas MCP sin anotación, hasta que se permita en la organización y en el agente.
+- **Confirmaciones:** las acciones irreversibles ahora muestran siempre una tarjeta de confirmación, incluso con una ventana de confianza abierta.
+- **Datasets:** los modelos ahora escriben SQL. Las herramientas anteriores como `insert_data`, `update_data` y `delete_data` ya no existen, y los agentes guardados las pierden sin aviso. Compruebe los agentes que escriben en datasets. Editar filas, crear tablas e importar CSV siguen funcionando. Las columnas ya no se pueden cambiar en la pantalla de datasets, solo en el chat: el modelo realiza el cambio y usted lo confirma.
+- **Aplicaciones Canvas y paneles con datasets:** los hemos migrado a la nueva base de datos. Si una aplicación deja de guardar o una consulta falla, póngase en contacto con nosotros.
+- **oneAI Standard:** hemos cambiado el modelo oneAI Standard a DeepSeek V4.1, alojado en Alemania.
+- **Bot de Teams:** la conexión ahora requiere que el inicio de sesión de Microsoft esté activado para usted.
 
-## Bajo el capó
+## Gracias
 
-También hemos completado un amplio trabajo interno de mantenimiento y preparación que sienta las bases de las próximas funcionalidades. Estos cambios aún no son visibles para los usuarios finales.
-
-## Agradecimientos
-
-Gracias a Pascal, Justus, Obaid, Mirko, Oliver y Santi por sus contribuciones a esta versión.
-
----
-*202 commits · 2.174 archivos modificados · +190.251 / −44.338 líneas · 6 colaboradores*
-
----
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+A Pascal, Justus, Obaid, Mirko, Oliver y Santi.

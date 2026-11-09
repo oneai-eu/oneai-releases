@@ -1,31 +1,27 @@
-# OneAI v2026.11.08 — Schnellere Wissensräume, flexiblere Agenten und ein öffentlicher Fahrplan
+# OneAI v2026.11.08 — Schnellere Spaces, Agenten im Chat bearbeiten, Papierkorb
 
 **Release Date:** 2026-11-09
 
-Dieses Release bündelt zwei Wochen Entwicklung. Viele der Neuerungen haben Sie zum Teil bereits über gezielte Hotfixes erreicht. Jetzt sind sie vollständig und gemeinsam verfügbar.
+## Neu
 
-## Highlights
+- **Große Spaces öffnen sich deutlich schneller.** Ordner werden jetzt seitenweise geladen.
+- **Agenten im Chat finden und ändern.** Du musst nicht mehr für jede Änderung einen neuen Agenten anlegen.
+- **Papierkorb für gelöschte Dateien.** Gelöschte Dateien kannst du 30 Tage lang wiederherstellen, danach sind sie endgültig weg.
+- **Geschätzte Zeitersparnis.** Fahre mit der Maus über den €-Betrag unter einer neuen Antwort. Der Wert ist eine Faustregel, keine Messung.
+- **Roadmap-Tab unter What's New.** Der Tab ist da, aber noch leer. Einträge folgen.
 
-- **Große Wissensräume laden in Sekunden statt in 30+ Sekunden.** Auch Spaces mit hunderttausenden Dateien öffnen sich jetzt spürbar schneller. Das erleichtert die tägliche Arbeit mit umfangreichen Dokumentensammlungen.
-- **Agenten im Chat finden und bearbeiten.** Bestehende Agenten können jetzt direkt im Chat gefunden und angepasst werden. Sie müssen nicht mehr für jede Änderung einen neuen Agenten erstellen.
-- **30 Tage Papierkorb für gelöschte Dateien.** Gelöschte Dateien werden 30 Tage lang in einem Papierkorb aufbewahrt und lassen sich bei Bedarf wiederherstellen. Versehentliches Löschen ist damit kein Risiko mehr.
-- **Öffentliche Roadmap.** Erstmals können Sie direkt einsehen, woran wir gerade arbeiten und was als Nächstes kommt.
-- **Geschätzte Zeitersparnis pro Antwort.** Der Kosten-Chip im Chat zeigt jetzt zusätzlich die geschätzte eingesparte Arbeitszeit. So wird der Nutzen der KI-Unterstützung im Alltag greifbarer.
+## ⚠️ Was sich für dich ändert
 
-## ⚠️ Sicherheit
+Bitte prüfe diese Punkte, falls du die Funktionen nutzt:
 
-Dieses Release enthält mehrere sicherheitsrelevante Korrekturen rund um **Bestätigungsfenster** und **Anmeldung**. Wir empfehlen allen Kunden, zeitnah auf diese Version zu aktualisieren.
+- **Agenten mit festgelegten Spaces oder Verbindungen:** Fehlt dem Nutzer der Zugriff auf einen davon, läuft der Agent nicht mehr mit weniger Rechten weiter, sondern wird abgelehnt. Geplante Läufe schlagen fehl und ihr Trigger pausiert. Gib den Zugriff frei oder passe den Agenten an.
+- **Unbeaufsichtigte Agenten:** Sie halten jetzt vor unumkehrbaren Aktionen und vor MCP-Tools ohne Kennzeichnung an, bis das in Organisation und Agent erlaubt ist.
+- **Bestätigungen:** Unumkehrbare Aktionen zeigen jetzt immer eine Bestätigungskarte, auch wenn gerade ein Vertrauensfenster offen ist.
+- **Datasets:** Modelle schreiben jetzt SQL. Die bisherigen Tools wie `insert_data`, `update_data` und `delete_data` gibt es nicht mehr, gespeicherte Agenten verlieren sie ohne Hinweis. Prüfe Agenten, die in Datasets schreiben. Zeilen bearbeiten, Tabellen anlegen und CSV-Import funktionieren weiter. Spalten ändern geht nicht mehr im Dataset-Bildschirm, sondern nur noch im Chat: Das Modell führt die Änderung aus und du bestätigst sie.
+- **Canvas-Apps und Dashboards mit Datasets:** Wir haben sie auf die neue Datenbank umgestellt. Falls eine App nicht mehr speichert oder eine Abfrage fehlschlägt, melde dich bei uns.
+- **oneAI Standard:** Wir haben das oneAI-Standard-Modell auf das in Deutschland gehostete DeepSeek V4.1 umgestellt.
+- **Teams-Bot:** Die Verbindung setzt jetzt voraus, dass die Microsoft-Anmeldung für dich aktiviert ist.
 
-## Unter der Haube
+## Danke
 
-Zusätzlich haben wir umfangreiche interne Wartungs- und Vorbereitungsarbeiten abgeschlossen, die die Grundlage für kommende Funktionen bilden. Für Sie als Anwender sind diese Änderungen noch nicht sichtbar.
-
-## Danksagung
-
-Vielen Dank an Pascal, Justus, Obaid, Mirko, Oliver und Santi für ihre Beiträge zu diesem Release.
-
----
-*202 Commits · 2.174 geänderte Dateien · +190.251 / −44.338 Zeilen · 6 Contributor*
-
----
-*This changelog was generated automatically by the OneAI Changelog Pipeline.*
+An Pascal, Justus, Obaid, Mirko, Oliver und Santi.
