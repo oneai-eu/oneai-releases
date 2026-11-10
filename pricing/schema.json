@@ -291,7 +291,7 @@
       "additionalProperties": false,
       "required": ["backend", "upstream_model", "region"],
       "properties": {
-        "backend": { "enum": ["anthropic", "google", "grok", "greenpt", "mistral", "openai", "weber"] },
+        "backend": { "enum": ["anthropic", "google", "grok", "greenpt", "mistral", "oneai", "openai", "weber"] },
         "upstream_model": {
           "description": "The model id sent to the provider.",
           "type": "string",
