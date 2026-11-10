@@ -189,7 +189,7 @@ A row that carries `status` is a **catalog row**: besides its prices it describe
   "aliases": [string],            // optional: older ids the model is still known by
                                   // (stored grants, API clients)
   "route": {
-    "backend": "anthropic" | "google" | "grok" | "greenpt" | "mistral" | "openai" | "weber",
+    "backend": "anthropic" | "google" | "grok" | "greenpt" | "mistral" | "oneai" | "openai" | "weber",
     "upstream_model": string,     // the model id sent to the provider,
                                   // e.g. "xai/grok-4.3", "claude-haiku-4-5@20251001"
     "region": "eu" | "global"     // see "Route"
@@ -261,6 +261,7 @@ Each field is checked against `route.backend`, because no other backend reads it
 | `grok` | Vertex `eu` multi-region | Vertex `global` |
 | `greenpt` | GreenPT's EU API (France, Finland) | not available |
 | `mistral` | Mistral's EU API | not available |
+| `oneai` | oneAI's own GPUs, Germany | not available |
 | `weber` | weber.cloud, Germany | not available |
 | `openai` | not available | OpenAI |
 
