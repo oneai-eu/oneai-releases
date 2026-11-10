@@ -2552,12 +2552,12 @@
         ]
       },
       "sort": 351,
-      "input_cents_per_mtok": 330,
-      "cached_cents_per_mtok": 82.5,
-      "output_cents_per_mtok": 1650,
+      "input_cents_per_mtok": 0,
+      "cached_cents_per_mtok": 0,
+      "output_cents_per_mtok": 0,
       "manual_only": true,
-      "manual_only_reason": "Hosted by oneAI itself; the price is set by oneAI and maintained manually.",
-      "notes": "Added 2026-11-10. Hosted by oneAI on its own GPUs in Germany. Tool calls and reasoning efforts low/high verified live 2026-11-10; no image input; reasoning tokens bill as output."
+      "manual_only_reason": "Hosted by oneAI itself and offered free of charge; maintained manually by oneAI.",
+      "notes": "Added 2026-11-10. Hosted by oneAI on its own GPUs in Germany. Tool calls and reasoning efforts low/high verified live 2026-11-10; no image input. Free of charge since 2026-11-10."
     },
     "glm-5.3": {
       "display_name": "GLM-5.3",
