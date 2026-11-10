@@ -1,0 +1,35 @@
+{
+  "product": "oneai",
+  "version": "v2026.11.08",
+  "date": "2026-11-09",
+  "github_release_url": "https://forgejo.onedeploy.dev/oneai/oneai/releases/tag/v2026.11.08",
+  "breaking": true,
+  "highlights": [
+    "Große Spaces öffnen sich deutlich schneller",
+    "Agenten im Chat finden und ändern",
+    "Gelöschte Dateien 30 Tage im Papierkorb wiederherstellbar",
+    "Bestehende Agenten, Datasets und Canvas-Apps bitte prüfen: siehe Was sich für dich ändert"
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 0,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "fr",
+    "es",
+    "it"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_fr": "changelog_fr.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_it": "changelog_it.md",
+    "developer": "developer.md",
+    "summary": "summary.md"
+  }
+}

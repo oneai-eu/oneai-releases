@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-11-05T12:00:00.000Z",
+  "last_updated": "2026-11-09T16:23:45.990Z",
   "repository": "https://github.com/oneai-eu/oneai-releases",
   "base_url": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main",
   "products": {
@@ -8,8 +8,20 @@
       "name": "OneGlue",
       "description": "Internal IT Documentation & Secret Management",
       "source_repo": "https://github.com/oneai-eu/oneglue",
-      "latest": "v0.303.0",
+      "latest": "v0.305.0",
       "releases": [
+        {
+          "version": "v0.305.0",
+          "date": "2026-11-07",
+          "breaking": false,
+          "path": "oneglue/v0.305.0"
+        },
+        {
+          "version": "v0.304.0",
+          "date": "2026-11-07",
+          "breaking": false,
+          "path": "oneglue/v0.304.0"
+        },
         {
           "version": "v0.303.0",
           "date": "2026-11-05",
@@ -316,8 +328,14 @@
       "name": "oneAI",
       "description": "Enterprise AI Governance Platform",
       "source_repo": "https://github.com/0codekit/oneai",
-      "latest": "v2026.10.25",
+      "latest": "v2026.11.08",
       "releases": [
+        {
+          "version": "v2026.11.08",
+          "date": "2026-11-09",
+          "breaking": true,
+          "path": "oneai/v2026.11.08"
+        },
         {
           "version": "v2026.10.25",
           "date": "2026-10-25",
