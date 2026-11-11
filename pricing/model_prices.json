@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-10-30",
+  "version": "2026-11-11",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -480,6 +480,120 @@
         "effort": "medium",
         "variant": "gpt-6-luna-medium"
       }
+    },
+    "gpt-6.1-sol": {
+      "display_name": "GPT-6.1 Sol",
+      "provider": "openai",
+      "hoster": "openai",
+      "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-6.1-sol",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      "description": {
+        "en": "GPT-6.1 model built to power complex reasoning, coding, and agentic workflows with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Powers complex reasoning, coding, and agentic workflows at a mid-tier price.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "sort": 256,
+      "input_cents_per_mtok": 200,
+      "cache_write_cents_per_mtok": 250,
+      "cached_cents_per_mtok": 10,
+      "output_cents_per_mtok": 1000,
+      "input_cents_per_mtok_above_200k": 400,
+      "cache_write_cents_per_mtok_above_200k": 500,
+      "cached_cents_per_mtok_above_200k": 20,
+      "output_cents_per_mtok_above_200k": 1500,
+      "tier_threshold_tokens": 272000,
+      "manual_only": true,
+      "manual_only_reason": "OpenAI GPT-6.1 family; maintained manually from developers.openai.com/api/docs/pricing.",
+      "notes": "Added 2026-11-11 for the model released 2026-09-27 (successor to gpt-6-sol). Read from the OpenAI Standard-tier table (developers.openai.com/api/docs/pricing): <=272K input tokens $2.00 input / $0.10 cached (0.05x, half of gpt-6-sol's $0.20) / $2.50 30m cache-write (1.25x) / $10.00 output; >272K input tokens (strict >, tier_threshold_tokens 272000, full request repriced) $4.00 / $0.20 / $5.00 / $15.00. Efforts low..max verified live against /v1/responses 2026-11-11. Not seed_default: orgs opt in."
+    },
+    "gpt-6.1-terra": {
+      "display_name": "GPT-6.1 Terra",
+      "provider": "openai",
+      "hoster": "openai",
+      "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "openai",
+        "upstream_model": "gpt-6.1-terra",
+        "region": "global"
+      },
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      "description": {
+        "en": "GPT-6.1 model balancing intelligence and cost for everyday coding, visual reasoning, and agentic tasks with 1M context. Created by OpenAI."
+      },
+      "purpose": {
+        "text": "Balances intelligence and cost for everyday coding, visual reasoning, and agentic tasks.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "content_creation",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "recommended"
+      ],
+      "sort": 253,
+      "input_cents_per_mtok": 100,
+      "cache_write_cents_per_mtok": 125,
+      "cached_cents_per_mtok": 5,
+      "output_cents_per_mtok": 500,
+      "input_cents_per_mtok_above_200k": 200,
+      "cache_write_cents_per_mtok_above_200k": 250,
+      "cached_cents_per_mtok_above_200k": 10,
+      "output_cents_per_mtok_above_200k": 750,
+      "tier_threshold_tokens": 272000,
+      "manual_only": true,
+      "manual_only_reason": "OpenAI GPT-6.1 family; maintained manually from developers.openai.com/api/docs/pricing.",
+      "notes": "Added 2026-11-11 for the model released 2026-10-13 (successor to gpt-5.6-terra at half its price). Read from the OpenAI Standard-tier table: <=272K input tokens $1.00 input / $0.05 cached (0.05x) / $1.25 30m cache-write (1.25x) / $5.00 output; >272K input tokens (strict >, tier_threshold_tokens 272000, full request repriced) $2.00 / $0.10 / $2.50 / $7.50. Efforts low..max verified live against /v1/responses 2026-11-11. Not seed_default: orgs opt in."
     },
     "claude-haiku-4-5": {
       "display_name": "Haiku 4.5",
@@ -1201,6 +1315,120 @@
         "variant": "claude-opus-5-5-medium"
       }
     },
+    "claude-fable-5-2": {
+      "display_name": "Fable 5.2",
+      "provider": "anthropic",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "status": "active",
+      "aliases": [
+        "fable-5-2"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-fable-5-2",
+        "region": "eu"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "thinking": "adaptive",
+        "off": "unsupported"
+      },
+      "description": {
+        "en": "Anthropic's ultra-frontier model for the most demanding reasoning, coding, and long-horizon agentic work with 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Ultra-frontier Anthropic model for demanding reasoning, coding, and long-horizon agentic work.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 183,
+      "input_cents_per_mtok": 880,
+      "cache_write_cents_per_mtok": 1100,
+      "cached_cents_per_mtok": 22,
+      "output_cents_per_mtok": 4400,
+      "manual_only": true,
+      "manual_only_reason": "EU-priced entry (routed to the 'eu' multi-region default); a scraper reading the global pricing page would wrongly overwrite with global rates.",
+      "notes": "Added 2026-11-11 for the model released 2026-11-09 (1M context, 128K max output). Read from the Vertex EU Multi-Region Anthropic Partner table, 1.10x the -global twin: $8.80 input / $11.00 5m cache-write (1.25x) / $0.22 cache hit (0.025x base input — a 97.5% cache read discount) / $44.00 output. Flat across the full 1M context window (no >200K tier). Adaptive thinking is always on (off: unsupported). Not seed_default: orgs opt in."
+    },
+    "claude-fable-5-2-global": {
+      "display_name": "Fable 5.2",
+      "provider": "anthropic",
+      "hoster": "google-vertex",
+      "location": "global",
+      "status": "active",
+      "aliases": [
+        "fable-5-2-global"
+      ],
+      "route": {
+        "backend": "anthropic",
+        "upstream_model": "claude-fable-5-2",
+        "region": "global"
+      },
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "thinking": "adaptive",
+        "off": "unsupported"
+      },
+      "description": {
+        "en": "Anthropic's ultra-frontier model for the most demanding reasoning, coding, and long-horizon agentic work with 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Ultra-frontier Anthropic model for demanding reasoning, coding, and long-horizon agentic work.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 186,
+      "input_cents_per_mtok": 800,
+      "cache_write_cents_per_mtok": 1000,
+      "cached_cents_per_mtok": 20,
+      "output_cents_per_mtok": 4000,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; no public pricing page to scrape.",
+      "notes": "Added 2026-11-11 for the model released 2026-11-09. Global endpoint: $8.00 input / $10.00 5m cache-write (1.25x) / $0.20 cache hit (0.025x) / $40.00 output, flat across the full 1M context window. Adaptive thinking is always on (off: unsupported). Not seed_default: orgs opt in."
+    },
     "mistral-small-latest": {
       "display_name": "Mistral Small 4",
       "provider": "mistral",
@@ -1347,6 +1575,50 @@
         },
         "variant": "mistral-large-3"
       }
+    },
+    "mistral-large-4": {
+      "display_name": "Mistral Large 4",
+      "provider": "mistral",
+      "hoster": "mistral",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "mistral",
+        "upstream_model": "mistral-large-4",
+        "region": "eu"
+      },
+      "context_window": 1048576,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "description": {
+        "en": "Mistral's flagship reasoning and multimodal model with 1M context for complex coding, analysis, and agentic workflows. EU-resident."
+      },
+      "purpose": {
+        "text": "Flagship EU-hosted reasoning and multimodal model with 1M context.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 115,
+      "input_cents_per_mtok": 70,
+      "cached_cents_per_mtok": 0,
+      "output_cents_per_mtok": 210,
+      "manual_only": true,
+      "manual_only_reason": "Mistral Large 4 (v26.10); maintained manually until mistral.ts scraper adds mistral-large-4.",
+      "notes": "Added 2026-11-11 for Mistral Large 4 (v26.10, released 2026-10-29), which supersedes both Mistral Large 3 (mistral-large-2512) and Mistral Medium 3.5 (mistral-medium-2508), deprecated upstream 2026-10-31. Read from mistral.ai/pricing/api: $0.70 input / $2.10 output per 1M tokens; cached set to 0 because MistralBackend does not report cached tokens. 1M (1,048,576) context window and reasoning efforts low|medium|high verified live against api.mistral.ai 2026-11-11. Not seed_default: orgs opt in."
     },
     "mistral-euaiact-finetuned": {
       "display_name": "Mistral EU AI Act Fine-tuned",
@@ -1958,6 +2230,106 @@
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price; maintained manually",
       "notes": "Added 2026-10-23 from the Vertex pricing page, 'Gemini 4 Argon* through November 30, 2026' table (Global 2.0/0.1/10.0 USD per Mtok; flat, no >200K tier). INTRODUCTORY, NET OF A 50% CREDIT (same mechanism as the 3.x Flash rows). ACTION REQUIRED 2026-12-01: becomes 400/20/2000. Not seed_default: orgs opt in."
     },
+    "gemini-4-carbon": {
+      "display_name": "Gemini 4 Carbon",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-carbon",
+        "region": "eu"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "control": "level"
+      },
+      "description": {
+        "en": "Google's most intelligent frontier Gemini model for complex reasoning, coding and long-running agentic work over 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Most intelligent frontier Gemini model for complex reasoning, coding and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 87,
+      "input_cents_per_mtok": 220,
+      "cached_cents_per_mtok": 11,
+      "output_cents_per_mtok": 1100,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI EU multi-region entry; non-global price (+10% uplift); maintained manually",
+      "notes": "Added 2026-11-11 for the model GA on 2026-11-10, from the Vertex pricing page 'Gemini 4 Carbon* through November 30, 2026' table (Non-global 2.2/0.11/11.0 USD per Mtok; flat, no >200K tier). INTRODUCTORY, NET OF A 50% CREDIT (same mechanism as Gemini 4 Argon and the 3.x Flash rows). ACTION REQUIRED 2026-12-01: becomes 440/22/2200. Not seed_default: orgs opt in."
+    },
+    "gemini-4-carbon-global": {
+      "display_name": "Gemini 4 Carbon",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-carbon",
+        "region": "global"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "control": "level"
+      },
+      "description": {
+        "en": "Google's most intelligent frontier Gemini model for complex reasoning, coding and long-running agentic work over 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Most intelligent frontier Gemini model for complex reasoning, coding and long-running agentic tasks.",
+        "tier": 3,
+        "great_for": [
+          "research",
+          "development",
+          "data_analysis"
+        ]
+      },
+      "tags": [
+        "quality"
+      ],
+      "sort": 88,
+      "input_cents_per_mtok": 200,
+      "cached_cents_per_mtok": 10,
+      "output_cents_per_mtok": 1000,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price; maintained manually",
+      "notes": "Added 2026-11-11 for the model GA on 2026-11-10, from the Vertex pricing page 'Gemini 4 Carbon* through November 30, 2026' table (Global 2.0/0.1/10.0 USD per Mtok; flat, no >200K tier). INTRODUCTORY, NET OF A 50% CREDIT (same mechanism as Gemini 4 Argon and the 3.x Flash rows). ACTION REQUIRED 2026-12-01: becomes 400/20/2000. Not seed_default: orgs opt in."
+    },
     "oneai-embed": {
       "display_name": "oneAI Embed",
       "provider": "oneai",
@@ -1987,6 +2359,17 @@
       "output_cents_per_mtok": 38,
       "manual_only": true,
       "manual_only_reason": "oneAI Gateway own-model; no public pricing page to scrape"
+    },
+    "compliance-v2": {
+      "display_name": "oneAI Compliance v2",
+      "provider": "oneai",
+      "hoster": "oneai",
+      "input_cents_per_mtok": 228,
+      "cached_cents_per_mtok": 228,
+      "output_cents_per_mtok": 228,
+      "manual_only": true,
+      "manual_only_reason": "oneAI Gateway own-model (COMPLIANCE_MODEL_ID in src/api/util/compliance/compliance-model.ts); no public pricing page to scrape.",
+      "notes": "Added 2026-11-11. Matches mistral-euaiact-finetuned rate (228/228/228), which compliance-v2 replaced as COMPLIANCE_MODEL_ID."
     },
     "grok-4.3": {
       "display_name": "Grok 4.3",
@@ -2214,6 +2597,39 @@
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.7",
+        "region": "eu"
+      },
+      "context_window": 500000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      },
+      "description": {
+        "en": "xAI's latest flagship model for coding, agentic tasks and deep analysis, served on Google Vertex AI. EU-resident. Created by xAI."
+      },
+      "purpose": {
+        "text": "Flagship xAI reasoning model for coding, agentic tasks and deep analysis.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 293,
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 600,
@@ -2221,14 +2637,47 @@
       "cached_cents_per_mtok_above_200k": 100,
       "output_cents_per_mtok_above_200k": 1200,
       "manual_only": true,
-      "manual_only_reason": "PROVISIONAL — no source exists yet. Google has not published Grok 4.7 in the Vertex model garden, so it is absent from the 'xAI's Grok models' pricing table (re-checked 2026-09-21: the page lists 4.1 Fast, 4.20, 4.3 and 4.6 only). These values are INHERITED from grok-4.6, not read from a table, and must be re-verified the moment Vertex publishes the SKU.",
-      "notes": "ADDED 2026-09-21, PRE-PROVISIONED AHEAD OF THE MODEL. Added deliberately before the price is knowable, because the alternative is worse: the app PR (branch feat/models-grok-4-7) puts grok-4.7 in grokModels and in MODELS with default: true, so it seeds into org_base_models for every new org — and a dispatchable model with no row bills 0 EUR with only a console.warn. That exact failure has already happened twice in this file (gemini-3.5-flash-lite-global, and gpt-image-2 plus all five FLUX rows). A stale row costs nothing; a missing row on a default model costs revenue silently. PRICE IS AN ASSUMPTION: inherited from grok-4.6 (200/50/600, >200K 400/100/1200). Do NOT treat the match as verified — xAI did NOT hold price flat across the previous version bump (4.3 was 125/20/250 with >200K 250/40/500, i.e. 4.6 raised the base 1.6x and the tier 2.4x), so 4.7 repricing again is at least as likely as not. Structure follows the family and is safe regardless: bare wire id routes to the Vertex 'eu' multi-region and the -global twin to 'global' (resolveGrokLocation), both priced identically because xAI publishes no region split on Vertex; tier boundary STRICT > at the default 200000, so no tier_boundary_inclusive and no tier_threshold_tokens; no cache-write rate published, so cache_write falls back to the input rate. App-side Vertex id is 'xai/grok-4.7'. The app's own comment records that requests 404 until Vertex serves the model, so no billing can occur on this row until then — which is the window in which to replace these numbers with published ones."
+      "manual_only_reason": "Vertex AI list price; no xAI text scraper in repo — maintained manually. xAI publishes only global-region rates on Vertex, so the EU wire id and the -global twin price identically.",
+      "notes": "Pre-provisioned 2026-09-21; promoted to active catalog row 2026-11-11 after Google published Grok 4.7 on the Vertex Partner Models pricing table (cloud.google.com/model-garden/partner-models/pricing): <=200K input $2.00 / cached $0.50 / output $6.00; >200K input $4.00 / cached $1.00 / output $12.00 (strict > at 200000). Bare wire id routes to the Vertex 'eu' multi-region; priced identically to grok-4.7-global because xAI publishes no region split on Vertex. Not seed_default: orgs opt in."
     },
     "grok-4.7-global": {
       "display_name": "Grok 4.7",
       "provider": "xai",
       "hoster": "google-vertex",
       "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "grok",
+        "upstream_model": "xai/grok-4.7",
+        "region": "global"
+      },
+      "context_window": 500000,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      },
+      "description": {
+        "en": "xAI's latest flagship model for coding, agentic tasks and deep analysis, served on Google Vertex AI. Global endpoint, no EU data residency. Created by xAI."
+      },
+      "purpose": {
+        "text": "Flagship xAI reasoning model for coding, agentic tasks and deep analysis.",
+        "tier": 3,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 296,
       "input_cents_per_mtok": 200,
       "cached_cents_per_mtok": 50,
       "output_cents_per_mtok": 600,
@@ -2236,8 +2685,8 @@
       "cached_cents_per_mtok_above_200k": 100,
       "output_cents_per_mtok_above_200k": 1200,
       "manual_only": true,
-      "manual_only_reason": "PROVISIONAL — no source exists yet. Grok 4.7 is not yet published in the Vertex model garden and so is absent from the 'xAI's Grok models' pricing table (re-checked 2026-09-21). Values are INHERITED from grok-4.6-global and must be re-verified once Vertex publishes the SKU.",
-      "notes": "ADDED 2026-09-21, PRE-PROVISIONED AHEAD OF THE MODEL — see grok-4.7 for the full rationale. Global endpoint via the '-global' suffix in resolveGrokLocation; identical to its EU twin because xAI publishes no region split on Vertex. PRICE IS AN ASSUMPTION inherited from grok-4.6 and not verified; note xAI raised the base 1.6x between 4.3 and 4.6, so do not assume flat pricing held. Tier boundary STRICT > at the default 200000. No cache-write rate published. App-side Vertex id is 'xai/grok-4.7'."
+      "manual_only_reason": "Vertex AI list price; no xAI text scraper in repo — maintained manually.",
+      "notes": "Pre-provisioned 2026-09-21; promoted to active catalog row 2026-11-11 after Google published Grok 4.7 on the Vertex Partner Models pricing table: <=200K 200/50/600, >200K 400/100/1200. Global endpoint via the '-global' suffix. Not seed_default: orgs opt in."
     },
     "deepseek-v4-flash": {
       "display_name": "DeepSeek V4 Flash",
@@ -2431,7 +2880,7 @@
         "upstream_model": "qwen/qwen3.8-27b",
         "region": "eu"
       },
-      "context_window": 128000,
+      "context_window": 262144,
       "capabilities": [
         "advanced",
         "stream"
@@ -2698,6 +3147,29 @@
       "cents_per_minute": 0.6,
       "manual_only": true,
       "manual_only_reason": "Listed on OpenAI pricing page (Transcription models, $0.006/min) but no whisper scraper in repo; verified manually 2026-07-08."
+    },
+    "gpt-transcribe": {
+      "provider": "openai",
+      "cents_per_minute": 0.45,
+      "manual_only": true,
+      "manual_only_reason": "Listed on OpenAI pricing page ($0.0045/min) with no transcription scraper in repo; verified manually 2026-11-11.",
+      "notes": "Added 2026-11-11. OpenAI's successor to whisper-1 (which shuts down 2027-02-26) for /v1/audio/transcriptions and /v1/realtime/transcription_sessions."
+    },
+    "gpt-live-transcribe": {
+      "provider": "openai",
+      "cents_per_minute": 1.7,
+      "manual_only": true,
+      "manual_only_reason": "Listed on OpenAI pricing page ($0.017/min) with no transcription scraper in repo; verified manually 2026-11-11.",
+      "notes": "Added 2026-11-11. OpenAI's low-latency streaming transcription model for /v1/realtime/transcription_sessions."
+    }
+  },
+  "speech": {
+    "gpt-4o-mini-tts": {
+      "provider": "openai",
+      "cents_per_minute": 1.5,
+      "manual_only": true,
+      "manual_only_reason": "Listed on OpenAI pricing page (~$0.015/min, $0.60/1M input text tokens + $12.00/1M output audio tokens) with no speech scraper in repo; verified manually 2026-11-11.",
+      "notes": "Added 2026-11-11. Used by SPEECH_MODEL in src/shared/audio-models.ts (voice mode, generate_speech, and /v1/audio/speech). Note: OpenAI deprecated gpt-4o-mini-tts on 2026-10-01 with shutdown on 2027-01-06."
     }
   },
   "images": {
@@ -2900,6 +3372,74 @@
       "manual_only_reason": "GPT Image 2.5 publishes token rates only, and no per-image table at all; the openai-images scraper's source covers the legacy gpt-image-1 family. Maintained by hand.",
       "notes": "GPT Image 2.5 Flare (fast everyday generation). Flare and Sunburst publish IDENTICAL rates, so the two rows are identical by construction rather than by copy-paste accident — if a future price split them, this is the pair to check. ADDED 2026-09-23 for the model dated 2026-09-08. PER-IMAGE VALUES ARE INHERITED FROM gpt-image-2, NOT MEASURED, and that is the number to fix first. What IS published is that the token RATES match GPT Image 2 exactly ($5.00/1M text input, $8.00/1M image input, $30.00/1M image output), and this schema cannot express token rates for an image model — it needs cents per image, which is rate x tokens-consumed. OpenAI's own page states that the GPT Image 2 calculator does NOT estimate GPT Image 2.5 token consumption, so the second factor is explicitly unknown and these figures can be wrong in either direction. The row is added anyway because the alternative is worse: the model is selectable in the app's IMAGE_MODELS, and a live image model with no row bills 0 with only a console.warn — exactly the defect found on gpt-image-2 itself on 2026-09-07. REPLACE THESE with measured values as soon as a generation at each quality can be read back from llm_usage. 'auto' mirrors 'medium' because pricing.ts resolves a null quality to 'auto'. The model also offers xhigh and max quality tiers, which the app does not expose and which therefore have no rows here; if the app ever sends one, add them in the same change."
     },
+    "gpt-image-2.6-sunburst": {
+      "provider": "openai",
+      "type": "quality_size",
+      "pricing": {
+        "low": {
+          "1024x1024": 0.6,
+          "1024x1536": 0.5,
+          "1536x1024": 0.5
+        },
+        "medium": {
+          "1024x1024": 5.3,
+          "1024x1536": 4.1,
+          "1536x1024": 4.1
+        },
+        "high": {
+          "1024x1024": 21.1,
+          "1024x1536": 16.5,
+          "1536x1024": 16.5
+        },
+        "auto": {
+          "1024x1024": 5.3,
+          "1024x1536": 4.1,
+          "1536x1024": 4.1
+        }
+      },
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3000
+      },
+      "manual_only": true,
+      "manual_only_reason": "GPT Image 2.6 publishes token rates only ($5.00 text in / $8.00 image in / $30.00 image out per MTok) and no per-image table; maintained by hand.",
+      "notes": "Added 2026-11-11 for GPT Image 2.6 Sunburst (released 2026-10-28). Token rates match GPT Image 2.5 Sunburst ($5.00/1M text input, $8.00/1M image input, $30.00/1M image output). The app bills from token_pricing using the response's measured tokens and keeps pricing only as the fallback when usage is missing."
+    },
+    "gpt-image-2.6-flare": {
+      "provider": "openai",
+      "type": "quality_size",
+      "pricing": {
+        "low": {
+          "1024x1024": 0.6,
+          "1024x1536": 0.5,
+          "1536x1024": 0.5
+        },
+        "medium": {
+          "1024x1024": 5.3,
+          "1024x1536": 4.1,
+          "1536x1024": 4.1
+        },
+        "high": {
+          "1024x1024": 21.1,
+          "1024x1536": 16.5,
+          "1536x1024": 16.5
+        },
+        "auto": {
+          "1024x1024": 5.3,
+          "1024x1536": 4.1,
+          "1536x1024": 4.1
+        }
+      },
+      "token_pricing": {
+        "text_input_cents_per_mtok": 500,
+        "image_input_cents_per_mtok": 800,
+        "output_cents_per_mtok": 3000
+      },
+      "manual_only": true,
+      "manual_only_reason": "GPT Image 2.6 publishes token rates only ($5.00 text in / $8.00 image in / $30.00 image out per MTok) and no per-image table; maintained by hand.",
+      "notes": "Added 2026-11-11 for GPT Image 2.6 Flare (released 2026-10-28). Token rates match GPT Image 2.5 Flare and 2.6 Sunburst ($5.00/1M text input, $8.00/1M image input, $30.00/1M image output). The app bills from token_pricing using the response's measured tokens and keeps pricing only as the fallback when usage is missing."
+    },
     "gemini-3-pro-image": {
       "provider": "google",
       "type": "flat",
@@ -2924,14 +3464,38 @@
       "manual_only_reason": "Google image (Nano Banana 2 Lite); no image-pricing scraper in repo, per-token price re-expressed as flat per-image — manage manually.",
       "notes": "Nano Banana 2 Lite. Added 2026-07-23. Flat = 1K/1MP output image cost (1120 tokens = $0.034); only 1K resolution is published for this model. App requests default 1K only. Global-only (client hard-pinned)."
     },
+    "gemini-nano-banana-2.1": {
+      "provider": "google",
+      "type": "flat",
+      "cents_per_image": 3.4,
+      "manual_only": true,
+      "manual_only_reason": "Google image (Nano Banana 2.1); no image-pricing scraper in repo, per-token price re-expressed as flat per-image — manage manually.",
+      "notes": "Nano Banana 2.1 (released 2026-10-06). Added 2026-11-11. Flat = 1K/1MP output image cost (1,120 tokens @ $30.00/1M image output tokens = $0.0336, rounded to 3.4 cents, matching gemini-3.1-flash-lite-image). App requests default 1K only. Re-verify if a 2K/4K selector is added (2K = 1,680 tokens = $0.0504; 4K = 3,780 tokens = $0.1134). Global-only."
+    },
     "flux-2-klein-4b": {
       "provider": "bfl",
       "type": "quality_size",
       "pricing": {
-        "low": { "1024x1024": 1.4, "1024x1536": 1.45, "1536x1024": 1.45 },
-        "medium": { "1024x1024": 1.4, "1024x1536": 1.45, "1536x1024": 1.45 },
-        "high": { "1024x1024": 1.4, "1024x1536": 1.45, "1536x1024": 1.45 },
-        "auto": { "1024x1024": 1.4, "1024x1536": 1.45, "1536x1024": 1.45 }
+        "low": {
+          "1024x1024": 1.4,
+          "1024x1536": 1.45,
+          "1536x1024": 1.45
+        },
+        "medium": {
+          "1024x1024": 1.4,
+          "1024x1536": 1.45,
+          "1536x1024": 1.45
+        },
+        "high": {
+          "1024x1024": 1.4,
+          "1024x1536": 1.45,
+          "1536x1024": 1.45
+        },
+        "auto": {
+          "1024x1024": 1.4,
+          "1024x1536": 1.45,
+          "1536x1024": 1.45
+        }
       },
       "manual_only": true,
       "manual_only_reason": "Black Forest Labs FLUX.2; no BFL scraper in repo. BFL prices per MEGAPIXEL, not per image, and its docs publish only a 'from' floor plus an interactive calculator — so these per-size values are derived by hand and must be maintained that way.",
@@ -2941,10 +3505,26 @@
       "provider": "bfl",
       "type": "quality_size",
       "pricing": {
-        "low": { "1024x1024": 1.5, "1024x1536": 1.6, "1536x1024": 1.6 },
-        "medium": { "1024x1024": 1.5, "1024x1536": 1.6, "1536x1024": 1.6 },
-        "high": { "1024x1024": 1.5, "1024x1536": 1.6, "1536x1024": 1.6 },
-        "auto": { "1024x1024": 1.5, "1024x1536": 1.6, "1536x1024": 1.6 }
+        "low": {
+          "1024x1024": 1.5,
+          "1024x1536": 1.6,
+          "1536x1024": 1.6
+        },
+        "medium": {
+          "1024x1024": 1.5,
+          "1024x1536": 1.6,
+          "1536x1024": 1.6
+        },
+        "high": {
+          "1024x1024": 1.5,
+          "1024x1536": 1.6,
+          "1536x1024": 1.6
+        },
+        "auto": {
+          "1024x1024": 1.5,
+          "1024x1536": 1.6,
+          "1536x1024": 1.6
+        }
       },
       "manual_only": true,
       "manual_only_reason": "Black Forest Labs FLUX.2; no BFL scraper in repo. Per-megapixel pricing derived by hand from BFL's calculator — see notes.",
@@ -2954,10 +3534,26 @@
       "provider": "bfl",
       "type": "quality_size",
       "pricing": {
-        "low": { "1024x1024": 3, "1024x1536": 3.75, "1536x1024": 3.75 },
-        "medium": { "1024x1024": 3, "1024x1536": 3.75, "1536x1024": 3.75 },
-        "high": { "1024x1024": 3, "1024x1536": 3.75, "1536x1024": 3.75 },
-        "auto": { "1024x1024": 3, "1024x1536": 3.75, "1536x1024": 3.75 }
+        "low": {
+          "1024x1024": 3,
+          "1024x1536": 3.75,
+          "1536x1024": 3.75
+        },
+        "medium": {
+          "1024x1024": 3,
+          "1024x1536": 3.75,
+          "1536x1024": 3.75
+        },
+        "high": {
+          "1024x1024": 3,
+          "1024x1536": 3.75,
+          "1536x1024": 3.75
+        },
+        "auto": {
+          "1024x1024": 3,
+          "1024x1536": 3.75,
+          "1536x1024": 3.75
+        }
       },
       "manual_only": true,
       "manual_only_reason": "Black Forest Labs FLUX.2; no BFL scraper in repo. Per-megapixel pricing derived by hand from BFL's calculator — see notes.",
@@ -2967,10 +3563,26 @@
       "provider": "bfl",
       "type": "quality_size",
       "pricing": {
-        "low": { "1024x1024": 5, "1024x1536": 7.5, "1536x1024": 7.5 },
-        "medium": { "1024x1024": 5, "1024x1536": 7.5, "1536x1024": 7.5 },
-        "high": { "1024x1024": 5, "1024x1536": 7.5, "1536x1024": 7.5 },
-        "auto": { "1024x1024": 5, "1024x1536": 7.5, "1536x1024": 7.5 }
+        "low": {
+          "1024x1024": 5,
+          "1024x1536": 7.5,
+          "1536x1024": 7.5
+        },
+        "medium": {
+          "1024x1024": 5,
+          "1024x1536": 7.5,
+          "1536x1024": 7.5
+        },
+        "high": {
+          "1024x1024": 5,
+          "1024x1536": 7.5,
+          "1536x1024": 7.5
+        },
+        "auto": {
+          "1024x1024": 5,
+          "1024x1536": 7.5,
+          "1536x1024": 7.5
+        }
       },
       "manual_only": true,
       "manual_only_reason": "Black Forest Labs FLUX.2; no BFL scraper in repo. Per-megapixel pricing derived by hand from BFL's calculator — see notes.",
@@ -2980,10 +3592,26 @@
       "provider": "bfl",
       "type": "quality_size",
       "pricing": {
-        "low": { "1024x1024": 7, "1024x1536": 8.5, "1536x1024": 8.5 },
-        "medium": { "1024x1024": 7, "1024x1536": 8.5, "1536x1024": 8.5 },
-        "high": { "1024x1024": 7, "1024x1536": 8.5, "1536x1024": 8.5 },
-        "auto": { "1024x1024": 7, "1024x1536": 8.5, "1536x1024": 8.5 }
+        "low": {
+          "1024x1024": 7,
+          "1024x1536": 8.5,
+          "1536x1024": 8.5
+        },
+        "medium": {
+          "1024x1024": 7,
+          "1024x1536": 8.5,
+          "1536x1024": 8.5
+        },
+        "high": {
+          "1024x1024": 7,
+          "1024x1536": 8.5,
+          "1536x1024": 8.5
+        },
+        "auto": {
+          "1024x1024": 7,
+          "1024x1536": 8.5,
+          "1536x1024": 8.5
+        }
       },
       "manual_only": true,
       "manual_only_reason": "Black Forest Labs FLUX.2; no BFL scraper in repo. Per-megapixel pricing derived by hand from BFL's calculator — see notes.",
