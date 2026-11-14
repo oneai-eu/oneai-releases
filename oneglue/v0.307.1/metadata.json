@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.307.1",
+  "date": "2026-11-14",
+  "breaking": false,
+  "highlights": [
+    "You now connect oneAI with your own personal API key instead of through the Tenant pairing; oneAI sees exactly what you may see in OneGlue.",
+    "Document changes reach oneAI by push within a minute, and oneAI reconciles every 6 hours.",
+    "For the AI assistant in OneGlue, you can now store your oneAI API key together with the matching oneAI server."
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}

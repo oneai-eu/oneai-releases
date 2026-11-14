@@ -1,0 +1,8 @@
+# OneGlue v0.307.1 — What's New
+
+**Released:** 2026-11-14
+
+**Connect oneAI with a personal key**
+
+- You now connect oneAI with your own API key instead of through the Tenant pairing. Under “Personal integrations → Personal API keys” you create a key (valid for 90 days by default) and enter it in oneAI. oneAI sees exactly what you are allowed to see in OneGlue. Changes to documents reach oneAI by push within a minute, and oneAI also reconciles every 6 hours.
+- For the AI assistant in OneGlue, you can now store your oneAI API key together with the matching oneAI server.

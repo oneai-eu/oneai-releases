@@ -1,7 +1,7 @@
 {
   "product": "oneglue",
-  "version": "v0.305.0",
-  "date": "2026-11-07",
+  "version": "v0.307.1",
+  "date": "2026-11-14",
   "breaking": false,
   "languages": [
     "de",
@@ -9,5 +9,5 @@
     "es",
     "fr"
   ],
-  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneglue/v0.305.0/changelog_{lang}.md"
+  "changelog_url_pattern": "https://raw.githubusercontent.com/oneai-eu/oneai-releases/main/oneglue/v0.307.1/changelog_{lang}.md"
 }
