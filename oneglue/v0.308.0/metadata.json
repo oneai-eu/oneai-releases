@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.308.0",
+  "date": "2026-11-15",
+  "breaking": false,
+  "highlights": [
+    "Under “Integrations → oneAI” you now find every oneAI setting in one place, including the new switch “Allow oneAI integration”.",
+    "Individual organizations can get their own oneAI server; a oneAI key is only ever sent to its own server.",
+    "The old Tenant pairing no longer exists; you connect oneAI with your personal API key."
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 1,
+    "fixes": 0,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
