@@ -1320,6 +1320,7 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "europe",
+      "data_retention_days": 30,
       "status": "active",
       "aliases": [
         "fable-5-2"
@@ -1377,6 +1378,7 @@
       "provider": "anthropic",
       "hoster": "google-vertex",
       "location": "global",
+      "data_retention_days": 30,
       "status": "active",
       "aliases": [
         "fable-5-2-global"

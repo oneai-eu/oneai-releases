@@ -83,6 +83,13 @@ If a provider changes a price and the daily sync hasn't run yet:
                                         // oneai models). Compliance-authoritative
                                         // residency stays in the app's routing code,
                                         // which a deployment can repoint.
+      "data_retention_days": integer,   // optional — days the upstream provider keeps
+                                        // prompts and responses after a request
+                                        // (Anthropic's Covered Models, e.g. Fable 5.2,
+                                        // require 30 and are not offered under zero
+                                        // data retention). Omitted: nothing is kept
+                                        // beyond the request. The app shows it in the
+                                        // model picker.
       // catalog fields (status, route, policy, ...) - see "Model catalog"
       "input_cents_per_mtok": number,
       "cached_cents_per_mtok": number,

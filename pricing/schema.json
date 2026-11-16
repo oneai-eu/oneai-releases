@@ -90,6 +90,11 @@
           "description": "Display hint: most specific region of the default SaaS routing.",
           "enum": ["global", "europe", "germany", "baden-wuerttemberg"]
         },
+        "data_retention_days": {
+          "description": "Days the upstream provider keeps prompts and responses after a request (e.g. 30 for Anthropic's Covered Models, which are not offered under zero data retention). Absent: no retention beyond the request. Display only.",
+          "type": "integer",
+          "minimum": 1
+        },
         "status": {
           "description": "Marks a catalog row. active: offered everywhere. retired: never offered; stored references resolve to replaced_by.",
           "enum": ["active", "retired"]
