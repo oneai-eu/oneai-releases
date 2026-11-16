@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.310.0",
+  "date": "2026-11-16",
+  "breaking": false,
+  "highlights": [
+    "If you don't pick a model, the AI assistant uses a model that is enabled in your oneAI organization; the picker shows it as “Default (model name)”.",
+    "On Linux devices the GlueAgent sets up the assistant's access with a restricted account, automatically from agent version 0.5.32.",
+    "Large lists and documents reach the assistant in shortened form, and errors explain what happened and what you can do."
+  ],
+  "categories": {
+    "features": 1,
+    "improvements": 3,
+    "fixes": 1,
+    "security": 0
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
