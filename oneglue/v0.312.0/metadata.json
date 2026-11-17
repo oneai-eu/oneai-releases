@@ -1,0 +1,30 @@
+{
+  "product": "oneglue",
+  "version": "v0.312.0",
+  "date": "2026-11-17",
+  "breaking": false,
+  "highlights": [
+    "When you remove someone's access, their running remote sessions and assistant runs end within a minute.",
+    "The SSO step-up and new recovery codes now end the sessions they replace; the last tenant admin is kept when syncing with Microsoft Entra ID.",
+    "Newly uploaded editor images show right away, and the assistant uses “oneAI Standard” by default."
+  ],
+  "categories": {
+    "features": 0,
+    "improvements": 3,
+    "fixes": 1,
+    "security": 4
+  },
+  "languages": [
+    "de",
+    "en",
+    "es",
+    "fr"
+  ],
+  "files": {
+    "changelog_de": "changelog_de.md",
+    "changelog_en": "changelog_en.md",
+    "changelog_es": "changelog_es.md",
+    "changelog_fr": "changelog_fr.md",
+    "summary": "summary.md"
+  }
+}
