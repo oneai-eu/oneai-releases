@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.json",
-  "version": "2026-11-11",
+  "version": "2026-11-17",
   "notes": "Prices in USD cents per 1,000,000 tokens (provider list prices). See README.md for the update process and the field reference. Per-model metadata: display_name (UI label), provider (the model's AUTHOR, e.g. anthropic), hoster (who serves the API we call, e.g. google-vertex), location (most specific hosting region: global | europe | germany | baden-wuerttemberg; each level implies the broader ones, so baden-wuerttemberg is also germany- and europe-hosted). location describes the DEFAULT SaaS routing; compliance-authoritative residency stays with the app's routing code, which a deployment can repoint. Anthropic entries split plain input (input_cents_per_mtok = base 1x) from cache writes (cache_write_cents_per_mtok = 5m cache-write rate); requires app >= cache-write-bucket release. An image entry may additionally carry token_pricing (text_input_cents_per_mtok / image_input_cents_per_mtok / output_cents_per_mtok): where the provider bills images per token and publishes no per-image table, the app prices from the token counts the response reports and falls back to the per-image table only when that usage is missing. tier_threshold_tokens overrides the default 200k tier boundary; tier_boundary_inclusive=true means >= instead of >. Field names *_above_200k are legacy labels: the real boundary is tier_threshold_tokens when set.",
   "benchmark_source": {
     "name": "Artificial Analysis Intelligence Index",
@@ -2137,6 +2137,100 @@
         "effort": "medium",
         "variant": "gemini-3-8-flash-medium"
       }
+    },
+    "gemini-4-hydrogen": {
+      "display_name": "Gemini 4 Hydrogen",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "europe",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-hydrogen",
+        "region": "eu"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "control": "level"
+      },
+      "description": {
+        "en": "Google's fast, efficient Gemini 4 model for everyday coding and agentic enterprise workflows over 1M context. EU-resident."
+      },
+      "purpose": {
+        "text": "Fast, efficient Gemini 4 model for everyday coding and agentic enterprise workflows.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 81,
+      "input_cents_per_mtok": 165,
+      "cached_cents_per_mtok": 8.25,
+      "output_cents_per_mtok": 825,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI EU multi-region entry; non-global price (+10% uplift); maintained manually",
+      "notes": "Added 2026-11-17 from the Vertex pricing page 'Gemini 4 Hydrogen' table (Non-global 1.65/0.0825/8.25 USD per Mtok), matching the Cloud Billing Catalog SKUs 'Gemini 4 Hydrogen Regional Text Input/Output - Online Predictions' (the caching SKU reads 0.082 because a per-token price is truncated to whole nanos). Served on the Vertex 'eu' multi-region (probed against oneai-vertex-prod 2026-11-17: 200). Flat across the full context window (no >200K tier). List price: no promotional credit, unlike Gemini 4 Argon and Carbon. The model page also offers thinking level XHIGH; it is left out of efforts because the app's Google backend sends HIGH for every effort above medium. ACTION REQUIRED 2027-01-12: Google starts billing Gemini 4 cache writes (2.0625 USD per Mtok). Not seed_default: orgs opt in."
+    },
+    "gemini-4-hydrogen-global": {
+      "display_name": "Gemini 4 Hydrogen",
+      "provider": "google",
+      "hoster": "google-vertex",
+      "location": "global",
+      "status": "active",
+      "route": {
+        "backend": "google",
+        "upstream_model": "gemini-4-hydrogen",
+        "region": "global"
+      },
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": [
+        "advanced",
+        "stream",
+        "vision",
+        "multimodal"
+      ],
+      "reasoning": {
+        "efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "control": "level"
+      },
+      "description": {
+        "en": "Google's fast, efficient Gemini 4 model for everyday coding and agentic enterprise workflows over 1M context. Global endpoint, no EU data residency."
+      },
+      "purpose": {
+        "text": "Fast, efficient Gemini 4 model for everyday coding and agentic enterprise workflows.",
+        "tier": 2,
+        "great_for": [
+          "development",
+          "research",
+          "data_analysis"
+        ]
+      },
+      "sort": 82,
+      "input_cents_per_mtok": 150,
+      "cached_cents_per_mtok": 7.5,
+      "output_cents_per_mtok": 750,
+      "manual_only": true,
+      "manual_only_reason": "Vertex AI global-region alias; global-endpoint price; maintained manually",
+      "notes": "Added 2026-11-17 from the Vertex pricing page 'Gemini 4 Hydrogen' table (Global 1.50/0.075/7.50 USD per Mtok), matching the Cloud Billing Catalog SKUs 'Gemini 4 Hydrogen Global Text Input/Input Caching/Output - Online Predictions'. Served on Vertex 'global' (probed 2026-11-17: 200). Flat across the full context window (no >200K tier). List price: no promotional credit, unlike Gemini 4 Argon and Carbon. The model page also offers thinking level XHIGH; it is left out of efforts because the app's Google backend sends HIGH for every effort above medium. ACTION REQUIRED 2027-01-12: Google starts billing Gemini 4 cache writes (1.875 USD per Mtok). Not seed_default: orgs opt in."
     },
     "gemini-4-argon": {
       "display_name": "Gemini 4 Argon",
