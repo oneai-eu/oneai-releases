@@ -1,6 +1,12 @@
-ARG VLLM_VERSION=v0.32.0
+ARG VLLM_VERSION=v0.34.0
 # Optional digest pin of the base, including the leading '@'
 # (e.g. @sha256:...). Empty = resolve the tag at build time.
+# Deliberately NOT defaulted: a tag plus a digest resolves by digest alone, so a
+# default digest would silently win over any other VLLM_VERSION. Pass it per
+# build (workflow input vllm_digest). Known amd64 digests:
+#   v0.34.0  @sha256:cf5b2fdd087eb4f6d261736967cc5cde974bd22ff4df50365f8fa419b6b4c484
+#            (Docker Hub 2026-11-16, CUDA 13.0.2, 10.04 GB compressed)
+#   v0.32.0  @sha256:6ee133356d49ed24cee03dd0cda3d3980279a11c107ce3e752c89e76540f41c9
 ARG VLLM_DIGEST=
 FROM vllm/vllm-openai:${VLLM_VERSION}${VLLM_DIGEST}
 
@@ -13,6 +19,11 @@ LABEL org.opencontainers.image.licenses="Apache-2.0"
 # ─────────────────────────────────────────────────────────────────────────────
 # orjson: ~6× faster JSON serialization for float-heavy responses (embeddings)
 # vLLM auto-detects orjson and uses ORJSONResponse (since v0.16.0, PR #33548)
+# v0.34.0 (re-checked 2026-11-20): orjson is now a hard dependency
+# (requirements/common.txt L23, imported unconditionally in
+# entrypoints/serve/utils/api_utils.py L10), so this line is a no-op there
+# ("Requirement already satisfied", no upgrade). Kept so that rebuilding an
+# older tag (<= v0.32.0, where orjson is optional) still gets it.
 # ─────────────────────────────────────────────────────────────────────────────
 RUN pip install --no-cache-dir orjson
 
@@ -30,6 +41,10 @@ RUN pip install --no-cache-dir orjson
 # Qwen3_5ForCausalLMBase (qwen3_5.py L319) but still NOT on
 # Qwen3_5ForConditionalGeneration nor its Qwen3VL base — the patch skips
 # the first class and still inserts into the second (the VL/LoRA path).
+# v0.34.0 (re-checked 2026-11-20): unchanged — CausalLMBase declares it
+# (qwen3_5.py L317), Qwen3_5ForConditionalGeneration (L471) and
+# Qwen3VLForConditionalGeneration (qwen3_vl.py L1941) still do not; the
+# class headers and the getattr lookup in lora/utils.py are unchanged.
 # Without it, LoRA adapters trained with embed_tokens or lm_head in
 # target_modules (e.g. unsloth-trained models with 9 LoRA targets) are
 # rejected at vllm's add_lora() with "expected target modules in {...}
@@ -45,6 +60,15 @@ RUN pip install --no-cache-dir orjson
 # The SM120 block-FP8 DeepGEMM workaround (issue #47436) is a per-deployment
 # env decision — v0.28.0 pins DeepGEMM with SM120 SF-transform support
 # (PR #52035), to be confirmed on the summary canary with BOTH kernel paths.
+# v0.34.0: upstream auto-disables DeepGEMM for model_type qwen3_5_text /
+# qwen3_5_moe_text on SM100 and SM120 (utils/deep_gemm.py L30-36, applied to
+# FP8 linear and FP8 MoE), and VLLM_USE_DEEP_GEMM=0 is still a valid env
+# (envs.py L1678) — so it stays a per-deployment decision, now redundant for
+# the Qwen3.5/3.6 families.
+#
+# NOTE: vLLM PR #61928 (DiffKV FP8 tile, the MiMo fix in :v0.32.0-p1) is NOT
+# in v0.34.0 (the file is byte-identical to v0.32.0, blob 27b089be) and is NOT
+# baked in here; docker/vllm-overlay applies to a v0.34.0 base unchanged.
 # ─────────────────────────────────────────────────────────────────────────────
 COPY patches/qwen3_5_lora_embedding_modules.py /tmp/onestack_patches/
 RUN python3 /tmp/onestack_patches/qwen3_5_lora_embedding_modules.py && \
