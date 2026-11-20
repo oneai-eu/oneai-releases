@@ -42,6 +42,16 @@ Re-port history:
   mapping) — skipped via the per-class check below. Qwen3_5ForConditionalGeneration
   and its base Qwen3VLForConditionalGeneration still declare none — patch
   still required for that class. Layout and class names unchanged.
+- 2026-11-20: re-checked against the v0.34.0 tag (commit 62d4bc3c). Same
+  state as v0.32.0: Qwen3_5ForCausalLMBase declares it (qwen3_5.py L317),
+  Qwen3_5ForConditionalGeneration (L471) and Qwen3VLForConditionalGeneration
+  (qwen3_vl.py L1941) do not; the three inheritance-covered subclasses carry
+  no own declaration. An offline dry run of this script's text insertion
+  skips the first class and inserts into the second (offset 16426; v0.32.0
+  gives 16453, matching that build's log). Patch still required.
+  Note v0.34.0 refuses adapters with LoRA weights on modules vLLM does not
+  wrap (PR #63489, load-time ValueError); re-test any Qwen3.5 adapter
+  (e.g. n8n-v7) on the new image before relying on it.
 
 Idempotent — running twice is a no-op. Hard-fails if the source layout
 differs (e.g. class signatures changed) so we don't silently produce a
