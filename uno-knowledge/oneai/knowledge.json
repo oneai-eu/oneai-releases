@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "product": "oneai",
-  "release": "v2026.11.08",
-  "previous_release": "v2026.10.25",
-  "updated_at": "2026-11-08T20:29:16.349Z",
+  "release": "v2026.11.23",
+  "previous_release": "v2026.11.08",
+  "updated_at": "2026-11-23T11:44:17.610Z",
   "topics": {
     "account-security": [
       {
@@ -55,6 +55,18 @@
         "text": "An agent can finish by doing one thing with its result through a connected app, for example drafting or sending an Outlook email, creating a task in HubSpot or ClickUp, opening a GitHub issue, or adding a row to a dataset. Only apps you have connected are offered, and the step follows the agent's approval setting.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "workspaces",
+        "text": "The assistant can run commands in a workspace: a Linux machine whose files and installed software stay between chats. You create one under Data and workspaces, link it to a project, and then ask the assistant in a chat to run commands in it. Paid plans include a small number of workspaces per organization, and the feature is in beta.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
+      },
+      {
+        "id": "agent-sharing",
+        "text": "You can hand one of your agents to another member, who becomes its owner and is notified. Where an org admin has turned it on, sharing an agent, or changing a shared one, first needs an admin's approval, and until then only the person who made it can use it.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ],
     "artifacts": [
@@ -81,6 +93,12 @@
         "text": "A deleted app (canvas) goes to a trash and can be restored for a limited time. Its public share link and custom domain are switched off the moment it is deleted and stay off after a restore, so you would share it again to get a new link.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "dashboards",
+        "text": "In a dataset the assistant can build a dashboard of charts and key figures, with comparisons against a previous period or a target, and in a visual style you can ask for. A dashboard opens from the chat and lives on a Dashboards tab in the dataset and in projects that use it, refreshing from the data each time you open it. An admin can limit who may build them.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ],
     "chats": [
@@ -121,6 +139,18 @@
         "text": "You can see what oneAI is planning and building on a public roadmap, with items shown as planned, in progress or shipped. Recent releases are listed on a Releases tab alongside it, both in the What's New area.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "org-self-delete",
+        "text": "An org admin can delete the whole organization from its settings overview. It asks you to confirm through an emailed link and then a recovery or authenticator code, and the deletion takes effect at once. This is offered only for a free organization that no partner bills; a paid or partner-billed organization is shown what to do instead.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
+      },
+      {
+        "id": "reset-uno",
+        "text": "You can reset Uno to clear everything it has kept about you: all of your conversations with Uno and the facts it remembers about you. Your settings, and anything Uno created for you, stay. Open Uno's settings to do it. It affects only your own Uno.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ],
     "integrations": [
@@ -137,6 +167,12 @@
         "text": "For a model that supports reasoning you can choose how hard it thinks. Two deeper levels are available for the models that offer them: \"Very high\" for demanding coding and agentic work, and \"Max\" for when correctness matters more than speed or cost.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "model-retention-confirm",
+        "text": "For some models oneAI shows a confirmation before you use them, advising you not to enter personal or confidential data and letting you pick another model instead. It appears only for certain models, and only when you switch to one.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ],
     "private-models": [
@@ -197,6 +233,18 @@
         "text": "When you delete files that oneAI stores in a space, they go to the space's trash and can be restored for a limited time before they are removed for good. A deleted folder's files can be restored together, and you can empty the trash to remove everything at once.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "protected-spaces",
+        "text": "A space admin, or an org admin, can protect a space so that it can be read only inside projects created from that space. Such a project always has exactly the space's members, managed from the space, and cannot be unlinked from it. Protecting a space removes it from any other project that used it. You protect a space, and create a project from it, in the space's settings.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
+      },
+      {
+        "id": "space-and-table-delete",
+        "text": "From the spaces overview you can select several spaces you administer and delete them together, and in a dataset you can delete a whole table from its table view. Both remove everything for good and cannot be undone, unlike deleted files, which go to the space's trash first.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ],
     "teams": [
@@ -205,6 +253,12 @@
         "text": "Your organization has a \"Whole organization\" team that always includes every member, including anyone who joins later, and cannot be deleted. Share something with it to share with everyone at once.",
         "since": "v2026.11.08",
         "updated": "v2026.11.08"
+      },
+      {
+        "id": "scim-teams",
+        "text": "Where your organization uses SCIM provisioning, your identity provider's groups can become teams in oneAI and stay in step with them. A team managed this way has its members and name set in the identity provider and cannot be renamed or deleted here, but you can still share spaces, tools and models with it.",
+        "since": "v2026.11.23",
+        "updated": "v2026.11.23"
       }
     ]
   }
