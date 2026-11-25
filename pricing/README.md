@@ -332,6 +332,7 @@ Reasoning models are measured at several efforts, and the score moves a lot with
 | *none*: `mistral-small-latest` | - | the non-reasoning variant the app uses is only an estimate |
 | *none*: `gpt-5.5-pro`, `grok-4.7` (+ `-global`), `mistral-euaiact-finetuned`, `oneai-*` | - | not scored, no medium variant, or not a public model |
 | *none*: `kimi-k3`, `glm-5.3`, `glm-5.3-flash`, `minimax-m3` | - | added 2026-10-16 without a benchmark; not yet read from Artificial Analysis |
+| *none*: `kimi-k3.1-pro` | - | added 2026-11-25 without a benchmark; not yet read from Artificial Analysis |
 
 ### How the app turns it into a tier
 
