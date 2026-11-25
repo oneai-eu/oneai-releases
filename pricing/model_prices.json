@@ -1811,7 +1811,8 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "europe",
-      "status": "active",
+      "status": "retired",
+      "replaced_by": "gemini-3.8-flash",
       "route": {
         "backend": "google",
         "upstream_model": "gemini-3.6-flash",
@@ -1844,15 +1845,11 @@
           "data_analysis"
         ]
       },
-      "policy": {
-        "seed_default": true,
-        "uno": "selectable"
-      },
       "sort": 30,
       "input_cents_per_mtok": 82.5,
       "cached_cents_per_mtok": 8.25,
       "output_cents_per_mtok": 412.5,
-      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 150/15/750, ~1.8x OVER-billing on a default: true model): the old value was wrong on two independent counts. (1) INTRODUCTORY pricing runs through 2026-12-31; 150/15/750 is the post-intro rate that starts 2027-01-01. (2) It was the global column, justified by forced-global routing, but GLOBAL_ONLY_GEMINI_MODELS was deleted and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified 2026-08-11), a NON-GLOBAL endpoint, so the +10% uplift applies. The Vertex table 2026-08-21 does split this model global/non-global, superseding the old note's claim that it does not. Intro global 75/7.5/375, intro non-global 82.5/8.25/412.5 — i.e. 3.6 Flash and 3.7 Flash cost the same today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost, and half of 1.65 is exactly 0.825. Do NOT 'correct' this upward to the metered rate before the promotion ends. ACTION REQUIRED 2027-01-01: the credit expires with the promotion, so cost becomes the full metered rate and this row MUST become 165/16.5/825.",
+      "notes": "Added 2026-07-23. CORRECTED 2026-08-21 (was 150/15/750, ~1.8x OVER-billing on a default: true model): the old value was wrong on two independent counts. (1) INTRODUCTORY pricing runs through 2026-12-31; 150/15/750 is the post-intro rate that starts 2027-01-01. (2) It was the global column, justified by forced-global routing, but GLOBAL_ONLY_GEMINI_MODELS was deleted and this wire id now resolves to the `eu` multi-region via EU_MULTIREGION_GEMINI_MODELS (verified 2026-08-11), a NON-GLOBAL endpoint, so the +10% uplift applies. The Vertex table 2026-08-21 does split this model global/non-global, superseding the old note's claim that it does not. Intro global 75/7.5/375, intro non-global 82.5/8.25/412.5 — i.e. 3.6 Flash and 3.7 Flash cost the same today. EXPIRES 2026-12-31: on 2027-01-01 this becomes 165/16.5/825. Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Regional SKUs at EUR 1.41603 input / 0.141603 cached / 7.08015 output per 1M ('Default' consumption model, no savings plan) — the standard USD 165/16.5/825 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost, and half of 1.65 is exactly 0.825. Do NOT 'correct' this upward to the metered rate before the promotion ends. ACTION REQUIRED 2027-01-01: the credit expires with the promotion, so cost becomes the full metered rate and this row MUST become 165/16.5/825. RETIRED 2026-11-19: Google retires gemini-3.6-flash on Vertex on 2026-11-19 (Model versions and lifecycle page; named replacement gemini-3.8-flash). Stored references resolve to replaced_by; prices kept for older app versions.",
       "benchmark": {
         "intelligence_index": 33.98,
         "tokens_per_task": {
@@ -1870,7 +1867,8 @@
       "provider": "google",
       "hoster": "google-vertex",
       "location": "global",
-      "status": "active",
+      "status": "retired",
+      "replaced_by": "gemini-3.8-flash-global",
       "route": {
         "backend": "google",
         "upstream_model": "gemini-3.6-flash",
@@ -1909,7 +1907,7 @@
       "output_cents_per_mtok": 375,
       "manual_only": true,
       "manual_only_reason": "Vertex AI global-region alias; global-endpoint price (no non-global uplift); no public pricing page to scrape",
-      "notes": "Added 2026-08-21. INTRODUCTORY global rate (Vertex table 2026-08-21), EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Was MISSING from this registry while selectable in the model picker, so every request on this wire id billed 0 EUR (exact-key lookup, no suffix stripping). Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Global SKUs at EUR 1.2873 input / 0.12873 cached / 6.4365 output per 1M ('Default' consumption model) — the standard USD 150/15/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750.",
+      "notes": "Added 2026-08-21. INTRODUCTORY global rate (Vertex table 2026-08-21), EXPIRES 2026-12-31: on 2027-01-01 this becomes 150/15/750. Was MISSING from this registry while selectable in the model picker, so every request on this wire id billed 0 EUR (exact-key lookup, no suffix stripping). Flat across context length (no >200K premium). MECHANISM CONFIRMED 2026-09-07 from oneAI's own Vertex SKU price list (EUR export) plus an August 2026 invoice line: this value is NET OF A 50% CREDIT, not Google's metered rate. Google meters the Global SKUs at EUR 1.2873 input / 0.12873 cached / 6.4365 output per 1M ('Default' consumption model) — the standard USD 150/15/750 at the export's implied 1.16523 USD/EUR — and returns roughly half as a separate 'Spending based discount' credit line (47.79% realised in August 2026). The NET figure is stored deliberately: oneAI's stated policy is to pass Public LLMs through at provider COST, documented in the OWN_MODEL_IDS docstring (src/shared/own-models.ts). BE AWARE that is a convention, not an enforced mechanism — OWN_MODEL_IDS has exactly two consumers, both in stats/usage.ts and both only bucketing dashboard rows as system-vs-user; no pricing code reads it. The policy is realised solely by the numbers typed into these rows, so nothing will stop a future edit from drifting away from cost. Do NOT 'correct' this upward before the promotion ends. ACTION REQUIRED 2027-01-01: this row MUST become 150/15/750. RETIRED 2026-11-19: Google retires gemini-3.6-flash on Vertex on 2026-11-19 (Model versions and lifecycle page; named replacement gemini-3.8-flash). Stored references resolve to replaced_by; prices kept for older app versions.",
       "benchmark": {
         "intelligence_index": 33.98,
         "tokens_per_task": {
