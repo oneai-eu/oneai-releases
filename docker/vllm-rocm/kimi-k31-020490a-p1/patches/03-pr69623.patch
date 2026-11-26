@@ -1,0 +1,132 @@
+--- a/vllm/entrypoints/openai/chat_completion/protocol.py
++++ b/vllm/entrypoints/openai/chat_completion/protocol.py
+@@ -11,6 +11,7 @@
+ )
+ from openai.types.chat.chat_completion_message import Annotation as OpenAIAnnotation
+ from pydantic import (
++    ConfigDict,
+     Field,
+     PrivateAttr,
+     SerializeAsAny,
+@@ -234,6 +235,14 @@
+     type: Literal["function"] = "function"
+ 
+ 
++class ChatCompletionThinking(OpenAIBaseModel):
++    model_config = ConfigDict(extra="forbid")
++
++    type: Literal["enabled", "disabled"] | None = None
++    effort: ReasoningEffort | None = None
++    keep: Literal["all"] | None = None
++
++
+ class ChatCompletionRequest(OpenAIBaseModel):
+     # Ordered by official OpenAI API documentation
+     # https://platform.openai.com/docs/api-reference/chat/create
+@@ -385,6 +394,16 @@
+             "Will be accessible by the chat template."
+         ),
+     )
++    thinking: ChatCompletionThinking | None = Field(
++        default=None,
++        description=(
++            "Thinking controls in the form some vendor clients send instead of "
++            "`reasoning_effort`. `type` (`enabled` or `disabled`) overrides the "
++            "`thinking` and `enable_thinking` chat template kwargs, and `effort` "
++            "overrides `reasoning_effort`. `keep` accepts only `all` and only "
++            "for models whose renderer keeps earlier reasoning in the prompt."
++        ),
++    )
+     media_io_kwargs: dict[str, dict[str, Any]] | None = Field(
+         default=None,
+         description=(
+@@ -620,6 +639,12 @@
+                 msg["tool_calls"] = list(tool_calls)
+         return self
+ 
++    @model_validator(mode="after")
++    def _apply_thinking_effort(self) -> "ChatCompletionRequest":
++        if self.thinking is not None and self.thinking.effort is not None:
++            self.reasoning_effort = self.thinking.effort
++        return self
++
+     _grammar_from_parser: bool = PrivateAttr(default=False)
+     """CAUTION: Should only be set by the parser-engine adapter's adjust_request."""
+ 
+@@ -664,7 +689,11 @@
+         # enable_thinking to false). For templates that don't declare the
+         # variable, resolve_chat_template_kwargs filters it out harmlessly.
+         user_kwargs = self.chat_template_kwargs or {}
+-        if reasoning_effort is not None and "enable_thinking" not in user_kwargs:
++        if self.thinking is not None and self.thinking.type is not None:
++            enabled = self.thinking.type == "enabled"
++            extra_kwargs["thinking"] = enabled
++            extra_kwargs["enable_thinking"] = enabled
++        elif reasoning_effort is not None and "enable_thinking" not in user_kwargs:
+             extra_kwargs["enable_thinking"] = reasoning_effort != "none"
+ 
+         return ChatParams(
+--- a/vllm/renderers/base.py
++++ b/vllm/renderers/base.py
+@@ -104,6 +104,9 @@
+ 
+ 
+ class BaseRenderer(ABC, Generic[_T]):
++    supports_reasoning_history: bool = False
++    """Whether prompts keep the reasoning of earlier assistant turns."""
++
+     def __init__(self, config: "VllmConfig", tokenizer: _T | None) -> None:
+         super().__init__()
+ 
+--- a/vllm/renderers/kimi_k3.py
++++ b/vllm/renderers/kimi_k3.py
+@@ -57,6 +57,9 @@
+     elif reasoning_effort is not None:
+         kwargs.setdefault("thinking_effort", reasoning_effort)
+ 
++    if not kwargs.get("thinking", True):
++        kwargs.pop("thinking_effort", None)
++
+     thinking_effort = kwargs.get("thinking_effort")
+     if thinking_effort is not None and thinking_effort not in thinking_efforts:
+         supported = ", ".join(thinking_efforts)
+@@ -151,6 +154,8 @@
+     their special-token ids while user- and tool-supplied text stays ordinary.
+     """
+ 
++    supports_reasoning_history = True
++
+     def __init__(self, config: VllmConfig, tokenizer: HfTokenizer | None) -> None:
+         super().__init__(config, tokenizer)
+ 
+@@ -178,7 +183,11 @@
+         if params.response_format is not None:
+             kwargs["response_format"] = _dump_k3_template_value(params.response_format)
+         kwargs["tokenize"] = True
+-        return self.get_tokenizer().apply_chat_template(conversation, **kwargs)
++        try:
++            return self.get_tokenizer().apply_chat_template(conversation, **kwargs)
++        except AssertionError as e:
++            # The checkpoint's encoder asserts on request values it rejects.
++            raise VLLMValidationError(str(e)) from e
+ 
+     def render_messages(
+         self,
+--- a/vllm/renderers/online_renderer.py
++++ b/vllm/renderers/online_renderer.py
+@@ -248,6 +248,15 @@
+         validation and ``adjust_request`` still run and the output is
+         detokenized (text-out).
+         """
++        if (
++            request.thinking is not None
++            and request.thinking.keep is not None
++            and not self.renderer.supports_reasoning_history
++        ):
++            raise VLLMValidationError(
++                "thinking.keep is not supported by this model",
++                parameter="thinking.keep",
++            )
+         tokenizer = self.renderer.tokenizer
+ 
+         tool_parser = self.parser.tool_parser_cls if self.parser is not None else None
